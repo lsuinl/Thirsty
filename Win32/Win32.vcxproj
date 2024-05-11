@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
@@ -140,6 +142,8 @@
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="RenderSystem.h" />

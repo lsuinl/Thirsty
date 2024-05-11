@@ -4,7 +4,7 @@
 #include "RenderSystem.h"
 
 #include "GameManager.h"
-
+#include "ChooseFood.h"
 #include <string>
 
 namespace game
@@ -37,7 +37,7 @@ namespace game
 	int blueCircleCount = 0;
 	Object blueCircles[bludeCircleMax];
 
-
+	const char* texts="22";
 	void UpdatePlayer()
 	{
 		// 게임 로직은 여기에 추가
@@ -68,7 +68,9 @@ namespace game
 		{
 			return;
 		}
-
+		if (mouse.left) {
+			ChooseFood::CheckButton(mouse.x,mouse.y);
+		}
 		if (blueCircleCount < bludeCircleMax && mouse.left)
 		{
 			blueCircles[blueCircleCount].SetPos(mouse.x, mouse.y);
@@ -124,9 +126,8 @@ namespace game
 	{
 		render::BeginDraw();
 
-		DrawFPS();
-		DrawSomething();
-		DrawPlayer();
+		ChooseFood::NoodleScreen();
+		render::DrawTextF(0,0,texts,RGB(255,255,255),50);
 		render::EndDraw();
 	}
 	void GameManager::Finalize()

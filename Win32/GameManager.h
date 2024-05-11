@@ -2,6 +2,7 @@
 
 namespace game
 {
+	extern const char* texts;
 	class GameManager
 	{
 	public:

@@ -1,13 +1,5 @@
 #pragma once
 
-
-
-// FMOD
-#ifndef _WIN64
-#include "fmod.hpp"
-#pragma comment (lib, "fmod_vc.lib")
-using namespace FMOD;
-#endif
 #ifdef _WIN64
 #include "fmod.hpp"
 #pragma comment (lib, "fmod_vc.lib")
