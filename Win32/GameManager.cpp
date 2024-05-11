@@ -127,7 +127,6 @@ namespace game
 		DrawFPS();
 		DrawSomething();
 		DrawPlayer();
-
 		render::EndDraw();
 	}
 	void GameManager::Finalize()
@@ -211,8 +210,8 @@ namespace game
 		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
 		str += "           Update " + std::to_string(UpdateCount);
 		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
-
-		render::DrawText(10, 10, str.c_str(), RGB(255, 0, 0));
+	
+		render::DrawTextF(10, 10, str.c_str(), RGB(255, 0, 0),40);
 
 	}
 
