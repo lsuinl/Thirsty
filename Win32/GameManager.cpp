@@ -2,40 +2,17 @@
 #include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
-
 #include "GameManager.h"
-
 #include <string>
 
 namespace game
 {
-	struct Object
-	{
-		float x;
-		float y;
-		float size;
-		float speed;
+	
 
-		COLORREF color;
-
-		void SetPos(float x, float y)
-		{
-			this->x = x;
-			this->y = y;
-		}
-
-		void Move(float x, float y)
-		{
-			this->x += x;
-			this->y += y;
-		}
-	};
-
-	Object player = { global::GetWinApp().GetWidth() / 2 ,global::GetWinApp().GetHeight() / 2, 10, 10, RGB(255, 255, 0) };
-
-	const int bludeCircleMax = 100;
-	int blueCircleCount = 0;
-	Object blueCircles[bludeCircleMax];
+	GameManager::Object redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
+	GameManager::Object yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
+	
+	
 
 
 	void UpdatePlayer()
@@ -43,39 +20,17 @@ namespace game
 		// 게임 로직은 여기에 추가
 		if (input::IsKeyDown('A'))
 		{
-			player.Move(-player.speed, 0);
+			yellowBox.Move(-yellowBox.speed, 0);
 		}
 		else if (input::IsKeyDown('D'))
 		{
-			player.Move(player.speed, 0);
+			yellowBox.Move(yellowBox.speed, 0);
 		}
 		if (input::IsKeyDown('W'))
 		{
-			player.Move(0, -player.speed);
 		}
 		else if (input::IsKeyDown('S'))
 		{
-			player.Move(0, player.speed);
-		}
-	}
-
-	void UpdateBlueCircle()
-	{
-		const input::MouseState& mouse = input::GetMouseState();
-		const input::MouseState& prevmouse = input::GetPrevMouseState();
-
-		if (input::IsSame(mouse, prevmouse))
-		{
-			return;
-		}
-
-		if (blueCircleCount < bludeCircleMax && mouse.left)
-		{
-			blueCircles[blueCircleCount].SetPos(mouse.x, mouse.y);
-			blueCircles[blueCircleCount].color = RGB(0, 0, 255);
-			blueCircles[blueCircleCount].size = 10;
-			blueCircles[blueCircleCount].speed = 0;
-			blueCircleCount++;
 		}
 	}
 
@@ -100,7 +55,7 @@ namespace game
 		input::UpdateMouse();
 
 		UpdatePlayer();
-		UpdateBlueCircle();
+		
 
 		input::ResetInput();
 
@@ -112,9 +67,10 @@ namespace game
 
 		elapsedTime += time::GetDeltaTime();
 
-		while (elapsedTime >= 20) //0.02초
+		while (elapsedTime >= 50) //0.02초
 		{
-			++m_FixedUpdateCount;
+			
+			Overlab(redBox, yellowBox);
 
 			elapsedTime -= 20;
 		}
@@ -195,6 +151,7 @@ namespace game
 		static int UpdateCount;
 		static int FixedUpdateCount;
 
+
 		elapsedTime += time::GetDeltaTime();
 
 		if (elapsedTime >= 1000)
@@ -211,26 +168,73 @@ namespace game
 		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
 		str += "           Update " + std::to_string(UpdateCount);
 		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
-
+		str += "           salinity " + std::to_string(salinity);
 		render::DrawText(10, 10, str.c_str(), RGB(255, 0, 0));
 
 	}
 
 	void GameManager::DrawPlayer()
 	{
-		render::DrawCircle(player.x, player.y, player.size, player.color);
+		
 	}
 
 	void GameManager::DrawSomething()
 	{
 
-		for (int i = 0; i < blueCircleCount; i++)
+		
+		//render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
+		render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2 , redBox.width , redBox.height ,redBox.color);
+		render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
+
+	}
+	//두 오브젝트 충돌검사
+	bool GameManager::isCollide(Object obj1, Object obj2)
+	{
+		if (obj1.x < obj2.x + obj2.width &&
+			obj1.x + obj1.width > obj2.x &&
+			obj1.y < obj2.y + obj2.height &&
+			obj1.y + obj1.height > obj2.y)
 		{
-			render::DrawCircle(blueCircles[i].x, blueCircles[i].y, blueCircles[i].size, blueCircles[i].color);
+			return true;
 		}
+		return false;
+	}
 
-		render::DrawLine(player.x - 50, player.y + 50, player.x + 50, player.y + 50, RGB(255, 0, 0));
-		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
-
+	//노란상자가 70퍼센트이상 속했는지 확인
+	void GameManager::Overlab(Object obj1, Object obj2)
+	{
+		float totalSize = 0.0f;
+		Object bigObj;
+		Object smallObj;
+		if (obj1.width > obj2.width)
+		{
+			bigObj = obj1;
+			smallObj = obj2;
+		}
+		else
+		{
+			bigObj = obj2;
+			smallObj = obj1;
+		}
+		if (isCollide(bigObj, smallObj) == true)
+		{
+			if (bigObj.x >= smallObj.x)
+			{
+				totalSize = (bigObj.x + bigObj.width / 2) - (smallObj.x - smallObj.width / 2);
+			}
+			else
+			{
+				totalSize = (smallObj.x + smallObj.width / 2) - (bigObj.x - bigObj.width / 2);
+			}
+		}
+		
+		if (isCollide(bigObj, smallObj) && totalSize <= bigObj.width + smallObj.width * 0.3)
+		{
+			salinity++;
+		}
+		else
+		{
+			salinity--;
+		}
 	}
 }

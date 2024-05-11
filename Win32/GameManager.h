@@ -21,8 +21,34 @@ namespace game
 
 		void Run();
 
+		struct Object
+		{
+			float x;
+			float y;
+			float width;
+			float height;
+			float speed;
+
+			COLORREF color;
+
+			void SetPos(float x, float y)
+			{
+				this->x = x;
+				this->y = y;
+			}
+
+			void Move(float x, float y)
+			{
+				this->x += x;
+				this->y += y;
+			}
+		};
 
 		static GameManager* GetInstance();
+
+		bool isCollide(Object obj1, Object obj2);
+
+		void Overlab(Object obj1, Object obj2);
 
 		static void DestroyInstance();
 
@@ -36,6 +62,8 @@ namespace game
 
 		int m_UpdateCount = { 0 };
 		int m_FixedUpdateCount = { 0 };
+		int salinity = 0;
+
 	};
 }
 
