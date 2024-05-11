@@ -1,8 +1,10 @@
 namespace ChooseFood
 {
-
+	void ChooseScreen();
+	
 	//버튼 클릭 상호작용 체크
 	void CheckButton(int dx,int dy);
+
 	//면, 육수, 고명 선택 화면
 	void NoodleScreen();
 	void SoupScreen();

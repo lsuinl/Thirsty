@@ -126,7 +126,7 @@ namespace game
 	{
 		render::BeginDraw();
 
-		ChooseFood::NoodleScreen();
+		ChooseFood::ChooseScreen();
 		render::DrawTextF(0,0,texts,RGB(255,255,255),50);
 		render::EndDraw();
 	}

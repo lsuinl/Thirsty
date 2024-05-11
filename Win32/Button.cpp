@@ -3,7 +3,7 @@
 #include "GameManager.h"
 namespace button {
 
-    Button::Button(const char* name,int x, int y, int width, int height,const char* image)
+    Button::Button(const char* name,int x, int y, int width, int height,const char* image, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
@@ -11,6 +11,7 @@ namespace button {
         this->width = width;
         this->height = height;
         this->image = image;
+        this->onClickFunction = onClick;
     }
 
     void Button::DrawButton() 
@@ -22,8 +23,7 @@ namespace button {
     {
         if (dx >= x && dx <= x + width && dy >= y && dy <= y + height) 
         {
-            //실행 함수데려와서 실행
-            //또는 리턴하여 내용을 실행하도록 함
+            this->onClickFunction();
         }
     }
 }
