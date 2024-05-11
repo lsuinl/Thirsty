@@ -21,4 +21,6 @@ namespace render
     void DrawText(int x, int y, const char* text, COLORREF color);
 
     void DrawFont(int x, int y, const char* text, COLORREF color, int fontSize, const wchar_t* fontName, int fontStyle);
+
+
 }

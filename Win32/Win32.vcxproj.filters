@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>2.feature</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>2.feature</Filter>
+    </ClCompile>
+    <ClCompile Include="WinApp.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSystem.cpp">
+      <Filter>2.feature</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameManager.h">
+      <Filter>1.default\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApp.h">
+      <Filter>1.default\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>2.feature\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>2.feature\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>2.feature\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>1.default\headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="1.default">
+      <UniqueIdentifier>{501e037f-62a7-4e8c-a36d-0c3ac5f18101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.feature">
+      <UniqueIdentifier>{615c29a3-0692-4bb7-9a67-2b6050def446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3.scene">
+      <UniqueIdentifier>{874b52ba-5818-46c8-894e-53f538ec4229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.default\headers">
+      <UniqueIdentifier>{f959e167-bdf2-4c10-b4b3-1ea6adb3a8ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.feature\headers">
+      <UniqueIdentifier>{e52cd1ec-967f-4340-87f7-783f9b6d97bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3.scene\headers">
+      <UniqueIdentifier>{2d3dd26a-3de1-45bc-bf09-de4ea71c5e54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

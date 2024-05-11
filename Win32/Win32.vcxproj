@@ -71,6 +71,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>우동 한 그릇</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -131,6 +134,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
@@ -138,6 +142,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>
