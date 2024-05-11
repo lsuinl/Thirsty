@@ -8,7 +8,7 @@ namespace render
     HWND hWnd;
 
     HDC frontMemDC;    // ¾Õ¸é DC
-    HDC backMemDC;    // µÞ¸é DC
+    HDC backMemDC;     // µÞ¸é DC
 
     HBITMAP backBitmap = nullptr;
 
