@@ -2,9 +2,7 @@
 #include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
-
 #include "GameManager.h"
-#include "ChooseFood.h"
 #include <string>
 
 namespace game
@@ -30,54 +28,24 @@ namespace game
 			this->y += y;
 		}
 	};
-
-	Object player = { global::GetWinApp().GetWidth() / 2 ,global::GetWinApp().GetHeight() / 2, 10, 10, RGB(255, 255, 0) };
-
-	const int bludeCircleMax = 100;
-	int blueCircleCount = 0;
-	Object blueCircles[bludeCircleMax];
-
-	const char* texts="22";
+	
+	
 	void UpdatePlayer()
 	{
 		// 게임 로직은 여기에 추가
 		if (input::IsKeyDown('A'))
 		{
-			player.Move(-player.speed, 0);
+			
 		}
 		else if (input::IsKeyDown('D'))
 		{
-			player.Move(player.speed, 0);
+			
 		}
 		if (input::IsKeyDown('W'))
 		{
-			player.Move(0, -player.speed);
 		}
 		else if (input::IsKeyDown('S'))
 		{
-			player.Move(0, player.speed);
-		}
-	}
-
-	void UpdateBlueCircle()
-	{
-		const input::MouseState& mouse = input::GetMouseState();
-		const input::MouseState& prevmouse = input::GetPrevMouseState();
-
-		if (input::IsSame(mouse, prevmouse))
-		{
-			return;
-		}
-		if (mouse.left) {
-			ChooseFood::CheckButton(mouse.x,mouse.y);
-		}
-		if (blueCircleCount < bludeCircleMax && mouse.left)
-		{
-			blueCircles[blueCircleCount].SetPos(mouse.x, mouse.y);
-			blueCircles[blueCircleCount].color = RGB(0, 0, 255);
-			blueCircles[blueCircleCount].size = 10;
-			blueCircles[blueCircleCount].speed = 0;
-			blueCircleCount++;
 		}
 	}
 
@@ -94,7 +62,6 @@ namespace game
 		time::InitTime();
 		render::InitRender();
 	}
-
 	void GameManager::Update()
 	{
 		++m_UpdateCount;
@@ -102,7 +69,7 @@ namespace game
 		input::UpdateMouse();
 
 		UpdatePlayer();
-		UpdateBlueCircle();
+		
 
 		input::ResetInput();
 
@@ -111,12 +78,12 @@ namespace game
 	void GameManager::FixeUpdate()
 	{
 		static ULONGLONG elapsedTime;
-
 		elapsedTime += time::GetDeltaTime();
+		
 
 		while (elapsedTime >= 20) //0.02초
 		{
-			++m_FixedUpdateCount;
+			m_FixedUpdateCount++;
 
 			elapsedTime -= 20;
 		}
@@ -126,8 +93,10 @@ namespace game
 	{
 		render::BeginDraw();
 
-		ChooseFood::ChooseScreen();
-		render::DrawTextF(0,0,texts,RGB(255,255,255),50);
+		DrawFPS();
+		DrawSomething();
+		DrawPlayer();
+
 		render::EndDraw();
 	}
 	void GameManager::Finalize()
@@ -196,11 +165,10 @@ namespace game
 		static int FixedUpdateCount;
 
 		elapsedTime += time::GetDeltaTime();
-
 		if (elapsedTime >= 1000)
 		{
 			elapsedTime = 0;
-			;
+			
 			UpdateCount = m_UpdateCount;
 			FixedUpdateCount = m_FixedUpdateCount;
 
@@ -211,8 +179,7 @@ namespace game
 		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
 		str += "           Update " + std::to_string(UpdateCount);
 		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
-	
-		render::DrawTextF(10, 10, str.c_str(), RGB(255, 0, 0),40);
+		render::DrawText(10, 10, str.c_str(), RGB(255, 0, 0));
 
 	}
 
@@ -223,14 +190,8 @@ namespace game
 
 	void GameManager::DrawSomething()
 	{
-
-		for (int i = 0; i < blueCircleCount; i++)
-		{
-			render::DrawCircle(blueCircles[i].x, blueCircles[i].y, blueCircles[i].size, blueCircles[i].color);
-		}
-
-		render::DrawLine(player.x - 50, player.y + 50, player.x + 50, player.y + 50, RGB(255, 0, 0));
 		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
 
 	}
+	
 }

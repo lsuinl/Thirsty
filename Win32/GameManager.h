@@ -22,8 +22,11 @@ namespace game
 
 		void Run();
 
+		
 
 		static GameManager* GetInstance();
+
+		
 
 		static void DestroyInstance();
 
@@ -37,6 +40,9 @@ namespace game
 
 		int m_UpdateCount = { 0 };
 		int m_FixedUpdateCount = { 0 };
+
 	};
+
+	
 }
 
