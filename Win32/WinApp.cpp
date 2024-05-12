@@ -16,9 +16,9 @@ constexpr int SCREEN_START_LEFT = 10;
 
 constexpr int SCREEN_START_TOP = 10;
 
-constexpr int SCREEN_WIDTH = 1024;
+constexpr int SCREEN_WIDTH = 1920;
 
-constexpr int SCREEN_HEIGHT = 768;
+constexpr int SCREEN_HEIGHT = 1080;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
@@ -80,7 +80,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
 {
 	m_hInstance = hInstance;
 
-	const TCHAR* appName = TEXT("Test Game Framework");
+	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©");
 
 	//Step 1: Registering the Window Class
 

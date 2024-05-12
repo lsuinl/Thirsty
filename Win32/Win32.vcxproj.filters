@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="WinApp.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="ChooseFood.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGame1.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="StockGame.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameManager.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApp.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
+    <ClInclude Include="ChooseFood.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGame1.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="StockGame.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="1.default">
+      <UniqueIdentifier>{501e037f-62a7-4e8c-a36d-0c3ac5f18101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.system">
+      <UniqueIdentifier>{615c29a3-0692-4bb7-9a67-2b6050def446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene">
+      <UniqueIdentifier>{874b52ba-5818-46c8-894e-53f538ec4229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\1.Title">
+      <UniqueIdentifier>{04b425d5-f4ef-4742-903d-fae431c9a6a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\2.Story">
+      <UniqueIdentifier>{8c43b597-bc4a-4d27-94d1-c09a5b01c30f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\3.MiniGame">
+      <UniqueIdentifier>{b56bfe98-444c-4e1e-a9d7-92fca6ae5e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3.feature">
+      <UniqueIdentifier>{f9eaff3f-6ec2-4739-80d3-5ee05e95be32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\4.Ending">
+      <UniqueIdentifier>{40f1a446-92ec-48f0-afe6-8a741594d3ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

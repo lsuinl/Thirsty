@@ -1,1 +1,16 @@
-﻿  Win32.vcxproj -> C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\x64\Debug\01.WinAPI.exe
+﻿  GameManager.cpp
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(14,61): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(14,61): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(15,64): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(15,64): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(136,24): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(140,22): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(206,99): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(206,85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(206,58): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(206,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(207,117): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(207,100): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(207,67): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\su96i\Documents\GitHub\Thirsty\Win32\GameManager.cpp(207,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Win32.vcxproj -> C:\Users\su96i\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
