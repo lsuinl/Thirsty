@@ -101,7 +101,7 @@ namespace ChooseFood
 	//선택창 넘기기
 	void LeftPage() 
 	{
-		game::texts = "왼쪽";
+		//game::texts = "왼쪽";
 		screenIndex--;
 	}
 

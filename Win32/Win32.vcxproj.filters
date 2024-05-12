@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="RenderSystem.cpp">
-      <Filter>2.system</Filter>
-    </ClCompile>
     <ClCompile Include="WinApp.cpp">
       <Filter>1.default</Filter>
     </ClCompile>
@@ -25,31 +22,46 @@
     <ClCompile Include="Button.cpp">
       <Filter>3.feature</Filter>
     </ClCompile>
+    <ClCompile Include="MiniGame1.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="StockGame.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinApp.h">
-      <Filter>1.default\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="InputSystem.h">
-      <Filter>2.system\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>2.system\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeSystem.h">
-      <Filter>2.system\headers</Filter>
+    <ClInclude Include="GameManager.h">
+      <Filter>1.default</Filter>
     </ClInclude>
     <ClInclude Include="SoundManager.h">
-      <Filter>1.default\headers</Filter>
+      <Filter>1.default</Filter>
     </ClInclude>
-    <ClInclude Include="ChooseFood.h">
-      <Filter>4.scene\3.MiniGame\headers</Filter>
+    <ClInclude Include="WinApp.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>2.system</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>3.feature\headers</Filter>
+      <Filter>3.feature</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>1.default\headers</Filter>
+    <ClInclude Include="ChooseFood.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGame1.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="StockGame.h">
+      <Filter>4.scene\3.MiniGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,38 +77,17 @@
     <Filter Include="4.scene\1.Title">
       <UniqueIdentifier>{04b425d5-f4ef-4742-903d-fae431c9a6a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="4.scene\1.Title\headers">
-      <UniqueIdentifier>{a8f760d7-1146-4c8d-93dc-ea5c49f4de5c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="4.scene\2.Story">
       <UniqueIdentifier>{8c43b597-bc4a-4d27-94d1-c09a5b01c30f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="4.scene\2.Story\headers">
-      <UniqueIdentifier>{29e627e4-501c-4a3b-a245-70ec03a79a5f}</UniqueIdentifier>
     </Filter>
     <Filter Include="4.scene\3.MiniGame">
       <UniqueIdentifier>{b56bfe98-444c-4e1e-a9d7-92fca6ae5e7e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="4.scene\3.MiniGame\headers">
-      <UniqueIdentifier>{2831b86f-62f9-4113-ad0e-c167eec0c031}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="4.scene\4.Ending">
-      <UniqueIdentifier>{40f1a446-92ec-48f0-afe6-8a741594d3ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="4.scene\4.Ending\headers">
-      <UniqueIdentifier>{8754fa4d-6426-429d-bf7e-a9ec317fa7a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="2.system\headers">
-      <UniqueIdentifier>{e52cd1ec-967f-4340-87f7-783f9b6d97bc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="3.feature">
       <UniqueIdentifier>{f9eaff3f-6ec2-4739-80d3-5ee05e95be32}</UniqueIdentifier>
     </Filter>
-    <Filter Include="3.feature\headers">
-      <UniqueIdentifier>{f8fccee8-45a8-42ad-beec-fb7b10113568}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="1.default\headers">
-      <UniqueIdentifier>{f959e167-bdf2-4c10-b4b3-1ea6adb3a8ba}</UniqueIdentifier>
+    <Filter Include="4.scene\4.Ending">
+      <UniqueIdentifier>{40f1a446-92ec-48f0-afe6-8a741594d3ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

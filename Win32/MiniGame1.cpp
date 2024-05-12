@@ -1,9 +1,9 @@
-#include "MiniGame1.h"
+ï»¿#include "MiniGame1.h"
 
-// °ÔÀÓ ¼¼ÆÃ
+// ê²Œì„ ì„¸íŒ…
 int MiniGame1::SetGame(StageNoodle _stage, NoodleType _noodle)
 {
-	// ¸ÂÃá È½¼ö
+	// ë§ì¶˜ íšŸìˆ˜
 	Cnt = 0;
 	stage = _stage;
 	noodle = _noodle;
@@ -11,25 +11,28 @@ int MiniGame1::SetGame(StageNoodle _stage, NoodleType _noodle)
 	arrSize = (int)stage * (int)noodle;
 
 	CreatArrowArr();
+	return 1;
 }
 
-// °ÔÀÓ·çÇÁ
+
+// ê²Œì„ë£¨í”„
 int MiniGame1::UpdateGame(ArrowType keyCode)
 {
 	CompareArrow(keyCode);
+	return 1;
 }
 
-// ¹è¿­ ÇØÁ¦
+// ë°°ì—´ í•´ì œ
 void MiniGame1::ReleaseGame()
 {
 	delete[] arrowArr;
 }
 
-// ¹æÇâÅ° ¹è¿­ »ı¼º
+// ë°©í–¥í‚¤ ë°°ì—´ ìƒì„±
 void MiniGame1::CreatArrowArr()
 {
-	// ¹è¿­ »ı¼º
-	// (·£´ıÀ¸·Î.. 38 = ¡è, 37 = ¡ç, 40 = ¡é, 39 = ¡æ)
+	// ë°°ì—´ ìƒì„±
+	// (ëœë¤ìœ¼ë¡œ.. 38 = â†‘, 37 = â†, 40 = â†“, 39 = â†’)
 	arrowArr = new Arrow[arrSize];
 
 	for (int i = 0; i < arrSize; i++)
@@ -39,7 +42,7 @@ void MiniGame1::CreatArrowArr()
 	}
 }
 
-// ¹æÇâÅ° ¸Â°Ô ÃÆ´ÂÁö °Ë»ç
+// ë°©í–¥í‚¤ ë§ê²Œ ì³¤ëŠ”ì§€ ê²€ì‚¬
 void MiniGame1::CompareArrow(ArrowType keyCode)
 {
 	if (arrowArr[Cnt].arrowType == (int)keyCode)
