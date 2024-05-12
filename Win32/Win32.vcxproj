@@ -131,6 +131,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="StockGame.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
@@ -138,6 +139,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="StockGame.h" />
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>
