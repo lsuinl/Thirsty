@@ -33,11 +33,6 @@ namespace game
 
 	Object player = { global::GetWinApp().GetWidth() / 2 ,global::GetWinApp().GetHeight() / 2, 10, 10, RGB(255, 255, 0) };
 
-	const int bludeCircleMax = 100;
-	int blueCircleCount = 0;
-	Object blueCircles[bludeCircleMax];
-
-
 	void UpdatePlayer()
 	{
 		// 게임 로직은 여기에 추가
@@ -59,23 +54,25 @@ namespace game
 		}
 	}
 
-	void UpdateBlueCircle()
+
+	// 방향키 입력 시스템인데 어케해야하지?
+	void InputArrow()
 	{
-		const input::MouseState& mouse = input::GetMouseState();
-		const input::MouseState& prevmouse = input::GetPrevMouseState();
-
-		if (input::IsSame(mouse, prevmouse))
+		if (input::IsKeyDown(38)) // 위
 		{
-			return;
+
 		}
-
-		if (blueCircleCount < bludeCircleMax && mouse.left)
+		else if (input::IsKeyDown(37)) // 왼쪽
 		{
-			blueCircles[blueCircleCount].SetPos(mouse.x, mouse.y);
-			blueCircles[blueCircleCount].color = RGB(0, 0, 255);
-			blueCircles[blueCircleCount].size = 10;
-			blueCircles[blueCircleCount].speed = 0;
-			blueCircleCount++;
+
+		}
+		else if (input::IsKeyDown(40)) // 아래
+		{
+
+		}
+		else if (input::IsKeyDown(39)) // 오른쪽
+		{
+
 		}
 	}
 
@@ -100,7 +97,6 @@ namespace game
 		input::UpdateMouse();
 
 		UpdatePlayer();
-		UpdateBlueCircle();
 
 		input::ResetInput();
 
@@ -224,12 +220,6 @@ namespace game
 	void GameManager::DrawSomething()
 	{
 
-		for (int i = 0; i < blueCircleCount; i++)
-		{
-			render::DrawCircle(blueCircles[i].x, blueCircles[i].y, blueCircles[i].size, blueCircles[i].color);
-		}
-
-		render::DrawLine(player.x - 50, player.y + 50, player.x + 50, player.y + 50, RGB(255, 0, 0));
 		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
 
 	}
