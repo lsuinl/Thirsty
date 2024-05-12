@@ -21,27 +21,7 @@ namespace game
 
 		void Run();
 
-		struct Object
-		{
-			float x;
-			float y;
-			float size;
-			float speed;
-
-			COLORREF color;
-
-			void SetPos(float x, float y)
-			{
-				this->x = x;
-				this->y = y;
-			}
-
-			void Move(float x, float y)
-			{
-				this->x += x;
-				this->y += y;
-			}
-		};
+		
 
 		static GameManager* GetInstance();
 

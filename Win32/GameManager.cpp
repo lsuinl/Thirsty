@@ -7,7 +7,27 @@
 
 namespace game
 {
-	
+	struct Object
+	{
+		float x;
+		float y;
+		float size;
+		float speed;
+
+		COLORREF color;
+
+		void SetPos(float x, float y)
+		{
+			this->x = x;
+			this->y = y;
+		}
+
+		void Move(float x, float y)
+		{
+			this->x += x;
+			this->y += y;
+		}
+	};
 	
 	
 	void UpdatePlayer()
@@ -63,8 +83,8 @@ namespace game
 
 		while (elapsedTime >= 20) //0.02√ 
 		{
-			
 			m_FixedUpdateCount++;
+
 			elapsedTime -= 20;
 		}
 	}
@@ -165,12 +185,12 @@ namespace game
 
 	void GameManager::DrawPlayer()
 	{
-		
+		render::DrawCircle(player.x, player.y, player.size, player.color);
 	}
 
 	void GameManager::DrawSomething()
 	{
-
+		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
 
 	}
 	

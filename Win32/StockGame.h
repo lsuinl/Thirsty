@@ -36,13 +36,16 @@ public:
 			this->y += y;
 		}
 	};
-
+	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
 
+	//박스가 70퍼이상속해있는지 확인후 염도조절
 	void Overlab(boxObject obj1, boxObject obj2);
-
+	
+	//염도값 얻기
 	int GetSalinity();
 
+	//게임시간 확인값
 	bool IsGameTimeOver();
 
 };
