@@ -1,7 +1,52 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GA6th1Q_Project\\Thirsty\\5_Project\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\StockGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\TimeSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\TimeSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +54,145 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MiniGame1.h",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.h",
+              "RelativeDocumentMoniker": "Win32\\MiniGame1.h",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.h",
+              "RelativeToolTip": "Win32\\MiniGame1.h",
+              "ViewState": "AQIAADAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-12T05:26:25.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MiniGame1.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.cpp",
+              "RelativeDocumentMoniker": "Win32\\MiniGame1.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\MiniGame1.cpp",
+              "RelativeToolTip": "Win32\\MiniGame1.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T05:26:19.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StockGame.h",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.h",
+              "RelativeDocumentMoniker": "Win32\\StockGame.h",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.h",
+              "RelativeToolTip": "Win32\\StockGame.h",
+              "ViewState": "AQIAABQAAAAAAAAAAADwvygAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-12T04:56:15.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StockGame.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.cpp",
+              "RelativeDocumentMoniker": "Win32\\StockGame.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\StockGame.cpp",
+              "RelativeToolTip": "Win32\\StockGame.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAEQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T04:56:05.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameManager.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.cpp",
+              "RelativeDocumentMoniker": "Win32\\GameManager.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.cpp",
+              "RelativeToolTip": "Win32\\GameManager.cpp",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAFQAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T04:43:32.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TimeSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.cpp",
+              "RelativeDocumentMoniker": "Win32\\TimeSystem.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.cpp",
+              "RelativeToolTip": "Win32\\TimeSystem.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T04:37:03.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TimeSystem.h",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.h",
+              "RelativeDocumentMoniker": "Win32\\TimeSystem.h",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\TimeSystem.h",
+              "RelativeToolTip": "Win32\\TimeSystem.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-12T04:37:01.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameManager.h",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.h",
+              "RelativeDocumentMoniker": "Win32\\GameManager.h",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\GameManager.h",
+              "RelativeToolTip": "Win32\\GameManager.h",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAABcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-11T04:59:56.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RenderSystem.h",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\RenderSystem.h",
+              "RelativeDocumentMoniker": "Win32\\RenderSystem.h",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\RenderSystem.h",
+              "RelativeToolTip": "Win32\\RenderSystem.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvw0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-12T04:25:03.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InputSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\InputSystem.cpp",
+              "RelativeDocumentMoniker": "Win32\\InputSystem.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\InputSystem.cpp",
+              "RelativeToolTip": "Win32\\InputSystem.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T03:47:04.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WinApp.cpp",
+              "DocumentMoniker": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\WinApp.cpp",
+              "RelativeDocumentMoniker": "Win32\\WinApp.cpp",
+              "ToolTip": "C:\\Users\\sshhs\\OneDrive\\Documents\\Thirsty\\Thirsty\\Win32\\WinApp.cpp",
+              "RelativeToolTip": "Win32\\WinApp.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-11T04:39:39.162Z"
             }
           ]
         }

@@ -1,17 +1,1 @@
-﻿  GameManager.cpp
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(35,51): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(35,51): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(35,88): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(35,88): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(149,24): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(153,22): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(219,48): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(219,38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(219,28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(225,44): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(225,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  MiniGame1.cpp
-  WinApp.cpp
-  코드를 생성하고 있습니다...
-C:\Users\com\Documents\GitHub\Thirsty\Win32\MiniGame1.cpp(20): error C4716: 'MiniGame1::UpdateGame': 값을 반환해야 합니다.
-C:\Users\com\Documents\GitHub\Thirsty\Win32\MiniGame1.cpp(14): error C4716: 'MiniGame1::SetGame': 값을 반환해야 합니다.
+﻿  Win32.vcxproj -> C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\x64\Debug\01.WinAPI.exe
