@@ -3,26 +3,51 @@
 #include "RenderSystem.h"
 #include "Button.h"
 #include "GameManager.h"
-
+#include <string>
 //면 종류
 enum Noodle 
 {
-	wow,
-	suin,
-	ee,
+	FLAT, //납작면
+	MIDDLE, //중면
+	SMALL,//소면
 };
 
 //육수 종류
 enum Soup 
 {
-	bi,
-	in,
+	MAULCHI,//멸치
+	SALT,//소금
+	TZUYU,//쯔유
+	GUKSAUCE,//국간장
+	DASIMA,//다시마
+	MU,//무
+	DRYDIPORI,//말린디포리
+	DRYMUSHROOMS,//말린버섯
+	GATHOBUSI,//가쓰오부시
+	SUGAR,//설탕
+	HUCHU,//후추
 };
 
 //고명 종류
 enum Decoration 
 {
-	wowff,
+	DAEPA,//대파
+	SICHIME,//시치미
+	CHUPA,//쪽파
+	PYOGO,//표고
+	PANGE,//팽이
+	FIREMEET,//직화고기
+	YANGPA,//양파
+	DOOBU,//두부
+	HOBAK,//호박
+	YUBU,//유부
+	GOCHIAMUK,//꼬치어묵
+	SUKK,//쑥갓
+	GOCHUGARU,//고추가루
+	CHOUNGYANGGOCHU,//청양고추
+	SUNKIM,//썬김
+	FLATAMUK,//납작어묵
+	SHRIMP,//새우튀김
 };
 
 namespace ChooseFood
@@ -31,13 +56,58 @@ namespace ChooseFood
 	Soup soup[];
 	Decoration decortaion[];
 	int screenIndex = 0, basketIndex = 0;
+
+	const char* basket[15];
 	button::Button buttonList[5] =
 	{
-		button::Button("왼쪽",80,500,100,100, "resource/background/back.bmp",LeftPage),
-		button::Button("오른쪽",1280, 500, 100, 100, "resource/background/back.bmp",RightPage),
-		button::Button("위쪽",1600,100, 100, 100, "resource/background/back.bmp",UpBasket),
-		button::Button("아래쪽",1600, 900, 100, 100, "resource/background/back.bmp",DownBasket),
-		button::Button("완료",1700, 950, 100, 100, "resource/background/back.bmp",Selected),
+		button::Button("왼쪽",80,500,100,100, "resource/object/left.bmp",LeftPage),
+		button::Button("오른쪽",1280, 500, 100, 100, "resource/object/right.bmp",RightPage),
+		button::Button("위쪽",1500,100, 100, 100, "resource/object/up.bmp",UpBasket),
+		button::Button("아래쪽",1500, 900, 100, 100, "resource/object/down.bmp",DownBasket),
+		button::Button("완료",1650, 50, 200, 100, "resource/background/back.bmp",Selected),
+	};
+
+	button::Button noodleButtonList[3] =
+	{
+		button::Button("납작면",300,400, 300, 300, "resource/object/Prriceshrimp.bmp",UpBasket),
+		button::Button("기본면",650, 600, 300, 300, "resource/object/Prriceshrimp.bmp",DownBasket),
+		button::Button("소면",1000, 400, 300, 300, "resource/object/Prriceshrimp.bmp",Selected),
+	};
+
+	button::Button soupButtonList[11] =
+	{
+		button::Button("멸치",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
+		button::Button("건다시마",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
+		button::Button("쯔유",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("소금",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("무",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("국간장",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("마른 디포리",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("건표고버섯",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("가쓰오부시",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("설탕",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("진간장",1080, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+	};
+
+	button::Button decortaionButtonList[17] =
+	{
+		button::Button("대파",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
+		button::Button("시치미",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
+		button::Button("쪽파",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("표고버섯",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("팽이버섯",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("직화고기",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("양파",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("두부",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("호박",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("썬유부",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("꼬치어묵",380, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("쑥갓",540, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("고춧가루",700, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("청양고추",860, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("썬김(김채)",1000, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("납작어묵",540, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::Button("새우튀김",700, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
 	};
 
 	void ChooseScreen() 
@@ -58,6 +128,16 @@ namespace ChooseFood
 			DecorationScreen();
 		}
 
+		//바구니 그리기
+		for (int i = basketIndex; i < basketIndex + 5; i++) 
+		{
+			render::DrawBackGround("resource/object/basket.bmp", 150, 100, 1485, 200-((basketIndex-i)*150), true);
+			//바구니에 재료가 들어가 있는 경우 재료도 함께 출력(임시로 인덱스 출력하였음)
+			if (basket[i] == NULL) 
+			{
+				render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
+			}
+		}
 		//버튼 그리기
 		for (int i = 0; i < sizeof(buttonList)/sizeof(button::Button); i++)
 		{
@@ -86,22 +166,37 @@ namespace ChooseFood
 	void NoodleScreen() 
 	{
 		render::DrawTextF(130, 90, "면 선택", RGB(0, 0, 0), 60);
+		//면 재료 출력
+		for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
+		{
+			noodleButtonList[i].DrawButton();
+		}
 	}
 
 	void SoupScreen() 
 	{
 		render::DrawTextF(130, 90, "육수 선택", RGB(0, 0, 0), 60);
+		//육수 재료 출력
+		for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
+		{
+			soupButtonList[i].DrawButton();
+		}
 	}
 
 	void DecorationScreen() 
 	{
 		render::DrawTextF(130, 90, "고명 선택", RGB(0, 0, 0), 60);
+		//고명 재료 출력
+		for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::Button); i++)
+		{
+			decortaionButtonList[i].DrawButton();
+		}
 	}
 
 	//선택창 넘기기
 	void LeftPage() 
 	{
-		//game::texts = "왼쪽";
+		game::texts = "왼쪽";
 		screenIndex--;
 	}
 
