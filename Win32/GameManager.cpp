@@ -1,78 +1,68 @@
-#include "WinApp.h"
+ï»¿#include "WinApp.h"
 #include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
-
 #include "GameManager.h"
 
+#include "ChooseFood.h"
+#include "StockGame.h"
 #include <string>
 
 namespace game
 {
-	struct Object
+	const char* texts = "22";
+	Stock::boxObject redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
+	Stock::boxObject yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
+	Stock stocks;
+
+		// ë°©í–¥í‚¤ ìž…ë ¥ ì‹œìŠ¤í…œì¸ë° ì–´ì¼€í•´ì•¼í•˜ì§€?
+	void InputArrow()
 	{
-		float x;
-		float y;
-		float size;
-		float speed;
-
-		COLORREF color;
-
-		void SetPos(float x, float y)
+		if (input::IsKeyDown(38)) // up
 		{
-			this->x = x;
-			this->y = y;
-		}
 
-		void Move(float x, float y)
+		}
+		else if (input::IsKeyDown(37)) // left
 		{
-			this->x += x;
-			this->y += y;
+
 		}
-	};
+		else if (input::IsKeyDown(40)) // down
+		{
 
-	Object player = { global::GetWinApp().GetWidth() / 2 ,global::GetWinApp().GetHeight() / 2, 10, 10, RGB(255, 255, 0) };
+		}
+		else if (input::IsKeyDown(39)) // right
+		{
 
-	void UpdatePlayer()
+		}
+	}
+		void UpdatePlayer()
 	{
-		// °ÔÀÓ ·ÎÁ÷Àº ¿©±â¿¡ Ãß°¡
 		if (input::IsKeyDown('A'))
 		{
-			player.Move(-player.speed, 0);
+			yellowBox.Move(-yellowBox.speed, 0);
 		}
 		else if (input::IsKeyDown('D'))
 		{
-			player.Move(player.speed, 0);
+			yellowBox.Move(yellowBox.speed, 0);
 		}
 		if (input::IsKeyDown('W'))
 		{
-			player.Move(0, -player.speed);
 		}
 		else if (input::IsKeyDown('S'))
 		{
-			player.Move(0, player.speed);
 		}
 	}
-
-
-	// ¹æÇâÅ° ÀÔ·Â ½Ã½ºÅÛÀÎµ¥ ¾îÄÉÇØ¾ßÇÏÁö?
-	void InputArrow()
+	void UpdateBlueCircle()
 	{
-		if (input::IsKeyDown(38)) // À§
-		{
+		const input::MouseState& mouse = input::GetMouseState();
+		const input::MouseState& prevmouse = input::GetPrevMouseState();
 
+		if (input::IsSame(mouse, prevmouse))
+		{
+			return;
 		}
-		else if (input::IsKeyDown(37)) // ¿ÞÂÊ
-		{
-
-		}
-		else if (input::IsKeyDown(40)) // ¾Æ·¡
-		{
-
-		}
-		else if (input::IsKeyDown(39)) // ¿À¸¥ÂÊ
-		{
-
+		if (mouse.left) {
+			ChooseFood::CheckButton(mouse.x, mouse.y);
 		}
 	}
 
@@ -89,41 +79,42 @@ namespace game
 		time::InitTime();
 		render::InitRender();
 	}
-
 	void GameManager::Update()
 	{
+		UpdatePlayer();
 		++m_UpdateCount;
 
 		input::UpdateMouse();
-
-		UpdatePlayer();
-
+		UpdateBlueCircle();
 		input::ResetInput();
 
 	}
-
 	void GameManager::FixeUpdate()
 	{
 		static ULONGLONG elapsedTime;
 
 		elapsedTime += time::GetDeltaTime();
 
-		while (elapsedTime >= 20) //0.02ÃÊ
+		while (elapsedTime >= 20) //0.02ï¿½ï¿½
 		{
 			++m_FixedUpdateCount;
 
 			elapsedTime -= 20;
 		}
 	}
-
 	void GameManager::Render()
 	{
+//
+//		DrawFPS();
+//		DrawSomething();
+		//DrawPlayer();
 		render::BeginDraw();
 
+		ChooseFood::ChooseScreen();
+
+		render::DrawTextF(0, 0, texts, RGB(255, 255, 255), 50);
 		DrawFPS();
 		DrawSomething();
-		DrawPlayer();
-
 		render::EndDraw();
 	}
 	void GameManager::Finalize()
@@ -136,8 +127,6 @@ namespace game
 
 		while (true)
 		{
-			//GetMessage ´Â Å¥¿¡ ¸Þ½ÃÁö°¡ ÀÖÀ» ¶§±îÁö ´ë±â, ºí·¯Å·
-			//PeekMessage ´Â ¸Þ½ÃÁö°¡ ÀÖÀ¸¸é Ã³¸®ÇÏ°í ¾Æ´Ï¸é ³Íºí·¯Å·
 			if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 			{
 				if (msg.message == WM_QUIT) break;
@@ -183,8 +172,7 @@ namespace game
 			delete instance;
 			instance = nullptr;
 		}
-	}
-
+	}	
 	void GameManager::DrawFPS()
 	{
 		static ULONGLONG elapsedTime;
@@ -203,24 +191,21 @@ namespace game
 			m_UpdateCount = 0;
 			m_FixedUpdateCount = 0;
 		}
-
+		int salin = stocks.GetSalinity();
 		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
 		str += "           Update " + std::to_string(UpdateCount);
 		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
+		str += "           salinity " + std::to_string(salin);
 
-		render::DrawText(10, 10, str.c_str(), RGB(255, 0, 0));
+		render::DrawTextF(10, 10, str.c_str(), RGB(255, 0, 0), 40);
 
 	}
-
-	void GameManager::DrawPlayer()
-	{
-		render::DrawCircle(player.x, player.y, player.size, player.color);
-	}
-
 	void GameManager::DrawSomething()
 	{
-
-		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
+		//render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
+		render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
+		render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
 
 	}
+
 }
