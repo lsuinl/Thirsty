@@ -1,41 +1,66 @@
 #pragma once
 #include <windows.h>
+#include "RenderSystem.h"
+#include "InputSystem.h"
+struct boxObject
+{
+	float x;
+	float y;
+	float width;
+	float height;
+	float speed;
 
-class Stock
+	COLORREF color;
+
+
+	void MoveStop()
+	{
+		this->x = this->x;
+	}
+	void MoveRight(float speed,float delta)
+	{
+		if (this->x + this->width / 2 <= 1800)
+		{
+			this->x += speed * delta;
+		}
+	}
+
+	void MoveLeft(float speed, float delta)
+	{
+		if (this->x - this->width / 2>= 200)
+		{
+			this->x += speed * -1 * delta;
+		}
+	}
+
+	void SetBox(float x, float y, float width, float height, float speed, COLORREF color)
+	{
+		this->x = x;
+		this->y = y;
+		this->width = width;
+		this->height = height;
+		this->speed = speed;
+		this->color = color;
+	}
+};
+class StockGame
 {
 private:
-
+	int score = 0;
 	int salinity = 0;
+	int targetSalinity;
+	float timeLimit = 25000;
+	bool isTimeOver = false;
+	
 
 public:
-	Stock();
+	StockGame();
+	~StockGame();
 
-	~Stock();
-
-	float gameOverTime;
-
-	struct boxObject
-	{
-		float x;
-		float y;
-		float width;
-		float height;
-		float speed;
-
-		COLORREF color;
-
-		void SetPos(float x, float y)
-		{
-			this->x = x;
-			this->y = y;
-		}
-
-		void Move(float x, float y)
-		{
-			this->x += x;
-			this->y += y;
-		}
-	};
+	boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
+	boxObject redBox = { 900, 900, 360, 90 ,0.8 ,RGB(255,0 ,0) };
+	boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
+	
 	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
 
@@ -45,7 +70,33 @@ public:
 	//염도값 얻기
 	int GetSalinity();
 
-	//게임시간 확인값
-	bool IsGameTimeOver();
+	//게임시간 확인
+	void CheckGameTimeOver(float time);
 
+	//염도 게이지 표시
+	void DrawProgressBar();
+
+	//미니게임 막대들 그리기
+	void DrawBoxs();
+
+	//스테이지별 설정
+	void SetGame(int stage);
+	
+	//랜덤으로 빨간박스 움직임
+	void UpdateRedBox(float delta);
+	
+	//입력받아서 노란박스 움직임
+	void UpdateYellowBox(float delta);
+	
+	//두 박스간 충돌검사밑 염분값 조정
+	void UpdateGame(float delta);
+
+	//StockGame 전체렌더
+	void RenderStockGame();
+
+	//게임 스코어 반환
+	int GameScore();
+
+
+	
 };
