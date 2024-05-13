@@ -3,95 +3,66 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ScreenSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\StockGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\TimeSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ScreenSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ChooseFood.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ChooseFood.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\TimeSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ScreenSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\PROGRAM FILES (X86)\\WINDOWS KITS\\10\\INCLUDE\\10.0.22621.0\\UCRT\\TIME.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ScreenSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\SoundManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\StockGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\WinApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\MiniGame1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ChooseFood.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\Animations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\Animations.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ChooseFood.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GA5th1Q_Project\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_Project\\CatInWonderland\\CatInWonderland\\Animator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GA5TH1Q_PROJECT\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_PROJECT\\CATINWONDERLAND\\CATINWONDERLAND\\ANIMATOR.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Win32\\Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Win32\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -101,150 +72,163 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StockGame.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.h",
-              "RelativeDocumentMoniker": "Win32\\StockGame.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.h",
-              "RelativeToolTip": "Win32\\StockGame.h",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAAAGMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-13T08:45:20.346Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ScreenSystem.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp",
-              "RelativeDocumentMoniker": "Win32\\ScreenSystem.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp",
-              "RelativeToolTip": "Win32\\ScreenSystem.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAADcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T06:41:26.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StockGame.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp",
-              "RelativeDocumentMoniker": "Win32\\StockGame.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp",
-              "RelativeToolTip": "Win32\\StockGame.cpp",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAAAL0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-12T07:08:53.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Button.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.cpp",
-              "RelativeDocumentMoniker": "Win32\\Button.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.cpp",
-              "RelativeToolTip": "Win32\\Button.cpp",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAAA0AAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T15:08:11.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Button.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.h",
-              "RelativeDocumentMoniker": "Win32\\Button.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Button.h",
-              "RelativeToolTip": "Win32\\Button.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T15:11:21.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RenderSystem.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.cpp",
-              "RelativeDocumentMoniker": "Win32\\RenderSystem.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.cpp",
-              "RelativeToolTip": "Win32\\RenderSystem.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAANcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T14:56:36.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiniGame1.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h",
-              "RelativeDocumentMoniker": "Win32\\MiniGame1.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h",
-              "RelativeToolTip": "Win32\\MiniGame1.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-12T07:08:52.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MiniGame1.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp",
-              "RelativeDocumentMoniker": "Win32\\MiniGame1.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp",
-              "RelativeToolTip": "Win32\\MiniGame1.cpp",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAC8AAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-12T07:04:57.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "ScreenSystem.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.h",
               "RelativeDocumentMoniker": "Win32\\ScreenSystem.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.h",
               "RelativeToolTip": "Win32\\ScreenSystem.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-13T03:15:58.871Z",
+              "WhenOpened": "2024-05-13T11:29:10.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RenderSystem.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h",
+              "RelativeDocumentMoniker": "Win32\\RenderSystem.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h",
+              "RelativeToolTip": "Win32\\RenderSystem.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T11:29:39.607Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "TimeSystem.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.cpp",
-              "RelativeDocumentMoniker": "Win32\\TimeSystem.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.cpp",
-              "RelativeToolTip": "Win32\\TimeSystem.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T14:56:36.866Z",
+              "Title": "MiniGame1.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h",
+              "RelativeDocumentMoniker": "Win32\\MiniGame1.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.h",
+              "RelativeToolTip": "Win32\\MiniGame1.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T11:28:41.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InputSystem.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.cpp",
-              "RelativeDocumentMoniker": "Win32\\InputSystem.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.cpp",
-              "RelativeToolTip": "Win32\\InputSystem.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T14:56:35.689Z",
+              "DocumentIndex": 0,
+              "Title": "StockGame.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.h",
+              "RelativeDocumentMoniker": "Win32\\StockGame.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.h",
+              "RelativeToolTip": "Win32\\StockGame.h",
+              "ViewState": "AQIAADEAAAAAAAAAAAAIwGYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T11:28:21.231Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StockGame.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp",
+              "RelativeDocumentMoniker": "Win32\\StockGame.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\StockGame.cpp",
+              "RelativeToolTip": "Win32\\StockGame.cpp",
+              "ViewState": "AQIAACEAAAAAAAAAAAAIwMIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T11:28:18.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MiniGame1.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp",
+              "RelativeDocumentMoniker": "Win32\\MiniGame1.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\MiniGame1.cpp",
+              "RelativeToolTip": "Win32\\MiniGame1.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T08:58:45.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChooseFood.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h",
+              "RelativeDocumentMoniker": "Win32\\ChooseFood.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h",
+              "RelativeToolTip": "Win32\\ChooseFood.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T08:58:44.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Animations.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.cpp",
+              "RelativeDocumentMoniker": "Win32\\Animations.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.cpp",
+              "RelativeToolTip": "Win32\\Animations.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T08:45:22.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Animator.cpp",
+              "DocumentMoniker": "D:\\GA5th1Q_Project\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_Project\\CatInWonderland\\CatInWonderland\\Animator.cpp",
+              "ToolTip": "D:\\GA5th1Q_Project\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_Project\\CatInWonderland\\CatInWonderland\\Animator.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T05:52:58.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScreenSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp",
+              "RelativeDocumentMoniker": "Win32\\ScreenSystem.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ScreenSystem.cpp",
+              "RelativeToolTip": "Win32\\ScreenSystem.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T05:47:22.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameManager.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.cpp",
+              "RelativeDocumentMoniker": "Win32\\GameManager.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.cpp",
+              "RelativeToolTip": "Win32\\GameManager.cpp",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAmwCAAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T05:48:12.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Animations.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.h",
+              "RelativeDocumentMoniker": "Win32\\Animations.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animations.h*",
+              "RelativeToolTip": "Win32\\Animations.h*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T08:45:20.566Z"
             },
             {
               "$type": "Document",
@@ -254,149 +238,43 @@
               "RelativeDocumentMoniker": "Win32\\ChooseFood.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.cpp",
               "RelativeToolTip": "Win32\\ChooseFood.cpp",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAYwMIAAAAAAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAADwv2sAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T15:10:33.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ChooseFood.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h",
-              "RelativeDocumentMoniker": "Win32\\ChooseFood.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\ChooseFood.h",
-              "RelativeToolTip": "Win32\\ChooseFood.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T15:46:09.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T08:47:32.66Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "TimeSystem.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.h",
-              "RelativeDocumentMoniker": "Win32\\TimeSystem.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\TimeSystem.h",
-              "RelativeToolTip": "Win32\\TimeSystem.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Title": "Animator.h",
+              "DocumentMoniker": "D:\\GA5th1Q_Project\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_Project\\CatInWonderland\\CatInWonderland\\Animator.h",
+              "ToolTip": "D:\\GA5th1Q_Project\\\uC774\uC0C1\uD55C \uB098\uB77C\uC758 \uACE0\uC591\uC774\\5_Project\\CatInWonderland\\CatInWonderland\\Animator.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T12:02:21.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T08:51:52.011Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "InputSystem.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.h",
-              "RelativeDocumentMoniker": "Win32\\InputSystem.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\InputSystem.h",
-              "RelativeToolTip": "Win32\\InputSystem.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-13T05:43:10.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "SoundManager.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.cpp",
-              "RelativeDocumentMoniker": "Win32\\SoundManager.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.cpp",
-              "RelativeToolTip": "Win32\\SoundManager.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAFAAAA",
+              "Title": "Animation.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.cpp",
+              "RelativeDocumentMoniker": "Win32\\Animation.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.cpp",
+              "RelativeToolTip": "Win32\\Animation.cpp",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T12:15:13.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T05:45:06.063Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "RenderSystem.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h",
-              "RelativeDocumentMoniker": "Win32\\RenderSystem.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\RenderSystem.h",
-              "RelativeToolTip": "Win32\\RenderSystem.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Title": "Animation.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.h",
+              "RelativeDocumentMoniker": "Win32\\Animation.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\Animation.h",
+              "RelativeToolTip": "Win32\\Animation.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T12:13:37.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GameManager.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.cpp",
-              "RelativeDocumentMoniker": "Win32\\GameManager.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.cpp",
-              "RelativeToolTip": "Win32\\GameManager.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T12:08:39.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "time.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\time.h",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\time.h",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\time.h",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\time.h",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-13T05:37:59.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "WinApp.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.h",
-              "RelativeDocumentMoniker": "Win32\\WinApp.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.h",
-              "RelativeToolTip": "Win32\\WinApp.h",
-              "ViewState": "AQIAABYAAAAAAAAAAABBwA0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T12:02:19.031Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GameManager.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.h",
-              "RelativeDocumentMoniker": "Win32\\GameManager.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\GameManager.h",
-              "RelativeToolTip": "Win32\\GameManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T12:15:44.645Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "WinApp.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.cpp",
-              "RelativeDocumentMoniker": "Win32\\WinApp.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\WinApp.cpp",
-              "RelativeToolTip": "Win32\\WinApp.cpp",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAAAAYAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T11:51:42.734Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "SoundManager.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.h",
-              "RelativeDocumentMoniker": "Win32\\SoundManager.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Thirsty\\Win32\\SoundManager.h",
-              "RelativeToolTip": "Win32\\SoundManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-11T12:15:09.181Z"
+              "WhenOpened": "2024-05-13T05:45:05.493Z"
             }
           ]
         }

@@ -17,7 +17,7 @@ struct boxObject
 	{
 		this->x = this->x;
 	}
-	void MoveRight(float speed,float delta)
+	void MoveRight(float speed, float delta)
 	{
 		if (this->x + this->width / 2 <= 1800)
 		{
@@ -27,7 +27,7 @@ struct boxObject
 
 	void MoveLeft(float speed, float delta)
 	{
-		if (this->x - this->width / 2>= 200)
+		if (this->x - this->width / 2 >= 200)
 		{
 			this->x += speed * -1 * delta;
 		}
@@ -51,7 +51,7 @@ private:
 	int targetSalinity;
 	float timeLimit = 25000;
 	bool isTimeOver = false;
-	
+
 
 public:
 	StockGame();
@@ -60,13 +60,13 @@ public:
 	boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
 	boxObject redBox = { 900, 900, 360, 90 ,0.8 ,RGB(255,0 ,0) };
 	boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
-	
+
 	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
 
 	//박스가 70퍼이상속해있는지 확인후 염도조절
 	void Overlab(boxObject obj1, boxObject obj2);
-	
+
 	//염도값 얻기
 	int GetSalinity();
 
@@ -81,13 +81,13 @@ public:
 
 	//스테이지별 설정
 	void SetGame(int stage);
-	
+
 	//랜덤으로 빨간박스 움직임
 	void UpdateRedBox(float delta);
-	
+
 	//입력받아서 노란박스 움직임
 	void UpdateYellowBox(float delta);
-	
+
 	//두 박스간 충돌검사밑 염분값 조정
 	void UpdateGame(float delta);
 
@@ -98,5 +98,5 @@ public:
 	int GameScore();
 
 
-	
+
 };

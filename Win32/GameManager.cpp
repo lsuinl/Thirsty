@@ -8,25 +8,10 @@
 #include "StockGame.h"
 #include <string>
 #include "ScreenSystem.h"
+#include "Animations.h"
 namespace game
 {
 	const char* texts = "22";
-
-		void UpdatePlayer()
-		{
-			if (input::IsKeyDown('A'))
-			{
-			}
-			else if (input::IsKeyDown('D'))
-			{
-			}
-			if (input::IsKeyDown('W'))
-			{
-			}
-			else if (input::IsKeyDown('S'))
-			{
-			}
-		}
 	GameManager* GameManager::instance = nullptr;
 	GameManager::GameManager(){}
 	GameManager::~GameManager(){}
@@ -34,26 +19,29 @@ namespace game
 	void GameManager::Initialize()
 	{
 		input::InitInput();
-		time::InitTime();
+		TimeSystem::InitTime();
+		
 		render::InitRender();
+		Animations::LoadImageList();
+		Animations::SetAnimation("테스트");//임시
 	}
 	void GameManager::Update()
 	{
 		++m_UpdateCount;
-		Screen::InputKeyBoard();
+
 		input::UpdateMouse();
-		
+		Screen::InputKeyBoard();
 		const input::MouseState& mouse = input::GetMouseState();
 		const input::MouseState& prevmouse = input::GetPrevMouseState();
 		Screen::InputMouse(mouse, prevmouse);
-		
+
 		input::ResetInput();
 
 	}
 	void GameManager::FixeUpdate()
 	{
 		static ULONGLONG elapsedTime;
-		elapsedTime += time::GetDeltaTime();
+		elapsedTime += TimeSystem::GetDeltaTime();
 		while (elapsedTime >= 20) //0.02seconds
 		{
 			++m_FixedUpdateCount;
@@ -93,7 +81,7 @@ namespace game
 			}
 			else
 			{
-				time::UpdateTime();
+				TimeSystem::UpdateTime();
 				FixeUpdate();
 				Update();
 				Render();

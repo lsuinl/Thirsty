@@ -50,7 +50,7 @@ void StockGame::Overlab(boxObject obj1, boxObject obj2)
 	}
 	else
 	{
-		if(salinity > 0)
+		if (salinity > 0)
 		{
 			salinity--;
 		}
@@ -88,7 +88,7 @@ void StockGame::CheckGameTimeOver(float delta)
 
 void StockGame::DrawBoxs()
 {
-	render::DrawRect(blackBox.x - blackBox.width / 2, blackBox.y - blackBox.height / 2, blackBox.x + blackBox.width / 2,  blackBox.height, blackBox.color);
+	render::DrawRect(blackBox.x - blackBox.width / 2, blackBox.y - blackBox.height / 2, blackBox.x + blackBox.width / 2, blackBox.height, blackBox.color);
 	render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
 	render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
 }
@@ -105,7 +105,7 @@ void StockGame::SetGame(int stage)
 	if (stage == 2)
 	{
 		salinity = 0;
-		targetSalinity = 100; 
+		targetSalinity = 100;
 		redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0, RGB(255, 0, 0));
 		yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 3, RGB(255, 255, 0));
 	}
@@ -124,11 +124,11 @@ void StockGame::UpdateYellowBox(float delta)
 	{
 		if (input::IsKey(32))
 		{
-			yellowBox.MoveRight(yellowBox.speed,delta);
+			yellowBox.MoveRight(yellowBox.speed, delta);
 		}
 		else
 		{
-			yellowBox.MoveLeft(0.3,delta);
+			yellowBox.MoveLeft(0.3, delta);
 		}
 	}
 }
@@ -136,10 +136,10 @@ void StockGame::UpdateYellowBox(float delta)
 void StockGame::UpdateRedBox(float delta)
 {
 	srand(time(NULL));
-	int ranDir = rand()%3 +1; 
+	int ranDir = rand() % 3 + 1;
 	int random;
 	random = rand() % 5 * 100;
-	
+
 	if (ranDir == 1)
 	{
 		redBox.MoveLeft(redBox.speed, delta);
@@ -152,7 +152,7 @@ void StockGame::UpdateRedBox(float delta)
 	{
 		redBox.MoveRight(redBox.speed, delta);
 	}
-	
+
 
 }
 void StockGame::UpdateGame(float delta)
@@ -170,7 +170,7 @@ void StockGame::UpdateGame(float delta)
 		}
 	}
 	CheckGameTimeOver(delta);
-	
+
 }
 void StockGame::RenderStockGame()
 {
@@ -178,7 +178,7 @@ void StockGame::RenderStockGame()
 	DrawBoxs();
 }
 int StockGame::GameScore()
-{         
+{
 	if (salinity >= targetSalinity - 20 || salinity <= targetSalinity + 20)
 	{
 		score = 100;
