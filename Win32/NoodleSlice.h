@@ -1,13 +1,20 @@
 #pragma once
+#include <Windows.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string>
 
-class MiniGame1
+#include "InputSystem.h"
+#include "RenderSystem.h"
+#include "TimeSystem.h"
+
+
+class NoodleSlice
 {
 public:
 
 	// 방향키 타입
-	enum class ArrowType
+	enum ArrowType
 	{
 		UPARROW = 38,
 		LEFTARROW = 37,
@@ -22,8 +29,11 @@ public:
 		bool isTrue;
 	};
 
+	// Arrow 구조체 배열 선언
+	Arrow** arrowArr;
+
 	// 스테이지에 따른 면 개수
-	enum class StageNoodle
+	enum StageNoodle
 	{
 		STAGE1 = 4,
 		STAGE2 = 6,
@@ -31,7 +41,7 @@ public:
 	};
 
 	// 면 타입
-	enum class NoodleType
+	enum NoodleType
 	{
 		NOODLE1 = 1,
 		NOODLE2 = 2,
@@ -39,35 +49,54 @@ public:
 	};
 
 	// 게임 세팅
-	int SetGame(StageNoodle _stage, NoodleType _noodle);
+	void SetGame(StageNoodle _stage, NoodleType _noodle);
 
 	// 게임루프
-	int UpdateGame(ArrowType keyCode);
-
+	void UpdateGame();
 	// 배열 해제
 	void ReleaseGame();
 
+	// 방향키 입력
+	void InputArrow();
+
+	// cnt 반환
+	int GetCnt();
+
+	// setcnt 반환
+	int GetSetCnt();
+
+	// arrsize 반환
+	int GetArrSize();
+
+	// render
+	void NoodleSliceScreen();
+
 private:
 
-	// Arrow 구조체 배열 선언
-	Arrow* arrowArr;
-
 	// 배열 사이즈
-	int arrSize = 0;
+	int arrSize;
 
 	// 방향키 맞춘 횟수
-	int Cnt = 0;
+	int cnt;
+
+	// 세트 횟수
+	int setCnt;
+
+	// 플레이어 점수
+	int playerScore;
+
+	// 초기화 판단
+	bool isReset;
 
 	// 면개수 변수
-	StageNoodle stage;
+	int stage;
 
 	// 누들타입 변수
-	NoodleType noodle;
+	int noodle;
 
 	// 방향키 배열 생성
 	void CreatArrowArr();
 
 	// 방향키 맞게 쳤는지 검사
 	void CompareArrow(ArrowType keyCode);
-
 };

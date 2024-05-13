@@ -1,3 +1,7 @@
+#include "ChooseFood.h"
+#include "NoodleSlice.h"
+//#include "StockGame.h"
+
 #pragma once
 
 namespace Screen

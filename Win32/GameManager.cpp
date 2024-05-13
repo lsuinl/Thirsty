@@ -3,49 +3,26 @@
 #include "TimeSystem.h"
 #include "RenderSystem.h"
 #include "GameManager.h"
-
-#include "ChooseFood.h"
-#include "StockGame.h"
 #include <string>
 #include "ScreenSystem.h"
 namespace game
 {
 	const char* texts = "22";
-	Stock::boxObject redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
-	Stock::boxObject yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
-	Stock stocks;
 
-		void UpdatePlayer()
-		{
-			if (input::IsKeyDown('A'))
-			{
-				yellowBox.Move(-yellowBox.speed, 0);
-			}
-			else if (input::IsKeyDown('D'))
-			{
-				yellowBox.Move(yellowBox.speed, 0);
-			}
-			if (input::IsKeyDown('W'))
-			{
-			}
-			else if (input::IsKeyDown('S'))
-			{
-			}
-		}
 	GameManager* GameManager::instance = nullptr;
-	GameManager::GameManager(){}
-	GameManager::~GameManager(){}
+	GameManager::GameManager() {}
+	GameManager::~GameManager() {}
 
 	void GameManager::Initialize()
 	{
 		input::InitInput();
-		time::InitTime();
+		TimeSystem::InitTime();
 		render::InitRender();
 	}
 	void GameManager::Update()
 	{
 		++m_UpdateCount;
-
+		Screen::InputKeyBoard();
 		input::UpdateMouse();
 		const input::MouseState& mouse = input::GetMouseState();
 		const input::MouseState& prevmouse = input::GetPrevMouseState();
@@ -56,7 +33,7 @@ namespace game
 	void GameManager::FixeUpdate()
 	{
 		static ULONGLONG elapsedTime;
-		elapsedTime += time::GetDeltaTime();
+		elapsedTime += TimeSystem::GetDeltaTime();
 		while (elapsedTime >= 20) //0.02seconds
 		{
 			++m_FixedUpdateCount;
@@ -96,7 +73,7 @@ namespace game
 			}
 			else
 			{
-				time::UpdateTime();
+				TimeSystem::UpdateTime();
 				FixeUpdate();
 				Update();
 				Render();
@@ -119,5 +96,5 @@ namespace game
 			delete instance;
 			instance = nullptr;
 		}
-	}	
+	}
 }

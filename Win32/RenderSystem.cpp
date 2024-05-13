@@ -210,7 +210,6 @@ namespace render
         DeleteDC(bitmapMemDC);
     }
 
-
     HBITMAP LoadImages(const char* path, int width, int height)
     {
         HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
