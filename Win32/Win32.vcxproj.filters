@@ -25,10 +25,16 @@
     <ClCompile Include="StockGame.cpp">
       <Filter>4.scene\3.MiniGame</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="Animations.cpp">
       <Filter>3.feature</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenSystem.cpp">
+    <ClCompile Include="Animator.cpp">
       <Filter>2.system</Filter>
     </ClCompile>
     <ClCompile Include="NoodleSlice.cpp">
@@ -66,8 +72,19 @@
     <ClInclude Include="ScreenSystem.h">
       <Filter>2.system</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="NoodleSlice.h">
       <Filter>4.scene\3.MiniGame</Filter>
+=======
+    <ClInclude Include="Types.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Animations.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>2.system</Filter>
+>>>>>>> main
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,8 @@
 #include "ScreenSystem.h"
-
+#include "ChooseFood.h"
+#include "NoodleSlice.h"
+#include "StockGame.h"
+#include "Animations.h"
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
@@ -9,8 +12,9 @@ enum ScreenName {
 namespace Screen
 {
 	NoodleSlice noodleSlice;
-	ScreenName currentScreen = ChooseFoodScreen;
 	float _timer;
+	ScreenName currentScreen = ChooseFoodScreen;
+	StockGame stock;
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -36,13 +40,14 @@ namespace Screen
 		}
 	}
 
-	//키보드 입력 시스템
 	void InputKeyBoard() {
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
 			break;
 		case StockGameScreen:
+			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
+			stock.UpdateGame(TimeSystem::GetDeltaTime());
 			break;
 		case NoodleSliceScreen:
 			noodleSlice.UpdateGame();
@@ -58,6 +63,8 @@ namespace Screen
 		}
 	}
 
+
+
 	//그리기
 	void ScreenRender() {
 		switch (currentScreen)
@@ -68,6 +75,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
+			stock.RenderStockGame();
 			break;
 		case NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
@@ -77,5 +85,6 @@ namespace Screen
 		default:
 			break;
 		}
+		//Animations::RenderAnimation();
 	}
 }
