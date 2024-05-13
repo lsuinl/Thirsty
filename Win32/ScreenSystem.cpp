@@ -10,6 +10,8 @@ namespace Screen
 {
 	NoodleSlice noodleSlice;
 	ScreenName currentScreen = ChooseFoodScreen;
+	float _timer;
+
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
@@ -44,6 +46,10 @@ namespace Screen
 			break;
 		case NoodleSliceScreen:
 			noodleSlice.UpdateGame();
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			{
+				currentScreen = StockGameScreen;
+			}
 			break;
 		case PlaceFoodScreen:
 			break;
@@ -57,7 +63,7 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
-			noodleSlice.SetGame(noodleSlice.STAGE1,noodleSlice.NOODLE3);
+			noodleSlice.SetGame(noodleSlice.STAGE2,noodleSlice.NOODLE2);
 			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;

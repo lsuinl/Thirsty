@@ -1,7 +1,6 @@
 #pragma once
 #include <Windows.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string>
 
 #include "InputSystem.h"
@@ -36,17 +35,24 @@ public:
 	enum StageNoodle
 	{
 		STAGE1 = 4,
-		STAGE2 = 6,
-		STAGE3 = 8
+		STAGE2 = 8,
+		STAGE3 = 6
 	};
 
 	// 면 타입
 	enum NoodleType
 	{
-		NOODLE1 = 1,
-		NOODLE2 = 2,
-		NOODLE3 = 4
+		NOODLE1 = 4,
+		NOODLE2 = 6,
+		NOODLE3 = 8
 	};
+
+	// 성공 여부
+	bool isSuccess;
+
+	// timer
+	float resetTimer;
+	float playTimer;
 
 	// 게임 세팅
 	void SetGame(StageNoodle _stage, NoodleType _noodle);

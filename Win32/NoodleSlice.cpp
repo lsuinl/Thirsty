@@ -1,38 +1,56 @@
 ﻿#include "NoodleSlice.h"
-
+#include <time.h>
 
 // 게임 세팅
 void NoodleSlice::SetGame(StageNoodle _stage, NoodleType _noodle)
 {
 	srand(time(NULL));
+
+	// 플레이 시간
+	playTimer = 0;
+	
+	// 성공 여부
+	isSuccess = false;
+
 	// 맞춘 횟수
 	cnt = 0;
+
+	// 세트 카운트
 	setCnt = 0;
+
+	// 스코어
 	playerScore = 0;
 
+	// 초기화 여부
 	isReset = false;
 
+	// 변수 대입
 	stage = (int)_stage;
 	noodle = (int)_noodle;
 
-	arrSize = (int)stage * (int)noodle;
+	// 최대 사이즈
+	arrSize = stage * noodle;
 
+	// 배열 생성
 	CreatArrowArr();
 }
-
-float timer = 0;
 
 // 게임루프
 void NoodleSlice::UpdateGame()
 {
-	InputArrow();
+	playTimer += TimeSystem::GetDeltaTime();
 
-	if (isReset)
+	if (playTimer <= 20000)
 	{
-		timer += TimeSystem::GetDeltaTime();
-		if (timer > 1000)
+		InputArrow();
+
+		if (isReset)
 		{
-			isReset = false;
+			resetTimer += TimeSystem::GetDeltaTime();
+			if (resetTimer > 700)
+			{
+				isReset = false;
+			}
 		}
 	}
 }
@@ -48,13 +66,13 @@ void NoodleSlice::CreatArrowArr()
 {
 	// 배열 생성
 	// (랜덤으로.. 38 = ↑, 37 = ←, 40 = ↓, 39 = →)
-	arrowArr = new Arrow * [noodle * 2]; // 행 수만큼의 포인터를 가리키는 배열 생성
+	arrowArr = new Arrow * [noodle]; // 행 수만큼의 포인터를 가리키는 배열 생성
 
-	for (int i = 0; i < noodle * 2; ++i) {
+	for (int i = 0; i < noodle; ++i) {
 		arrowArr[i] = new Arrow[stage];
 	}
 
-	for (int i = 0; i < noodle * 2; i++)
+	for (int i = 0; i < noodle; i++)
 	{
 		for (int j = 0; j < stage; j++)
 		{
@@ -71,30 +89,38 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
 	if (arrowArr[setCnt][cnt % stage].arrowType == (int)keyCode)
 	{
 		arrowArr[setCnt][cnt % stage].isTrue = true;
-		cnt++;
+
+		if (cnt < arrSize - 1)
+		{
+			cnt++;
+		}
+		else
+		{
+			isSuccess = true;
+		}
+
 		playerScore++;
+		if (cnt != 0 && cnt < arrSize)
+		{
+			if (cnt % stage == 0)
+			{
+				setCnt++;
+			}
+		}
 	}
 	else // 못맞췄을 시 처음부터 다시
 	{
-		timer = 0;
+		resetTimer = 0;
 		isReset = true;
 		playerScore = 0;
-		cnt = 0;
+		cnt = setCnt * stage ;
 
-		for (int i = setCnt; i < noodle * 2; i++)
+		for (int i = setCnt; i < noodle; i++)
 		{
 			for (int j = 0; j < stage; j++)
 			{
 				arrowArr[i][j].isTrue = false;
 			}
-		}
-	}
-
-	if (cnt != 0)
-	{
-		if (cnt % stage == 0)
-		{
-			setCnt++;
 		}
 	}
 }
@@ -148,19 +174,19 @@ void NoodleSlice::NoodleSliceScreen()
 		{
 			if (arrowArr[i][j].arrowType == UPARROW && arrowArr[i][j].isTrue == false)
 			{
-				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(237, 28, 36)); // 빨
+				render::DrawBackGround("resource/object/up.bmp",100,100, 50 + (j % stage) * 100, 100, false);
 			}
 			else if (arrowArr[i][j].arrowType == DOWNARROW && arrowArr[i][j].isTrue == false)
 			{
-				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(255, 203, 0)); // 노
+				render::DrawBackGround("resource/object/down.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
 			}
 			else if (arrowArr[i][j].arrowType == RIGHTARROW && arrowArr[i][j].isTrue == false)
 			{
-				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(25, 255, 0)); // 초
+				render::DrawBackGround("resource/object/right.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
 			}
 			else if (arrowArr[i][j].arrowType == LEFTARROW && arrowArr[i][j].isTrue == false)
 			{
-				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(0, 39, 255)); // 파
+				render::DrawBackGround("resource/object/left.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
 			}
 		}
 	}
@@ -168,13 +194,14 @@ void NoodleSlice::NoodleSliceScreen()
 	// 틀렸을 때 잠깐 색 바꾸기
 	if (isReset == true)
 	{
-		for (int i = setCnt; i < noodle * 2; i++)
+		for (int i = setCnt; i < noodle; i++)
 		{
 			for (int j = 0; j < stage; j++)
 				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(0, 0, 0)); // 검
 		}
 	}
 
-	std::string str = "player score :" + std::to_string(playerScore);
+	std::string str = "맞춘 횟수 :" + std::to_string(cnt);
+	str += "           세트 횟수 : " + std::to_string(setCnt);
 	render::DrawTextF(10, 10, str.c_str(), RGB(0, 0, 0), 20);
 }
