@@ -3,6 +3,7 @@
 #include "ChooseFood.h"
 #include "MiniGame1.h"
 #include "StockGame.h"
+#include "TimeSystem.h"
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
@@ -11,7 +12,8 @@ enum ScreenName {
 };
 namespace Screen
 {
-	ScreenName currentScreen = ChooseFoodScreen;
+	ScreenName currentScreen = StockGameScreen;
+	StockGame stock;
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -44,6 +46,8 @@ namespace Screen
 		case ChooseFoodScreen:
 			break;
 		case StockGameScreen:
+			stock.UpdateYellowBox(time::GetDeltaTime());
+			stock.UpdateGame(time::GetDeltaTime());
 			break;
 		case NoodleSliceScreen:
 			break;
@@ -54,6 +58,8 @@ namespace Screen
 		}
 	}
 
+	
+
 	//그리기
 	void ScreenRender() {
 		switch (currentScreen)
@@ -62,6 +68,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
+			stock.RenderStockGame();
 			break;
 		case NoodleSliceScreen:
 			break;

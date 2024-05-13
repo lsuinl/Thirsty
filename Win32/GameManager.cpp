@@ -11,19 +11,14 @@
 namespace game
 {
 	const char* texts = "22";
-	Stock::boxObject redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
-	Stock::boxObject yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
-	Stock stocks;
 
 		void UpdatePlayer()
 		{
 			if (input::IsKeyDown('A'))
 			{
-				yellowBox.Move(-yellowBox.speed, 0);
 			}
 			else if (input::IsKeyDown('D'))
 			{
-				yellowBox.Move(yellowBox.speed, 0);
 			}
 			if (input::IsKeyDown('W'))
 			{
@@ -45,11 +40,13 @@ namespace game
 	void GameManager::Update()
 	{
 		++m_UpdateCount;
-
+		Screen::InputKeyBoard();
 		input::UpdateMouse();
+		
 		const input::MouseState& mouse = input::GetMouseState();
 		const input::MouseState& prevmouse = input::GetPrevMouseState();
 		Screen::InputMouse(mouse, prevmouse);
+		
 		input::ResetInput();
 
 	}

@@ -13,19 +13,23 @@ struct boxObject
 	COLORREF color;
 
 
-	void Move(float delta)
+	void MoveStop()
 	{
-		if (this->x + this->width /2 <= 1700)
+		this->x = this->x;
+	}
+	void MoveRight(float speed,float delta)
+	{
+		if (this->x + this->width / 2 <= 1800)
 		{
 			this->x += speed * delta;
 		}
 	}
 
-	void Moveleft(float delta)
+	void MoveLeft(float speed, float delta)
 	{
 		if (this->x - this->width / 2>= 200)
 		{
-			this->x += 0.15 * -1 * delta;
+			this->x += speed * -1 * delta;
 		}
 	}
 
@@ -39,22 +43,23 @@ struct boxObject
 		this->color = color;
 	}
 };
-class Stock
+class StockGame
 {
 private:
-
+	int score = 0;
 	int salinity = 0;
-	float timeLimit = 5000;
-	
+	int targetSalinity;
+	float timeLimit = 25000;
+	bool isTimeOver = false;
 	
 
 public:
-	Stock();
-	~Stock();
+	StockGame();
+	~StockGame();
 
 	boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
-	boxObject redBox;
-	boxObject yellowBox;
+	boxObject redBox = { 900, 900, 360, 90 ,0.8 ,RGB(255,0 ,0) };
+	boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
 	
 	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
@@ -65,9 +70,8 @@ public:
 	//염도값 얻기
 	int GetSalinity();
 
-	
-	//게임시간 확인값
-	bool IsGameTimeOver(float time);
+	//게임시간 확인
+	void CheckGameTimeOver(float time);
 
 	//염도 게이지 표시
 	void DrawProgressBar();
@@ -78,5 +82,21 @@ public:
 	//스테이지별 설정
 	void SetGame(int stage);
 	
+	//랜덤으로 빨간박스 움직임
+	void UpdateRedBox(float delta);
+	
+	//입력받아서 노란박스 움직임
+	void UpdateYellowBox(float delta);
+	
+	//두 박스간 충돌검사밑 염분값 조정
 	void UpdateGame(float delta);
+
+	//StockGame 전체렌더
+	void RenderStockGame();
+
+	//게임 스코어 반환
+	int GameScore();
+
+
+	
 };
