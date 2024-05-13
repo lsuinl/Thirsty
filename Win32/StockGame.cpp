@@ -43,15 +43,26 @@ void Stock::Overlab(boxObject obj1, boxObject obj2)
 
 	if (isCollide(bigObj, smallObj) && totalSize <= bigObj.width + smallObj.width * 0.3)
 	{
-		salinity++;
+		if (salinity < 100)
+		{
+			salinity++;
+		}
 	}
 	else
 	{
-		salinity--;
+		if(salinity > 0)
+		{
+			salinity--;
+		}
 	}
 }
 
+void Stock::DrawProgressBar()
+{
+	render::DrawRect(100, 800, 100, -500, RGB(255, 0, 0));
+	render::DrawRect(100, 800, 100, -((500 / 100) * salinity), RGB(255, 255, 0));
 
+}
 
 Stock::Stock()
 {
@@ -63,7 +74,51 @@ int Stock::GetSalinity()
 {
 	return salinity;
 }
-bool Stock::IsGameTimeOver()
+bool Stock::IsGameTimeOver(float time)
 {
-	return gameOverTime >= 2000;
+	return timeLimit <= time;
+	
 }
+
+void Stock::DrawBoxs()
+{
+	render::DrawRect(blackBox.x - blackBox.width / 2, blackBox.y - blackBox.height / 2, blackBox.x + blackBox.width / 2,  blackBox.height, blackBox.color);
+	render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
+	render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
+}
+
+void Stock::SetGame(int stage)
+{
+	if (stage == 1)
+	{
+		salinity = 0;
+		redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0, RGB(255, 0, 0));
+		yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 0.5, RGB(255, 255, 0));
+	}
+}
+
+void Stock::UpdateGame(float delta)
+{
+	static ULONGLONG elapsedTime;
+	elapsedTime += delta;
+	if(IsGameTimeOver(elapsedTime)==false)
+	{
+		if (input::IsKeyDown(32))
+		{
+			yellowBox.Move(delta);
+		}
+		else
+		{
+			yellowBox.Moveleft(delta);
+		}
+
+		Overlab(yellowBox, redBox);
+
+		
+		
+	}
+
+
+	
+}
+

@@ -11,11 +11,11 @@
 namespace game
 {
 	const char* texts = "22";
-	Stock::boxObject redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
-	Stock::boxObject yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
-	Stock stocks;
 
-		// 방향키 입력 시스템인데 어케해야하지?
+	Stock stocks;
+	
+	
+	// 방향키 입력 시스템인데 어케해야하지?
 	void InputArrow()
 	{
 		if (input::IsKeyDown(38)) // up
@@ -35,15 +35,15 @@ namespace game
 
 		}
 	}
-		void UpdatePlayer()
+	void UpdatePlayer()
 	{
 		if (input::IsKeyDown('A'))
 		{
-			yellowBox.Move(-yellowBox.speed, 0);
+			
 		}
 		else if (input::IsKeyDown('D'))
 		{
-			yellowBox.Move(yellowBox.speed, 0);
+			
 		}
 		if (input::IsKeyDown('W'))
 		{
@@ -77,13 +77,14 @@ namespace game
 	{
 		input::InitInput();
 		time::InitTime();
+		stocks.SetGame(1);
 		render::InitRender();
 	}
 	void GameManager::Update()
 	{
 		UpdatePlayer();
 		++m_UpdateCount;
-
+		stocks.UpdateGame(time::GetDeltaTime());
 		input::UpdateMouse();
 		UpdateBlueCircle();
 		input::ResetInput();
@@ -95,23 +96,21 @@ namespace game
 
 		elapsedTime += time::GetDeltaTime();
 
-		while (elapsedTime >= 20) //0.02��
+		while (elapsedTime >= 20) //0.02
 		{
 			++m_FixedUpdateCount;
-
 			elapsedTime -= 20;
 		}
 	}
 	void GameManager::Render()
 	{
-//
-//		DrawFPS();
-//		DrawSomething();
-		//DrawPlayer();
+		//
+		//		DrawFPS();
+		//		DrawSomething();
+				//DrawPlayer();
 		render::BeginDraw();
 
 		ChooseFood::ChooseScreen();
-
 		render::DrawTextF(0, 0, texts, RGB(255, 255, 255), 50);
 		DrawFPS();
 		DrawSomething();
@@ -172,30 +171,31 @@ namespace game
 			delete instance;
 			instance = nullptr;
 		}
-	}	
+	}
 	void GameManager::DrawFPS()
 	{
 		static ULONGLONG elapsedTime;
 		static int UpdateCount;
 		static int FixedUpdateCount;
 
+		static ULONGLONG elapsedTime2;
+
 		elapsedTime += time::GetDeltaTime();
 
 		if (elapsedTime >= 1000)
 		{
 			elapsedTime = 0;
-			;
 			UpdateCount = m_UpdateCount;
 			FixedUpdateCount = m_FixedUpdateCount;
 
 			m_UpdateCount = 0;
 			m_FixedUpdateCount = 0;
 		}
+		
 		int salin = stocks.GetSalinity();
 		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
 		str += "           Update " + std::to_string(UpdateCount);
 		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
-		str += "           salinity " + std::to_string(salin);
 
 		render::DrawTextF(10, 10, str.c_str(), RGB(255, 0, 0), 40);
 
@@ -203,9 +203,8 @@ namespace game
 	void GameManager::DrawSomething()
 	{
 		//render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));
-		render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
-		render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
-
+		stocks.DrawBoxs();
+		stocks.DrawProgressBar();
 	}
 
 }
