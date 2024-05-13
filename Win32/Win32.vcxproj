@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -145,6 +147,8 @@
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
+    <ClInclude Include="Animations.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="GameManager.h" />
@@ -155,6 +159,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />
     <ClInclude Include="TimeSystem.h" />
+    <ClInclude Include="Types.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

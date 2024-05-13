@@ -3,6 +3,7 @@
 #include "ChooseFood.h"
 #include "MiniGame1.h"
 #include "StockGame.h"
+#include "Animations.h"
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
@@ -70,5 +71,6 @@ namespace Screen
 		default:
 			break;
 		}
+		Animations::RenderAnimation();
 	}
 }
