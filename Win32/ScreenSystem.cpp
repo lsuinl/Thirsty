@@ -12,7 +12,8 @@ enum ScreenName {
 };
 namespace Screen
 {
-	ScreenName currentScreen = ChooseFoodScreen;
+	ScreenName currentScreen = StockGameScreen;
+	StockGame stock;
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -38,13 +39,14 @@ namespace Screen
 		}
 	}
 
-	//키보드 입력 시스템
 	void InputKeyBoard() {
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
 			break;
 		case StockGameScreen:
+			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
+			stock.UpdateGame(TimeSystem::GetDeltaTime());
 			break;
 		case NoodleSliceScreen:
 			break;
@@ -55,6 +57,8 @@ namespace Screen
 		}
 	}
 
+
+
 	//그리기
 	void ScreenRender() {
 		switch (currentScreen)
@@ -63,6 +67,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
+			stock.RenderStockGame();
 			break;
 		case NoodleSliceScreen:
 			break;

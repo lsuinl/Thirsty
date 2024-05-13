@@ -12,27 +12,6 @@
 namespace game
 {
 	const char* texts = "22";
-	Stock::boxObject redBox = { global::GetWinApp().GetWidth() / 2, 500, 360, 90, 10, RGB(255, 0, 0) };
-	Stock::boxObject yellowBox = { global::GetWinApp().GetWidth() / 2 ,500, 260, 70, 10, RGB(255, 255, 0) };
-	Stock stocks;
-
-		void UpdatePlayer()
-		{
-			if (input::IsKeyDown('A'))
-			{
-				yellowBox.Move(-yellowBox.speed, 0);
-			}
-			else if (input::IsKeyDown('D'))
-			{
-				yellowBox.Move(yellowBox.speed, 0);
-			}
-			if (input::IsKeyDown('W'))
-			{
-			}
-			else if (input::IsKeyDown('S'))
-			{
-			}
-		}
 	GameManager* GameManager::instance = nullptr;
 	GameManager::GameManager(){}
 	GameManager::~GameManager(){}
@@ -41,6 +20,7 @@ namespace game
 	{
 		input::InitInput();
 		TimeSystem::InitTime();
+		
 		render::InitRender();
 		Animations::LoadImageList();
 		Animations::SetAnimation("테스트");//임시
@@ -50,6 +30,7 @@ namespace game
 		++m_UpdateCount;
 
 		input::UpdateMouse();
+		Screen::InputKeyBoard();
 		const input::MouseState& mouse = input::GetMouseState();
 		const input::MouseState& prevmouse = input::GetPrevMouseState();
 		Screen::InputMouse(mouse, prevmouse);
