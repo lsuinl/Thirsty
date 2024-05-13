@@ -22,22 +22,13 @@ namespace game
 
 		void Run();
 
-		
-
 		static GameManager* GetInstance();
 
-		
 
 		static void DestroyInstance();
 
 	private:
-
-		void DrawFPS();
-		void DrawPlayer();
-		void DrawSomething();
-
 		static GameManager* instance;
-
 		int m_UpdateCount = { 0 };
 		int m_FixedUpdateCount = { 0 };
 

@@ -31,6 +31,9 @@
     <ClCompile Include="RenderSystem.cpp">
       <Filter>3.feature</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -62,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="StockGame.h">
       <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenSystem.h">
+      <Filter>2.system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
