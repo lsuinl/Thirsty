@@ -1,5 +1,6 @@
 #include "StockGame.h"
 #include "time.h"
+#include <string.h>
 //두 오브젝트 충돌검사
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
 {
@@ -124,6 +125,7 @@ void StockGame::UpdateYellowBox(float delta)
 	{
 		if (input::IsKey(32))
 		{
+			
 			yellowBox.MoveRight(yellowBox.speed, delta);
 		}
 		else
@@ -132,6 +134,7 @@ void StockGame::UpdateYellowBox(float delta)
 		}
 	}
 }
+
 
 void StockGame::UpdateRedBox(float delta)
 {
@@ -187,8 +190,59 @@ int StockGame::GameScore()
 	{
 		score = 0;
 	}
-
 	return score;
-
 }
 
+//void StockGame::SkipText(float delta)
+//{
+//	static ULONGLONG elapsedTime;
+//	elapsedTime += delta;
+//	if (input::IsKey(17))
+//	{
+//		printTime = 10;
+//	}
+//	else
+//	{
+//		printTime = 1000;
+//	}
+//
+//	if (input::IsKeyUp(9))
+//	{
+//		wcscpy_s(str3[j], str2[j]);
+//	}
+//
+//	if (elapsedTime >= printTime)
+//	{
+//		if (i < 100)
+//		{
+//			i++;
+//			elapsedTime = 0;
+//		}
+//	}
+//	
+//}
+//void StockGame::UpdateText()
+//{
+//	wcscpy_s(str2[j], str1[j]);
+//	if (wcscmp(str3[j], str2[j]) == 0)
+//	{
+//		if (j < 4)
+//		{
+//			i = 0;
+//			j++;
+//		}
+//	}
+//	else
+//	{
+//		wcsncpy_s(str3[j], str2[j], i);
+//	}
+//
+//}
+//void StockGame::PrintText()
+//{
+//	render::DrawTextF(100, 100, str3[0], RGB(0, 0, 255), 50);
+//	render::DrawTextF(100, 200, str3[1], RGB(0, 255, 250), 50);
+//	render::DrawTextF(100, 300, str3[2], RGB(0, 255, 250), 50);
+//	render::DrawTextF(100, 400, str3[3], RGB(0, 255, 250), 50);
+//	render::DrawTextF(100, 500, str3[4], RGB(0, 255, 250), 50);
+//}

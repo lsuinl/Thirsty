@@ -127,7 +127,7 @@ namespace render
 
     }
 
-    void DrawTextF(int x, int y, const char* text, COLORREF color, int fontsize)
+    void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize)
     {
         // 폰트 추가 생성
         AddFontResource(TEXT("resource//font//BlackHanSans-Regular.ttf"));
@@ -138,7 +138,7 @@ namespace render
         SetTextColor(backMemDC, color);
         SetTextColor(backMemDC, color);
         SetBkMode(backMemDC, TRANSPARENT); // 배경을 투명으로 설정
-        TextOutA(backMemDC, x, y, text, strlen(text));
+        TextOutW(backMemDC, x, y, text, wcslen(text));
         SelectObject(backMemDC, oldFont);
         SelectObject(backMemDC, oldFont);
 

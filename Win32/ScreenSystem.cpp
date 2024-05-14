@@ -4,6 +4,8 @@
 #include "MiniGame1.h"
 #include "StockGame.h"
 #include "Animations.h"
+#include "Scenario.h"
+
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
@@ -47,6 +49,8 @@ namespace Screen
 		case StockGameScreen:
 			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
 			stock.UpdateGame(TimeSystem::GetDeltaTime());
+			SkipText(TimeSystem::GetDeltaTime());
+			UpdateText();
 			break;
 		case NoodleSliceScreen:
 			break;
@@ -68,6 +72,7 @@ namespace Screen
 			break;
 		case StockGameScreen:
 			stock.RenderStockGame();
+			PrintText();
 			break;
 		case NoodleSliceScreen:
 			break;
@@ -76,6 +81,6 @@ namespace Screen
 		default:
 			break;
 		}
-		Animations::RenderAnimation();
+		//Animations::RenderAnimation();
 	}
 }

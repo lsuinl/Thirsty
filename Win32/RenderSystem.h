@@ -19,7 +19,7 @@ namespace render
 
     void DrawPolygon(POINT points[], int count, COLORREF color);
 
-    void DrawTextF(int x, int y, const char* text, COLORREF color, int fontsize);
+    void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize);
 
     void DrawFont(int x, int y, const char* text, COLORREF color, int fontSize, const wchar_t* fontName, int fontStyle);
 

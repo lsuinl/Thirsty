@@ -140,6 +140,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="MiniGame1.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="Scenario.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StockGame.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="MiniGame1.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="Scenario.h" />
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />

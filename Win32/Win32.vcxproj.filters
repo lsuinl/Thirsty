@@ -40,6 +40,9 @@
     <ClCompile Include="Animator.cpp">
       <Filter>2.system</Filter>
     </ClCompile>
+    <ClCompile Include="Scenario.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -83,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenario.h">
+      <Filter>4.scene\2.Story</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

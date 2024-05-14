@@ -91,7 +91,7 @@ namespace ChooseFood
 			//바구니에 재료가 들어가 있는 경우 재료도 함께 출력(임시로 인덱스 출력하였음)
 			if (basket[i] == NULL) 
 			{
-				render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
+				//render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
 			}
 		}
 		//버튼 그리기
@@ -122,7 +122,7 @@ namespace ChooseFood
 	//면, 육수, 고명 선택 화면
 	void NoodleScreen() 
 	{
-		render::DrawTextF(130, 90, "면 선택", RGB(0, 0, 0), 60);
+		render::DrawTextF(130, 90, L"면 선택", RGB(0, 0, 0), 60);
 		//면 재료 출력
 		for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
 		{
@@ -132,7 +132,7 @@ namespace ChooseFood
 
 	void SoupScreen() 
 	{
-		render::DrawTextF(130, 90, "육수 선택", RGB(0, 0, 0), 60);
+		render::DrawTextF(130, 90, L"육수 선택", RGB(0, 0, 0), 60);
 		//육수 재료 출력
 		for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
 		{
@@ -142,7 +142,7 @@ namespace ChooseFood
 
 	void DecorationScreen() 
 	{
-		render::DrawTextF(130, 90, "고명 선택", RGB(0, 0, 0), 60);
+		render::DrawTextF(130, 90, L"고명 선택", RGB(0, 0, 0), 60);
 		//고명 재료 출력
 		for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::Button); i++)
 		{
