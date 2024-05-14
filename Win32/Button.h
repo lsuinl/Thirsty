@@ -1,7 +1,7 @@
-#include "WinApp.h"
-#include <functional> 
+
 
 #pragma once
+#include "GlobalHeader.h"
 namespace button {
     class Button {
         const char* name;

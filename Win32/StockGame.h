@@ -1,7 +1,5 @@
 #pragma once
-#include <windows.h>
-#include "RenderSystem.h"
-#include "InputSystem.h"
+#include "GlobalHeader.h"
 struct boxObject
 {
 	float x;

@@ -167,26 +167,56 @@ int NoodleSlice::GetArrSize()
 // render
 void NoodleSlice::NoodleSliceScreen()
 {
+	render::DrawObject(L"resource\\background\\back.bmp", 1920, 1080, 0, 0, false);
+
 	// 치기 전
 	for (int i = setCnt; i < setCnt + 1; i++)
 	{
 		for (int j = 0; j < stage; j++)
 		{
-			if (arrowArr[i][j].arrowType == UPARROW && arrowArr[i][j].isTrue == false)
+			if (arrowArr[i][j].arrowType == UPARROW)
 			{
-				render::DrawBackGround("resource/object/up.bmp",100,100, 50 + (j % stage) * 100, 100, false);
+				if (arrowArr[i][j].isTrue == true)
+				{
+					render::DrawObject(L"resource\\object\\up.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else
+				{
+					render::DrawObject(L"resource\\object\\up2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
 			}
-			else if (arrowArr[i][j].arrowType == DOWNARROW && arrowArr[i][j].isTrue == false)
+			else if (arrowArr[i][j].arrowType == DOWNARROW)
 			{
-				render::DrawBackGround("resource/object/down.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
+				if (arrowArr[i][j].isTrue == true)
+				{
+					render::DrawObject(L"resource\\object\\down.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else
+				{
+					render::DrawObject(L"resource\\object\\down2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
 			}
-			else if (arrowArr[i][j].arrowType == RIGHTARROW && arrowArr[i][j].isTrue == false)
+			else if (arrowArr[i][j].arrowType == RIGHTARROW)
 			{
-				render::DrawBackGround("resource/object/right.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
+				if (arrowArr[i][j].isTrue == true)
+				{
+					render::DrawObject(L"resource\\object\\right.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else
+				{
+					render::DrawObject(L"resource\\object\\right2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
 			}
-			else if (arrowArr[i][j].arrowType == LEFTARROW && arrowArr[i][j].isTrue == false)
+			else if (arrowArr[i][j].arrowType == LEFTARROW)
 			{
-				render::DrawBackGround("resource/object/left.bmp", 100, 100, 50 + (j % stage) * 100, 100, false);
+				if (arrowArr[i][j].isTrue == true)
+				{
+					render::DrawObject(L"resource\\object\\left.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else
+				{
+					render::DrawObject(L"resource\\object\\left2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
 			}
 		}
 	}
@@ -194,14 +224,44 @@ void NoodleSlice::NoodleSliceScreen()
 	// 틀렸을 때 잠깐 색 바꾸기
 	if (isReset == true)
 	{
-		for (int i = setCnt; i < noodle; i++)
+		for (int i = setCnt; i < setCnt + 1; i++)
 		{
 			for (int j = 0; j < stage; j++)
-				render::DrawRect(50 + (j % stage) * 100, 100, 100, 100, RGB(0, 0, 0)); // 검
+			{
+				if (arrowArr[i][j].arrowType == UPARROW)
+				{
+					render::DrawObject(L"resource\\object\\up1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else if (arrowArr[i][j].arrowType == DOWNARROW)
+				{
+					render::DrawObject(L"resource\\object\\down1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else if (arrowArr[i][j].arrowType == RIGHTARROW)
+				{
+					render::DrawObject(L"resource\\object\\right1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+				else if (arrowArr[i][j].arrowType == LEFTARROW)
+				{
+					render::DrawObject(L"resource\\object\\left1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+				}
+			}
 		}
 	}
 
-	std::string str = "맞춘 횟수 :" + std::to_string(cnt);
-	str += "           세트 횟수 : " + std::to_string(setCnt);
-	render::DrawTextF(10, 10, str.c_str(), RGB(0, 0, 0), 20);
+	render::DrawRect(1500, 200, 300, 300, RGB(255, 255, 255));
+	render::DrawRect(1500, 600, 300, 300, RGB(255, 255, 255));
+
+	std::string str1 = "완료 횟수";
+	std::string str2 = "남은 세트";
+	std::string clear_s = std::to_string(setCnt);
+	std::string before_s = std::to_string(noodle - setCnt);
+
+	render::DrawTextF(1560, 250, str1.c_str(), RGB(0, 0, 0), 50);
+	render::DrawTextF(1560, 650, str2.c_str(), RGB(0, 0, 0), 50);
+	render::DrawTextF(1620, 350, clear_s.c_str(), RGB(0, 0, 0), 100);
+	render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);
+
+	std::string time = "남은 시간  " + std::to_string((int)(20 - playTimer / 1000)) + " 초";
+	render::DrawTextF(0, 0, time.c_str(), RGB(0, 0, 0), 50);
+
 }

@@ -152,15 +152,23 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GlobalHeader.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="NoodleSlice.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WinApp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="01.WinAPI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\object\shrimp.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

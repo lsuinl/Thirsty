@@ -1,13 +1,5 @@
 #pragma once
-#include <Windows.h>
-#include <stdlib.h>
-#include <string>
-
-#include "InputSystem.h"
-#include "RenderSystem.h"
-#include "TimeSystem.h"
-
-
+#include "GlobalHeader.h"
 class NoodleSlice
 {
 public:

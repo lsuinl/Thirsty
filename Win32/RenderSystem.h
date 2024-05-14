@@ -1,6 +1,5 @@
-#include "WinApp.h"
 #pragma once
-
+#include "GlobalHeader.h"
 namespace render
 {
     void InitRender();
@@ -22,7 +21,7 @@ namespace render
     void DrawTextF(int x, int y, const char* text, COLORREF color, int fontsize);
 
     void DrawFont(int x, int y, const char* text, COLORREF color, int fontSize, const wchar_t* fontName, int fontStyle);
-
+    //삭제예정
     void DrawBitmap(int x, int y, HBITMAP hBitmap);
     void DrawBitmapTo(int x, int y, HBITMAP hBitmap);
 
@@ -32,4 +31,5 @@ namespace render
 
     void ReleaseImage(HBITMAP hBitmap);
     HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to);
+    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to);
 }

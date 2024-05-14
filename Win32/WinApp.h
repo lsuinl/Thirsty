@@ -5,11 +5,11 @@
 	@author    SKYFISH
 **/
 #pragma once
-
-#include <SDKDDKVer.h>
-
+#include "GlobalHeader.h"
+#pragma comment(lib, "gdiplus.lib")
 #define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
+
+using namespace Gdiplus;
 
 class WinApp
 {

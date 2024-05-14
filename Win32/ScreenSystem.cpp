@@ -70,7 +70,7 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
-			noodleSlice.SetGame(noodleSlice.STAGE2,noodleSlice.NOODLE2);
+			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
 			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
@@ -85,6 +85,6 @@ namespace Screen
 		default:
 			break;
 		}
-		//Animations::RenderAnimation();
+		Animations::RenderAnimation();
 	}
 }
