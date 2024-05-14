@@ -6,7 +6,7 @@
 #include <string>
 #include "InputSystem.h"
 //면 종류
-enum Noodle 
+enum Noodle
 {
 	FLAT, //납작면 0
 	MIDDLE, //중면 1 
@@ -14,7 +14,7 @@ enum Noodle
 };
 
 //육수 종류
-enum Soup 
+enum Soup
 {
 	MAULCHI,//멸치 3
 	SALT,//소금 4
@@ -30,7 +30,7 @@ enum Soup
 };
 
 //고명 종류
-enum Decoration 
+enum Decoration
 {
 	DAEPA,//대파 
 	SICHIME,//시치미
@@ -67,57 +67,57 @@ namespace ChooseFood
 
 	button::Button buttonList[5] =
 	{
-		button::Button("왼쪽",80,500,100,100, "resource/object/left.bmp",LeftPage),
-		button::Button("오른쪽",1280, 500, 100, 100, "resource/object/right.bmp",RightPage),
-		button::Button("위쪽",1500,100, 100, 100, "resource/object/up.bmp",UpBasket),
-		button::Button("아래쪽",1500, 900, 100, 100, "resource/object/down.bmp",DownBasket),
-		button::Button("완료",1650, 50, 200, 100, "resource/background/back.bmp",Selected),
+		button::Button("왼쪽",80,500,100,100, L"resource\\object\\left.bmp",LeftPage),
+		button::Button("오른쪽",1280, 500, 100, 100, L"resource\\object\\right.bmp",RightPage),
+		button::Button("위쪽",1500,100, 100, 100, L"resource\\object\\up.bmp",UpBasket),
+		button::Button("아래쪽",1500, 900, 100, 100, L"resource\\object\\down.bmp",DownBasket),
+		button::Button("완료",1650, 50, 200, 100, L"resource\\background\\back.bmp",Selected),
 	};
-
+	
 	button::DragDrop noodleButtonList[3] =
 	{
-		button::DragDrop("납작면",300,400, 300, 300, "resource/object/Prriceshrimp.bmp",Test),
-		button::DragDrop("기본면",650, 600, 300, 300, "resource/object/Prriceshrimp.bmp", Test),
-		button::DragDrop("소면",1000, 400, 300, 300, "resource/object/Prriceshrimp.bmp", Test),
+		button::DragDrop("납작면",300,400, 300, 300, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("기본면",650, 600, 300, 300, L"resource\\object\\Prriceshrimp.bmp", Test),
+		button::DragDrop("소면",1000, 400, 300, 300, L"resource\\object\\Prriceshrimp.bmp", Test),
 	};
 
 	button::DragDrop soupButtonList[11] =
 	{
-		button::DragDrop("멸치",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
-		button::DragDrop("건다시마",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
-		button::DragDrop("쯔유",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("소금",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("무",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("국간장",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("마른 디포리",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("건표고버섯",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("가쓰오부시",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("설탕",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("진간장",1080, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::DragDrop("멸치",300,400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("건다시마",380, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("쯔유",460, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("소금",540, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("무",620, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("국간장",700, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("마른 디포리",780, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("건표고버섯",860, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("가쓰오부시",940, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("설탕",1000, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("진간장",1080, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
 	};
 
 	button::DragDrop decortaionButtonList[17] =
 	{
-		button::DragDrop("대파",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
-		button::DragDrop("시치미",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
-		button::DragDrop("쪽파",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("표고버섯",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("팽이버섯",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("직화고기",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("양파",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("두부",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("호박",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("썬유부",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("꼬치어묵",380, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("쑥갓",540, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("고춧가루",700, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("청양고추",860, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("썬김(김채)",1000, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("납작어묵",540, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("새우튀김",700, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::DragDrop("대파",300,400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("시치미",380, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("쪽파",460, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("표고버섯",540, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("팽이버섯",620, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("직화고기",700, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("양파",780, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("두부",860, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("호박",940, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("썬유부",1000, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("꼬치어묵",380, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("쑥갓",540, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("고춧가루",700, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("청양고추",860, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("썬김(김채)",1000, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("납작어묵",540, 800, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("새우튀김",700, 800, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Test),
 	};
 
-	void ChooseScreen() 
+	void ChooseScreen()
 	{
 		//배경 이미지 그리기
 		render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
@@ -125,16 +125,20 @@ namespace ChooseFood
 		//바구니 그리기
 		for (int i = basketIndex; i < basketIndex + 5; i++)
 		{
-			render::DrawBackGround("resource/object/basket.bmp", 150, 100, 1485, 200 - ((basketIndex - i) * 150), true);
-			//바구니에 재료가 들어가 있는 경우 재료도 함께 출력(임시로 인덱스 출력하였음)
 			if (basket[i] == nullptr)
 			{
 				render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
 			}
+			else
+			{
+				basket[i]->DrawButton();
+			}
+			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 - ((basketIndex - i) * 150), true);
+			//바구니에 재료가 들어가 있는 경우 재료도 함께 출력(임시로 인덱스 출력하였음)
 
 		}
 
-		if (screenIndex==0)
+		if (screenIndex == 0)
 		{
 			NoodleScreen();
 		}
@@ -148,7 +152,7 @@ namespace ChooseFood
 		}
 
 		//버튼 그리기
-		for (int i = 0; i < sizeof(buttonList)/sizeof(button::Button); i++)
+		for (int i = 0; i < sizeof(buttonList) / sizeof(button::Button); i++)
 		{
 			//현재 상태에 따라 이동 화살표 보여주기 여부 설정
 			if ((screenIndex == 0 && i == 0) || (screenIndex == 2 && i == 1) || (basketIndex == 0 && i == 2) || (basketIndex == 10 && i == 3))
@@ -159,7 +163,7 @@ namespace ChooseFood
 		}
 	}
 
-	void CheckButton(int dx,int dy)
+	void CheckButton(int dx, int dy)
 	{
 
 		for (int i = 0; i < sizeof(buttonList) / sizeof(button::Button); i++)
@@ -174,7 +178,7 @@ namespace ChooseFood
 				buttonList[i].PlayFunction();
 			}
 		}
-			
+
 	}
 	//-------------
 	void CheckDragButton(int dx, int dy) {
@@ -190,10 +194,6 @@ namespace ChooseFood
 						//isDragging=true로 변경
 						draggingButton->isDragging = true;
 						//이동..함수..
-						input::UpdateMouse();
-						const input::MouseState& mouse = input::GetMouseState();
-						int xPos = mouse.x - 130;
-						int yPos = mouse.y - 120;
 						noodleButtonList[i].PlayFunction();
 						break;
 					}
@@ -205,7 +205,13 @@ namespace ChooseFood
 				{
 					if (soupButtonList[i].CheckDrag(dx, dy))
 					{
+						//draggingButton에 저장.
+						draggingButton = &soupButtonList[i];
+						//isDragging=true로 변경
+						draggingButton->isDragging = true;
+						//이동..함수..
 						soupButtonList[i].PlayFunction();
+						break;
 					}
 				}
 			}
@@ -215,7 +221,13 @@ namespace ChooseFood
 				{
 					if (decortaionButtonList[i].CheckDrag(dx, dy))
 					{
+						//draggingButton에 저장.
+						draggingButton = &decortaionButtonList[i];
+						//isDragging=true로 변경
+						draggingButton->isDragging = true;
+						//이동..함수..
 						decortaionButtonList[i].PlayFunction();
+						break;
 					}
 				}
 			}
@@ -224,9 +236,9 @@ namespace ChooseFood
 			draggingButton->PlayFunction();
 		}
 	}
-	void CheckDropButton(int dx, int dy) 
+	void CheckDropButton(int dx, int dy)
 	{
-		if (draggingButton != nullptr) 
+		if (draggingButton != nullptr)
 		{
 			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
 			{
@@ -234,19 +246,25 @@ namespace ChooseFood
 				{
 					if (draggingButton->isDragging)
 					{
-						//현재위치 검사하여, 바구니 안인 경우 뭐였지.
+						//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
 						int currentX = draggingButton->getXPos();
 						int currentY = draggingButton->getYPos();
-						if (currentX > 1485-130 && currentY > 200-120)
+						//현재 야매로 되어있움 야호
+						if (currentX > 1485 - 130 && currentY > 200 - 120)
 						{
-							draggingButton->setPos(1500, 200);
+							draggingButton->setPos(1500, 200 + 150 * bNum);
 							draggingButton->width = 100;
 							draggingButton->height = 100;
 							basket[bNum] = draggingButton;
 							bNum++;
 						}
 						//바구니 안이 아닌경우 원래자리로 돌아가기.
-
+						else
+						{
+							draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+							draggingButton->width = 300;
+							draggingButton->height = 300;
+						}
 						//noodleButtonList[i]getdragging ==false로변경
 						draggingButton->isDragging = false;
 						//draggingButton에 있는 값 없애기
@@ -288,7 +306,7 @@ namespace ChooseFood
 	}
 
 	//면, 육수, 고명 선택 화면
-	void NoodleScreen() 
+	void NoodleScreen()
 	{
 		render::DrawTextF(130, 90, "면 선택", RGB(0, 0, 0), 60);
 		//면 재료 출력
@@ -298,7 +316,7 @@ namespace ChooseFood
 		}
 	}
 
-	void SoupScreen() 
+	void SoupScreen()
 	{
 		render::DrawTextF(130, 90, "육수 선택", RGB(0, 0, 0), 60);
 		//육수 재료 출력
@@ -308,7 +326,7 @@ namespace ChooseFood
 		}
 	}
 
-	void DecorationScreen() 
+	void DecorationScreen()
 	{
 		render::DrawTextF(130, 90, "고명 선택", RGB(0, 0, 0), 60);
 		//고명 재료 출력
@@ -319,20 +337,20 @@ namespace ChooseFood
 	}
 
 	//선택창 넘기기
-	void LeftPage() 
+	void LeftPage()
 	{
 		game::texts = "왼쪽";
 		screenIndex--;
 	}
 
-	void RightPage() 
+	void RightPage()
 	{
 		game::texts = "오른쪽";
 		screenIndex++;
 	}
 
 	//바구니 위아래로 이동하기
-	void UpBasket() 
+	void UpBasket()
 	{
 		game::texts = "위쪽";
 		basketIndex--;
@@ -345,7 +363,7 @@ namespace ChooseFood
 	}
 
 	//선택완료버튼
-	void Selected() 
+	void Selected()
 	{
 		game::texts = "완료";
 	}

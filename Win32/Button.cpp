@@ -3,7 +3,7 @@
 #include "GameManager.h"
 namespace button {
 
-    Button::Button(const char* name,int x, int y, int width, int height,const char* image, std::function<void()> onClick)
+    Button::Button(const char* name,int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
@@ -15,7 +15,7 @@ namespace button {
     }   
     void Button::DrawButton() 
     {
-        render::DrawBackGround(image, width, height, x, y, true);  
+        render::DrawObject(image, width, height, x, y, true);
     } 
     bool Button::CheckClick(int dx, int dy)
     {
@@ -31,7 +31,7 @@ namespace button {
     }
 
 
-    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, const char* image, std::function<void()> onClick)
+    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
@@ -46,7 +46,7 @@ namespace button {
     }
     void DragDrop::DrawButton()
     {
-        render::DrawBackGround(image, width, height, x, y, true);
+        render::DrawObject(image, width, height, x, y, true);
     }
 
     bool DragDrop::CheckDrag(int dx, int dy)
@@ -68,4 +68,6 @@ namespace button {
     }
     const int DragDrop::getXPos() { return this->x; }
     const int DragDrop::getYPos() { return this->y; }
+    const int DragDrop::getOriginX() { return this->originX; }
+    const int DragDrop::getOriginY() { return this->originY; }
 }
