@@ -25,8 +25,15 @@ namespace Screen
 			{
 				return;
 			}
-			if (mouse.left) {
+			if (mouse.left) 
+			{
 				ChooseFood::CheckButton(mouse.x, mouse.y);
+			}
+			if (mouse.isDragging) {
+				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else {
+				ChooseFood::CheckDropButton(mouse.x, mouse.y);
 			}
 			break;
 		case StockGameScreen:
