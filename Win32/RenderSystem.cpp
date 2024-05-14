@@ -1,8 +1,6 @@
-#include "WinApp.h"
+
 #include "RenderSystem.h"
 #include <string>
-#include <Windows.h>
-
 #pragma comment(lib, "msimg32.lib")
 
 namespace render
@@ -145,6 +143,48 @@ namespace render
         DeleteObject(currentFont);
     }
 
+  
+
+    HBITMAP LoadImages(const char* path, int width, int height)
+    {
+        HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+
+        return hBitmap;
+    }
+
+    void ReleaseImage(HBITMAP hBitmap)
+    {
+        DeleteObject(hBitmap);
+    }
+
+    HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to)
+    {
+        HBITMAP hBackmap = render::LoadImages(name, width, height);
+       // if (to)
+       //     render::DrawBitmapTo(x, y, hBackmap);
+       // else
+            render::DrawBitmap(x, y, hBackmap);
+        render::ReleaseImage(hBackmap);
+        return hBackmap;
+    }
+
+    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to)
+    {
+        Gdiplus::Graphics g(backMemDC);
+        Image* image = Image::FromFile(name.c_str());
+        // 투명화 시킬 픽셀의 색 범위
+        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        Gdiplus::ImageAttributes imgAtt;
+        imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
+        //크기 조정
+        Gdiplus::Rect destRect(x, y, width, height); // 화면에 그릴 영역	
+        // 원본 이미지의 크기를 가져옵니다.
+        g.DrawImage(image, destRect, 0, 0, image->GetWidth(), image->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
+
+        delete image; // 이미지 객체 삭제
+    }
+
+
     void DrawBitmap(int x, int y, HBITMAP hBitmap)
     {
         HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
@@ -168,6 +208,7 @@ namespace render
         DeleteDC(bitmapMemDC);
 
     }
+    //투명하기 그리기
     void DrawBitmapTo(int x, int y, HBITMAP hBitmap)
     {
         HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
@@ -209,27 +250,5 @@ namespace render
         DeleteObject(hBitmap32);
         DeleteDC(bitmapMemDC);
     }
-
-
-    HBITMAP LoadImages(const char* path, int width, int height)
-    {
-        HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-
-        return hBitmap;
-    }
-
-    void ReleaseImage(HBITMAP hBitmap)
-    {
-        DeleteObject(hBitmap);
-    }
-    HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to)
-    {
-        HBITMAP hBackmap = render::LoadImages(name, width, height);
-        if (to)
-            render::DrawBitmapTo(x, y, hBackmap);
-        else
-            render::DrawBitmap(x, y, hBackmap);
-        render::ReleaseImage(hBackmap);
-        return hBackmap;
-    }
+    
 }

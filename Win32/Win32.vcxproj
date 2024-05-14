@@ -138,7 +138,7 @@
     <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
-    <ClCompile Include="MiniGame1.cpp" />
+    <ClCompile Include="NoodleSlice.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
     <ClCompile Include="SoundManager.cpp" />
@@ -152,8 +152,9 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GlobalHeader.h" />
     <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="MiniGame1.h" />
+    <ClInclude Include="NoodleSlice.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScreenSystem.h" />
@@ -165,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="01.WinAPI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\object\shrimp.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-	Animator::Animator(std::string name,int x, int y, int width, int height,int animationLimit, std::string* imageList,bool loop, bool to)
+	Animator::Animator(std::string name,int x, int y, int width, int height,int animationLimit, std::wstring* imageList,bool loop, bool to)
 	{
 		this->name = name;
 		this->x = x;
@@ -40,14 +40,14 @@
 			{
 				//100/(200)
 		
-				const char * word = (imageList[animationTime / ( animationLimit / (10)) ].c_str());
-				render::DrawBackGround(word, width, height, x, y, to);
+				std::wstring word = imageList[animationTime / ( animationLimit / (10))];
+				render::DrawObject(word, width, height, x, y, to);
 			}
 			else 
 			{
 				animationTime = 0;
-				const char* word = (imageList[animationTime / (animationLimit / (10))].c_str());
-				render::DrawBackGround(word, width, height, x, y, to);
+				std::wstring word = imageList[animationTime / (animationLimit / (10))].c_str();
+				render::DrawObject(word, width, height, x, y, to);
 				//전환 종료(반복인 경우는 다시 재생)
 	
 				if (!loop) 

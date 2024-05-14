@@ -1,0 +1,33 @@
+#include <gdiplus.h>
+#pragma comment(lib, "gdiplus.lib")
+
+//GDIPlus에서 사용합니다.
+ULONG_PTR m_GPToken;
+Gdiplus::GdiplusStartupInput m_GPIn;
+
+인잇에 장전
+Gdiplus::GdiplusStartup(&m_GPToken, &m_GPIn, NULL);
+
+다쏘고반납
+Gdiplus::GdiplusShutdown(m_GPToken);
+
+HBITMAP대신
+Gdiplus::Image* 자료형 사용
+
+// 투명화 시킬 픽셀의 색 범위
+Gdiplus::Color _alpha_Color(255, 0, 255);
+Gdiplus::ImageAttributes imgAtt = {};
+imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
+
+graphics->DrawImage(image->GetImage()
+	, Gdiplus::Rect(_pos.x, _pos.y, _sca.x, _sca.y)
+	, (index % image->data.count.x) * image->GetWidth()
+	, (index / image->data.count.x) * image->GetHeight()
+	, image->GetWidth()
+	, image->GetHeight()
+	, Gdiplus::UnitPixel
+	, &imgAtt);
+
+
+application.cpp
+spriterenderer.cpp

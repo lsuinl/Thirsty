@@ -24,7 +24,6 @@ namespace game
 
 		static GameManager* GetInstance();
 
-
 		static void DestroyInstance();
 
 	private:
