@@ -3,12 +3,12 @@
 
 #include "Animations.h"
 namespace Animations {
-	std::string* imageList= new std::string[10];
+	std::wstring* imageList= new std::wstring[10];
 	Animator Animation[2];
 	void Animations::LoadImageList() {
 		for (int i = 1; i <= 10; i++) 
 		{
-			imageList[i-1] = "resource/animation/test/" + std::to_string(i) + ".bmp";
+			imageList[i-1] = L"resource\\animation\\test\\" + std::to_wstring(i) + L".bmp";
 		}
 		Animation[0] = Animator("테스트", 300, 100, 400, 400, 800, imageList, true, false);
 		Animation[1] = Animator("아니",600, 300, 400, 400, 1200, imageList, true, true);

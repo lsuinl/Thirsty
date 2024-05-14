@@ -1,4 +1,4 @@
-#include <cstdlib>
+//#include <cstdlib>
 #include "WinApp.h"
 #include "GameManager.h"
 
@@ -25,6 +25,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
+	ULONG_PTR gpToken;
+	Gdiplus::GdiplusStartupInput gpsi;
+	if (Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL) != Gdiplus::Ok) return 0;
 
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
@@ -82,8 +85,6 @@ void WinApp::Initialize(HINSTANCE hInstance)
 
 	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©");
 
-	//Step 1: Registering the Window Class
-
 	WNDCLASS wndClass;
 
 	wndClass.style = CS_HREDRAW | CS_VREDRAW;
@@ -99,8 +100,6 @@ void WinApp::Initialize(HINSTANCE hInstance)
 
 	RegisterClass(&wndClass);
 
-	// Step 2: Creating the Window
-
 	RECT rect{ SCREEN_START_LEFT, SCREEN_START_TOP,
 	SCREEN_START_LEFT + SCREEN_WIDTH, SCREEN_START_TOP + SCREEN_HEIGHT };
 
@@ -115,18 +114,15 @@ void WinApp::Initialize(HINSTANCE hInstance)
 	ShowWindow(m_hWnd, SW_SHOWNORMAL);
 	UpdateWindow(m_hWnd);
 
-	// Step 3: Game Initialize Here
 	game::GameManager::GetInstance()->Initialize();
 }
 
 void WinApp::Run()
 {
-	// Step 4: Game Loop Here
 	game::GameManager::GetInstance()->Run();
 }
 
 void WinApp::Finalize()
 {
-	// Step 5: Game Finalize Here
 	game::GameManager::GetInstance()->Finalize();
 }

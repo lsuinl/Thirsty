@@ -1,0 +1,15 @@
+#pragma once
+#include <SDKDDKVer.h>
+#include <Windows.h>
+#include <ole2.h>
+#include <functional> 
+#include <string>
+#include <gdiplus.h>
+#include "WinApp.h"
+#include "RenderSystem.h"
+#include "InputSystem.h"
+#include "ChooseFood.h"
+#include "NoodleSlice.h"
+#include "StockGame.h"
+#include "TimeSystem.h"
+#include "Animator.h"

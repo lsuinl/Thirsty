@@ -1,7 +1,6 @@
-#include "InputSystem.h"
 #include "ScreenSystem.h"
 #include "ChooseFood.h"
-#include "MiniGame1.h"
+#include "NoodleSlice.h"
 #include "StockGame.h"
 #include "Animations.h"
 enum ScreenName {
@@ -12,7 +11,9 @@ enum ScreenName {
 };
 namespace Screen
 {
-	ScreenName currentScreen = StockGameScreen;
+	NoodleSlice noodleSlice;
+	float _timer;
+	ScreenName currentScreen = ChooseFoodScreen;
 	StockGame stock;
 
 	//마우스 입력 시스템
@@ -49,6 +50,11 @@ namespace Screen
 			stock.UpdateGame(TimeSystem::GetDeltaTime());
 			break;
 		case NoodleSliceScreen:
+			noodleSlice.UpdateGame();
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			{
+				currentScreen = StockGameScreen;
+			}
 			break;
 		case PlaceFoodScreen:
 			break;
@@ -64,12 +70,15 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
+			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
+			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
 			stock.RenderStockGame();
 			break;
 		case NoodleSliceScreen:
+			noodleSlice.NoodleSliceScreen();
 			break;
 		case PlaceFoodScreen:
 			break;
