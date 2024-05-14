@@ -168,13 +168,22 @@ namespace render
         return hBackmap;
     }
 
-    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to)
+    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to, float alpha)
     {
         Gdiplus::Graphics g(backMemDC);
         Image* image = Image::FromFile(name.c_str());
         // 투명화 시킬 픽셀의 색 범위
         Gdiplus::Color _alpha_Color(0, 0, 0, 0);
         Gdiplus::ImageAttributes imgAtt;
+        Gdiplus::ColorMatrix colorMatrix = {
+            1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, alpha, 0.0f,
+            0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+        };
+
+        imgAtt.SetColorMatrix(&colorMatrix);
         imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
         //크기 조정
         Gdiplus::Rect destRect(x, y, width, height); // 화면에 그릴 영역	
@@ -251,4 +260,25 @@ namespace render
         DeleteDC(bitmapMemDC);
     }
     
+    void DrawTransparentRect(int x, int y, int width, int height, COLORREF color, BYTE alpha) {
+        
+        HDC hdc = backMemDC;
+
+        // 반투명 브러시 생성
+        HBRUSH hBrush = CreateSolidBrush(RGB(GetRValue(color), GetGValue(color), GetBValue(color)));
+        HGDIOBJ hOldBrush = SelectObject(hdc, hBrush);
+
+        // 투명도 설정
+        BLENDFUNCTION blendFunction = { AC_SRC_OVER, 0, alpha, AC_SRC_ALPHA };
+
+        // 사각형을 그리는 영역 설정
+        RECT rect = { x, y, x + width, y + height };
+
+        // 투명한 사각형 그리기
+        AlphaBlend(hdc, x, y, width, height, hdc, x, y, width, height, blendFunction);
+
+        // 오브젝트들을 해제
+        SelectObject(hdc, hOldBrush);
+        DeleteObject(hBrush);
+    }
 }

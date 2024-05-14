@@ -3,18 +3,15 @@
 #include "NoodleSlice.h"
 #include "StockGame.h"
 #include "Animations.h"
-enum ScreenName {
-	ChooseFoodScreen,
-	StockGameScreen,
-	NoodleSliceScreen,
-	PlaceFoodScreen,
-};
+#include "Title.h"
+
 namespace Screen
 {
 	NoodleSlice noodleSlice;
-	float _timer;
-	ScreenName currentScreen = ChooseFoodScreen;
+	ScreenName priviewScreen = ChooseFoodScreen;
+	ScreenName currentScreen = TitleScreen;
 	StockGame stock;
+	Title title;
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -82,9 +79,12 @@ namespace Screen
 			break;
 		case PlaceFoodScreen:
 			break;
+		case TitleScreen:
+			title.TitleRender();
+			break;
 		default:
 			break;
 		}
-		Animations::RenderAnimation();
+		//Animations::RenderAnimation();
 	}
 }
