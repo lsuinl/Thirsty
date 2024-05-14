@@ -69,6 +69,7 @@
     <ClInclude Include="ScreenSystem.h">
       <Filter>2.system</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1.default">
@@ -95,5 +96,8 @@
     <Filter Include="4.scene\4.Ending">
       <UniqueIdentifier>{40f1a446-92ec-48f0-afe6-8a741594d3ef}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="01.WinAPI.rc" />
   </ItemGroup>
 </Project>
