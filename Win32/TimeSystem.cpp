@@ -2,7 +2,7 @@
 #include "TimeSystem.h"
 #include <cmath>
 
-namespace time
+namespace TimeSystem
 {
     ULONGLONG previousTime;
     ULONGLONG currentTime;
