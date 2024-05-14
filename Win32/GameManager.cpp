@@ -9,6 +9,7 @@
 #include <string>
 #include "ScreenSystem.h"
 #include "Animations.h"
+#include "Scenario.h"
 namespace game
 {
 	const char* texts = "22";
@@ -20,7 +21,7 @@ namespace game
 	{
 		input::InitInput();
 		TimeSystem::InitTime();
-		
+		SetScript(1);
 		render::InitRender();
 		Animations::LoadImageList();
 		Animations::SetAnimation("테스트");//임시

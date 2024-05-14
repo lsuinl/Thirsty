@@ -3,12 +3,76 @@
 #include "InputSystem.h"
 
 float printTime;
-const wchar_t* str1[5] = { L"흔히 이승에서  aadwad사는 유령은 1234567890 ㅂㅈㄷㄱ ㅁㄴㅇㄹ ㅋㅌㅊㅍ",
-	L"흔히 저승에서  어쩌구 저쩌구  안녕하세요 유령입니다ㅈㅁㅇfadwadwad",L"adwadwadd",L"dwadwadwa",L"dwad끝끝끝끝끝" };  //시나리오 대사를 미리 입력해둘1
-wchar_t str2[5][100];  //각 시나리오일떄 1번을 카피해서 저장해둘 2
-wchar_t str3[5][100];  //하나씩 출력할떄 저장해둘 3
+
+
+
+
+wchar_t str1[300]; //파일에서 다받아올부분
+wchar_t* p = nullptr;
+wchar_t* p2 = nullptr;
+wchar_t* token;
+wchar_t* token2;
+wchar_t s;
+
 int i = 0;
 int j = 0;
+int k = 0;
+int l = 0;
+int o = 0;
+int tokenlen;
+int filecount = 0;
+wchar_t str2[10][10][300];      //1차로 분리해서 저장할부분
+wchar_t str3[10][10][100];     //한글자씩 출력할려고 카피할부분
+
+
+void SetScript(int num)
+{
+	std::wifstream fin;
+	if (num == 1)
+	{
+		int previous = 0;
+		int curr1 = 1;
+		int curr2 = 2;
+		fin.open("resource/object/test.txt");
+		fin.imbue(std::locale("Korean"));
+		if (!fin.is_open()) {
+			return;
+		}
+		filecount = 0;
+		while (filecount < 300 && fin.get(str1[filecount])) // 파일의 끝까지 읽거나 배열의 크기를 초과하지 않을 때까지 반복합니다.
+		{
+			filecount++;
+		}
+		str1[filecount] = L'\0';
+		fin.close(); //파일닫기
+
+		token = wcstok_s(str1, L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[l][k], token);
+			token = wcstok_s(NULL, L"&", &p);
+			//token 안에 ^가들어가면 >> 앞부분은 k애넣고 l++후 k0으로 바꾸고 반복?
+			tokenlen = wcslen(token);
+
+
+			token2 = wcstok_s(token, L"^", &p2);
+			if (token != NULL && wcscmp(token, L" ^ ") == 0)
+			{
+				wcscpy_s(str2[l][k], token);
+				token++;
+				l++;
+				k = 0;
+			}
+			else
+			{
+				k++;
+			}
+
+
+		}
+	}
+}
+
 void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
@@ -24,7 +88,7 @@ void SkipText(float delta)
 
 	if (input::IsKeyUp(9))
 	{
-		wcscpy_s(str3[j], str2[j]);
+		wcscpy_s(str3[o][j], str2[o][j]);
 	}
 
 	if (elapsedTime >= printTime)
@@ -35,14 +99,18 @@ void SkipText(float delta)
 			elapsedTime = 0;
 		}
 	}
-
+	if (input::IsKeyUp(16))
+	{
+		o++;
+		j = 0;
+	}
+	//엔터 13  //쉬프트 16
 }
 void UpdateText()
 {
-	wcscpy_s(str2[j], str1[j]);
-	if (wcscmp(str3[j], str2[j]) == 0)
+	if (wcscmp(str3[o][j], str2[o][j]) == 0)
 	{
-		if (j < 4)
+		if (j < 9)
 		{
 			i = 0;
 			j++;
@@ -50,15 +118,14 @@ void UpdateText()
 	}
 	else
 	{
-		wcsncpy_s(str3[j], str2[j], i);
+		wcsncpy_s(str3[o][j], str2[o][j], i);
 	}
 
 }
 void PrintText()
-{
-	render::DrawTextF(100, 100, str3[0], RGB(0, 0, 255), 50);
-	render::DrawTextF(100, 200, str3[1], RGB(0, 255, 250), 50);
-	render::DrawTextF(100, 300, str3[2], RGB(0, 255, 250), 50);
-	render::DrawTextF(100, 400, str3[3], RGB(0, 255, 250), 50);
-	render::DrawTextF(100, 500, str3[4], RGB(0, 255, 250), 50);
+{	
+	render::DrawTextF(100, 100, str3[o][0], RGB(0, 0, 255), 50);
+	render::DrawTextF(100, 200, str3[o][1], RGB(0, 255, 250), 50);
+	render::DrawTextF(100, 300, str3[o][2], RGB(0, 255, 250), 50);
+	
 }

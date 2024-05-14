@@ -1,5 +1,9 @@
 #pragma once
+#include <fstream>
+#include <string>
+#include <iostream>
 
+void SetScript(int num);
 
 //키입력시 빠르게 업데이트 or 한줄 다 업데이트 후 다음줄로
 void SkipText(float delta);
