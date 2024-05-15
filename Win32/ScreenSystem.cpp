@@ -2,17 +2,19 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
-#include "Animations.h"
+#include "MoveScreen.h"
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
 	NoodleSliceScreen,
 	PlaceFoodScreen,
+	MoveAniScreen
 };
 namespace Screen
 {
 	NoodleSlice noodleSlice;
 	float _timer;
+	ScreenName preScreen = ChooseFoodScreen;
 	ScreenName currentScreen = ChooseFoodScreen;
 	StockGame stock;
 
@@ -77,8 +79,10 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
+			MoveScreen::SetMoveAni();
 			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
-			currentScreen = NoodleSliceScreen;
+			preScreen = currentScreen;
+			currentScreen = MoveAniScreen;
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
@@ -87,11 +91,33 @@ namespace Screen
 		case NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
 			break;
+		case MoveAniScreen:
+			MoveScreen::MoveToScreen();
+			//현재 애니메이션이 종료되면 false가 반환됨
+			if (!MoveScreen::EndMoveScreen()) {
+				switch (preScreen)
+				{
+				case ChooseFoodScreen:
+					currentScreen = NoodleSliceScreen;
+					break;
+				case StockGameScreen:
+					currentScreen = PlaceFoodScreen;
+					break;
+				case NoodleSliceScreen:
+					currentScreen = StockGameScreen;
+					break;
+				case PlaceFoodScreen:
+					currentScreen = NoodleSliceScreen;
+					break;
+				default:
+					break;
+				}
+			}
+			break;
 		case PlaceFoodScreen:
 			break;
 		default:
 			break;
 		}
-		Animations::RenderAnimation();
 	}
 }

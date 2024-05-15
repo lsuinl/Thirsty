@@ -5,7 +5,6 @@
 #include "GameManager.h"
 #include <string>
 #include "ScreenSystem.h"
-#include "Animations.h"
 namespace game
 {
 	const char* texts = "22";
@@ -18,8 +17,6 @@ namespace game
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
-		Animations::LoadImageList();
-		Animations::SetAnimation("테스트");//임시
 	}
 	void GameManager::Update()
 	{
