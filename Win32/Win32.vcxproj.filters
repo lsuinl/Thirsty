@@ -14,7 +14,6 @@
     <ClCompile Include="StockGame.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="WinApp.cpp" />
-    <ClCompile Include="ScreenTransition.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +33,6 @@
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="GlobalHeader.h" />
-    <ClInclude Include="ScreenTransition.h" />
     <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>

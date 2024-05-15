@@ -141,7 +141,6 @@
     <ClCompile Include="NoodleSlice.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
-    <ClCompile Include="ScreenTransition.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StockGame.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
@@ -160,7 +159,6 @@
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScreenSystem.h" />
-    <ClInclude Include="ScreenTransition.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />
     <ClInclude Include="TimeSystem.h" />

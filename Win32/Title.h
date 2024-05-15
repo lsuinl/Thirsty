@@ -1,15 +1,14 @@
 #pragma once
 #include "RenderSystem.h"
+#include "ScreenSystem.h"
+#include "InputSystem.h"
 #include "Button.h"
 
-class Title
+namespace Title
 {
-public:
-	void TitleUpdate();
+	void isEsc();
+	void TitleCheckClick(int x, int y);
 	void StartButton();
 	void TutorialButton();
 	void TitleRender();
-
-private:
-
 };

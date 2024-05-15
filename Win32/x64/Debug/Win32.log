@@ -1,8 +1,18 @@
-﻿  Title.cpp
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
-  
-  Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
+﻿  GameManager.cpp
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(66,24): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\GameManager.cpp(70,22): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ScreenSystem.cpp
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(59,50): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(60,45): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ScreenTransition.cpp
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  Title.cpp
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\com\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  코드를 생성하고 있습니다...
+  Win32.vcxproj -> C:\Users\com\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe

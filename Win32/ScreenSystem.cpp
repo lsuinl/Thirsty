@@ -8,10 +8,14 @@
 namespace Screen
 {
 	NoodleSlice noodleSlice;
-	ScreenName priviewScreen = ChooseFoodScreen;
-	ScreenName currentScreen = TitleScreen;
 	StockGame stock;
-	Title title;
+
+	ScreenName currentScreen = TitleScreen;
+
+	void SetScreen(ScreenName screen)
+	{
+		currentScreen = screen;
+	}
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -32,6 +36,15 @@ namespace Screen
 			break;
 		case PlaceFoodScreen:
 			break;
+		case TitleScreen:
+			if (input::IsSame(mouse, premouse))
+			{
+				return;
+			}
+			if (mouse.left) {
+				Title::TitleCheckClick(mouse.x, mouse.y);
+			}
+			break;
 		default:
 			break;
 		}
@@ -48,12 +61,16 @@ namespace Screen
 			break;
 		case NoodleSliceScreen:
 			noodleSlice.UpdateGame();
+			// 성공했거나 시간 지났을 때
 			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
 			{
 				currentScreen = StockGameScreen;
 			}
 			break;
 		case PlaceFoodScreen:
+			break;
+		case TitleScreen:
+			Title::isEsc();
 			break;
 		default:
 			break;
@@ -67,8 +84,8 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
-			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
-			currentScreen = NoodleSliceScreen;
+			//noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
+			//currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
@@ -80,7 +97,7 @@ namespace Screen
 		case PlaceFoodScreen:
 			break;
 		case TitleScreen:
-			title.TitleRender();
+			Title::TitleRender();
 			break;
 		default:
 			break;

@@ -1,5 +1,6 @@
 #pragma once
 #include "GlobalHeader.h"
+
 namespace Screen
 {
 	enum ScreenName {
@@ -10,6 +11,7 @@ namespace Screen
 		TitleScreen,
 	};
 
+	void SetScreen(ScreenName screen);
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse);
 	void InputKeyBoard();
 	void ScreenRender();
