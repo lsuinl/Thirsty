@@ -10,10 +10,12 @@
 #include "ScreenSystem.h"
 #include "Animations.h"
 #include "Scenario.h"
+#include "TextList.h"
 namespace game
 {
 	const char* texts = "22";
 	GameManager* GameManager::instance = nullptr;
+	TextList* textList = TextList::GetInstance();
 	GameManager::GameManager(){}
 	GameManager::~GameManager(){}
 
@@ -21,6 +23,7 @@ namespace game
 	{
 		input::InitInput();
 		TimeSystem::InitTime();
+		textList->LoadtTextAll();
 		SetScript(1);
 		render::InitRender();
 		Animations::LoadImageList();

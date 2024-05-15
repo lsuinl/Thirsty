@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "RenderSystem.h"
 #include "InputSystem.h"
+#include "Button.h"
 struct boxObject
 {
 	float x;
@@ -53,13 +54,6 @@ private:
 	bool isTimeOver = false;
 
 
-	//float printTime;
-	//const wchar_t* str1[5] = { L"흔히 이승에서  aadwad사는 유령은 1234567890 ㅂㅈㄷㄱ ㅁㄴㅇㄹ ㅋㅌㅊㅍ", 
-	//	L"흔히 저승에서  어쩌구 저쩌구  안녕하세요 유령입니다ㅈㅁㅇfadwadwad",L"adwadwadd",L"dwadwadwa",L"dwad끝끝끝끝끝"};  //시나리오 대사를 미리 입력해둘1
-	//wchar_t str2[5][100];  //각 시나리오일떄 1번을 카피해서 저장해둘 2
-	//wchar_t str3[5][100];  //하나씩 출력할떄 저장해둘 3
-	//int i = 0;
-	//int j = 0;
 
 
 public:
@@ -68,7 +62,6 @@ public:
 	boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
 	boxObject redBox = { 900, 900, 360, 90 ,0.8 ,RGB(255,0 ,0) };
 	boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
-
 	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
 
@@ -104,18 +97,6 @@ public:
 
 	//게임 스코어 반환
 	int GameScore();
-
-
-
-	////키입력시 빠르게 업데이트 or 한줄 다 업데이트 후 다음줄로
-	//void SkipText(float delta);
-
-	////텍스트를 한글자씩 복사해서 업데이트
-	//void UpdateText();
-	//
-	////텍스트 출력
-	//void PrintText();
-
 
 
 };

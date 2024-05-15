@@ -21,6 +21,8 @@ namespace render
 
     void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize);
 
+    int GetTextWidth(HDC hdc, const wchar_t* text, int length);
+
     void DrawFont(int x, int y, const char* text, COLORREF color, int fontSize, const wchar_t* fontName, int fontStyle);
 
     void DrawBitmap(int x, int y, HBITMAP hBitmap);

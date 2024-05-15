@@ -136,15 +136,38 @@ namespace render
         // 백 버퍼에 텍스트 그리기
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);
-        SetTextColor(backMemDC, color);
         SetBkMode(backMemDC, TRANSPARENT); // 배경을 투명으로 설정
-        TextOutW(backMemDC, x, y, text, wcslen(text));
-        SelectObject(backMemDC, oldFont);
-        SelectObject(backMemDC, oldFont);
 
+
+        int currentX = x;
+        int currentY = y;
+
+        // 문자열 출력
+        for (size_t i = 0; i < wcslen(text); ++i)
+        {
+            wchar_t ch = text[i];
+            if (currentX >= 1500)
+            {
+                currentX = x; // x 위치 초기화
+                currentY += 100; // y 위치 증가
+            }
+
+            TextOutW(backMemDC, currentX, currentY, &ch, 1);
+            currentX += GetTextWidth(backMemDC, &ch, 1); // 문자 폭만큼 x 증가
+        }
+
+
+
+        SelectObject(backMemDC, oldFont);
         DeleteObject(currentFont);
     }
 
+    int GetTextWidth(HDC hdc, const wchar_t* text, int length)
+    {
+        SIZE size;
+        GetTextExtentPoint32W(hdc, text, length, &size);
+        return size.cx;
+    }
     void DrawBitmap(int x, int y, HBITMAP hBitmap)
     {
         HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
