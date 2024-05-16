@@ -6,9 +6,8 @@ namespace Title
 	bool isStart = false;
 	bool isTutorial = false;
 
-	button::Button startButton = { "start", 1100, 600, 300, 100, "resource/object/start.bmp", StartButton };
-	button::Button tutorialButton = { "tutorial", 1100, 750, 300, 100, "resource/object/tutorial.bmp", TutorialButton };
-
+	button::Button startButton = { "start", 1100, 600, 300, 100, L"resource\\object\\start.bmp", StartButton };
+	button::Button tutorialButton = { "tutorial", 1100, 750, 300, 100, L"resource\\object\\tutorial.bmp", TutorialButton };
 
 	void Title::TitleCheckClick(int x, int y)
 	{
@@ -18,7 +17,7 @@ namespace Title
 		}
 		if (tutorialButton.CheckClick(x, y))
 		{
-			tutorialButton	.PlayFunction();
+			tutorialButton.PlayFunction();
 		}
 	}
 
@@ -33,7 +32,7 @@ namespace Title
 	void Title::StartButton()
 	{
 		isStart = true;
-		Screen::SetScreen(Screen::ScreenName::ChooseFoodScreen);
+		Screen::SetScreen(Screen::ScreenName::StoryScreen);
 	}
 
 	void Title::TutorialButton()

@@ -67,54 +67,54 @@ namespace ChooseFood
 
 	button::Button buttonList[5] =
 	{
-		button::Button("왼쪽",80,500,100,100, "resource/object/left.bmp",LeftPage),
-		button::Button("오른쪽",1280, 500, 100, 100, "resource/object/right.bmp",RightPage),
-		button::Button("위쪽",1500,100, 100, 100, "resource/object/up.bmp",UpBasket),
-		button::Button("아래쪽",1500, 900, 100, 100, "resource/object/down.bmp",DownBasket),
-		button::Button("완료",1650, 50, 200, 100, "resource/background/back.bmp",Selected),
+		button::Button("왼쪽",80,500,100,100, L"resource\\object\\left.bmp",LeftPage),
+		button::Button("오른쪽",1280, 500, 100, 100, L"resource\\object\\right.bmp",RightPage),
+		button::Button("위쪽",1500,100, 100, 100, L"resource\\object\\up.bmp",UpBasket),
+		button::Button("아래쪽",1500, 900, 100, 100, L"resource\\object\\down.bmp",DownBasket),
+		button::Button("완료",1650, 50, 200, 100, L"resource\\background\\back.bmp",Selected),
 	};
 
 	button::DragDrop noodleButtonList[3] =
 	{
-		button::DragDrop("납작면",300,400, 300, 300, "resource/object/Prriceshrimp.bmp",Test),
-		button::DragDrop("기본면",650, 600, 300, 300, "resource/object/Prriceshrimp.bmp", Test),
-		button::DragDrop("소면",1000, 400, 300, 300, "resource/object/Prriceshrimp.bmp", Test),
+		button::DragDrop("납작면",300,400, 300, 300, L"resource\\object\\Prriceshrimp.bmp",Test),
+		button::DragDrop("기본면",650, 600, 300, 300, L"resource\\object\\Prriceshrimp.bmp", Test),
+		button::DragDrop("소면",1000, 400, 300, 300, L"resource\\object\\Prriceshrimp.bmp", Test),
 	};
 
 	button::DragDrop soupButtonList[11] =
 	{
-		button::DragDrop("멸치",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
-		button::DragDrop("건다시마",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
-		button::DragDrop("쯔유",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("소금",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("무",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("국간장",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("마른 디포리",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("건표고버섯",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("가쓰오부시",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("설탕",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("진간장",1080, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::DragDrop("멸치",300,400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",UpBasket),
+		button::DragDrop("건다시마",380, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",DownBasket),
+		button::DragDrop("쯔유",460, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("소금",540, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("무",620, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("국간장",700, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("마른 디포리",780, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("건표고버섯",860, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("가쓰오부시",940, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("설탕",1000, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("진간장",1080, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
 	};
 
 	button::DragDrop decortaionButtonList[17] =
 	{
-		button::DragDrop("대파",300,400, 200, 200, "resource/object/Prriceshrimp.bmp",UpBasket),
-		button::DragDrop("시치미",380, 600, 200, 200, "resource/object/Prriceshrimp.bmp",DownBasket),
-		button::DragDrop("쪽파",460, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("표고버섯",540, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("팽이버섯",620, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("직화고기",700, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("양파",780, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("두부",860, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("호박",940, 400, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("썬유부",1000, 600, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("꼬치어묵",380, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("쑥갓",540, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("고춧가루",700, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("청양고추",860, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("썬김(김채)",1000, 200, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("납작어묵",540, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
-		button::DragDrop("새우튀김",700, 800, 200, 200, "resource/object/Prriceshrimp.bmp",Selected),
+		button::DragDrop("대파",300,400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",UpBasket),
+		button::DragDrop("시치미",380, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",DownBasket),
+		button::DragDrop("쪽파",460, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("표고버섯",540, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("팽이버섯",620, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("직화고기",700, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("양파",780, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("두부",860, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("호박",940, 400, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("썬유부",1000, 600, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("꼬치어묵",380, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("쑥갓",540, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("고춧가루",700, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("청양고추",860, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("썬김(김채)",1000, 200, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("납작어묵",540, 800, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
+		button::DragDrop("새우튀김",700, 800, 200, 200, L"resource\\object\\Prriceshrimp.bmp",Selected),
 	};
 
 	void ChooseScreen() 

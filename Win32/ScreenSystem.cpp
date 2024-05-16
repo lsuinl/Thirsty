@@ -12,7 +12,7 @@ namespace Screen
 	NoodleSlice noodleSlice;
 	float _timer;
 	ScreenName preScreen = StoryScreen;
-	ScreenName currentScreen = StoryScreen;
+	ScreenName currentScreen = TitleScreen;
 	StockGame stock;
 
 	void SetScreen(ScreenName screen)
