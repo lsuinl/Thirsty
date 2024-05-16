@@ -63,7 +63,14 @@ namespace ChooseFood
 	int originXPos = 0;
 	int originYPos = 0;
 	int bNum = 0;
-	button::DragDrop* basket[15];
+	button::DragDrop basket[15] =
+	{
+		button::DragDrop("바구니",1485,200,150,100, L"resource\\object\\basket.bmp",Selected),
+		button::DragDrop("바구니",1485,350,150,100, L"resource\\object\\basket.bmp",Selected),
+		button::DragDrop("바구니",1485,500,150,100, L"resource\\object\\basket.bmp",Selected),
+		button::DragDrop("바구니",1485,650,150,100, L"resource\\object\\basket.bmp",Selected),
+		button::DragDrop("바구니",1485,800,150,100, L"resource\\object\\basket.bmp",Selected),
+	};
 
 	button::Button buttonList[5] =
 	{
@@ -73,7 +80,7 @@ namespace ChooseFood
 		button::Button("아래쪽",1500, 900, 100, 100, L"resource\\object\\down.bmp",DownBasket),
 		button::Button("완료",1650, 50, 200, 100, L"resource\\background\\back.bmp",Selected),
 	};
-	
+
 	button::DragDrop noodleButtonList[3] =
 	{
 		button::DragDrop("납작면",300,400, 300, 300, L"resource\\object\\Prriceshrimp.bmp",Test),
@@ -125,13 +132,14 @@ namespace ChooseFood
 		//바구니 그리기
 		for (int i = basketIndex; i < basketIndex + 5; i++)
 		{
-			if (basket[i] == nullptr)
+			if (basket[i].name == "바구니")
 			{
-				render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
+				//render::DrawTextF(1535, 200 - ((basketIndex - i) * 150), std::to_string(i).c_str(), RGB(0, 0, 0), 60);
+				render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 - ((basketIndex - i) * 150), true);
 			}
 			else
 			{
-				basket[i]->DrawButton();
+				basket[i].DrawButton();
 			}
 			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 - ((basketIndex - i) * 150), true);
 			//바구니에 재료가 들어가 있는 경우 재료도 함께 출력(임시로 인덱스 출력하였음)
@@ -183,7 +191,7 @@ namespace ChooseFood
 	//-------------
 	void CheckDragButton(int dx, int dy) {
 		if (draggingButton == nullptr) { //드래그중인 버튼이 없는 경우에만 검사
-			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 0)
 				{
@@ -199,7 +207,7 @@ namespace ChooseFood
 					}
 				}
 			}
-			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 1)
 				{
@@ -215,7 +223,7 @@ namespace ChooseFood
 					}
 				}
 			}
-			for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 2)
 				{
@@ -240,7 +248,7 @@ namespace ChooseFood
 	{
 		if (draggingButton != nullptr)
 		{
-			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 0)
 				{
@@ -252,10 +260,10 @@ namespace ChooseFood
 						//현재 야매로 되어있움 야호
 						if (currentX > 1485 - 130 && currentY > 200 - 120)
 						{
-							draggingButton->setPos(1500, 200 + 150 * bNum);
+							draggingButton->setPos(basket[bNum].getXPos(), basket[bNum].getYPos());
 							draggingButton->width = 100;
 							draggingButton->height = 100;
-							basket[bNum] = draggingButton;
+							basket[bNum] = *draggingButton;
 							bNum++;
 						}
 						//바구니 안이 아닌경우 원래자리로 돌아가기.
@@ -273,21 +281,40 @@ namespace ChooseFood
 					}
 				}
 			}
-			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 1)
 				{
-					if (soupButtonList[i].isDragging)
+					if (draggingButton->isDragging)
 					{
-						//현재위치 검사하여, 바구니 안인 경우 뭐였지.
+						//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
+						int currentX = draggingButton->getXPos();
+						int currentY = draggingButton->getYPos();
+						//현재 야매로 되어있움 야호
+						if (currentX > 1485 - 130 && currentY > 200 - 120)
+						{
+							draggingButton->setPos(basket[bNum].getXPos(), basket[bNum].getYPos());
+							draggingButton->width = 100;
+							draggingButton->height = 100;
+							basket[bNum] = *draggingButton;
+							bNum++;
+						}
 						//바구니 안이 아닌경우 원래자리로 돌아가기.
+						else
+						{
+							draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+							draggingButton->width = 300;
+							draggingButton->height = 300;
+						}
 						//noodleButtonList[i]getdragging ==false로변경
+						draggingButton->isDragging = false;
+						//draggingButton에 있는 값 없애기
 						draggingButton = nullptr;
 						break;
 					}
 				}
 			}
-			for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::Button); i++)
+			for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::DragDrop); i++)
 			{
 				if (screenIndex == 2)
 				{
@@ -303,6 +330,14 @@ namespace ChooseFood
 				}
 			}
 		}
+		for (int i = basketIndex; i < basketIndex + 5; i++)
+		{
+			if (basket[i].CheckRightClick(dx, dy))
+			{
+				basket[i].Reset();
+				break;
+			}
+		}
 	}
 
 	//면, 육수, 고명 선택 화면
@@ -310,7 +345,7 @@ namespace ChooseFood
 	{
 		render::DrawTextF(130, 90, "면 선택", RGB(0, 0, 0), 60);
 		//면 재료 출력
-		for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
+		for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::DragDrop); i++)
 		{
 			noodleButtonList[i].DrawButton();
 		}
@@ -320,7 +355,7 @@ namespace ChooseFood
 	{
 		render::DrawTextF(130, 90, "육수 선택", RGB(0, 0, 0), 60);
 		//육수 재료 출력
-		for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
+		for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 		{
 			soupButtonList[i].DrawButton();
 		}
@@ -330,7 +365,7 @@ namespace ChooseFood
 	{
 		render::DrawTextF(130, 90, "고명 선택", RGB(0, 0, 0), 60);
 		//고명 재료 출력
-		for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::Button); i++)
+		for (int i = 0; i < sizeof(decortaionButtonList) / sizeof(button::DragDrop); i++)
 		{
 			decortaionButtonList[i].DrawButton();
 		}
@@ -354,12 +389,14 @@ namespace ChooseFood
 	{
 		game::texts = "위쪽";
 		basketIndex--;
+		basket[bNum].setPos(1500, 200 + 150 * (bNum + basketIndex));
 	}
 
 	void DownBasket()
 	{
 		game::texts = "아래쪽: ";
 		basketIndex++;
+		basket[bNum].setPos(1500, 200 + 150 * (bNum - basketIndex));
 	}
 
 	//선택완료버튼
@@ -378,7 +415,6 @@ namespace ChooseFood
 			int yPos = mouse.y - 120;
 			if (input::GetMouseState().isDragging)
 			{
-
 				draggingButton->setPos(xPos, yPos);
 			}
 		}

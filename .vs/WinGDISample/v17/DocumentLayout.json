@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\ChooseFood.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|D:\\Thirsty\\Win32\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|D:\\Thirsty\\Win32\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{43C0405D-5592-4E94-97E8-AF3C83851446}|Win32\\Win32.vcxproj|solutionrelative:Win32\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -30,15 +26,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Button.h",
               "DocumentMoniker": "D:\\Thirsty\\Win32\\Button.h",
               "RelativeDocumentMoniker": "Win32\\Button.h",
               "ToolTip": "D:\\Thirsty\\Win32\\Button.h",
               "RelativeToolTip": "Win32\\Button.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:05.122Z"
+              "WhenOpened": "2024-05-14T04:50:05.122Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,7 +45,7 @@
               "RelativeDocumentMoniker": "Win32\\Button.cpp",
               "ToolTip": "D:\\Thirsty\\Win32\\Button.cpp",
               "RelativeToolTip": "Win32\\Button.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAqwDYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-14T04:48:29.363Z",
               "EditorCaption": ""
@@ -57,20 +54,8 @@
         },
         {
           "DockedWidth": 206,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RenderSystem.cpp",
-              "DocumentMoniker": "D:\\Thirsty\\Win32\\RenderSystem.cpp",
-              "RelativeDocumentMoniker": "Win32\\RenderSystem.cpp",
-              "ToolTip": "D:\\Thirsty\\Win32\\RenderSystem.cpp",
-              "RelativeToolTip": "Win32\\RenderSystem.cpp",
-              "ViewState": "AQIAAHwAAAAAAAAAAAAuwKoAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T11:26:42.902Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -79,7 +64,7 @@
               "RelativeDocumentMoniker": "Win32\\ChooseFood.cpp",
               "ToolTip": "D:\\Thirsty\\Win32\\ChooseFood.cpp",
               "RelativeToolTip": "Win32\\ChooseFood.cpp",
-              "ViewState": "AQIAAO0AAAAAAAAAAAAAAFsAAABcAAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAAYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-14T04:58:32.967Z",
               "EditorCaption": ""
