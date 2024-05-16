@@ -3,7 +3,7 @@
 #include "GameManager.h"
 namespace button {
 
-    Button::Button(const char* name,int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
+    Button::Button(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
@@ -12,24 +12,51 @@ namespace button {
         this->height = height;
         this->image = image;
         this->onClickFunction = onClick;
-    }   
-    void Button::DrawButton() 
+    }
+    void Button::DrawButton()
     {
         render::DrawObject(image, width, height, x, y, true);
-    } 
+    }
     bool Button::CheckClick(int dx, int dy)
     {
-        if (dx >= x && dx <= x + width && dy >= y && dy <= y + height) 
+        if (dx >= x && dx <= x + width && dy >= y && dy <= y + height)
         {
             return true;
         }
         return false;
     }
-    void Button::PlayFunction() 
+    void Button::PlayFunction()
     {
         this->onClickFunction();
     }
 
+    DragDrop::DragDrop()
+    {
+
+    }
+    DragDrop::~DragDrop() {}
+
+    bool DragDrop::CheckRightClick(int x, int y)
+    {
+        const input::MouseState& mouse = input::GetMouseState();
+        if (mouse.right && x >= this->x && x <= (this->x + this->width) &&
+            y >= this->y && y <= (this->y + this->height)) {
+            return true;
+        }
+        return false;
+    }
+
+    void DragDrop::Reset()
+    {
+        // DragDrop 객체를 초기 상태로 재설정
+        this->name = "바구니";
+        this->setPos(this->originX, this->originY);
+        this->width = 150;
+        this->height = 100;
+        this->isDragging = false;
+
+
+    }
 
     DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
     {
