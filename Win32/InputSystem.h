@@ -16,6 +16,8 @@ namespace input
 
     bool IsKey(unsigned int key);
 
+    void InitMouse();
+
     struct MouseState
     {
         MouseState()
@@ -26,6 +28,7 @@ namespace input
             left = false;
             right = false;
             middle = false;
+            isDragging = false;
         }
 
         int x;
@@ -34,6 +37,7 @@ namespace input
         bool left;
         bool right;
         bool middle;
+        bool isDragging;
     };
 
     void UpdateMouse();

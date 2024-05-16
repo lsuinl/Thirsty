@@ -1,5 +1,6 @@
 #include "WinApp.h"
 #include "InputSystem.h"
+#include "Button.h"
 
 namespace input
 {
@@ -74,11 +75,15 @@ namespace input
         curMouse.y = pt.y;
         curMouse.wheel = 0;
 
-        curMouse.left = (GetKeyState(VK_LBUTTON) & 0x8000) != 0;
-        curMouse.right = (GetKeyState(VK_RBUTTON) & 0x8000) != 0;
-        curMouse.middle = (GetKeyState(VK_MBUTTON) & 0x8000) != 0;
-    }
+        curMouse.left = (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
+        curMouse.right = (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
+        curMouse.middle = (GetAsyncKeyState(VK_MBUTTON) & 0x8000) != 0;
 
+        curMouse.isDragging = (GetKeyState(VK_LBUTTON) & 0x8001) != 0;
+        curMouse.isDragging = (GetKeyState(VK_LBUTTON) & 0x0001) == 0;
+
+    }
+ 
     const MouseState& GetMouseState()
     {
         return curMouse;
@@ -105,4 +110,5 @@ namespace input
     {
         return a.x == b.x && a.y == b.y && a.wheel == b.wheel && a.left == b.left && a.right == b.right && a.middle == b.middle;
     }
+
 }

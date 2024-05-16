@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
-    <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -14,11 +13,12 @@
     <ClCompile Include="StockGame.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="WinApp.cpp" />
-    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="LoadData.cpp" />
+    <ClCompile Include="PlayerData.cpp" />
+    <ClCompile Include="MoveScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
-    <ClInclude Include="Animations.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="GameManager.h" />
@@ -33,7 +33,9 @@
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="GlobalHeader.h" />
-    <ClInclude Include="Title.h" />
+    <ClInclude Include="LoadData.h" />
+    <ClInclude Include="PlayerData.h" />
+    <ClInclude Include="MoveScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="01.WinAPI.rc" />

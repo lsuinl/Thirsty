@@ -4,6 +4,8 @@ namespace ChooseFood
 	
 	//버튼 클릭 상호작용 체크
 	void CheckButton(int dx,int dy);
+	void CheckDragButton(int dx,int dy);
+	void CheckDropButton(int dx,int dy);
 
 	//면, 육수, 고명 선택 화면
 	void NoodleScreen();
@@ -20,4 +22,6 @@ namespace ChooseFood
 
 	//선택완료버튼
 	void Selected();
+
+	void Test();
 }
