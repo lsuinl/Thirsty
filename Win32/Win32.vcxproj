@@ -146,6 +146,7 @@
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StockGame.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />
     <ClInclude Include="TimeSystem.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>
