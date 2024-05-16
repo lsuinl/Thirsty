@@ -1,4 +1,1 @@
-﻿  Scenario.cpp
-C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\Win32\Scenario.cpp(53,22): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\Win32\Scenario.cpp(89,33): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Win32.vcxproj -> C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\x64\Debug\우동 한 그릇.exe
+﻿  Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe

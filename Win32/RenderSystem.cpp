@@ -149,7 +149,7 @@ namespace render
             if (currentX >= 1500)
             {
                 currentX = x; // x 위치 초기화
-                currentY += 100; // y 위치 증가
+                currentY += 50; // y 위치 증가
             }
 
             TextOutW(backMemDC, currentX, currentY, &ch, 1);

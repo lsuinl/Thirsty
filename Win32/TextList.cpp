@@ -7,12 +7,14 @@ TextList* TextList::instance = nullptr;
 
 void TextList::LoadtTextAll()
 {
+    //스테이지 시나리오 엔딩시나리오 다 추가 
 	stage1 = LoadText("resource/object/test.txt");
+    stage2 = LoadText("resource/object/test2.txt");
 }
 wchar_t* TextList::LoadText(const char* _path)
 {
 	std::wifstream fin;
-	fin.open(_path);  //const char로 경로 앞부분 설정해서 합치는 작업필요
+	fin.open(_path);  
 	fin.imbue(std::locale("Korean"));
 
     int size = 0;
@@ -28,10 +30,9 @@ wchar_t* TextList::LoadText(const char* _path)
     fin.clear();
     fin.seekg(0, std::ios::beg);
 
-    // 문자열을 저장할 버퍼 할당
+    // 문자열을 크기만큼 할당
     wchar_t* Src = new wchar_t[size + 1];
 
-    // 파일 내용을 읽어와서 버퍼에 저장
     fin.read(Src, size);
     Src[size] = L'\0'; // 문자열 마지막에 널 종료 문자 추가
 

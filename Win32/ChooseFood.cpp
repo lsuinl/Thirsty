@@ -84,6 +84,8 @@ namespace ChooseFood
 			DecorationScreen();
 		}
 
+
+
 		//바구니 그리기
 		for (int i = basketIndex; i < basketIndex + 5; i++) 
 		{

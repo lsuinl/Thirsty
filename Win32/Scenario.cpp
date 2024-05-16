@@ -5,11 +5,8 @@
 
 float printTime;
 
-
-wchar_t str1[500]; //파일에서 다받아올부분
 wchar_t* p = nullptr;
 wchar_t* token;
-int filecount = 0;
 TextList* textList1 = TextList::GetInstance();
 int curChar = 0;     //복사해서 출력한 문자길이
 int maxChar = 0; //한 문장의 끝                  ///나중에 키입력으로 다음 문장으로 넘어가면 그문장의 사이즈를 재서 설정
@@ -19,7 +16,7 @@ int maxPage = 0;   // 한 시나리오의 마지막 페이지 이 시나리가 몇페이지인지 구해�
 wchar_t str2[10][500];    // 파일다 받아온걸 구분자로 잘라서 담아둘부분
 wchar_t str3[10][500];    //한글자씩 출력할려고 카피할부분
 
-int i = 0;
+
 void SetScript(int num)
 {
 	if (num == 1)
@@ -35,13 +32,13 @@ void SetScript(int num)
 	else if (num == 2)
 	{
 		//num을 스테이지 번호라고 생각하고 구현생각중 논의필요
-		/*token = wcstok_s(textList1->stage2, L"&", &p);
+		token = wcstok_s(textList1->stage2, L"&", &p);
 		while (token != NULL)
 		{
-			wcscpy_s(str2[i], token);
+			wcscpy_s(str2[maxPage], token);
 			token = wcstok_s(NULL, L"&", &p);
-			i++;
-		}*/
+			maxPage++;
+		}
 
 	}
 
@@ -58,12 +55,23 @@ void SkipText(float delta)
 	}
 	else
 	{
-		printTime = 1000;
+		printTime = 100;
 	}
 	//해당페이지 다 뜨게핣부분
-	if (input::IsKeyUp(9))
+	if(input::IsKeyUp(9))
 	{
-		curChar = maxChar;                     
+		if (curChar != maxChar)
+		{
+			curChar = maxChar;
+		}
+		//else
+		//{
+		//	if (curPage < maxPage - 1) // 추가필요 막장일경우 키입력시 미니게임으로 가거나 버튼출력으로 미니게임진입
+		//	{                          // 버튼한개로 몰고싶은대 배경전환과 관련해서 문제가있음  bool값으로 max출력인지 다음페이지인지
+		//		curPage++;             //확인해서 해야할듯? 다음페이지는 마우스클릭이었나?
+		//		curChar = 0;
+		//	}
+		//}
 	}
 	if (elapsedTime >= printTime)
 	{
@@ -76,18 +84,21 @@ void SkipText(float delta)
 	//다 출력됬을때 다음페이지로 넘길부분
 	if (input::IsKeyUp(16))
 	{
-		if (curPage < maxPage - 1) // 추가필요 5를 maxPage-1 값으로 막장일경우 키입력시 미니게임으로 가거나 버튼출력으로 미니게임진입
+		if (curPage < maxPage - 1) // 추가필요 막장일경우 키입력시 미니게임으로 가거나 버튼출력으로 미니게임진입
 		{
 			curPage++;
 			curChar = 0;
 		}
 	}
-	//엔터 13  //쉬프트 16
+	//탭 9   //엔터 13  //쉬프트 16
 }
+
 void UpdateText()
 {
+	
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar);
+	// if(curPage == maxChar) 맥스면 버튼클릭 가능하게끔
 }
 void PrintText()
 {	

@@ -5,8 +5,10 @@
 #include "StockGame.h"
 #include "Animations.h"
 #include "Scenario.h"
+#include "Story.h"
 
 enum ScreenName {
+	StoryScreen,
 	ChooseFoodScreen,
 	StockGameScreen,
 	NoodleSliceScreen,
@@ -14,13 +16,15 @@ enum ScreenName {
 };
 namespace Screen
 {
-	ScreenName currentScreen = StockGameScreen;
+	ScreenName currentScreen = StoryScreen;
 	StockGame stock;
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
+		case StoryScreen:
+			break;
 		case ChooseFoodScreen:
 			if (input::IsSame(mouse, premouse))
 			{
@@ -44,13 +48,17 @@ namespace Screen
 	void InputKeyBoard() {
 		switch (currentScreen)
 		{
+		case StoryScreen:
+			if (ChangeBack(TimeSystem::GetDeltaTime()) == true)
+			{
+				currentScreen = ChooseFoodScreen;
+			}
+			break;
 		case ChooseFoodScreen:
 			break;
 		case StockGameScreen:
 			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
 			stock.UpdateGame(TimeSystem::GetDeltaTime());
-			SkipText(TimeSystem::GetDeltaTime());
-			UpdateText();
 			break;
 		case NoodleSliceScreen:
 			break;
@@ -67,12 +75,14 @@ namespace Screen
 	void ScreenRender() {
 		switch (currentScreen)
 		{
+		case StoryScreen:
+			DrawBack();
+			break;
 		case ChooseFoodScreen:
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
 			stock.RenderStockGame();
-			PrintText();
 			break;
 		case NoodleSliceScreen:
 			break;

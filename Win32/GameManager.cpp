@@ -11,6 +11,7 @@
 #include "Animations.h"
 #include "Scenario.h"
 #include "TextList.h"
+#include "Story.h"
 namespace game
 {
 	const char* texts = "22";
@@ -24,7 +25,7 @@ namespace game
 		input::InitInput();
 		TimeSystem::InitTime();
 		textList->LoadtTextAll();
-		SetScript(1);
+		SetStage(1);
 		render::InitRender();
 		Animations::LoadImageList();
 		Animations::SetAnimation("테스트");//임시

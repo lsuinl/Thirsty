@@ -46,6 +46,9 @@
     <ClCompile Include="TextList.cpp">
       <Filter>4.scene\2.Story</Filter>
     </ClCompile>
+    <ClCompile Include="Story.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -94,6 +97,9 @@
       <Filter>4.scene\2.Story</Filter>
     </ClInclude>
     <ClInclude Include="TextList.h">
+      <Filter>4.scene\2.Story</Filter>
+    </ClInclude>
+    <ClInclude Include="Story.h">
       <Filter>4.scene\2.Story</Filter>
     </ClInclude>
   </ItemGroup>
