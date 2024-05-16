@@ -2,6 +2,12 @@
 
 namespace input
 {
+    // 키 코드 입력됐냐?
+    bool IsKeyCode();
+
+    // SET 키 코드
+    void SetKeyCode(bool type);
+
     void InitInput();
 
     void ResetInput();

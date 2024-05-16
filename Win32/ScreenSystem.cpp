@@ -5,20 +5,33 @@
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
+#include "Pause.h"
+#include "TextList.h"
 
 
 namespace Screen
 {
 	NoodleSlice noodleSlice;
-	float _timer;
-	ScreenName preScreen = StoryScreen;
-	ScreenName currentScreen = TitleScreen;
 	StockGame stock;
+	TextList* textList = TextList::GetInstance();
+	float _timer;
+	ScreenName preScreen = TitleScreen;
+	ScreenName currentScreen = TitleScreen;
 
-	void SetScreen(ScreenName screen)
+	void SetScreen()
 	{
-		currentScreen = screen;
+		MoveScreen::SetMoveAni();
+		preScreen = currentScreen;
+		currentScreen = MoveAniScreen;
 	}
+	
+	void ReScreen()
+	{
+		MoveScreen::SetMoveAni();
+		currentScreen = preScreen;
+		currentScreen = MoveAniScreen;
+	}
+
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -62,6 +75,17 @@ namespace Screen
 		default:
 			break;
 		}
+
+		if (pause::GetIsPause())
+		{
+			if (input::IsSame(mouse, premouse))
+			{
+				return;
+			}
+			if (mouse.left) {
+				pause::IsCheckReStart(mouse.x, mouse.y);
+			}
+		}
 	}
 
 	void InputKeyBoard() {
@@ -74,10 +98,19 @@ namespace Screen
 			stock.UpdateGame(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::NoodleSliceScreen:
-			noodleSlice.UpdateGame();
+			pause::IsPause();
+			if (!pause::GetIsPause())
+			{
+				noodleSlice.UpdateGame();
+			}
+			else
+			{
+				pause::CaptureScreen();
+			}
+
 			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
 			{
-				currentScreen = StockGameScreen;
+				SetScreen();
 			}
 			break;
 		case Screen::PlaceFoodScreen:
@@ -90,7 +123,7 @@ namespace Screen
 		case Screen::StoryScreen:
 			if (ChangeBack(TimeSystem::GetDeltaTime()) == true)
 			{
-				currentScreen = ChooseFoodScreen;
+				SetScreen();
 			}
 			break;
 		default:
@@ -105,10 +138,6 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
-			//MoveScreen::SetMoveAni();
-			noodleSlice.SetGame(noodleSlice.STAGE3, noodleSlice.NOODLE2);
-			//preScreen = currentScreen;
-			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
@@ -120,7 +149,35 @@ namespace Screen
 		case Screen::PlaceFoodScreen:
 			break;
 		case Screen::MoveAniScreen:
-			break;
+			MoveScreen::MoveToScreen();
+			//현재 애니메이션이 종료되면 false가 반환됨
+			if (!MoveScreen::EndMoveScreen()) {
+				switch (preScreen)
+				{
+				case TitleScreen:
+					textList->LoadtTextAll();
+					SetScript(1);
+					currentScreen = StoryScreen;
+					break;
+				case StoryScreen:
+					currentScreen = ChooseFoodScreen;
+					break;
+				case ChooseFoodScreen:
+					noodleSlice.SetGame(noodleSlice.STAGE3, noodleSlice.NOODLE2);
+					currentScreen = NoodleSliceScreen;
+					break;
+				case StockGameScreen:
+					currentScreen = PlaceFoodScreen;
+					break;
+				case NoodleSliceScreen:
+					currentScreen = StockGameScreen;
+					break;
+				case PlaceFoodScreen:
+					break;
+				default:
+					break;
+				}
+			}
 		case Screen::TitleScreen:
 			Title::TitleRender();
 			break;
@@ -130,5 +187,10 @@ namespace Screen
 		default:
 			break;
 		}
+
+		if (pause::GetIsPause()) {
+			pause::RenderPause();
+			pause::DrawReStart();
+		}	
 	}
 }

@@ -128,21 +128,33 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
 // 방향키 입력받은 후 처리 시스템
 void NoodleSlice::InputArrow()
 {
-	if (input::IsKeyDown(38)) // up
-	{
-		CompareArrow(UPARROW);
+	if (input::IsKeyCode()) {
+		if (input::IsKeyUp(37)|| input::IsKeyUp(38)|| input::IsKeyUp(39)|| input::IsKeyUp(40))
+		{
+			input::SetKeyCode(false);
+		}
 	}
-	else if (input::IsKeyDown(37)) // left
-	{
-		CompareArrow(LEFTARROW);
-	}
-	else if (input::IsKeyDown(40)) // down
-	{
-		CompareArrow(DOWNARROW);
-	}
-	else if (input::IsKeyDown(39)) // right
-	{
-		CompareArrow(RIGHTARROW);
+	else {
+		if (input::IsKeyDown(38)) // up
+		{
+			CompareArrow(UPARROW);
+			input::SetKeyCode(true);
+		}
+		else if (input::IsKeyDown(37)) // left
+		{
+			CompareArrow(LEFTARROW);
+			input::SetKeyCode(true);
+		}
+		else if (input::IsKeyDown(40)) // down
+		{
+			CompareArrow(DOWNARROW);
+			input::SetKeyCode(true);
+		}
+		else if (input::IsKeyDown(39)) // right
+		{
+			CompareArrow(RIGHTARROW);
+			input::SetKeyCode(true);
+		}
 	}
 }
 

@@ -31,8 +31,8 @@ namespace Title
 
 	void Title::StartButton()
 	{
+		Screen::SetScreen();
 		isStart = true;
-		Screen::SetScreen(Screen::ScreenName::StoryScreen);
 	}
 
 	void Title::TutorialButton()

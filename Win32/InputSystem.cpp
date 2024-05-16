@@ -8,9 +8,20 @@ namespace input
     bool isKeyUp[256];
     bool isKey[256];
 
+    bool isKeyCode = false;
+
     MouseState curMouse;
     MouseState prevMouse;
 
+    bool IsKeyCode()
+    {
+        return isKeyCode;
+    }
+
+    void SetKeyCode(bool type)
+    {
+        isKeyCode = type;
+    }
 
     void ResetInput()
     {

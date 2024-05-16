@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include <string>
 #include "InputSystem.h"
+#include "ScreenSystem.h"
 //면 종류
 enum Noodle 
 {
@@ -347,6 +348,7 @@ namespace ChooseFood
 	//선택완료버튼
 	void Selected() 
 	{
+		Screen::SetScreen();
 		game::texts = "완료";
 	}
 

@@ -51,6 +51,7 @@ public:
 
 	// 게임루프
 	void UpdateGame();
+
 	// 배열 해제
 	void ReleaseGame();
 

@@ -1,8 +1,11 @@
-﻿  Title.cpp
+﻿  ScreenSystem.cpp
 C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
+  (소스 파일 'ScreenSystem.cpp'을(를) 컴파일하는 중)
   
 C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
+  (소스 파일 'ScreenSystem.cpp'을(를) 컴파일하는 중)
   
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(97,50): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(98,45): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(124,43): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
