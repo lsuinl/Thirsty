@@ -25,14 +25,21 @@ namespace Screen
 			{
 				return;
 			}
+
 			if (mouse.left) 
 			{
 				ChooseFood::CheckButton(mouse.x, mouse.y);
+
+				if (mouse.isDragging) {
+					ChooseFood::CheckDragButton(mouse.x, mouse.y);
+				}
 			}
-			if (mouse.isDragging) {
-				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			else if (mouse.right)
+			{
+				ChooseFood::CheckCancelButton(mouse.x, mouse.y);  
 			}
-			else {
+			else 
+			{
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
 			}
 			break;
@@ -77,8 +84,8 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case ChooseFoodScreen:
-			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
-			currentScreen = NoodleSliceScreen;
+			//noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
+			//currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
 		case StockGameScreen:
@@ -92,6 +99,6 @@ namespace Screen
 		default:
 			break;
 		}
-		Animations::RenderAnimation();
+		//Animations::RenderAnimation();
 	}
 }
