@@ -83,7 +83,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
 {
 	m_hInstance = hInstance;
 
-	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©");
+	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©¢Í");
 
 	WNDCLASS wndClass;
 

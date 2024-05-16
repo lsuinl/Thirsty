@@ -56,6 +56,9 @@
       <Filter>3.feature</Filter>
     </ClCompile>
     <ClCompile Include="ScreenSystem.cpp" />
+    <ClCompile Include="Pause.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -119,6 +122,9 @@
       <Filter>3.feature</Filter>
     </ClInclude>
     <ClInclude Include="ScreenSystem.h" />
+    <ClInclude Include="Pause.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1.default">
