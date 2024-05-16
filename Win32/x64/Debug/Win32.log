@@ -1,1 +1,140 @@
-﻿  Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
+﻿  Animator.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Animator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Animator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\Animator.cpp(37,45): warning C4244: '+=': 'ULONGLONG'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Button.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Button.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Button.cpp'을(를) 컴파일하는 중)
+  
+  ChooseFood.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'ChooseFood.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'ChooseFood.cpp'을(를) 컴파일하는 중)
+  
+  GameManager.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\GameManager.cpp(66,24): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\GameManager.cpp(70,22): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  InputSystem.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'InputSystem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'InputSystem.cpp'을(를) 컴파일하는 중)
+  
+  MoveScreen.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'MoveScreen.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'MoveScreen.cpp'을(를) 컴파일하는 중)
+  
+  NoodleSlice.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'NoodleSlice.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'NoodleSlice.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\NoodleSlice.cpp(7,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  RenderSystem.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'RenderSystem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'RenderSystem.cpp'을(를) 컴파일하는 중)
+  
+  Scenario.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Scenario.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Scenario.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\Scenario.cpp(50,17): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\Scenario.cpp(99,18): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ScreenSystem.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'ScreenSystem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'ScreenSystem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(73,50): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(74,45): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\ScreenSystem.cpp(91,43): warning C4244: '인수': 'ULONGLONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SoundManager.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'SoundManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'SoundManager.cpp'을(를) 컴파일하는 중)
+  
+  StockGame.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'StockGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'StockGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(84,18): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(95,127): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(95,97): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(95,63): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(95,30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(96,98): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(96,84): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(96,57): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(96,28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(97,116): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(97,99): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(97,66): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(97,31): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(136,23): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(144,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.cpp(167,17): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Story.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Story.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Story.cpp'을(를) 컴파일하는 중)
+  
+  TimeSystem.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'TimeSystem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'TimeSystem.cpp'을(를) 컴파일하는 중)
+  
+  Title.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'Title.cpp'을(를) 컴파일하는 중)
+  
+  WinApp.cpp
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(63,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다...
+  LINK : C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe

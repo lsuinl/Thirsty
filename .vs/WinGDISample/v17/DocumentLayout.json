@@ -167,8 +167,7 @@
               "RelativeToolTip": "Win32\\MoveScreen.cpp",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-16T05:26:50.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T05:26:50.001Z"
             },
             {
               "$type": "Document",
@@ -180,8 +179,7 @@
               "RelativeToolTip": "Win32\\Button.cpp",
               "ViewState": "AQIAAAcAAAAAAAAAAAAAABgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:48:29.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:48:29.363Z"
             },
             {
               "$type": "Document",
@@ -193,8 +191,7 @@
               "RelativeToolTip": "Win32\\TimeSystem.cpp",
               "ViewState": "AQIAABIAAAAAAAAAAAAAAAQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:53:45.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:53:45.54Z"
             },
             {
               "$type": "Document",
@@ -206,8 +203,7 @@
               "RelativeToolTip": "Win32\\SoundManager.cpp",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:54:31.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:54:31.612Z"
             },
             {
               "$type": "Document",
@@ -219,8 +215,7 @@
               "RelativeToolTip": "Win32\\SoundManager.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:32.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:32.141Z"
             },
             {
               "$type": "Document",
@@ -232,8 +227,7 @@
               "RelativeToolTip": "Win32\\WinApp.cpp",
               "ViewState": "AQIAAEIAAAAAAAAAAAAswE8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:48:38.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:48:38.253Z"
             },
             {
               "$type": "Document",
@@ -258,8 +252,7 @@
               "RelativeToolTip": "Win32\\Title.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-16T04:47:37.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T04:47:37.606Z"
             },
             {
               "$type": "Document",
@@ -271,8 +264,7 @@
               "RelativeToolTip": "Win32\\ChooseFood.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:04.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:04.131Z"
             },
             {
               "$type": "Document",
@@ -284,8 +276,7 @@
               "RelativeToolTip": "Win32\\NoodleSlice.cpp",
               "ViewState": "AQIAAEkAAAAAAAAAAAAjwE8AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:51:29.151Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:51:29.151Z"
             },
             {
               "$type": "Document",
@@ -297,8 +288,7 @@
               "RelativeToolTip": "Win32\\NoodleSlice.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:49:59.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:49:59.749Z"
             },
             {
               "$type": "Document",
@@ -310,8 +300,7 @@
               "RelativeToolTip": "Win32\\PlayerData.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-15T15:26:32.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T15:26:32.854Z"
             },
             {
               "$type": "Document",
@@ -323,8 +312,7 @@
               "RelativeToolTip": "Win32\\LoadData.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-15T15:25:36.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T15:25:36.607Z"
             },
             {
               "$type": "Document",
@@ -336,8 +324,7 @@
               "RelativeToolTip": "Win32\\GlobalHeader.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T06:02:07.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T06:02:07.185Z"
             },
             {
               "$type": "Document",
@@ -349,8 +336,7 @@
               "RelativeToolTip": "Win32\\Animator.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:14.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:14.655Z"
             },
             {
               "$type": "Document",
@@ -362,8 +348,7 @@
               "RelativeToolTip": "Win32\\Animator.cpp",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAACEAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:53:33.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:53:33.304Z"
             },
             {
               "$type": "Document",
@@ -375,8 +360,7 @@
               "RelativeToolTip": "Win32\\TimeSystem.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:36.193Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:36.193Z"
             },
             {
               "$type": "Document",
@@ -388,8 +372,7 @@
               "RelativeToolTip": "Win32\\InputSystem.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:58:26.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:58:26.027Z"
             },
             {
               "$type": "Document",
@@ -401,8 +384,7 @@
               "RelativeToolTip": "Win32\\StockGame.cpp",
               "ViewState": "AQIAABIAAAAAAAAAAAAAABMAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:57:56.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:57:56.873Z"
             },
             {
               "$type": "Document",
@@ -414,8 +396,7 @@
               "RelativeToolTip": "Win32\\StockGame.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:34.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:34.585Z"
             },
             {
               "$type": "Document",
@@ -427,8 +408,7 @@
               "RelativeToolTip": "Win32\\Types.h",
               "ViewState": "AQIAADAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:37.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:37.334Z"
             },
             {
               "$type": "Document",
@@ -440,8 +420,7 @@
               "RelativeToolTip": "Win32\\ChooseFood.cpp",
               "ViewState": "AQIAAHcAAAAAAAAAAADwv4MAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-14T04:58:32.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:58:32.967Z"
             },
             {
               "$type": "Document",
@@ -453,8 +432,7 @@
               "RelativeToolTip": "Win32\\Title.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-16T04:42:12.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T04:42:12.55Z"
             },
             {
               "$type": "Document",
@@ -466,8 +444,7 @@
               "RelativeToolTip": "Win32\\PlayerData.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-15T15:55:29.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T15:55:29.743Z"
             },
             {
               "$type": "Document",
@@ -479,8 +456,7 @@
               "RelativeToolTip": "Win32\\LoadData.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-15T15:25:42.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T15:25:42.892Z"
             },
             {
               "$type": "Document",
@@ -492,8 +468,7 @@
               "RelativeToolTip": "Win32\\ScreenSystem.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:49:39.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:49:39.061Z"
             },
             {
               "$type": "Document",
@@ -505,8 +480,7 @@
               "RelativeToolTip": "Win32\\InputSystem.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:01.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:01.801Z"
             },
             {
               "$type": "Document",
@@ -518,8 +492,7 @@
               "RelativeToolTip": "Win32\\GameManager.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-14T04:50:02.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T04:50:02.968Z"
             },
             {
               "$type": "Document",
@@ -531,8 +504,7 @@
               "RelativeToolTip": "Win32\\Scenario.cpp",
               "ViewState": "AQIAAGAAAAAAAAAAAAAQwGgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-16T05:50:27.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T05:50:27.433Z"
             },
             {
               "$type": "Document",
