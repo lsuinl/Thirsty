@@ -1,45 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Animator.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="ChooseFood.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="InputSystem.cpp" />
-    <ClCompile Include="NoodleSlice.cpp" />
-    <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="GameManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="WinApp.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSystem.cpp">
+      <Filter>2.system</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadData.cpp">
+      <Filter>5.data</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>5.data</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>4.scene\1.Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TextList.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
+    <ClCompile Include="Story.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenario.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
+    <ClCompile Include="ChooseFood.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="NoodleSlice.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="StockGame.cpp">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveScreen.cpp">
+      <Filter>4.scene\1.Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>3.feature</Filter>
+    </ClCompile>
     <ClCompile Include="ScreenSystem.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="StockGame.cpp" />
-    <ClCompile Include="TimeSystem.cpp" />
-    <ClCompile Include="WinApp.cpp" />
-    <ClCompile Include="LoadData.cpp" />
-    <ClCompile Include="PlayerData.cpp" />
-    <ClCompile Include="MoveScreen.cpp" />
-    <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animator.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="ChooseFood.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="NoodleSlice.h" />
-    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="GameManager.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApp.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>2.system</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>5.data</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadData.h">
+      <Filter>5.data</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>5.data</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>4.scene\1.Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TextList.h">
+      <Filter>4.scene\2.Story</Filter>
+    </ClInclude>
+    <ClInclude Include="Story.h">
+      <Filter>4.scene\2.Story</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenario.h">
+      <Filter>4.scene\2.Story</Filter>
+    </ClInclude>
+    <ClInclude Include="ChooseFood.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="NoodleSlice.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="StockGame.h">
+      <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveScreen.h">
+      <Filter>4.scene\1.Title</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalHeader.h">
+      <Filter>5.data</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>3.feature</Filter>
+    </ClInclude>
     <ClInclude Include="ScreenSystem.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="StockGame.h" />
-    <ClInclude Include="TimeSystem.h" />
-    <ClInclude Include="Types.h" />
-    <ClInclude Include="WinApp.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="GlobalHeader.h" />
-    <ClInclude Include="LoadData.h" />
-    <ClInclude Include="PlayerData.h" />
-    <ClInclude Include="MoveScreen.h" />
-    <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="01.WinAPI.rc" />
+    <Filter Include="1.default">
+      <UniqueIdentifier>{72f529fa-52a3-422c-843e-32b890f38880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.system">
+      <UniqueIdentifier>{4cfc7352-8614-42c8-b7c3-d187bee3ee7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene">
+      <UniqueIdentifier>{455026ec-6e3d-4b15-a4e3-f23d91f0ce32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3.feature">
+      <UniqueIdentifier>{0b84247a-07e1-45e2-bfc6-ebda9f338ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5.data">
+      <UniqueIdentifier>{cc00106f-b5bb-42fb-aaa8-39ee7b4adfda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\1.Title">
+      <UniqueIdentifier>{5d187dc4-dc9c-4f92-9872-53d19abface7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\2.Story">
+      <UniqueIdentifier>{777fe875-4acf-4877-b2d9-d1231f0170d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4.scene\3.MiniGame">
+      <UniqueIdentifier>{5f5575f7-1c37-4ad3-b58b-c01c44cfb95e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

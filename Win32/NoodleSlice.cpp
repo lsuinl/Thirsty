@@ -251,16 +251,15 @@ void NoodleSlice::NoodleSliceScreen()
 	render::DrawRect(1500, 200, 300, 300, RGB(255, 255, 255));
 	render::DrawRect(1500, 600, 300, 300, RGB(255, 255, 255));
 
-	std::string str1 = "완료 횟수";
-	std::string str2 = "남은 세트";
-	std::string clear_s = std::to_string(setCnt);
-	std::string before_s = std::to_string(noodle - setCnt);
-
+	std::wstring str1 = L"완료 횟수";
+	std::wstring str2 = L"남은 세트";
+	std::wstring clear_s = std::to_wstring(setCnt);
+	std::wstring before_s = std::to_wstring(noodle - setCnt);
 	render::DrawTextF(1560, 250, str1.c_str(), RGB(0, 0, 0), 50);
 	render::DrawTextF(1560, 650, str2.c_str(), RGB(0, 0, 0), 50);
 	render::DrawTextF(1620, 350, clear_s.c_str(), RGB(0, 0, 0), 100);
 	render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);
 
-	std::string time = "남은 시간  " + std::to_string((int)(20 - playTimer / 1000)) + " 초";
+	std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - playTimer / 1000)) + L" 초";
 	render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
 }

@@ -16,7 +16,7 @@ namespace MoveScreen
 	void MoveToScreen() 
 	{
 		render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
-		render::DrawTextF(130, 90, "À°¼ö ¼±ÅÃ", RGB(0, 0, 0), 60);
+		render::DrawTextF(130, 90, L"À°¼ö ¼±ÅÃ", RGB(0, 0, 0), 60);
 
 		moveAni.DrawAnimation();
 	}

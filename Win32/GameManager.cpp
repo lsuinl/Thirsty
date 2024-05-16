@@ -5,18 +5,22 @@
 #include "GameManager.h"
 #include <string>
 #include "ScreenSystem.h"
+#include "Story.h"
+#include "TextList.h"
 namespace game
 {
 	const char* texts = "22";
 	GameManager* GameManager::instance = nullptr;
 	GameManager::GameManager() {}
 	GameManager::~GameManager() {}
-
+	TextList* textList = TextList::GetInstance();
 	void GameManager::Initialize()
 	{
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
+		textList->LoadtTextAll();
+		SetScript(1);
 	}
 	void GameManager::Update()
 	{
@@ -26,7 +30,6 @@ namespace game
 		const input::MouseState& mouse = input::GetMouseState();
 		const input::MouseState& prevmouse = input::GetPrevMouseState();
 		Screen::InputMouse(mouse, prevmouse);
-
 		input::ResetInput();
 
 	}

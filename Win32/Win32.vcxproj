@@ -142,9 +142,12 @@
     <ClCompile Include="NoodleSlice.cpp" />
     <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="Scenario.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StockGame.cpp" />
+    <ClCompile Include="Story.cpp" />
+    <ClCompile Include="TextList.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="WinApp.cpp" />
@@ -161,17 +164,16 @@
     <ClInclude Include="NoodleSlice.h" />
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="RenderSystem.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="Scenario.h" />
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StockGame.h" />
+    <ClInclude Include="Story.h" />
+    <ClInclude Include="TextList.h" />
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WinApp.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="01.WinAPI.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

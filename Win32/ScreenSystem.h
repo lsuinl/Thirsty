@@ -8,9 +8,10 @@ namespace Screen
 		StockGameScreen,
 		NoodleSliceScreen,
 		PlaceFoodScreen,
+		MoveAniScreen,
 		TitleScreen,
+		StoryScreen,
 	};
-
 	void SetScreen(ScreenName screen);
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse);
 	void InputKeyBoard();
