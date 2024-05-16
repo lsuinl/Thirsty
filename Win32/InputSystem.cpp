@@ -94,7 +94,7 @@ namespace input
         curMouse.isDragging = (GetKeyState(VK_LBUTTON) & 0x0001) == 0;
 
     }
- 
+
     const MouseState& GetMouseState()
     {
         return curMouse;

@@ -13,6 +13,7 @@ namespace Screen
 		StoryScreen,
 	};
 	void SetScreen();
+	void ReScreen();
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse);
 	void InputKeyBoard();
 	void ScreenRender();

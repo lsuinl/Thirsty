@@ -7,7 +7,8 @@
 #include "Story.h"
 #include "Pause.h"
 #include "TextList.h"
-
+#include "PlayerData.h"
+#include "Types.h"
 
 namespace Screen
 {
@@ -31,7 +32,6 @@ namespace Screen
 		currentScreen = preScreen;
 		currentScreen = MoveAniScreen;
 	}
-
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
@@ -121,10 +121,7 @@ namespace Screen
 			Title::isEsc();
 			break;
 		case Screen::StoryScreen:
-			if (ChangeBack(TimeSystem::GetDeltaTime()) == true)
-			{
-				SetScreen();
-			}
+			ChangeBack(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -148,6 +145,12 @@ namespace Screen
 			break;
 		case Screen::PlaceFoodScreen:
 			break;
+		case Screen::TitleScreen:
+			Title::TitleRender();
+			break;
+		case Screen::StoryScreen:
+			DrawBack();
+			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
 			//현재 애니메이션이 종료되면 false가 반환됨
@@ -163,7 +166,7 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					noodleSlice.SetGame(noodleSlice.STAGE3, noodleSlice.NOODLE2);
+					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
@@ -178,11 +181,6 @@ namespace Screen
 					break;
 				}
 			}
-		case Screen::TitleScreen:
-			Title::TitleRender();
-			break;
-		case Screen::StoryScreen:
-			DrawBack();
 			break;
 		default:
 			break;
