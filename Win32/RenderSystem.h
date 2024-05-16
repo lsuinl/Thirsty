@@ -2,6 +2,45 @@
 #include "GlobalHeader.h"
 namespace render
 {
+    enum class BitMap
+    {
+        BGM,
+        Effect,
+        Size
+    };
+    enum class Png
+    {
+        BGM,
+        Effect,
+        Size
+    };
+
+    class ImageManager;  // 클래스 전방 선언
+
+    class ImageManager final
+    {
+    public:
+        static ImageManager* GetInstance();
+        static void DestroyInstance();
+
+        //static LoadImages();
+
+        //그리기..는 따로..
+       // void PlayMusic(eSoundList list, eSoundChannel channel);
+
+    private:
+        ImageManager();
+        ~ImageManager();
+
+    private:
+        static ImageManager* mInstance;
+
+       //FMOD::System* mSystem;
+        //FMOD::Channel* mChannel[static_cast<int>(eSoundChannel::Size)];
+        //FMOD::Sound* mSoundList[static_cast<int>(eSoundList::Size)];
+        float mVolume;
+    };
+    //----------------------
     void InitRender();
 
     void BeginDraw();
@@ -14,18 +53,13 @@ namespace render
 
     void DrawRect(int x, int y, int width, int height, COLORREF color);
 
-    void DrawCircle(int x, int y, int radius, COLORREF color);
-
-    void DrawPolygon(POINT points[], int count, COLORREF color);
-
     void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize);
 
     int GetTextWidth(HDC hdc, const wchar_t* text, int length);
 
     void DrawFont(int x, int y, const char* text, COLORREF color, int fontSize, const wchar_t* fontName, int fontStyle);
-    //삭제예정
+
     void DrawBitmap(int x, int y, HBITMAP hBitmap);
-    void DrawBitmapTo(int x, int y, HBITMAP hBitmap);
 
     HBITMAP LoadImages(const char* path, int width, int height);
 

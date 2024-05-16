@@ -1,5 +1,5 @@
 #include "Story.h"
-
+#include "ScreenSystem.h"
 
 int i = 0;
 int stagenum;     //스테이지num 받아와야함 
@@ -10,22 +10,20 @@ void SetStage(int num)
 		SetScript(num);
 	
 }
-bool ChangeBack(float delta)
+void ChangeBack(float delta)
 {
 	SkipText(delta);
 	UpdateText();
 	if(input::IsKeyUp(16))
 	{
-		if(i <5)
+		if(i < 5)
 		i++;
 	}
 
 	if (i == 5)
 	{
-		return true;
+		Screen::SetScreen();
 	}
-	else
-		return false;
 }
 void DrawBack()
 {

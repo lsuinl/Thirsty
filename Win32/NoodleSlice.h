@@ -23,14 +23,6 @@ public:
 	// Arrow 구조체 배열 선언
 	Arrow** arrowArr;
 
-	// 스테이지에 따른 면 개수
-	enum StageNoodle
-	{
-		STAGE1 = 4,
-		STAGE2 = 8,
-		STAGE3 = 6
-	};
-
 	// 면 타입
 	enum NoodleType
 	{
@@ -47,7 +39,7 @@ public:
 	float playTimer;
 
 	// 게임 세팅
-	void SetGame(StageNoodle _stage, NoodleType _noodle);
+	void SetGame(int _stage, NoodleType _noodle);
 
 	// 게임루프
 	void UpdateGame();

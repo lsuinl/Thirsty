@@ -1,5 +1,6 @@
 #include "Pause.h"
 #include "Button.h"
+#include "ScreenSystem.h"
 namespace pause
 {
     // 게임 일시정지 상태를 나타내는 변수

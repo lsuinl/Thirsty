@@ -7,20 +7,21 @@
 #include "ScreenSystem.h"
 #include "Story.h"
 #include "TextList.h"
+#include "LoadData.h"
 namespace game
 {
 	const char* texts = "22";
 	GameManager* GameManager::instance = nullptr;
 	GameManager::GameManager() {}
 	GameManager::~GameManager() {}
-	TextList* textList = TextList::GetInstance();
 	void GameManager::Initialize()
 	{
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
-		textList->LoadtTextAll();
-		SetScript(1);
+		LoadData::LoadMusic();
+		LoadData::LoadImages();
+		LoadData::LoadAnimation();
 	}
 	void GameManager::Update()
 	{
@@ -47,6 +48,15 @@ namespace game
 	{
 		render::BeginDraw();
 		Screen::ScreenRender();
+		static int fps;
+		static float time;
+		time += TimeSystem::GetDeltaTime();
+		while (time > 1000) {
+			fps = m_UpdateCount;
+			m_UpdateCount = 0;
+			time -= 1000;
+		}
+		render::DrawTextF(0, 100, std::to_wstring(fps).c_str(), RGB(100, 100, 100), 50);
 		render::EndDraw();
 	}
 	void GameManager::Finalize()

@@ -10,4 +10,4 @@ void SetStage(int num);
 
 void DrawBack();
 
-bool ChangeBack(float delta);
+void ChangeBack(float delta);

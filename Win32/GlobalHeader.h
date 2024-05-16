@@ -13,3 +13,4 @@
 #include "StockGame.h"
 #include "TimeSystem.h"
 #include "Animator.h"
+#include "PlayerData.h"

@@ -13,7 +13,6 @@ struct boxObject
 
 	COLORREF color;
 
-
 	void MoveStop()
 	{
 		this->x = this->x;
@@ -50,11 +49,8 @@ private:
 	int score = 0;
 	int salinity = 0;
 	int targetSalinity;
-	float timeLimit = 1000000;  //게임 시간제한
+	float timeLimit = 10000;  //게임 시간제한
 	bool isTimeOver = false;
-
-
-
 
 public:
 	StockGame();

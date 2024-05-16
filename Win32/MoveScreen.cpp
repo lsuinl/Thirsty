@@ -10,7 +10,7 @@ namespace MoveScreen
 		{
 			imageList[i - 1] = L"resource\\animation\\test\\" + std::to_wstring(i) + L".bmp";
 		}
-		moveAni = Animator("테스트", 300, 100, 400, 400, 800, imageList, false , false);
+		moveAni = Animator("테스트", 300, 100, 400, 400, 2000, imageList, false , false);
 		moveAni.SetAnimation();
 	}
 	void MoveToScreen() 
