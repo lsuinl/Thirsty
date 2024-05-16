@@ -32,7 +32,7 @@ namespace Title
 	void Title::StartButton()
 	{
 		isStart = true;
-		Screen::SetScreen(Screen::ScreenName::StoryScreen);
+		Screen::SetScreen();
 	}
 
 	void Title::TutorialButton()
@@ -47,11 +47,6 @@ namespace Title
 
 		startButton.DrawButton();
 		tutorialButton.DrawButton();
-
-		/*if (isStart)
-		{
-			render::DrawBackGround("resource\\background\\back.bmp", 500, 500, 0, 0, false);
-		}*/
 
 		if (isTutorial)
 		{

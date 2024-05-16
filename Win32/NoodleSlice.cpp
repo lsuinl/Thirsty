@@ -2,7 +2,7 @@
 #include <time.h>
 
 // 게임 세팅
-void NoodleSlice::SetGame(StageNoodle _stage, NoodleType _noodle)
+void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
 {
 	srand(time(NULL));
 
@@ -25,7 +25,9 @@ void NoodleSlice::SetGame(StageNoodle _stage, NoodleType _noodle)
 	isReset = false;
 
 	// 변수 대입
-	stage = (int)_stage;
+	if (_stage == 1)	stage = 4;
+	else if (_stage == 2)	stage = 8;
+	else    stage = 6;
 	noodle = (int)_noodle;
 
 	// 최대 사이즈
@@ -43,7 +45,6 @@ void NoodleSlice::UpdateGame()
 	if (playTimer <= 20000)
 	{
 		InputArrow();
-
 		if (isReset)
 		{
 			resetTimer += TimeSystem::GetDeltaTime();
