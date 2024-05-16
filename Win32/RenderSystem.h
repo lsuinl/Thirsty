@@ -31,5 +31,12 @@ namespace render
 
     void ReleaseImage(HBITMAP hBitmap);
     HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to);
-    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to);
+    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to, float alpha = 1.0f);
 }
+
+
+/*
+투명박스 그리는 명령어
+render::DrawObject(L"resource\\object\\rect.png", 1000, 500, 483, 500, true, 0.8f);
+render::DrawTextF(550, 700, "안녕하세요 김수인 입니다.", RGB(255, 255, 255), 30);
+*/

@@ -167,7 +167,7 @@ int NoodleSlice::GetArrSize()
 // render
 void NoodleSlice::NoodleSliceScreen()
 {
-	render::DrawObject(L"resource\\background\\back.bmp", 1920, 1080, 0, 0, false);
+	render::DrawBackGround("resource\\background\\back.bmp", 0, 0, 0, 0, false);
 
 	// 치기 전
 	for (int i = setCnt; i < setCnt + 1; i++)
@@ -178,44 +178,44 @@ void NoodleSlice::NoodleSliceScreen()
 			{
 				if (arrowArr[i][j].isTrue == true)
 				{
-					render::DrawObject(L"resource\\object\\up.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\up.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else
 				{
-					render::DrawObject(L"resource\\object\\up2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\up2.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 			}
 			else if (arrowArr[i][j].arrowType == DOWNARROW)
 			{
 				if (arrowArr[i][j].isTrue == true)
 				{
-					render::DrawObject(L"resource\\object\\down.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\down.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else
 				{
-					render::DrawObject(L"resource\\object\\down2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\down2.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 			}
 			else if (arrowArr[i][j].arrowType == RIGHTARROW)
 			{
 				if (arrowArr[i][j].isTrue == true)
 				{
-					render::DrawObject(L"resource\\object\\right.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\right.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else
 				{
-					render::DrawObject(L"resource\\object\\right2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\right2.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 			}
 			else if (arrowArr[i][j].arrowType == LEFTARROW)
 			{
 				if (arrowArr[i][j].isTrue == true)
 				{
-					render::DrawObject(L"resource\\object\\left.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\left.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else
 				{
-					render::DrawObject(L"resource\\object\\left2.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\left2.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 			}
 		}
@@ -230,19 +230,19 @@ void NoodleSlice::NoodleSliceScreen()
 			{
 				if (arrowArr[i][j].arrowType == UPARROW)
 				{
-					render::DrawObject(L"resource\\object\\up1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\up1.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else if (arrowArr[i][j].arrowType == DOWNARROW)
 				{
-					render::DrawObject(L"resource\\object\\down1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\down1.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else if (arrowArr[i][j].arrowType == RIGHTARROW)
 				{
-					render::DrawObject(L"resource\\object\\right1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\right1.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 				else if (arrowArr[i][j].arrowType == LEFTARROW)
 				{
-					render::DrawObject(L"resource\\object\\left1.bmp", 100, 100, 500 + (j % stage) * 100, 150, true);
+					render::DrawObject(L"resource\\object\\left1.png", 100, 100, 500 + (j % stage) * 100, 150, true);
 				}
 			}
 		}
@@ -262,6 +262,5 @@ void NoodleSlice::NoodleSliceScreen()
 	render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);
 
 	std::string time = "남은 시간  " + std::to_string((int)(20 - playTimer / 1000)) + " 초";
-	render::DrawTextF(0, 0, time.c_str(), RGB(0, 0, 0), 50);
-
+	render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
 }
