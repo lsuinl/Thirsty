@@ -16,6 +16,7 @@
     <ClCompile Include="LoadData.cpp" />
     <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="MoveScreen.cpp" />
+    <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
@@ -36,11 +37,9 @@
     <ClInclude Include="LoadData.h" />
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="MoveScreen.h" />
+    <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="01.WinAPI.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="resource\object\shrimp.bmp" />
   </ItemGroup>
 </Project>

@@ -3,21 +3,26 @@
 #include "NoodleSlice.h"
 #include "StockGame.h"
 #include "MoveScreen.h"
+#include "Title.h"
 enum ScreenName {
 	ChooseFoodScreen,
 	StockGameScreen,
 	NoodleSliceScreen,
 	PlaceFoodScreen,
-	MoveAniScreen
+	MoveAniScreen,
+	TitleScreen,
 };
 namespace Screen
 {
 	NoodleSlice noodleSlice;
 	float _timer;
-	ScreenName preScreen = ChooseFoodScreen;
+	ScreenName preScreen = TitleScreen;
 	ScreenName currentScreen = ChooseFoodScreen;
 	StockGame stock;
-
+	void SetScreen(ScreenName screen)
+	{
+		currentScreen = screen;
+	}
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
@@ -44,6 +49,15 @@ namespace Screen
 			break;
 		case PlaceFoodScreen:
 			break;
+		case TitleScreen:
+			if (input::IsSame(mouse, premouse)) 
+			{
+				return;
+			}
+			if (mouse.left) {
+				Title::TitleCheckClick(mouse.x, mouse.y);
+			}
+			break;
 		default:
 			break;
 		}
@@ -67,6 +81,9 @@ namespace Screen
 			break;
 		case PlaceFoodScreen:
 			break;
+		case TitleScreen:
+			Title::isEsc();
+			break;
 		default:
 			break;
 		}
@@ -78,43 +95,23 @@ namespace Screen
 	void ScreenRender() {
 		switch (currentScreen)
 		{
-		case ChooseFoodScreen:
-			MoveScreen::SetMoveAni();
-			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
-			preScreen = currentScreen;
-			currentScreen = MoveAniScreen;
+		case Screen::ChooseFoodScreen:
+			//MoveScreen::SetMoveAni();
+			noodleSlice.SetGame(noodleSlice.STAGE3, noodleSlice.NOODLE2);
+			//preScreen = currentScreen;
+			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
-		case StockGameScreen:
+		case Screen::StockGameScreen:
 			stock.RenderStockGame();
 			break;
-		case NoodleSliceScreen:
+		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
 			break;
-		case MoveAniScreen:
-			MoveScreen::MoveToScreen();
-			//현재 애니메이션이 종료되면 false가 반환됨
-			if (!MoveScreen::EndMoveScreen()) {
-				switch (preScreen)
-				{
-				case ChooseFoodScreen:
-					currentScreen = NoodleSliceScreen;
-					break;
-				case StockGameScreen:
-					currentScreen = PlaceFoodScreen;
-					break;
-				case NoodleSliceScreen:
-					currentScreen = StockGameScreen;
-					break;
-				case PlaceFoodScreen:
-					currentScreen = NoodleSliceScreen;
-					break;
-				default:
-					break;
-				}
-			}
+		case Screen::PlaceFoodScreen:
 			break;
-		case PlaceFoodScreen:
+		case Screen::TitleScreen:
+			Title::TitleRender();
 			break;
 		default:
 			break;
