@@ -2,30 +2,34 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
-#include "Animations.h"
-enum ScreenName {
-	ChooseFoodScreen,
-	StockGameScreen,
-	NoodleSliceScreen,
-	PlaceFoodScreen,
-};
+#include "MoveScreen.h"
+#include "Title.h"
+#include "Story.h"
+
+
 namespace Screen
 {
 	NoodleSlice noodleSlice;
 	float _timer;
-	ScreenName currentScreen = ChooseFoodScreen;
+	ScreenName preScreen = StoryScreen;
+	ScreenName currentScreen = TitleScreen;
 	StockGame stock;
+
+	void SetScreen(ScreenName screen)
+	{
+		currentScreen = screen;
+	}
 
 	//마우스 입력 시스템
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
-		case ChooseFoodScreen:
+		case Screen::ChooseFoodScreen:
 			if (input::IsSame(mouse, premouse))
 			{
 				return;
 			}
-			if (mouse.left) 
+			if (mouse.left)
 			{
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
@@ -36,11 +40,24 @@ namespace Screen
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
 			}
 			break;
-		case StockGameScreen:
+		case Screen::StockGameScreen:
 			break;
-		case NoodleSliceScreen:
+		case Screen::NoodleSliceScreen:
 			break;
-		case PlaceFoodScreen:
+		case Screen::PlaceFoodScreen:
+			break;
+		case Screen::MoveAniScreen:
+			break;
+		case Screen::TitleScreen:
+			if (input::IsSame(mouse, premouse))
+			{
+				return;
+			}
+			if (mouse.left) {
+				Title::TitleCheckClick(mouse.x, mouse.y);
+			}
+			break;
+		case Screen::StoryScreen:
 			break;
 		default:
 			break;
@@ -50,20 +67,31 @@ namespace Screen
 	void InputKeyBoard() {
 		switch (currentScreen)
 		{
-		case ChooseFoodScreen:
+		case Screen::ChooseFoodScreen:
 			break;
-		case StockGameScreen:
+		case Screen::StockGameScreen:
 			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
 			stock.UpdateGame(TimeSystem::GetDeltaTime());
 			break;
-		case NoodleSliceScreen:
+		case Screen::NoodleSliceScreen:
 			noodleSlice.UpdateGame();
 			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
 			{
 				currentScreen = StockGameScreen;
 			}
 			break;
-		case PlaceFoodScreen:
+		case Screen::PlaceFoodScreen:
+			break;
+		case Screen::MoveAniScreen:
+			break;
+		case Screen::TitleScreen:
+			Title::isEsc();
+			break;
+		case Screen::StoryScreen:
+			if (ChangeBack(TimeSystem::GetDeltaTime()) == true)
+			{
+				currentScreen = ChooseFoodScreen;
+			}
 			break;
 		default:
 			break;
@@ -76,22 +104,31 @@ namespace Screen
 	void ScreenRender() {
 		switch (currentScreen)
 		{
-		case ChooseFoodScreen:
-			noodleSlice.SetGame(noodleSlice.STAGE3,noodleSlice.NOODLE2);
+		case Screen::ChooseFoodScreen:
+			//MoveScreen::SetMoveAni();
+			noodleSlice.SetGame(noodleSlice.STAGE3, noodleSlice.NOODLE2);
+			//preScreen = currentScreen;
 			currentScreen = NoodleSliceScreen;
 			ChooseFood::ChooseScreen();
 			break;
-		case StockGameScreen:
+		case Screen::StockGameScreen:
 			stock.RenderStockGame();
 			break;
-		case NoodleSliceScreen:
+		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
 			break;
-		case PlaceFoodScreen:
+		case Screen::PlaceFoodScreen:
+			break;
+		case Screen::MoveAniScreen:
+			break;
+		case Screen::TitleScreen:
+			Title::TitleRender();
+			break;
+		case Screen::StoryScreen:
+			DrawBack();
 			break;
 		default:
 			break;
 		}
-		Animations::RenderAnimation();
 	}
 }

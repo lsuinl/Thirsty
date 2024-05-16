@@ -1,6 +1,10 @@
 #include "StockGame.h"
 #include "time.h"
+#include <string.h>
+#include "Button.h"
+#include "ChooseFood.h"
 //두 오브젝트 충돌검사
+
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
 {
 	if (obj1.x < obj2.x + obj2.width &&
@@ -124,6 +128,7 @@ void StockGame::UpdateYellowBox(float delta)
 	{
 		if (input::IsKey(32))
 		{
+			
 			yellowBox.MoveRight(yellowBox.speed, delta);
 		}
 		else
@@ -132,6 +137,7 @@ void StockGame::UpdateYellowBox(float delta)
 		}
 	}
 }
+
 
 void StockGame::UpdateRedBox(float delta)
 {
@@ -152,7 +158,6 @@ void StockGame::UpdateRedBox(float delta)
 	{
 		redBox.MoveRight(redBox.speed, delta);
 	}
-
 
 }
 void StockGame::UpdateGame(float delta)
@@ -187,8 +192,6 @@ int StockGame::GameScore()
 	{
 		score = 0;
 	}
-
 	return score;
-
 }
 
