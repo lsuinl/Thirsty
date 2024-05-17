@@ -25,9 +25,9 @@
 		animation = true;
 	}
 	
-	std::string Animator::GetAnimationName()
+	bool Animator::GetAnimationCheck()
 	{
-		return name;
+		return animation;
 	}
 	
 	void Animator::DrawAnimation()

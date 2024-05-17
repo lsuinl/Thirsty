@@ -16,9 +16,9 @@ constexpr int SCREEN_START_LEFT = 10;
 
 constexpr int SCREEN_START_TOP = 10;
 
-constexpr int SCREEN_WIDTH = 1920;
+constexpr int SCREEN_WIDTH = 1935;
 
-constexpr int SCREEN_HEIGHT = 1080;
+constexpr int SCREEN_HEIGHT = 1095;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
@@ -83,7 +83,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
 {
 	m_hInstance = hInstance;
 
-	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©");
+	const TCHAR* appName = TEXT("¿ìµ¿ ÇÑ ±×¸©¢Í");
 
 	WNDCLASS wndClass;
 

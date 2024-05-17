@@ -1,6 +1,8 @@
-
+#include "WinApp.h"
 #include "RenderSystem.h"
 #include <string>
+#include <Windows.h>
+
 #pragma comment(lib, "msimg32.lib")
 
 namespace render
@@ -64,7 +66,6 @@ namespace render
         DeleteObject(hPen);
     }
 
-
     void DrawRect(int x, int y, int width, int height, COLORREF color)
     {
         HPEN hPen = CreatePen(PS_SOLID, 1, color);
@@ -84,107 +85,46 @@ namespace render
         DeleteObject(hBrush);
     }
 
-
-    void DrawCircle(int x, int y, int radius, COLORREF color)
-    {
-        HPEN hPen = CreatePen(PS_SOLID, 1, color);
-
-        HPEN hOldPen = (HPEN)SelectObject(backMemDC, hPen);
-
-        HBRUSH hBrush = CreateSolidBrush(color);
-
-        HBRUSH hOldBrush = (HBRUSH)SelectObject(backMemDC, hBrush);
-
-        Ellipse(backMemDC, x - radius, y - radius, x + radius, y + radius);
-
-        SelectObject(backMemDC, hOldPen);
-        SelectObject(backMemDC, hOldBrush);
-
-        DeleteObject(hPen);
-        DeleteObject(hBrush);
-
-    }
-
-    void DrawPolygon(POINT points[], int count, COLORREF color)
-    {
-        HPEN hPen = CreatePen(PS_SOLID, 1, color);
-
-        HPEN hOldPen = (HPEN)SelectObject(backMemDC, hPen);
-
-        HBRUSH hBrush = CreateSolidBrush(color);
-
-        HBRUSH hOldBrush = (HBRUSH)SelectObject(backMemDC, hBrush);
-
-        Polygon(backMemDC, points, count);
-
-        SelectObject(backMemDC, hOldPen);
-        SelectObject(backMemDC, hOldBrush);
-
-        DeleteObject(hPen);
-        DeleteObject(hBrush);
-
-    }
-
-    void DrawTextF(int x, int y, const char* text, COLORREF color, int fontsize)
+    void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize)
     {
         // 폰트 추가 생성
         AddFontResource(TEXT("resource//font//BlackHanSans-Regular.ttf"));
         HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Black Han Sans"));
-
         // 백 버퍼에 텍스트 그리기
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);
-        SetTextColor(backMemDC, color);
         SetBkMode(backMemDC, TRANSPARENT); // 배경을 투명으로 설정
-        TextOutA(backMemDC, x, y, text, strlen(text));
-        SelectObject(backMemDC, oldFont);
-        SelectObject(backMemDC, oldFont);
 
+
+        int currentX = x;
+        int currentY = y;
+
+        // 문자열 출력
+        for (size_t i = 0; i < wcslen(text); ++i)
+        {
+            wchar_t ch = text[i];
+            if (currentX >= 1500)
+            {
+                currentX = x; // x 위치 초기화
+                currentY += 50; // y 위치 증가
+            }
+
+            TextOutW(backMemDC, currentX, currentY, &ch, 1);
+            currentX += GetTextWidth(backMemDC, &ch, 1); // 문자 폭만큼 x 증가
+        }
+
+
+
+        SelectObject(backMemDC, oldFont);
         DeleteObject(currentFont);
     }
 
-  
-
-    HBITMAP LoadImages(const char* path, int width, int height)
+    int GetTextWidth(HDC hdc, const wchar_t* text, int length)
     {
-        HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-
-        return hBitmap;
+        SIZE size;
+        GetTextExtentPoint32W(hdc, text, length, &size);
+        return size.cx;
     }
-
-    void ReleaseImage(HBITMAP hBitmap)
-    {
-        DeleteObject(hBitmap);
-    }
-
-    HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to)
-    {
-        HBITMAP hBackmap = render::LoadImages(name, width, height);
-       // if (to)
-       //     render::DrawBitmapTo(x, y, hBackmap);
-       // else
-            render::DrawBitmap(x, y, hBackmap);
-        render::ReleaseImage(hBackmap);
-        return hBackmap;
-    }
-
-    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to)
-    {
-        Gdiplus::Graphics g(backMemDC);
-        Image* image = Image::FromFile(name.c_str());
-        // 투명화 시킬 픽셀의 색 범위
-        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
-        Gdiplus::ImageAttributes imgAtt;
-        imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
-        //크기 조정
-        Gdiplus::Rect destRect(x, y, width, height); // 화면에 그릴 영역	
-        // 원본 이미지의 크기를 가져옵니다.
-        g.DrawImage(image, destRect, 0, 0, image->GetWidth(), image->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
-
-        delete image; // 이미지 객체 삭제
-    }
-
-
     void DrawBitmap(int x, int y, HBITMAP hBitmap)
     {
         HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
@@ -208,47 +148,50 @@ namespace render
         DeleteDC(bitmapMemDC);
 
     }
-    //투명하기 그리기
-    void DrawBitmapTo(int x, int y, HBITMAP hBitmap)
+
+    HBITMAP LoadImages(const char* path, int width, int height)
     {
-        HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
+        HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 
-        HBITMAP hOldBitmap = (HBITMAP)SelectObject(bitmapMemDC, hBitmap);
-
-        BITMAP bm;
-        GetObject(hBitmap, sizeof(BITMAP), &bm);
-
-        int imageWidth = bm.bmWidth;
-        int imageHeight = bm.bmHeight;
-
-        // DIB를 위한 정보를 저장할 BITMAPINFO 구조체 생성
-        BITMAPINFO bmi;
-        ZeroMemory(&bmi, sizeof(BITMAPINFO));
-        bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-        bmi.bmiHeader.biWidth = imageWidth;
-        bmi.bmiHeader.biHeight = -imageHeight;  // top-down DIB
-        bmi.bmiHeader.biPlanes = 1;
-        bmi.bmiHeader.biBitCount = 32;  // 32비트 컬러 (RGB + Alpha)
-        bmi.bmiHeader.biCompression = BI_RGB;
-
-        // 이미지의 픽셀 데이터를 가져올 메모리 버퍼 생성
-        BYTE* pBits;
-        HBITMAP hBitmap32 = CreateDIBSection(bitmapMemDC, &bmi, DIB_RGB_COLORS, (void**)&pBits, NULL, 0);
-
-        // 이미지를 32비트 형식으로 변환하여 메모리 버퍼에 복사
-        HDC hdcTemp = CreateCompatibleDC(NULL);
-        HBITMAP hOldBitmapTemp = (HBITMAP)SelectObject(hdcTemp, hBitmap32);
-        BitBlt(hdcTemp, 0, 0, imageWidth, imageHeight, bitmapMemDC, 0, 0, SRCCOPY);
-        SelectObject(hdcTemp, hOldBitmapTemp);
-        DeleteDC(hdcTemp);
-
-        // TransparentBlt 함수를 사용하여 이미지 그리기
-        TransparentBlt(backMemDC, x, y, imageWidth, imageHeight, bitmapMemDC, 0, 0, imageWidth, imageHeight, RGB(255, 255, 255));
-
-        // 사용한 리소스 해제
-        SelectObject(bitmapMemDC, hOldBitmap);
-        DeleteObject(hBitmap32);
-        DeleteDC(bitmapMemDC);
+        return hBitmap;
     }
-    
+
+    void ReleaseImage(HBITMAP hBitmap)
+    {
+        DeleteObject(hBitmap);
+    }
+
+    HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to)
+    {
+        HBITMAP hBackmap = render::LoadImages(name, width, height);
+        render::DrawBitmap(x, y, hBackmap);
+        render::ReleaseImage(hBackmap);
+        return hBackmap;
+    }
+
+    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to, float alpha)
+    {
+        Gdiplus::Graphics g(backMemDC);
+        Image* image = Image::FromFile(name.c_str());
+        // 투명화 시킬 픽셀의 색 범위
+        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        Gdiplus::ImageAttributes imgAtt;
+        Gdiplus::ColorMatrix colorMatrix = {
+            1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, alpha, 0.0f,
+            0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+        };
+
+        imgAtt.SetColorMatrix(&colorMatrix);
+        imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
+        //크기 조정
+        Gdiplus::Rect destRect(x, y, width, height); // 화면에 그릴 영역   
+        // 원본 이미지의 크기를 가져옵니다.
+        g.DrawImage(image, destRect, 0, 0, image->GetWidth(), image->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
+
+        delete image; // 이미지 객체 삭제
+    }
+
 }

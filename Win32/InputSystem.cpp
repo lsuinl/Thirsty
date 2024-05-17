@@ -8,9 +8,20 @@ namespace input
     bool isKeyUp[256];
     bool isKey[256];
 
+    bool isKeyCode = false;
+
     MouseState curMouse;
     MouseState prevMouse;
 
+    bool IsKeyCode()
+    {
+        return isKeyCode;
+    }
+
+    void SetKeyCode(bool type)
+    {
+        isKeyCode = type;
+    }
 
     void ResetInput()
     {
@@ -83,7 +94,7 @@ namespace input
         curMouse.isDragging = (GetKeyState(VK_LBUTTON) & 0x0001) == 0;
 
     }
- 
+
     const MouseState& GetMouseState()
     {
         return curMouse;

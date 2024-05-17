@@ -1,22 +1,30 @@
 #pragma once
 namespace Types
 {
+	//현재 스테이지
+	enum Stage
+	{
+		STAGE1 = 1, //4
+		STAGE2 = 2,//8
+		STAGE3 = 3//6
+	};
+
 	//면 종류
 	enum Noodle
 	{
-		FLAT, //납작면
-		MIDDLE, //중면
-		SMALL,//소면
+		FLAT=0, //납작면
+		MIDDLE=1, //중면
+		SMALL=2,//소면
 	};
 
 	//육수 종류
 	enum Soup
 	{
-		MAULCHI,//멸치
-		SALT,//소금
-		TZUYU,//쯔유
-		GUKSAUCE,//국간장
-		DASIMA,//다시마
+		MAULCHI=3,//멸치
+		SALT=4,//소금
+		TZUYU=5,//쯔유
+		GUKSAUCE=6,//국간장
+		DASIMA=7,//다시마
 		MU,//무
 		DRYDIPORI,//말린디포리
 		DRYMUSHROOMS,//말린버섯

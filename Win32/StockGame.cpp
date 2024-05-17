@@ -1,5 +1,9 @@
 #include "StockGame.h"
 #include "time.h"
+#include <string.h>
+#include "Button.h"
+#include "ChooseFood.h"
+#include "ScreenSystem.h"
 //두 오브젝트 충돌검사
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
 {
@@ -61,7 +65,6 @@ void StockGame::DrawProgressBar()
 {
 	render::DrawRect(100, 800, 100, -500, RGB(255, 0, 0));
 	render::DrawRect(100, 800, 100, -((500 / 100) * salinity), RGB(255, 255, 0));
-
 }
 
 StockGame::StockGame()
@@ -82,7 +85,7 @@ void StockGame::CheckGameTimeOver(float delta)
 	{
 		isTimeOver = true;
 		elapsedTime2 = 0;
-
+		Screen::SetScreen();
 	}
 }
 
@@ -102,14 +105,14 @@ void StockGame::SetGame(int stage)
 		redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0, RGB(255, 0, 0));
 		yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 3, RGB(255, 255, 0));
 	}
-	if (stage == 2)
+	else if (stage == 2)
 	{
 		salinity = 0;
 		targetSalinity = 100;
 		redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0, RGB(255, 0, 0));
 		yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 3, RGB(255, 255, 0));
 	}
-	if (stage == 3)
+	else if (stage == 3)
 	{
 		salinity = 0;
 		targetSalinity = 100;
@@ -133,6 +136,7 @@ void StockGame::UpdateYellowBox(float delta)
 	}
 }
 
+
 void StockGame::UpdateRedBox(float delta)
 {
 	srand(time(NULL));
@@ -152,7 +156,6 @@ void StockGame::UpdateRedBox(float delta)
 	{
 		redBox.MoveRight(redBox.speed, delta);
 	}
-
 
 }
 void StockGame::UpdateGame(float delta)
@@ -185,10 +188,8 @@ int StockGame::GameScore()
 	}
 	else
 	{
-		score = 0;
+		score = 50;
 	}
-
 	return score;
-
 }
 

@@ -1,5 +1,8 @@
 #pragma once
-#include "GlobalHeader.h"
+#include <windows.h>
+#include "RenderSystem.h"
+#include "InputSystem.h"
+#include "Button.h"
 struct boxObject
 {
 	float x;
@@ -9,7 +12,6 @@ struct boxObject
 	float speed;
 
 	COLORREF color;
-
 
 	void MoveStop()
 	{
@@ -47,18 +49,15 @@ private:
 	int score = 0;
 	int salinity = 0;
 	int targetSalinity;
-	float timeLimit = 25000;
+	float timeLimit = 10000;  //게임 시간제한
 	bool isTimeOver = false;
-
 
 public:
 	StockGame();
 	~StockGame();
-
 	boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
 	boxObject redBox = { 900, 900, 360, 90 ,0.8 ,RGB(255,0 ,0) };
 	boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
-
 	//박스충돌확인
 	bool isCollide(boxObject obj1, boxObject obj2);
 
@@ -94,7 +93,6 @@ public:
 
 	//게임 스코어 반환
 	int GameScore();
-
 
 
 };

@@ -15,7 +15,7 @@ public:
 	//애니메이션 활성화
 	void SetAnimation(); 
 	//애니메이션 상태보기
-	std::string GetAnimationName();
+	bool GetAnimationCheck();
 	//애니메이션 그리기
 	void DrawAnimation(); 
 };

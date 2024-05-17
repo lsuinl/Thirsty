@@ -96,6 +96,15 @@ namespace button {
         this->x = dx;
         this->y = dy;
     }
+    void DragDrop::setYPos(int n)
+    {
+        this->y += n * 150;
+    }
+    void DragDrop::setSize(int w, int h)
+    {
+        this->width = w;
+        this->height = h;
+    }
     const int DragDrop::getXPos() { return this->x; }
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }
