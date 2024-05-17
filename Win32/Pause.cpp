@@ -8,11 +8,22 @@ namespace pause
 
     HDC hdcWindow = GetDC(NULL);
     HDC hdcScreen;
-    button::Button restartButton = { "restart", 1100, 600, 300, 100, L"resource\\object\\start.bmp", ReStart };
+
+    // restart 버튼 생성
+    button::Button restartButton = { "restart", 700, 600, 500, 130, L"resource\\object\\restart.bmp", ReStart };
+
+    // title 버튼 생성
+    button::Button reTitleButton = { "title", 700, 800, 500, 130, L"resource\\object\\title.bmp", ReTitle };
 
     void ReStart()
     {
-        Screen::ReScreen();
+        Screen::ReStartScreen();
+        isPaused = false;
+    }
+
+    void ReTitle()
+    {
+        Screen::ReTitleScreen();
         isPaused = false;
     }
 
@@ -33,7 +44,7 @@ namespace pause
 
     void RenderPause()
     {
-        render::DrawObject(L"resource\\object\\best.bmp", 500, 500, 650, 400, false);
+        render::DrawObject(L"resource\\background\\pause.bmp", 1000, 1000, 450, 50, false);
     }
 
     // 화면 캡처 함수
@@ -44,16 +55,21 @@ namespace pause
         ReleaseDC(NULL, hdcWindow); // DC 해제
     }
 
-    void DrawReStart()
+    void DrawReButton()
     {
         restartButton.DrawButton();
+        reTitleButton.DrawButton();
     }
 
-    void IsCheckReStart(int x, int y)
+    void IsCheckReButton(int x, int y)
     {
         if (restartButton.CheckClick(x, y))
         {
             restartButton.PlayFunction();
+        }
+        if (reTitleButton.CheckClick(x, y))
+        {
+            reTitleButton.PlayFunction();
         }
     }
 }

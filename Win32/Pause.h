@@ -8,6 +8,7 @@
 namespace pause
 {
     void ReStart();
+    void ReTitle();
 
     bool GetIsPause();
 
@@ -18,8 +19,8 @@ namespace pause
 
     void CaptureScreen();
 
-    void DrawReStart();
+    void DrawReButton();
 
-    void IsCheckReStart(int x, int y);
+    void IsCheckReButton(int x, int y);
 
 }

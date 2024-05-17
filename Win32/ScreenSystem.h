@@ -14,7 +14,8 @@ namespace Screen
 		EndingScreen,
 	};
 	void SetScreen();
-	void ReScreen();
+	void ReStartScreen();
+	void ReTitleScreen();
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse);
 	void InputKeyBoard();
 	void ScreenRender();

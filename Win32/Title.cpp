@@ -42,7 +42,7 @@ namespace Title
 
 	void Title::TitleRender()
 	{
-		render::DrawBackGround("resource\\background\\back.bmp", 0, 0, 0, 0, false);
+		render::DrawBackGround("resource\\background\\title.bmp", 0, 0, 0, 0, false);
 		render::DrawObject(L"resource\\object\\Logo.png", 1000, 500, 100, 100, false);
 
 		startButton.DrawButton();

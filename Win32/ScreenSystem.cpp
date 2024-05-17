@@ -26,14 +26,20 @@ namespace Screen
 		currentScreen = MoveAniScreen;
 	}
 	
-	void ReScreen()
+	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
 		currentScreen = preScreen;
 		currentScreen = MoveAniScreen;
 	}
 
-	//마우스 입력 시스템
+	void ReTitleScreen()
+	{
+		preScreen = TitleScreen;
+		currentScreen = TitleScreen;
+	}
+
+	
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
@@ -83,7 +89,7 @@ namespace Screen
 				return;
 			}
 			if (mouse.left) {
-				pause::IsCheckReStart(mouse.x, mouse.y);
+				pause::IsCheckReButton(mouse.x, mouse.y);
 			}
 		}
 	}
@@ -92,10 +98,27 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
+			pause::IsPause();
+			if (!pause::GetIsPause())
+			{
+				return;
+			}
+			else
+			{
+				pause::CaptureScreen();
+			}
 			break;
 		case Screen::StockGameScreen:
-			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
-			stock.UpdateGame(TimeSystem::GetDeltaTime());
+			pause::IsPause();
+			if (!pause::GetIsPause())
+			{
+				stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
+				stock.UpdateGame(TimeSystem::GetDeltaTime());
+			}
+			else
+			{
+				pause::CaptureScreen();
+			}
 			break;
 		case Screen::NoodleSliceScreen:
 			pause::IsPause();
@@ -133,7 +156,7 @@ namespace Screen
 
 
 
-	//그리기
+
 	void ScreenRender() {
 		switch (currentScreen)
 		{
@@ -159,13 +182,13 @@ namespace Screen
 			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
-			//현재 애니메이션이 종료되면 false가 반환됨
 			if (!MoveScreen::EndMoveScreen()) {
 				switch (preScreen)
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
 					SetStoryScript(PlayerData::player.GetStage());
+
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
@@ -200,7 +223,8 @@ namespace Screen
 
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
-			pause::DrawReStart();
+			pause::DrawReButton();
+			pause::DrawReButton();
 		}	
 	}
 }
