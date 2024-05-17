@@ -53,7 +53,7 @@ private:
     int salinity = 50;
     int targetSalinity;
     float curTime = 0;
-    float timeLimit = 20000;  //게임 시간제한
+    float timeLimit = 5000;  //게임 시간제한
     bool isTimeOver = false;
 
 

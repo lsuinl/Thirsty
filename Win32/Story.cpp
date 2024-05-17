@@ -4,7 +4,8 @@
 int maxScript= 0; //최대 대사 번호
 int curScript = 0;
 void SetStoryStage(int _stagenum)
-{	
+{
+	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
 }
@@ -44,6 +45,10 @@ void DrawBack(int _stagenum)
 			render::DrawBackGround("resource/object/shrimp.bmp", 1920, 1080, 0, 0, false);
 		else if (curScript == 1)
 			render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
+	}
+	else
+	{
+		render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
 	}
 	PrintText();
 	

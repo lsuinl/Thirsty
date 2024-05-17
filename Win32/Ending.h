@@ -6,4 +6,4 @@ void SetEndingStage(int _stagenum, bool success);
 
 void DrawEndingBack(int _stagenum);
 
-void ChangeEndingBack(float delta);
+void ChangeEndingScript(float delta);

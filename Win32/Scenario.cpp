@@ -5,7 +5,6 @@
 
 float printTime;
 
-wchar_t* token;
 TextList* textList1 = TextList::GetInstance();
 int curChar = 0;     //복사해서 출력한 문자길이
 int maxChar = 0; //한 문장의 끝                  ///나중에 키입력으로 다음 문장으로 넘어가면 그문장의 사이즈를 재서 설정
@@ -17,6 +16,7 @@ wchar_t str3[10][500];    //한글자씩 출력할려고 카피할부분
 
 void SetStoryScript(int _stage)
 {
+	wchar_t* token;
 	wchar_t* p = nullptr;
 	curChar = 0;
 	maxChar = 0;
@@ -67,6 +67,7 @@ void SetStoryScript(int _stage)
 
 void SetEndingScript(int _stage, bool success)
 {
+	wchar_t* token;
 	wchar_t* p = nullptr;
 	curChar = 0;
 	maxChar = 0;

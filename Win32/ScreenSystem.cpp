@@ -124,7 +124,7 @@ namespace Screen
 			ChangeScript(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingScreen:
-			ChangeEndingBack(TimeSystem::GetDeltaTime());
+			ChangeEndingScript(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -165,7 +165,7 @@ namespace Screen
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
-					SetStoryScript(PlayerData::player.GetStage());
+					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
@@ -176,10 +176,11 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingScript(1,false);
+					SetEndingStage(PlayerData::player.GetStage(),PlayerData::player.IsGameClear());
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
+					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:

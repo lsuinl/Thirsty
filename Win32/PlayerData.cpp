@@ -22,6 +22,7 @@ namespace PlayerData {
 		stock = 0;
 		noodleSlice = 0;
 		chooseFood = 0;
+		isClearStage = false;
 		//다음 스테이지로 넘어갑니다.
 		switch (stage)
 		{
@@ -30,6 +31,9 @@ namespace PlayerData {
 			break;
 		case Types::STAGE2:
 			stage = Types::STAGE3;
+			break;
+		case Types::STAGE3:       //일단 스테이지3끝나면 1로보내는 무한순환 타이틀로 보내야함 
+			stage = Types::STAGE1;             
 			break;
 		default:
 			break;
@@ -73,5 +77,10 @@ namespace PlayerData {
 	Types::Soup* Player::GetSoup()
 	{
 		return soup;
+	}
+
+	bool Player::IsGameClear()
+	{
+		return true;
 	}
 }

@@ -5,13 +5,13 @@ int maxEndingScript = 0; //최대 대사 번호
 int curEndingScript = 0;
 void SetEndingStage(int _stagenum, bool success)
 {
-	curEndingScript=0;
+	maxEndingScript = 0;
+	curEndingScript = 0;
 	SetEndingScript(_stagenum, success);
 }
 
 
-
-void ChangeEndingBack(float delta)
+void ChangeEndingScript(float delta)
 {
 	maxEndingScript = GetMaxPage();
 	SkipText(delta);
@@ -42,6 +42,16 @@ void DrawEndingBack(int _stagenum)
 			render::DrawBackGround("resource/object/down.bmp", 1920, 1080, 0, 0, false);
 		else if (curEndingScript == 4)
 			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+	}
+	else if(_stagenum == 2)
+	{
+		if (curEndingScript == 0)
+		render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+	}
+	else if (_stagenum == 3)
+	{
+		if (curEndingScript == 0)
+			render::DrawBackGround("resource/background/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
 	}
 	PrintText();
 

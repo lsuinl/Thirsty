@@ -127,24 +127,30 @@ void StockGame::SetGame(int stage)
 {
     if (stage == 1)
     {
-        salinity = 0;
+        isTimeOver = false;
+        curTime = 0;
+        salinity = 50;
         targetSalinity = 100; //시나리오에따라 값수정필요
-        redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0, RGB(255, 0, 0));
-        yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 3, RGB(255, 255, 0));
+        redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0.4, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 0.7, RGB(255, 255, 0));
     }
-    if (stage == 2)
+    else if (stage == 2)
     {
-        salinity = 0;
+        isTimeOver = false;
+        curTime = 0;
+        salinity = 50;
         targetSalinity = 100;
-        redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0, RGB(255, 0, 0));
-        yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 3, RGB(255, 255, 0));
+        redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0.4, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 0.7, RGB(255, 255, 0));
     }
-    if (stage == 3)
+    else if (stage == 3)
     {
-        salinity = 0;
+        isTimeOver = false;
+        curTime = 0;
+        salinity = 50;
         targetSalinity = 100;
-        redBox.SetBox(blackBox.x, blackBox.y, 160, 90, 0, RGB(255, 0, 0));
-        yellowBox.SetBox(blackBox.x, blackBox.y, 100, 70, 3, RGB(255, 255, 0));
+        redBox.SetBox(blackBox.x, blackBox.y, 160, 90, 0.4, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 100, 70, 0.7, RGB(255, 255, 0));
     }
 }
 

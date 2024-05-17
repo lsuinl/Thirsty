@@ -12,6 +12,11 @@ void TextList::LoadtTextAll()
     stage1_happy = LoadText("resource/object/Stage1_happy.txt");
     stage1_bad = LoadText("resource/object/Stage1_bad.txt");
     stage2_story = LoadText("resource/object/Stage2_story.txt");
+    stage2_happy = LoadText("resource/object/Stage2_happy.txt");
+    stage2_bad = LoadText("resource/object/Stage2_bad.txt");
+    stage3_story = LoadText("resource/object/Stage3_story.txt");
+    stage3_happy = LoadText("resource/object/Stage3_happy.txt");
+    stage3_bad = LoadText("resource/object/Stage3_bad.txt");
 }
 wchar_t* TextList::LoadText(const char* _path)
 {
