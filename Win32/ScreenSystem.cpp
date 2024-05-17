@@ -98,10 +98,27 @@ namespace Screen
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
+			pause::IsPause();
+			if (!pause::GetIsPause())
+			{
+				return;
+			}
+			else
+			{
+				pause::CaptureScreen();
+			}
 			break;
 		case Screen::StockGameScreen:
-			stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
-			stock.UpdateGame(TimeSystem::GetDeltaTime());
+			pause::IsPause();
+			if (!pause::GetIsPause())
+			{
+				stock.UpdateYellowBox(TimeSystem::GetDeltaTime());
+				stock.UpdateGame(TimeSystem::GetDeltaTime());
+			}
+			else
+			{
+				pause::CaptureScreen();
+			}
 			break;
 		case Screen::NoodleSliceScreen:
 			pause::IsPause();
