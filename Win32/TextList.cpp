@@ -8,8 +8,10 @@ TextList* TextList::instance = nullptr;
 void TextList::LoadtTextAll()
 {
     //스테이지 시나리오 엔딩시나리오 다 추가 
-	stage1 = LoadText("resource/object/test.txt");
-    stage2 = LoadText("resource/object/test2.txt");
+	stage1_story = LoadText("resource/object/Stage1_story.txt");
+    stage1_happy = LoadText("resource/object/Stage1_happy.txt");
+    stage1_bad = LoadText("resource/object/Stage1_bad.txt");
+    stage2_story = LoadText("resource/object/Stage2_story.txt");
 }
 wchar_t* TextList::LoadText(const char* _path)
 {

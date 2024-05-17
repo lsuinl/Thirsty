@@ -3,68 +3,93 @@
 #include <string.h>
 #include "Button.h"
 #include "ChooseFood.h"
+#include "Animator.h"
 #include "ScreenSystem.h"
 //두 오브젝트 충돌검사
+
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
 {
-	if (obj1.x < obj2.x + obj2.width &&
-		obj1.x + obj1.width > obj2.x &&
-		obj1.y < obj2.y + obj2.height &&
-		obj1.y + obj1.height > obj2.y)
-	{
-		return true;
-	}
-	return false;
+    if (obj1.x < obj2.x + obj2.width &&
+        obj1.x + obj1.width > obj2.x &&
+        obj1.y < obj2.y + obj2.height &&
+        obj1.y + obj1.height > obj2.y)
+    {
+        return true;
+    }
+    return false;
 }
 
 //노란상자가 70퍼센트이상 속했는지 확인
-void StockGame::Overlab(boxObject obj1, boxObject obj2)
+bool StockGame::Overlab(boxObject obj1, boxObject obj2)
 {
-	float totalSize = 0.0f;
-	boxObject bigObj;
-	boxObject smallObj;
-	if (obj1.width > obj2.width)
-	{
-		bigObj = obj1;
-		smallObj = obj2;
-	}
-	else
-	{
-		bigObj = obj2;
-		smallObj = obj1;
-	}
-	if (isCollide(bigObj, smallObj) == true)
-	{
-		if (bigObj.x >= smallObj.x)
-		{
-			totalSize = (bigObj.x + bigObj.width / 2) - (smallObj.x - smallObj.width / 2);
-		}
-		else
-		{
-			totalSize = (smallObj.x + smallObj.width / 2) - (bigObj.x - bigObj.width / 2);
-		}
-	}
+    float totalSize = 0.0f;
+    boxObject bigObj;
+    boxObject smallObj;
+    if (obj1.width > obj2.width)
+    {
+        bigObj = obj1;
+        smallObj = obj2;
+    }
+    else
+    {
+        bigObj = obj2;
+        smallObj = obj1;
+    }
+    if (isCollide(bigObj, smallObj) == true)
+    {
+        if (bigObj.x >= smallObj.x)
+        {
+            totalSize = (bigObj.x + bigObj.width / 2) - (smallObj.x - smallObj.width / 2);
+        }
+        else
+        {
+            totalSize = (smallObj.x + smallObj.width / 2) - (bigObj.x - bigObj.width / 2);
+        }
+    }
 
-	if (isCollide(bigObj, smallObj) && totalSize <= bigObj.width + smallObj.width * 0.3)
-	{
-		if (salinity < 100)
-		{
-			salinity++;
-		}
-	}
-	else
-	{
-		if (salinity > 0)
-		{
-			salinity--;
-		}
-	}
+    if (isCollide(bigObj, smallObj) && totalSize <= bigObj.width + smallObj.width * 0.3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
+void StockGame::UpdateSalinity(float delta)
+{
+    static ULONGLONG elapsedTime;
+    elapsedTime += delta;
+    static ULONGLONG renewalTime = 50.0f;
+    if (Overlab(yellowBox, redBox) == true)
+    {
+        if (elapsedTime >= renewalTime)
+        {
+            if (salinity < 100)
+            {
+                salinity++;
+                elapsedTime = 0;
+            }
+        }
+    }
+    else
+    {
+        if (elapsedTime >= renewalTime)
+        {
+            if (salinity > 0)
+            {
+                salinity--;
+                elapsedTime = 0;
+            }
+        }
+    }
+
+}
 void StockGame::DrawProgressBar()
 {
-	render::DrawRect(100, 800, 100, -500, RGB(255, 0, 0));
-	render::DrawRect(100, 800, 100, -((500 / 100) * salinity), RGB(255, 255, 0));
+    render::DrawRect(100, 800, 100, -500, RGB(251, 206, 177));
+    render::DrawRect(100, 800, 100, -((500 / 100) * salinity), RGB(255, 0, 0));
 }
 
 StockGame::StockGame()
@@ -75,121 +100,155 @@ StockGame::~StockGame()
 }
 int StockGame::GetSalinity()
 {
-	return salinity;
+    return salinity;
 }
 void StockGame::CheckGameTimeOver(float delta)
 {
-	static ULONGLONG elapsedTime2;
-	elapsedTime2 += delta;
-	if (elapsedTime2 >= timeLimit)
-	{
-		isTimeOver = true;
-		elapsedTime2 = 0;
-		Screen::SetScreen();
-	}
+    if (isTimeOver != true)
+    {
+        curTime += delta;
+    }
+
+    if (curTime >= timeLimit)
+    {
+        curTime = curTime;
+        isTimeOver = true;
+    }
 }
 
 void StockGame::DrawBoxs()
 {
-	render::DrawRect(blackBox.x - blackBox.width / 2, blackBox.y - blackBox.height / 2, blackBox.x + blackBox.width / 2, blackBox.height, blackBox.color);
-	render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
-	render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
+    render::DrawRect(blackBox.x - blackBox.width / 2, blackBox.y - blackBox.height / 2, blackBox.x + blackBox.width / 2, blackBox.height, blackBox.color);
+    render::DrawRect(redBox.x - redBox.width / 2, redBox.y - redBox.height / 2, redBox.width, redBox.height, redBox.color);
+    render::DrawRect(yellowBox.x - yellowBox.width / 2, yellowBox.y - yellowBox.height / 2, yellowBox.width, yellowBox.height, yellowBox.color);
 }
 
 void StockGame::SetGame(int stage)
 {
-	if (stage == 1)
-	{
-		salinity = 0;
-		targetSalinity = 100; //시나리오에따라 값수정필요
-		redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0, RGB(255, 0, 0));
-		yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 3, RGB(255, 255, 0));
-	}
-	else if (stage == 2)
-	{
-		salinity = 0;
-		targetSalinity = 100;
-		redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0, RGB(255, 0, 0));
-		yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 3, RGB(255, 255, 0));
-	}
-	else if (stage == 3)
-	{
-		salinity = 0;
-		targetSalinity = 100;
-		redBox.SetBox(blackBox.x, blackBox.y, 160, 90, 0, RGB(255, 0, 0));
-		yellowBox.SetBox(blackBox.x, blackBox.y, 100, 70, 3, RGB(255, 255, 0));
-	}
+    if (stage == 1)
+    {
+        salinity = 0;
+        targetSalinity = 100; //시나리오에따라 값수정필요
+        redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 3, RGB(255, 255, 0));
+    }
+    if (stage == 2)
+    {
+        salinity = 0;
+        targetSalinity = 100;
+        redBox.SetBox(blackBox.x, blackBox.y, 240, 90, 0, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 170, 70, 3, RGB(255, 255, 0));
+    }
+    if (stage == 3)
+    {
+        salinity = 0;
+        targetSalinity = 100;
+        redBox.SetBox(blackBox.x, blackBox.y, 160, 90, 0, RGB(255, 0, 0));
+        yellowBox.SetBox(blackBox.x, blackBox.y, 100, 70, 3, RGB(255, 255, 0));
+    }
 }
 
 void StockGame::UpdateYellowBox(float delta)
 {
-	if (isTimeOver == false)
-	{
-		if (input::IsKey(32))
-		{
-			yellowBox.MoveRight(yellowBox.speed, delta);
-		}
-		else
-		{
-			yellowBox.MoveLeft(0.3, delta);
-		}
-	}
+    if (isTimeOver == false)
+    {
+        if (input::IsKey(32))
+        {
+            yellowBox.MoveRight(yellowBox.speed, delta);
+        }
+        else
+        {
+            yellowBox.MoveLeft(0.3, delta);
+        }
+    }
 }
 
 
 void StockGame::UpdateRedBox(float delta)
 {
-	srand(time(NULL));
-	int ranDir = rand() % 3 + 1;
-	int random;
-	random = rand() % 5 * 100;
+    srand(time(NULL));
+    static int ranDir = 0;
+    static ULONGLONG elapsedTime;
+    elapsedTime += delta;
+    float movetime = 15.0f;
+    if (elapsedTime >= movetime)
+    {
+        ranDir = rand() % 8 + 1;
+    }
 
-	if (ranDir == 1)
-	{
-		redBox.MoveLeft(redBox.speed, delta);
-	}
-	else if (ranDir == 2)
-	{
-		redBox.MoveStop();
-	}
-	else if (ranDir == 3)
-	{
-		redBox.MoveRight(redBox.speed, delta);
-	}
+    if (ranDir == 1 || ranDir == 2 || ranDir == 3)
+    {
+        redBox.MoveLeft(redBox.speed, delta);
+    }
+    else if (ranDir == 4 || ranDir == 5)
+    {
+        redBox.MoveStop();
+    }
+    else if (ranDir == 6 || ranDir == 7 || ranDir == 8)
+    {
+        redBox.MoveRight(redBox.speed, delta);
+    }
 
 }
 void StockGame::UpdateGame(float delta)
 {
-	static ULONGLONG elapsedTime;
-	float checktime = 50.0f;
-	elapsedTime += delta;
-	if (isTimeOver == false)
-	{
-		if (elapsedTime >= checktime)
-		{
-			Overlab(yellowBox, redBox);
-			UpdateRedBox(delta);
-			elapsedTime = 0;
-		}
-	}
-	CheckGameTimeOver(delta);
+
+    if (isTimeOver == false)
+    {
+        UpdateSalinity(delta);
+        UpdateRedBox(delta);
+
+    }
+    else
+    {
+        Screen::SetScreen();
+    }
+    CheckGameTimeOver(delta);
 
 }
 void StockGame::RenderStockGame()
 {
-	DrawProgressBar();
-	DrawBoxs();
+    render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+
+    DrawProgressBar();
+    DrawBoxs();
+    DrawPot();
+    std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - curTime / 1000)) + L" 초";
+    render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
+    
+    render::DrawTextF(125, 240, L"짬", RGB(251, 206, 177),60);
+    render::DrawTextF(85, 820, L"싱거움", RGB(255, 0, 0), 60);
+    DrawBasket();
+}
+
+void StockGame::DrawBasket()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        render::DrawBackGround("resource/object/basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
+    }
+}
+void StockGame::DrawPot()
+{
+    //일단 배경그리는걸로 냄비그림 수정필요
+    if ((Overlab(yellowBox, redBox) == true))
+    {
+        render::DrawBackGround("resource/object/best.bmp", pot.width, pot.height, pot.x, pot.y, false);
+    }
+    else
+    {
+        render::DrawBackGround("resource/object/test.bmp", pot.width, pot.height, pot.x, pot.y, false);
+    }
 }
 int StockGame::GameScore()
 {
-	if (salinity >= targetSalinity - 20 || salinity <= targetSalinity + 20)
-	{
-		score = 100;
-	}
-	else
-	{
-		score = 50;
-	}
-	return score;
+    if (salinity >= targetSalinity - 20 || salinity <= targetSalinity + 20)
+    {
+        score = 100;
+    }
+    else
+    {
+        score = 0;
+    }
+    return score;
 }
-

@@ -22,6 +22,9 @@ namespace PlayerData {
 		Types::Soup* soup; //육수(여러개)
 
 		public:
+			//다음스테이지갈지 재시작할지 정하는 bool값 //이걸로 배드엔딩 새드엔딩 출력도할예정
+			//스테이지별 일정 점수이상시 clearStage값 true 해줄 함수구현필요
+			bool clearStage = false;
 			Player();
 			~Player();
 			//현재 스테이지 정보 가져오기
