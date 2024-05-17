@@ -26,11 +26,17 @@ namespace Screen
 		currentScreen = MoveAniScreen;
 	}
 	
-	void ReScreen()
+	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
 		currentScreen = preScreen;
 		currentScreen = MoveAniScreen;
+	}
+
+	void ReTitleScreen()
+	{
+		preScreen = TitleScreen;
+		currentScreen = TitleScreen;
 	}
 
 	//마우스 입력 시스템
@@ -83,7 +89,7 @@ namespace Screen
 				return;
 			}
 			if (mouse.left) {
-				pause::IsCheckReStart(mouse.x, mouse.y);
+				pause::IsCheckReButton(mouse.x, mouse.y);
 			}
 		}
 	}
@@ -159,7 +165,7 @@ namespace Screen
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
-					SetScript(1);
+					SetStage(1);
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
@@ -188,7 +194,8 @@ namespace Screen
 
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
-			pause::DrawReStart();
+			pause::DrawReButton();
+			pause::DrawReButton();
 		}	
 	}
 }

@@ -181,7 +181,7 @@ int NoodleSlice::GetArrSize()
 // render
 void NoodleSlice::NoodleSliceScreen()
 {
-    render::DrawBackGround("resource\\background\\back.bmp", 0, 0, 0, 0, false);
+    render::DrawBackGround("resource\\background\\minigame.bmp", 0, 0, 0, 0, false);
 
     // 치기 전
     for (int i = setCnt; i < setCnt + 1; i++)

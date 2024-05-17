@@ -5,7 +5,6 @@
 
 float printTime;
 
-wchar_t* p = nullptr;
 wchar_t* token;
 TextList* textList1 = TextList::GetInstance();
 int curChar = 0;     //복사해서 출력한 문자길이
@@ -19,6 +18,22 @@ wchar_t str3[10][500];    //한글자씩 출력할려고 카피할부분
 
 void SetScript(int num)
 {
+	wchar_t* p = nullptr;
+	curChar = 0;
+	maxChar = 0;
+	curPage = 0;
+	maxPage = 0;
+	memset(str2, 0, sizeof(str2));
+	//if (num == 0)
+	//{
+	//	token = wcstok_s(textList1->prologue, L"&", &p);
+	//	while (token != NULL)
+	//	{
+	//		wcscpy_s(str2[maxPage], token);
+	//		token = wcstok_s(NULL, L"&", &p);
+	//		maxPage++;
+	//	}
+	//}
 	if (num == 1)
 	{
 		token = wcstok_s(textList1->stage1, L"&", &p);

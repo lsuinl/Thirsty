@@ -1,11 +1,8 @@
-﻿  NoodleSlice.cpp
+﻿  MoveScreen.cpp
 C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(59,42): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'NoodleSlice.cpp'을(를) 컴파일하는 중)
+  (소스 파일 'MoveScreen.cpp'을(를) 컴파일하는 중)
   
 C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(60,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'NoodleSlice.cpp'을(를) 컴파일하는 중)
+  (소스 파일 'MoveScreen.cpp'을(를) 컴파일하는 중)
   
-C:\Users\User\Documents\GitHub\Thirsty\Win32\NoodleSlice.cpp(7,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  PlayerData.cpp
-  코드를 생성하고 있습니다...
   Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
