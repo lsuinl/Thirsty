@@ -14,3 +14,7 @@
 #include "TimeSystem.h"
 #include "Animator.h"
 #include "PlayerData.h"
+#include "Scenario.h"
+#include "Story.h"
+#include "Ending.h"
+#include "TextList.h"

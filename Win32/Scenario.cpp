@@ -5,7 +5,6 @@
 
 float printTime;
 
-wchar_t* p = nullptr;
 wchar_t* token;
 TextList* textList1 = TextList::GetInstance();
 int curChar = 0;     //복사해서 출력한 문자길이
@@ -16,12 +15,17 @@ int maxPage = 0;   // 한 시나리오의 마지막 페이지 이 시나리가 몇페이지인지 구해�
 wchar_t str2[10][500];    // 파일다 받아온걸 구분자로 잘라서 담아둘부분
 wchar_t str3[10][500];    //한글자씩 출력할려고 카피할부분
 
-
-void SetScript(int num)
+void SetStoryScript(int _stage)
 {
-	if (num == 1)
+	wchar_t* p = nullptr;
+	curChar = 0;
+	maxChar = 0;
+	curPage = 0;
+	maxPage = 0;
+	memset(str2, 0, sizeof(str2));
+	if (_stage == 0)
 	{
-		token = wcstok_s(textList1->stage1, L"&", &p);
+		token = wcstok_s(textList1->prologue, L"&", &p);
 		while (token != NULL)
 		{
 			wcscpy_s(str2[maxPage], token);
@@ -29,21 +33,121 @@ void SetScript(int num)
 			maxPage++;
 		}
 	}
-	else if (num == 2)
+	if (_stage == 1)
 	{
-		//num을 스테이지 번호라고 생각하고 구현생각중 논의필요
-		token = wcstok_s(textList1->stage2, L"&", &p);
+		token = wcstok_s(textList1->stage1_story, L"&", &p);
 		while (token != NULL)
 		{
 			wcscpy_s(str2[maxPage], token);
 			token = wcstok_s(NULL, L"&", &p);
 			maxPage++;
 		}
-
 	}
-
+	else if (_stage == 2)
+	{
+		token = wcstok_s(textList1->stage2_story,L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+	}
+	else if (_stage == 3)
+	{
+		token = wcstok_s(textList1->stage3_story, L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+	}
 }
 
+void SetEndingScript(int _stage, bool success)
+{
+	wchar_t* p = nullptr;
+	curChar = 0;
+	maxChar = 0;
+	curPage = 0;
+	maxPage = 0;
+	memset(str2, 0, sizeof(str2));
+	if (_stage == 1)
+	{
+		if (success)
+		{
+			token = wcstok_s(textList1->stage1_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage1_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+	else if (_stage == 2)
+	{
+		if (success)//성공내용
+		{
+			token = wcstok_s(textList1->stage2_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage2_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+	else if (_stage == 3)
+	{
+		if (success)//성공내용
+		{
+			token = wcstok_s(textList1->stage3_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage3_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+}
+
+int GetMaxPage()
+{
+	return maxPage;
+}
 void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
@@ -92,7 +196,6 @@ void SkipText(float delta)
 	}
 	//탭 9   //엔터 13  //쉬프트 16
 }
-
 void UpdateText()
 {
 	

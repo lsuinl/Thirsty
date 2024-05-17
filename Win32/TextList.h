@@ -8,9 +8,16 @@ private:
 	TextList() {} // 생성자는 비공개로 만듦
 	~TextList() {} // 소멸자도 비공개로 만듦
 public:
-	wchar_t* stage1;
-	wchar_t* stage2;
-	wchar_t* stage3;
+	wchar_t* prologue;
+	wchar_t* stage1_story;
+	wchar_t* stage1_happy;
+	wchar_t* stage1_bad;
+	wchar_t* stage2_story;
+	wchar_t* stage2_happy;
+	wchar_t* stage2_bad;
+	wchar_t* stage3_story;
+	wchar_t* stage3_happy;
+	wchar_t* stage3_bad;
 
 	//해당코드떄문에 생성자를 추가로 생성해도 한개의 생성자로 다 반환됨
 	static TextList* GetInstance() {

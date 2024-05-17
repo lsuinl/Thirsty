@@ -121,7 +121,10 @@ namespace Screen
 			Title::isEsc();
 			break;
 		case Screen::StoryScreen:
-			ChangeBack(TimeSystem::GetDeltaTime());
+			ChangeScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::EndingScreen:
+			ChangeEndingBack(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -149,7 +152,10 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawBack();
+			DrawBack(PlayerData::player.GetStage());
+			break;
+		case Screen::EndingScreen:
+			DrawEndingBack(PlayerData::player.GetStage());
 			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
@@ -159,7 +165,7 @@ namespace Screen
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
-					SetScript(1);
+					SetStoryScript(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
@@ -170,12 +176,18 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					currentScreen = PlaceFoodScreen;
+					SetEndingScript(1,false);
+					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
+					break;
+				case EndingScreen:
+					PlayerData::player.ResetScore();
+					SetStoryStage(PlayerData::player.GetStage());
+					currentScreen = StoryScreen;
 					break;
 				default:
 					break;

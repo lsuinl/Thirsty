@@ -1,44 +1,52 @@
 #include "Story.h"
 #include "ScreenSystem.h"
 
-int i = 0;
-int stagenum;     //스테이지num 받아와야함 
-void SetStage(int num)
-{
-	
-		stagenum = num;
-		SetScript(num);
-	
+int maxScript= 0; //최대 대사 번호
+int curScript = 0;
+void SetStoryStage(int _stagenum)
+{	
+	curScript = 0;
+	SetStoryScript(_stagenum);
 }
-void ChangeBack(float delta)
+void ChangeScript(float delta)
 {
+	maxScript = GetMaxPage();
 	SkipText(delta);
 	UpdateText();
 	if(input::IsKeyUp(16))
 	{
-		if(i < 5)
-		i++;
+		if(curScript < maxScript)
+			curScript++;
 	}
-
-	if (i == 5)
+	if (curScript == maxScript)
 	{
 		Screen::SetScreen();
 	}
 }
-void DrawBack()
+void DrawBack(int _stagenum)
 {
-	//if stagenum == 1  일떄 스테이지1의 배경순차적으로
-	if(i ==0)
-	render::DrawBackGround("resource/object/best.bmp", 1920, 1080, 0, 0, false);
-	else if(i ==1)
-	render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
-	else if (i == 2)
-		render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
-	else if (i == 3)
-		render::DrawBackGround("resource/object/down.bmp", 1920, 1080, 0, 0, false);
-	else if (i == 4)
-		render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
-	
+	if(_stagenum == 1)//일떄 스테이지1의 배경순차적으로
+	{
+		if (curScript == 0)
+			render::DrawBackGround("resource/object/best.bmp", 1920, 1080, 0, 0, false);
+		else if (curScript == 1)
+			render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
+		else if (curScript == 2)
+			render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
+		else if (curScript == 3)
+			render::DrawBackGround("resource/object/down.bmp", 1920, 1080, 0, 0, false);
+		else if (curScript == 4)
+			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+	}
+	else if(_stagenum == 2)
+	{
+		if (curScript == 0)
+			render::DrawBackGround("resource/object/shrimp.bmp", 1920, 1080, 0, 0, false);
+		else if (curScript == 1)
+			render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
+	}
 	PrintText();
+	
+
 
 }
