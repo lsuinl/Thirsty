@@ -11,6 +11,7 @@ namespace Screen
 		MoveAniScreen,
 		TitleScreen,
 		StoryScreen,
+		EndingScreen,
 	};
 	void SetScreen();
 	void ReStartScreen();

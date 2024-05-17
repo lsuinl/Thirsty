@@ -59,6 +59,9 @@
     <ClCompile Include="Pause.cpp">
       <Filter>3.feature</Filter>
     </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -124,6 +127,9 @@
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="Pause.h">
       <Filter>3.feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>4.scene\2.Story</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

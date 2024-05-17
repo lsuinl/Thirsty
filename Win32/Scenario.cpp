@@ -7,16 +7,15 @@ float printTime;
 
 wchar_t* token;
 TextList* textList1 = TextList::GetInstance();
-int curChar = 0;     //º¹»çÇØ¼­ Ãâ·ÂÇÑ ¹®ÀÚ±æÀÌ
-int maxChar = 0; //ÇÑ ¹®ÀåÀÇ ³¡                  ///³ªÁß¿¡ Å°ÀÔ·ÂÀ¸·Î ´ÙÀ½ ¹®ÀåÀ¸·Î ³Ñ¾î°¡¸é ±×¹®ÀåÀÇ »çÀÌÁî¸¦ Àç¼­ ¼³Á¤
-int curPage = 0;   // Ãâ·ÂÇÏ°íÀÖ´Â ÇöÀçÆäÀÌÁö ³Ñ¹ö
-int maxPage = 0;   // ÇÑ ½Ã³ª¸®¿ÀÀÇ ¸¶Áö¸· ÆäÀÌÁö ÀÌ ½Ã³ª¸®°¡ ¸îÆäÀÌÁöÀÎÁö ±¸ÇØ¼­ ³Ö±âÇÊ¿ä
+int curChar = 0;     //ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½
+int maxChar = 0; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½                  ///ï¿½ï¿½ï¿½ß¿ï¿½ Å°ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½×¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ç¼­ ï¿½ï¿½ï¿½ï¿½
+int curPage = 0;   // ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
+int maxPage = 0;   // ï¿½ï¿½ ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ö±ï¿½ï¿½Ê¿ï¿½
 
-wchar_t str2[10][500];    // ÆÄÀÏ´Ù ¹Þ¾Æ¿Â°É ±¸ºÐÀÚ·Î Àß¶ó¼­ ´ã¾ÆµÑºÎºÐ
-wchar_t str3[10][500];    //ÇÑ±ÛÀÚ¾¿ Ãâ·ÂÇÒ·Á°í Ä«ÇÇÇÒºÎºÐ
+wchar_t str2[10][500];    // ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¾Æ¿Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ß¶ï¿½ ï¿½ï¿½ÆµÑºÎºï¿½
+wchar_t str3[10][500];    //ï¿½Ñ±ï¿½ï¿½Ú¾ï¿½ ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ÒºÎºï¿½
 
-
-void SetScript(int num)
+void SetStoryScript(int _stage)
 {
 	wchar_t* p = nullptr;
 	curChar = 0;
@@ -24,19 +23,10 @@ void SetScript(int num)
 	curPage = 0;
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
-	//if (num == 0)
-	//{
-	//	token = wcstok_s(textList1->prologue, L"&", &p);
-	//	while (token != NULL)
-	//	{
-	//		wcscpy_s(str2[maxPage], token);
-	//		token = wcstok_s(NULL, L"&", &p);
-	//		maxPage++;
-	//	}
-	//}
-	if (num == 1)
+
+	if (_stage == 0)
 	{
-		token = wcstok_s(textList1->stage1, L"&", &p);
+		token = wcstok_s(textList1->prologue, L"&", &p);
 		while (token != NULL)
 		{
 			wcscpy_s(str2[maxPage], token);
@@ -44,26 +34,126 @@ void SetScript(int num)
 			maxPage++;
 		}
 	}
-	else if (num == 2)
+	if (_stage == 1)
 	{
-		//numÀ» ½ºÅ×ÀÌÁö ¹øÈ£¶ó°í »ý°¢ÇÏ°í ±¸Çö»ý°¢Áß ³íÀÇÇÊ¿ä
-		token = wcstok_s(textList1->stage2, L"&", &p);
+		token = wcstok_s(textList1->stage1_story, L"&", &p);
 		while (token != NULL)
 		{
 			wcscpy_s(str2[maxPage], token);
 			token = wcstok_s(NULL, L"&", &p);
 			maxPage++;
 		}
-
 	}
-
+	else if (_stage == 2)
+	{
+		token = wcstok_s(textList1->stage2_story,L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+	}
+	else if (_stage == 3)
+	{
+		token = wcstok_s(textList1->stage3_story, L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+	}
 }
 
+void SetEndingScript(int _stage, bool success)
+{
+	wchar_t* p = nullptr;
+	curChar = 0;
+	maxChar = 0;
+	curPage = 0;
+	maxPage = 0;
+	memset(str2, 0, sizeof(str2));
+	if (_stage == 1)
+	{
+		if (success)
+		{
+			token = wcstok_s(textList1->stage1_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage1_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+	else if (_stage == 2)
+	{
+		if (success)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		{
+			token = wcstok_s(textList1->stage2_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage2_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+	else if (_stage == 3)
+	{
+		if (success)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		{
+			token = wcstok_s(textList1->stage3_happy, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+		else
+		{
+			token = wcstok_s(textList1->stage3_bad, L"&", &p);
+			while (token != NULL)
+			{
+				wcscpy_s(str2[maxPage], token);
+				token = wcstok_s(NULL, L"&", &p);
+				maxPage++;
+			}
+		}
+	}
+}
+
+int GetMaxPage()
+{
+	return maxPage;
+}
 void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
 	elapsedTime += delta;
-	//ÄÁÆ®·ÑÅ°´©¸£¸é »¡¸®³ª¿À°ÔÇÔ == Áö±ÝÀº ¹®ÀÚÇÏ³ª¾¿º¹»çÇØ¿Í¼­ ÇÑ±ÛÀÚ¾¿Ãâ·ÂµÇ´Â°ÍÃ³·³º¸ÀÓ
+	//ï¿½ï¿½Æ®ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ == ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¿Í¼ï¿½ ï¿½Ñ±ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ÂµÇ´Â°ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (input::IsKey(17))
 	{
 		printTime = 10;
@@ -72,7 +162,7 @@ void SkipText(float delta)
 	{
 		printTime = 100;
 	}
-	//ÇØ´çÆäÀÌÁö ´Ù ¶ß°ÔÀ ºÎºÐ
+	//ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½Îºï¿½
 	if(input::IsKeyUp(9))
 	{
 		if (curChar != maxChar)
@@ -81,9 +171,9 @@ void SkipText(float delta)
 		}
 		//else
 		//{
-		//	if (curPage < maxPage - 1) // Ãß°¡ÇÊ¿ä ¸·ÀåÀÏ°æ¿ì Å°ÀÔ·Â½Ã ¹Ì´Ï°ÔÀÓÀ¸·Î °¡°Å³ª ¹öÆ°Ãâ·ÂÀ¸·Î ¹Ì´Ï°ÔÀÓÁøÀÔ
-		//	{                          // ¹öÆ°ÇÑ°³·Î ¸ô°í½ÍÀº´ë ¹è°æÀüÈ¯°ú °ü·ÃÇØ¼­ ¹®Á¦°¡ÀÖÀ½  bool°ªÀ¸·Î maxÃâ·ÂÀÎÁö ´ÙÀ½ÆäÀÌÁöÀÎÁö
-		//		curPage++;             //È®ÀÎÇØ¼­ ÇØ¾ßÇÒµí? ´ÙÀ½ÆäÀÌÁö´Â ¸¶¿ì½ºÅ¬¸¯ÀÌ¾ú³ª?
+		//	if (curPage < maxPage - 1) // ï¿½ß°ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ Å°ï¿½Ô·Â½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//	{                          // ï¿½ï¿½Æ°ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ maxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//		curPage++;             //È®ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ø¾ï¿½ï¿½Òµï¿½? ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºÅ¬ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½?
 		//		curChar = 0;
 		//	}
 		//}
@@ -96,24 +186,23 @@ void SkipText(float delta)
 			elapsedTime = 0;
 		}
 	}
-	//´Ù Ãâ·Â‰çÀ»¶§ ´ÙÀ½ÆäÀÌÁö·Î ³Ñ±æºÎºÐ
+	//ï¿½ï¿½ ï¿½ï¿½Â‰ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½Îºï¿½
 	if (input::IsKeyUp(16))
 	{
-		if (curPage < maxPage - 1) // Ãß°¡ÇÊ¿ä ¸·ÀåÀÏ°æ¿ì Å°ÀÔ·Â½Ã ¹Ì´Ï°ÔÀÓÀ¸·Î °¡°Å³ª ¹öÆ°Ãâ·ÂÀ¸·Î ¹Ì´Ï°ÔÀÓÁøÀÔ
+		if (curPage < maxPage - 1) // ï¿½ß°ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ Å°ï¿½Ô·Â½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			curPage++;
 			curChar = 0;
 		}
 	}
-	//ÅÇ 9   //¿£ÅÍ 13  //½¬ÇÁÆ® 16
+	//ï¿½ï¿½ 9   //ï¿½ï¿½ï¿½ï¿½ 13  //ï¿½ï¿½ï¿½ï¿½Æ® 16
 }
-
 void UpdateText()
 {
 	
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar);
-	// if(curPage == maxChar) ¸Æ½º¸é ¹öÆ°Å¬¸¯ °¡´ÉÇÏ°Ô²û
+	// if(curPage == maxChar) ï¿½Æ½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ô²ï¿½
 }
 void PrintText()
 {	

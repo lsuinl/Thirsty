@@ -39,7 +39,7 @@ namespace Screen
 		currentScreen = TitleScreen;
 	}
 
-	//마우스 입력 시스템
+	
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
@@ -144,7 +144,10 @@ namespace Screen
 			Title::isEsc();
 			break;
 		case Screen::StoryScreen:
-			ChangeBack(TimeSystem::GetDeltaTime());
+			ChangeScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::EndingScreen:
+			ChangeEndingBack(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -153,7 +156,7 @@ namespace Screen
 
 
 
-	//그리기
+
 	void ScreenRender() {
 		switch (currentScreen)
 		{
@@ -172,17 +175,20 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawBack();
+			DrawBack(PlayerData::player.GetStage());
+			break;
+		case Screen::EndingScreen:
+			DrawEndingBack(PlayerData::player.GetStage());
 			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
-			//현재 애니메이션이 종료되면 false가 반환됨
 			if (!MoveScreen::EndMoveScreen()) {
 				switch (preScreen)
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
-					SetStage(1);
+					SetStoryScript(PlayerData::player.GetStage());
+
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
@@ -193,12 +199,18 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					currentScreen = PlaceFoodScreen;
+					SetEndingScript(1,false);
+					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
+					break;
+				case EndingScreen:
+					PlayerData::player.ResetScore();
+					SetStoryStage(PlayerData::player.GetStage());
+					currentScreen = StoryScreen;
 					break;
 				default:
 					break;
