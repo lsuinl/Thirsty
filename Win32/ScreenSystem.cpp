@@ -195,7 +195,7 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
+					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE3);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
