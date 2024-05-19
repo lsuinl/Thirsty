@@ -5,6 +5,7 @@
 #include "ChooseFood.h"
 #include "Animator.h"
 #include "ScreenSystem.h"
+#include "LoadData.h"
 //두 오브젝트 충돌검사
 
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
@@ -208,7 +209,7 @@ void StockGame::UpdateGame(float delta)
 }
 void StockGame::RenderStockGame()
 {
-    render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+    LoadData::imageManager->DrawBitMapImage("배경화면",0,0);
 
     DrawProgressBar();
     DrawBoxs();
@@ -225,7 +226,7 @@ void StockGame::DrawBasket()
 {
     for (int i = 0; i < 5; i++)
     {
-        render::DrawBackGround("resource/object/basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
+        LoadData::imageManager->DrawPngImage("바구니", 150, 100, 1485, 200 + (i * 150), 1.0f);
     }
 }
 void StockGame::DrawPot()
@@ -233,11 +234,11 @@ void StockGame::DrawPot()
     //일단 배경그리는걸로 냄비그림 수정필요
     if ((Overlab(yellowBox, redBox) == true))
     {
-        render::DrawBackGround("resource/object/best.bmp", pot.width, pot.height, pot.x, pot.y, false);
+        LoadData::imageManager->DrawPngImage("짱", pot.width, pot.height, pot.x, pot.y, 1.0f);
     }
     else
     {
-        render::DrawBackGround("resource/object/test.bmp", pot.width, pot.height, pot.x, pot.y, false);
+        LoadData::imageManager->DrawPngImage("바구니", pot.width, pot.height, pot.x, pot.y, 1.0f);
     }
 }
 int StockGame::GameScore()

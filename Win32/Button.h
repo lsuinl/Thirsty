@@ -6,13 +6,12 @@ namespace button {
     class Button {
         const char* name;
         int x, y;
-        std::wstring image;
         std::function<void()> onClickFunction;
 
     public:
         int width;
         int height;
-        Button(const char* name, int x, int y, int width, int height, std::wstring, std::function<void()> function);
+        Button(const char* name, int x, int y, int width, int height, std::function<void()> function);
         void DrawButton();
         bool CheckClick(int dx, int dy);
         void PlayFunction();
@@ -20,7 +19,6 @@ namespace button {
     class DragDrop {
         int originX, originY;
         int x, y;
-        std::wstring image;
         std::function<void()> onClickFunction;
 
     public:
@@ -30,7 +28,7 @@ namespace button {
         bool isDragging = false;
         DragDrop();
         ~DragDrop();
-        DragDrop(const char* name, int x, int y, int width, int height, std::wstring, std::function<void()> function);
+        DragDrop(const char* name, int x, int y, int width, int height, std::function<void()> function);
         void DrawButton();
         bool CheckDrag(int dx, int dy);
         void PlayFunction();

@@ -1,21 +1,22 @@
 #include "Button.h"
 #include "RenderSystem.h"
 #include "GameManager.h"
+#include "LoadData.h"
+
 namespace button {
 
-    Button::Button(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
+    Button::Button(const char* name, int x, int y, int width, int height, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
         this->y = y;
         this->width = width;
         this->height = height;
-        this->image = image;
         this->onClickFunction = onClick;
     }
     void Button::DrawButton()
     {
-        render::DrawObject(image, width, height, x, y, true);
+        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
     }
     bool Button::CheckClick(int dx, int dy)
     {
@@ -54,18 +55,15 @@ namespace button {
         this->width = 150;
         this->height = 100;
         this->isDragging = false;
-
-
     }
 
-    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
+    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
         this->y = y;
         this->width = width;
         this->height = height;
-        this->image = image;
         this->onClickFunction = onClick;
         this->originX = x;
         this->originY = y;
@@ -73,7 +71,7 @@ namespace button {
     }
     void DragDrop::DrawButton()
     {
-        render::DrawObject(image, width, height, x, y, true);
+        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
     }
 
     bool DragDrop::CheckDrag(int dx, int dy)

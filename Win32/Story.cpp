@@ -1,6 +1,6 @@
 #include "Story.h"
 #include "ScreenSystem.h"
-
+#include "LoadData.h"
 
 int maxScript= 0;
 int curScript = 0;
@@ -29,22 +29,22 @@ void DrawBack(int _stagenum)
 	if(_stagenum == 1)
 	{
 		if (curScript == 0)
-		render::DrawBackGround("resource/background/story/1.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1",0,0);
 		else if (curScript == 1)
-		render::DrawBackGround("resource/background/story/2.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면2", 0, 0); 
 		else if (curScript == 2)
-			render::DrawBackGround("resource/background/story/3.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면3", 0, 0);
 		else if (curScript == 3)
-		render::DrawBackGround("resource/background/story/4.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면4", 0, 0); 
 		else if (curScript == 4)
-		render::DrawBackGround("resource/background/story/5.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면5", 0, 0);
 	}
 	else if(_stagenum == 2)
 	{
 		if (curScript == 0)
-		render::DrawBackGround("resource/background/story/1.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		else if (curScript == 1)
-			render::DrawBackGround("resource/background/story/2.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면2", 0, 0);
 	}
 	PrintText();
 	
