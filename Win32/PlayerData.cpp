@@ -26,6 +26,9 @@ namespace PlayerData {
 		//다음 스테이지로 넘어갑니다.
 		switch (stage)
 		{
+		case Types::STAGE0:       //프롤로그용 없어질수도있음
+			stage = Types::STAGE1;
+			break;
 		case Types::STAGE1:
 			stage = Types::STAGE2;
 			break;

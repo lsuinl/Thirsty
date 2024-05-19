@@ -8,7 +8,7 @@ private:
 	TextList() {} // 생성자는 비공개로 만듦
 	~TextList() {} // 소멸자도 비공개로 만듦
 public:
-	wchar_t* prologue;
+	wchar_t* stage0_prologue;
 	wchar_t* stage1_story;
 	wchar_t* stage1_happy;
 	wchar_t* stage1_bad;

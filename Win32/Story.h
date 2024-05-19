@@ -6,9 +6,10 @@
 
 //뒷배경 붙여야함 키입력시 뒷배경 바껴야함 특정키입력시 i++ i기 몇일떈 해당bmp 몇일떈 해당 bmp출력되게끔
 
+
+
 void SetStoryStage(int _stagenum);
 
-void ChangeScript(float delta);
+void ChangeStoryScript(float delta);
 
-void DrawBack(int _stagenum);
-
+void DrawStoryBack(int _stagenum);

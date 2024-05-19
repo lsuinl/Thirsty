@@ -121,7 +121,7 @@ namespace Screen
 			Title::isEsc();
 			break;
 		case Screen::StoryScreen:
-			ChangeScript(TimeSystem::GetDeltaTime());
+			ChangeStoryScript(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
@@ -152,7 +152,7 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawBack(PlayerData::player.GetStage());
+			DrawStoryBack(PlayerData::player.GetStage());
 			break;
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
@@ -188,7 +188,14 @@ namespace Screen
 				case EndingScreen:
 					PlayerData::player.ResetScore();
 					SetStoryStage(PlayerData::player.GetStage());
-					currentScreen = StoryScreen;
+					if(PlayerData::player.GetStage()==1)
+					{
+						currentScreen = TitleScreen;
+					}
+					else
+					{
+						currentScreen = StoryScreen;
+					}
 					break;
 				default:
 					break;

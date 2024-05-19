@@ -1,16 +1,2 @@
-﻿  Ending.cpp
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Ending.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(65,48): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Ending.cpp'을(를) 컴파일하는 중)
-  
-  Story.cpp
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(64,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Story.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\User\Documents\GitHub\Thirsty\Win32\StockGame.h(65,48): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 'Story.cpp'을(를) 컴파일하는 중)
-  
-  코드를 생성하고 있습니다...
-  Win32.vcxproj -> C:\Users\User\Documents\GitHub\Thirsty\x64\Debug\우동 한 그릇.exe
+﻿  PlayerData.cpp
+  Win32.vcxproj -> C:\Users\sshhs\OneDrive\Documents\Thirsty\Thirsty\x64\Debug\우동 한 그릇.exe
