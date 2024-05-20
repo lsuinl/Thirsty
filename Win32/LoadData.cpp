@@ -65,10 +65,12 @@ namespace LoadData
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");
 		imageManager->LoadPngImages("소면", L"resource\\object\\noodle\\small.bmp");
+
 		imageManager->LoadPngImages("멸치", L"resource\\object\\soup\\maulchi.bmp");
 		imageManager->LoadPngImages("쯔유", L"resource\\object\\soup\\tzuyu.bmp");
 		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.bmp");
 		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\soup\\gathobusi.bmp");
+
 		imageManager->LoadPngImages("대파", L"resource\\object\\decoration\\daepa.bmp");
 		imageManager->LoadPngImages("건다시마", L"resource\\object\\decoration\\dasima.bmp");
 		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.bmp");

@@ -135,6 +135,11 @@ void StockGame::SetGame(int stage)
         targetSalinity = 30; //시나리오에따라 값수정필요 25 35  20 40
         redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0.5, RGB(255, 0, 0)); 
         yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 0.6, RGB(255, 255, 0));
+
+        for (int i = 0; i < 4; i++)
+        {
+            garnishList[i].SetGarnish(200 + (i * 150), i + 1);
+        }
     }
     else if (stage == 2)
     {
@@ -238,7 +243,12 @@ void StockGame::RenderStockGame()
     render::DrawTextF(200, (700 - ((500 / 100) * targetSalinity)) - 20, L"BEST", RGB(0, 255, 0), 50);
 
 
-    DrawBasket();
+    //DrawBasket();
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        garnishList[i].DrawGarnish();
+    }
 }
 
 void StockGame::DrawBasket()
@@ -278,3 +288,28 @@ bool StockGame::IsStockClear()
     return salinity >= targetSalinity - 10 && salinity <= targetSalinity + 10;
 }
 
+void StockGarnish::SetGarnish(float y, int garnish_num)
+{
+    this->y = y;
+    this->garnish_num = garnish_num;
+}
+
+void StockGarnish::DrawGarnish()
+{
+    if (garnish_num == 1)
+    {
+        LoadData::imageManager->DrawPngImage("멸치", x, y, width, height, 1.0f);
+    }
+    else if (garnish_num == 2)
+    {
+        LoadData::imageManager->DrawPngImage("쯔유", x, y, width, height, 1.0f);
+    }
+    else if (garnish_num == 3)
+    {
+        LoadData::imageManager->DrawPngImage("짱", x, y, width, height, 1.0f);
+    }
+    else if (garnish_num == 4)
+    {
+        LoadData::imageManager->DrawPngImage("가쓰오부시", x, y, width, height, 1.0f);
+    }
+}

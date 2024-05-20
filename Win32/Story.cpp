@@ -84,7 +84,6 @@ void DrawStoryBack(int _stagenum)
 	else
 	{
 
-
 		if (curScript == 0 || curScript == 1 || curScript == 2)
 		{
 			figure.expression = 0;
