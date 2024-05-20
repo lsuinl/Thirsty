@@ -52,7 +52,8 @@ namespace Screen
 			{
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
-			if (mouse.isDragging) {
+			if (mouse.left && mouse.isDragging)
+			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
 			}
 			else {
@@ -144,10 +145,10 @@ namespace Screen
 			Title::isEsc();
 			break;
 		case Screen::StoryScreen:
-			ChangeScript(TimeSystem::GetDeltaTime());
+			ChangeStoryScript(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingScreen:
-			ChangeEndingBack(TimeSystem::GetDeltaTime());
+			ChangeEndingScript(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -175,7 +176,7 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawBack(PlayerData::player.GetStage());
+			DrawStoryBack(PlayerData::player.GetStage());
 			break;
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
@@ -187,11 +188,11 @@ namespace Screen
 				{
 				case TitleScreen:
 					textList->LoadtTextAll();
-					SetStoryScript(PlayerData::player.GetStage());
-
+					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
+					ChooseFood::InitScreen();
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
@@ -199,10 +200,11 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingScript(1,false);
+					SetEndingStage(PlayerData::player.GetStage(),PlayerData::player.IsGameClear());
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
+					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
@@ -210,7 +212,14 @@ namespace Screen
 				case EndingScreen:
 					PlayerData::player.ResetScore();
 					SetStoryStage(PlayerData::player.GetStage());
-					currentScreen = StoryScreen;
+					if(PlayerData::player.GetStage()==1)
+					{
+						currentScreen = TitleScreen;
+					}
+					else
+					{
+						currentScreen = StoryScreen;
+					}
 					break;
 				default:
 					break;

@@ -51,24 +51,26 @@ class StockGame
 private:
     int score = 0;
     int salinity = 50;
-    int targetSalinity;
+    int targetSalinity; //1스테이지       2스테이지 40 60            3스테이지
     float curTime = 0;
-    float timeLimit = 20000;  //게임 시간제한
+    float timeLimit = 40000;  //게임 시간제한
     bool isTimeOver = false;
-
+    float redBoxSpeed = 0.6;
+    float yelloBoxSpeed = 0.7;
+    float renewalTime = 80.0f;  //옆에 그래프바가 차오르는 속도 낮을수록 빨리참 아마 
 
 public:
     StockGame();
     ~StockGame();
     boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
-    boxObject redBox = { 900, 900, 360, 90 ,0.4 ,RGB(255,0 ,0) };
-    boxObject yellowBox = { 900, 900, 260, 70 ,0.7 ,RGB(255,255 ,0) };
+    boxObject redBox;
+    boxObject yellowBox;
     boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0) };
 
     //박스충돌확인
     bool isCollide(boxObject obj1, boxObject obj2);
 
-    //박스가 70퍼이상속해있는지 확인후 염도조절
+    //박스가 60퍼이상속해있는지 확인후 염도조절
     bool Overlab(boxObject obj1, boxObject obj2);
 
     //염도값 얻기
@@ -106,8 +108,11 @@ public:
 
     //재료가 담길 바구니 그리기
     void DrawBasket();
+
     //게임 스코어 반환
     int GameScore();
 
+    //스톡게임 클리어 여부반환
+    bool IsStockClear();
 
 };

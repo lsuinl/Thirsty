@@ -9,8 +9,8 @@ namespace render
 {
     HWND hWnd;
 
-    HDC frontMemDC;    // 앞면 DC
-    HDC backMemDC;     // 뒷면 DC
+    HDC frontMemDC;  
+    HDC backMemDC;     
 
     HBITMAP backBitmap = nullptr;
 
@@ -87,30 +87,27 @@ namespace render
 
     void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize)
     {
-        // 폰트 추가 생성
         AddFontResource(TEXT("resource//font//BlackHanSans-Regular.ttf"));
         HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Black Han Sans"));
-        // 백 버퍼에 텍스트 그리기
+
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);
-        SetBkMode(backMemDC, TRANSPARENT); // 배경을 투명으로 설정
-
+        SetBkMode(backMemDC, TRANSPARENT); 
 
         int currentX = x;
         int currentY = y;
 
-        // 문자열 출력
         for (size_t i = 0; i < wcslen(text); ++i)
         {
             wchar_t ch = text[i];
             if (currentX >= 1500)
             {
-                currentX = x; // x 위치 초기화
-                currentY += 50; // y 위치 증가
+                currentX = x; 
+                currentY += 50; 
             }
 
             TextOutW(backMemDC, currentX, currentY, &ch, 1);
-            currentX += GetTextWidth(backMemDC, &ch, 1); // 문자 폭만큼 x 증가
+            currentX += GetTextWidth(backMemDC, &ch, 1);
         }
 
 
@@ -127,26 +124,18 @@ namespace render
     }
     void DrawBitmap(int x, int y, HBITMAP hBitmap)
     {
-        HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
+        static HDC bitmapMemDC = CreateCompatibleDC(frontMemDC);
 
         HBITMAP hOldBitmap = (HBITMAP)SelectObject(bitmapMemDC, hBitmap);
 
         BITMAP bm;
         GetObject(hBitmap, sizeof(BITMAP), &bm);
 
-        HWND hWnd = global::GetWinApp().GetWindow();
-        // 윈도우의 크기를 얻음
-        RECT clientRect;
-        GetClientRect(hWnd, &clientRect);
-        int windowWidth = clientRect.right - clientRect.left;
-        int windowHeight = clientRect.bottom - clientRect.top;
 
-        ::BitBlt(backMemDC, x, y, windowWidth, windowHeight, bitmapMemDC, 0, 0, SRCCOPY);
 
-        SelectObject(bitmapMemDC, hOldBitmap);  // 이전 비트맵 복원
-        DeleteObject(hBitmap);  // 비트맵 해제
-        DeleteDC(bitmapMemDC);
+        ::BitBlt(backMemDC, x, y, bm.bmWidth, bm.bmHeight, bitmapMemDC, 0, 0, SRCCOPY);
 
+        SelectObject(bitmapMemDC, hOldBitmap); 
     }
 
     HBITMAP LoadImages(const char* path, int width, int height)
@@ -168,14 +157,12 @@ namespace render
         render::ReleaseImage(hBackmap);
         return hBackmap;
     }
-
-    void DrawObject(std::wstring name, int width, int height, int x, int y, bool to, float alpha)
+   
+    void DrawObjects(Image* name, int width, int height, int x, int y, bool to, float alpha)
     {
-        Gdiplus::Graphics g(backMemDC);
-        Image* image = Image::FromFile(name.c_str());
-        // 투명화 시킬 픽셀의 색 범위
+        static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
         Gdiplus::Color _alpha_Color(0, 0, 0, 0);
-        Gdiplus::ImageAttributes imgAtt;
+        static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
         Gdiplus::ColorMatrix colorMatrix = {
             1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
@@ -183,15 +170,35 @@ namespace render
             0.0f, 0.0f, 0.0f, alpha, 0.0f,
             0.0f, 0.0f, 0.0f, 0.0f, 1.0f
         };
-
+        g.SetSmoothingMode(SmoothingModeNone);
+        g.SetPixelOffsetMode(PixelOffsetModeNone);
+        g.SetInterpolationMode(InterpolationModeNearestNeighbor);
         imgAtt.SetColorMatrix(&colorMatrix);
         imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
-        //크기 조정
-        Gdiplus::Rect destRect(x, y, width, height); // 화면에 그릴 영역   
-        // 원본 이미지의 크기를 가져옵니다.
-        g.DrawImage(image, destRect, 0, 0, image->GetWidth(), image->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
-
-        delete image; // 이미지 객체 삭제
+        Gdiplus::Rect destRect(x, y, width, height);
+        g. DrawImage(name, destRect, 0, 0, name->GetWidth(), name->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
     }
 
+
+    void DrawObject(const WCHAR* name, int width, int height, int x, int y, bool to, float alpha)
+    {
+        Image* img = Image::FromFile(name);
+        static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
+        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
+        Gdiplus::ColorMatrix colorMatrix = {
+            1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, alpha, 0.0f,
+            0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+        };
+        g.SetSmoothingMode(SmoothingModeNone);
+        g.SetPixelOffsetMode(PixelOffsetModeNone);
+        g.SetInterpolationMode(InterpolationModeNearestNeighbor);
+        imgAtt.SetColorMatrix(&colorMatrix);
+        imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
+        Gdiplus::Rect destRect(x, y, width, height);
+        g.DrawImage(img, destRect, 0, 0, img->GetWidth(), img->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
+    }
 }

@@ -56,11 +56,14 @@
       <Filter>3.feature</Filter>
     </ClCompile>
     <ClCompile Include="ScreenSystem.cpp" />
-    <ClCompile Include="Pause.cpp">
-      <Filter>3.feature</Filter>
-    </ClCompile>
     <ClCompile Include="Ending.cpp">
       <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>1.default</Filter>
+    </ClCompile>
+    <ClCompile Include="Pause.cpp">
+      <Filter>4.scene\1.Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,18 +121,21 @@
     <ClInclude Include="MoveScreen.h">
       <Filter>4.scene\1.Title</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalHeader.h">
-      <Filter>5.data</Filter>
-    </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>3.feature</Filter>
     </ClInclude>
     <ClInclude Include="ScreenSystem.h" />
-    <ClInclude Include="Pause.h">
-      <Filter>3.feature</Filter>
-    </ClInclude>
     <ClInclude Include="Ending.h">
       <Filter>4.scene\2.Story</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>1.default</Filter>
+    </ClInclude>
+    <ClInclude Include="Pause.h">
+      <Filter>4.scene\1.Title</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalHeader.h">
+      <Filter>4.scene\3.MiniGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -137,6 +137,7 @@
     <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="Ending.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="LoadData.cpp" />
     <ClCompile Include="MoveScreen.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Ending.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GlobalHeader.h" />
+    <ClInclude Include="ImageManager.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LoadData.h" />
     <ClInclude Include="MoveScreen.h" />
