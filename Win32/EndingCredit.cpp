@@ -2,22 +2,31 @@
 
 namespace end
 {
-	float end_timer = 0;
-	int i = 0;
+	std::wstring* imageList = new std::wstring[5];
+	Animator moveCredit;
 
-	bool end::SetCredit()
+	void SetMoveCredit()
 	{
+		for (int i = 1; i <= 5; i++)
+		{
+			imageList[i - 1] = L"resource\\animation\\credit\\" + std::to_wstring(i) + L".bmp";
+		}
+		moveCredit = Animator("浚爹农饭调", 0, 0, 1920, 1080, 30000, imageList, false, false);
+		moveCredit.SetAnimation();
+	}
+	void MoveToCredit()
+	{
+		LoadData::imageManager->DrawBitMapImage("浚爹农饭调", 0, 0);
+		moveCredit.DrawAnimation();
 	}
 
-	void end::EndingCredit()
+	bool EndMoveCredit()
 	{
-		while (end_timer > 1000 || i >= -6035)
-		{
-			end_timer += TimeSystem::GetDeltaTime();
-			i--;
-			end_timer -= 1000;
-		}
+		return moveCredit.GetAnimationCheck();
+	}
 
-		render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, i, false);
+	void ReleasCredit()
+	{
+		delete[] imageList;
 	}
 }

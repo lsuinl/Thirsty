@@ -16,7 +16,6 @@ namespace Screen
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	TextList* textList = TextList::GetInstance();
-	float _timer;
 	ScreenName preScreen = TitleScreen;
 	ScreenName currentScreen = TitleScreen;
 
@@ -151,6 +150,7 @@ namespace Screen
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
 			break;
+		case CreditScreen:
 		default:
 			break;
 		}
@@ -215,6 +215,7 @@ namespace Screen
 					SetStoryStage(PlayerData::player.GetStage());
 					if(PlayerData::player.GetStage()==1)
 					{
+						end::SetMoveCredit();
 						currentScreen = CreditScreen;
 					}
 					else
@@ -231,7 +232,12 @@ namespace Screen
 			}
 			break;
 		case CreditScreen:
-			end::EndingCredit();
+			if (!end::EndMoveCredit())
+			{
+				end::ReleasCredit();
+				currentScreen = TitleScreen;
+			}
+			end::MoveToCredit();
 			break;
 		default:
 			break;
