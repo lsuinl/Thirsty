@@ -4,6 +4,7 @@
 // 게임 세팅
 void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
 {
+    input::SetKeyCode(false);
     srand(time(NULL));
 
     // 플레이 시간

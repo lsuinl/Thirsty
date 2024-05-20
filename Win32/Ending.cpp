@@ -1,17 +1,21 @@
 #include "Ending.h"
 #include "ScreenSystem.h"
-#include "LoadData.h"
+
+
 int maxEndingScript = 0; //최대 대사 번호
 int curEndingScript = 0;
-void SetEndingStage(int _stagenum, bool success)
+bool success;
+Figure endFigure;
+void SetEndingStage(int _stagenum, bool _success)
 {
-	curEndingScript=0;
-	SetEndingScript(_stagenum, success);
+	maxEndingScript = 0;
+	curEndingScript = 0;
+	SetEndingScript(_stagenum, _success);
+	success = _success;
 }
 
 
-
-void ChangeEndingBack(float delta)
+void ChangeEndingScript(float delta)
 {
 	maxEndingScript = GetMaxPage();
 	SkipText(delta);
@@ -29,18 +33,90 @@ void ChangeEndingBack(float delta)
 
 void DrawEndingBack(int _stagenum)
 {
-
-	if (_stagenum == 1)//일떄 스테이지1의 배경순차적으로
+	//우동그림 추가필요 우동별로
+	if (success) //성공장면들
 	{
-		if (curEndingScript == 0)
-			LoadData::imageManager->DrawBitMapImage("스토리화면1",0,0);
-		else if (curEndingScript == 1)
-			LoadData::imageManager->DrawBitMapImage("스토리화면2", 0, 0);
-		else if (curEndingScript == 2)
-			LoadData::imageManager->DrawBitMapImage("스토리화면3", 0, 0);
-		else if (curEndingScript == 3)
-			LoadData::imageManager->DrawBitMapImage("스토리화면4", 0, 0);
+		if (_stagenum == 1)//일떄 스테이지1의 배경순차적으로
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+				
+			}
+			else
+			{
+				endFigure.expression = 1;
+			}
+			
+		}
+		else if (_stagenum == 2)
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+
+			}
+			else
+			{
+				endFigure.expression = 1;
+			}
+		}
+		else
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+
+			}
+			else
+			{
+				endFigure.expression = 1;
+			}
+		}
 	}
+	else
+	{
+		if (_stagenum == 1)
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+			}
+			else
+			{
+				endFigure.expression = 2;
+			}
+
+		}
+		else if (_stagenum == 2)
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+
+			}
+			else
+			{
+				endFigure.expression = 2;
+			}
+		}
+		else
+		{
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 3;
+
+			}
+			else
+			{
+				endFigure.expression = 2;
+			}
+		}
+	}
+	render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+	endFigure.DrawFigure(_stagenum);
+	render::DrawObject(L"resource\\object\\rect.png", 1600, 600, 200, 500, true, 0.8f);
 	PrintText();
+	
 
 }
