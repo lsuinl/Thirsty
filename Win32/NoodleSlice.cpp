@@ -10,7 +10,7 @@ void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
     // 플레이 시간
     playTimer = 0;
 
-    // 성공 여부
+    // 방향키 올킬 여부
     isSuccess = false;
 
     // 맞춘 횟수
@@ -276,4 +276,17 @@ void NoodleSlice::NoodleSliceScreen()
 
     std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - playTimer / 1000)) + L" 초";
     render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
+}
+
+// 게임 성공 여부
+bool NoodleSlice::NoodleSuccess()
+{
+    if (cnt >= arrSize - 2)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
