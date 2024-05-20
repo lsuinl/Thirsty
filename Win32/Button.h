@@ -22,18 +22,24 @@ namespace button {
         std::function<void()> onClickFunction;
 
     public:
+        int nameTag = 31;
         const char* name;
         int width;
         int height;
-        bool isDragging = false;
+        bool isDragging = false;//드래그 되고 있는 객체가 있을시에 겹치는 좌표의 객체들에 영향을 받지 않도록 추가된 값.
+        bool isShowing = true;  // 이미지가 보이고 있는지
+        bool canClick = true;
         DragDrop();
         ~DragDrop();
-        DragDrop(const char* name, int x, int y, int width, int height, std::function<void()> function);
+        DragDrop(int nameTag,const char* name, int x, int y, int width, int height, std::function<void()> function);
         void DrawButton();
         bool CheckDrag(int dx, int dy);
         void PlayFunction();
         void setPos(int dx, int dy);
+        void setYPos(int n);
+        void setSize(int w, int h);
         bool CheckRightClick(int x, int y);
+        bool CheckClick(int dx, int dy);
         void Reset();
         const int getXPos();
         const int getYPos();

@@ -57,8 +57,9 @@ namespace button {
         this->isDragging = false;
     }
 
-    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::function<void()> onClick)
+    DragDrop::DragDrop(int nameTag, const char* name, int x, int y, int width, int height, std::function<void()> onClick)
     {
+        this->nameTag = nameTag;
         this->name = name;
         this->x = x;
         this->y = y;
@@ -91,6 +92,25 @@ namespace button {
         this->x = dx;
         this->y = dy;
     }
+    void DragDrop::setYPos(int n)
+    {
+        this->y = originY - (n * 150);
+    }
+    void DragDrop::setSize(int w, int h)
+    {
+        this->width = w;
+        this->height = h;
+    }
+
+    bool DragDrop::CheckClick(int dx, int dy)
+    {
+        if (dx >= x && dx <= x + width && dy >= y && dy <= y + height)
+        {
+            return true;
+        }
+        return false;
+    }
+
     const int DragDrop::getXPos() { return this->x; }
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }

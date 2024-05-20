@@ -192,44 +192,44 @@ void NoodleSlice::NoodleSliceScreen()
             {
                 if (arrowArr[i][j].isTrue == true)
                 {
-                    LoadData::imageManager->DrawPngImage("위", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("위", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else
                 {
-                    LoadData::imageManager->DrawPngImage("회색위", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("회색위", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
             }
             else if (arrowArr[i][j].arrowType == DOWNARROW)
             {
                 if (arrowArr[i][j].isTrue == true)
                 {
-                    LoadData::imageManager->DrawPngImage("아래", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("아래", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else
                 {
-                    LoadData::imageManager->DrawPngImage("회색아래", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("회색아래", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
             }
             else if (arrowArr[i][j].arrowType == RIGHTARROW)
             {
                 if (arrowArr[i][j].isTrue == true)
                 {
-                    LoadData::imageManager->DrawPngImage("오른쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("오른쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else
                 {
-                    LoadData::imageManager->DrawPngImage("회색오른쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("회색오른쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
             }
             else if (arrowArr[i][j].arrowType == LEFTARROW)
             {
                 if (arrowArr[i][j].isTrue == true)
                 {
-                    LoadData::imageManager->DrawPngImage("왼쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("왼쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else
                 {
-                    LoadData::imageManager->DrawPngImage("회색왼쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("회색왼쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
             }
         }
@@ -244,19 +244,19 @@ void NoodleSlice::NoodleSliceScreen()
             {
                 if (arrowArr[i][j].arrowType == UPARROW)
                 {
-                    LoadData::imageManager->DrawPngImage("틀린위", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("빨간위", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else if (arrowArr[i][j].arrowType == DOWNARROW)
                 {
-                    LoadData::imageManager->DrawPngImage("틀린아래", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("빨간아래", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else if (arrowArr[i][j].arrowType == RIGHTARROW)
                 {
-                    LoadData::imageManager->DrawPngImage("틀린오른쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("빨간오른쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
                 else if (arrowArr[i][j].arrowType == LEFTARROW)
                 {
-                    LoadData::imageManager->DrawPngImage("틀린왼쪽", 100, 100, 500 + (j % stage) * 100, 150, true);
+                    LoadData::imageManager->DrawPngImage("빨간왼쪽", 967 - ((stage / 2) * 100) + (j % stage) * 100, 200, 100, 100, true);
                 }
             }
         }

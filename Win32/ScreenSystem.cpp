@@ -52,7 +52,8 @@ namespace Screen
 			{
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
-			if (mouse.isDragging) {
+			if (mouse.left && mouse.isDragging)
+			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
 			}
 			else {
@@ -191,6 +192,7 @@ namespace Screen
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
+					ChooseFood::InitScreen();
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:

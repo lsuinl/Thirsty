@@ -42,13 +42,13 @@
 		
 				std::wstring word = imageList[animationTime / ( animationLimit / (10))];
 				
-				//render::DrawObjects(word, width, height, x, y, to);
+				render::DrawObject(word.c_str(), width, height, x, y, to);
 			}
 			else 
 			{
 				animationTime = 0;
 				std::wstring word = imageList[animationTime / (animationLimit / (10))].c_str();
-			//	render::DrawObjects(word, width, height, x, y, to);
+				render::DrawObject(word.c_str(), width, height, x, y, to);
 				//전환 종료(반복인 경우는 다시 재생)
 	
 				if (!loop) 

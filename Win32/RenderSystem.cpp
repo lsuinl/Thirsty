@@ -170,10 +170,35 @@ namespace render
             0.0f, 0.0f, 0.0f, alpha, 0.0f,
             0.0f, 0.0f, 0.0f, 0.0f, 1.0f
         };
-
+        g.SetSmoothingMode(SmoothingModeNone);
+        g.SetPixelOffsetMode(PixelOffsetModeNone);
+        g.SetInterpolationMode(InterpolationModeNearestNeighbor);
         imgAtt.SetColorMatrix(&colorMatrix);
         imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
         Gdiplus::Rect destRect(x, y, width, height);
         g. DrawImage(name, destRect, 0, 0, name->GetWidth(), name->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
+    }
+
+
+    void DrawObject(const WCHAR* name, int width, int height, int x, int y, bool to, float alpha)
+    {
+        Image* img = Image::FromFile(name);
+        static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
+        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
+        Gdiplus::ColorMatrix colorMatrix = {
+            1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, alpha, 0.0f,
+            0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+        };
+        g.SetSmoothingMode(SmoothingModeNone);
+        g.SetPixelOffsetMode(PixelOffsetModeNone);
+        g.SetInterpolationMode(InterpolationModeNearestNeighbor);
+        imgAtt.SetColorMatrix(&colorMatrix);
+        imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
+        Gdiplus::Rect destRect(x, y, width, height);
+        g.DrawImage(img, destRect, 0, 0, img->GetWidth(), img->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
     }
 }

@@ -245,7 +245,7 @@ void StockGame::DrawBasket()
 {
     for (int i = 0; i < 5; i++)
     {
-        LoadData::imageManager->DrawPngImage("바구니", 150, 100, 1485, 200 + (i * 150), 1.0f);
+        LoadData::imageManager->DrawPngImage("바구니", 1485, 200 + (i * 150), 150, 100,  1.0f);
     }
 }
 void StockGame::DrawPot()
@@ -253,11 +253,11 @@ void StockGame::DrawPot()
     //일단 배경그리는걸로 냄비그림 수정필요
     if ((Overlab(yellowBox, redBox) == true))
     {
-        LoadData::imageManager->DrawPngImage("짱", pot.width, pot.height, pot.x, pot.y, 1.0f);
+        LoadData::imageManager->DrawPngImage("짱",pot.x, pot.y, pot.width, pot.height, 1.0f);
     }
     else
     {
-        LoadData::imageManager->DrawPngImage("바구니", pot.width, pot.height, pot.x, pot.y, 1.0f);
+        LoadData::imageManager->DrawPngImage("바구니", pot.x, pot.y, pot.width, pot.height, 1.0f);
     }
 }
 int StockGame::GameScore()

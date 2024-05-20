@@ -45,7 +45,7 @@ namespace pause
 
     void RenderPause()
     {
-        LoadData::imageManager->DrawBitMapImage("일시정지,", 450, 50);
+        LoadData::imageManager->DrawBitMapImage("일시정지", 450, 50);
     }
 
     // 화면 캡처 함수
