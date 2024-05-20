@@ -9,6 +9,7 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "EndingCredit.h"
 
 namespace Screen
 {
@@ -132,7 +133,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000 || input::IsKeyDown(16) == true)
 			{
 				SetScreen();
 			}
@@ -214,17 +215,23 @@ namespace Screen
 					SetStoryStage(PlayerData::player.GetStage());
 					if(PlayerData::player.GetStage()==1)
 					{
-						currentScreen = TitleScreen;
+						currentScreen = CreditScreen;
 					}
 					else
 					{
 						currentScreen = StoryScreen;
 					}
 					break;
+				case CreditScreen:
+					currentScreen = TitleScreen;
+					break;
 				default:
 					break;
 				}
 			}
+			break;
+		case CreditScreen:
+			end::EndingCredit();
 			break;
 		default:
 			break;

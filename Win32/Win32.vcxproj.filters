@@ -65,6 +65,9 @@
     <ClCompile Include="Pause.cpp">
       <Filter>4.scene\1.Title</Filter>
     </ClCompile>
+    <ClCompile Include="EndingCredit.cpp">
+      <Filter>4.scene\2.Story</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="GlobalHeader.h">
       <Filter>4.scene\3.MiniGame</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingCredit.h">
+      <Filter>4.scene\2.Story</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

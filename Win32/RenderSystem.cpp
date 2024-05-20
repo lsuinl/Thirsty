@@ -87,8 +87,8 @@ namespace render
 
     void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize)
     {
-        AddFontResource(TEXT("resource//font//BlackHanSans-Regular.ttf"));
-        HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Black Han Sans"));
+        AddFontResource(TEXT("resource//font//ChosunCentennial_ttf.ttf"));
+        HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("조선100년체 "));
 
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);

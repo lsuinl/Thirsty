@@ -33,6 +33,7 @@ namespace LoadData
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1920);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
+		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 6035);
 
 		//png
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start.bmp");

@@ -242,7 +242,7 @@ void UpdateText()
 }
 void PrintText()
 {	
-	render::DrawTextF(250, 730, str3[curPage], RGB(0, 0, 255), 50);
+	render::DrawTextF(250, 730, str3[curPage], RGB(255, 255, 255), 50);
 }
 
 
