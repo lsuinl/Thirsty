@@ -22,6 +22,7 @@ namespace game
 		LoadData::LoadMusic();
 		LoadData::LoadImages();
 		LoadData::LoadAnimation();
+		LoadData::soundManager->PlayMusic(Music::eSoundList::StartBGM, Music::eSoundChannel::BGM);
 	}
 	void GameManager::Update()
 	{

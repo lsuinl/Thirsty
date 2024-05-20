@@ -1,21 +1,22 @@
 #include "Button.h"
 #include "RenderSystem.h"
 #include "GameManager.h"
+#include "LoadData.h"
+
 namespace button {
 
-    Button::Button(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
+    Button::Button(const char* name, int x, int y, int width, int height, std::function<void()> onClick)
     {
         this->name = name;
         this->x = x;
         this->y = y;
         this->width = width;
         this->height = height;
-        this->image = image;
         this->onClickFunction = onClick;
     }
     void Button::DrawButton()
     {
-        render::DrawObject(image, width, height, x, y, true);
+        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
     }
     bool Button::CheckClick(int dx, int dy)
     {
@@ -54,18 +55,16 @@ namespace button {
         this->width = 150;
         this->height = 100;
         this->isDragging = false;
-
-
     }
 
-    DragDrop::DragDrop(const char* name, int x, int y, int width, int height, std::wstring image, std::function<void()> onClick)
+    DragDrop::DragDrop(int nameTag, const char* name, int x, int y, int width, int height, std::function<void()> onClick)
     {
+        this->nameTag = nameTag;
         this->name = name;
         this->x = x;
         this->y = y;
         this->width = width;
         this->height = height;
-        this->image = image;
         this->onClickFunction = onClick;
         this->originX = x;
         this->originY = y;
@@ -73,7 +72,7 @@ namespace button {
     }
     void DragDrop::DrawButton()
     {
-        render::DrawObject(image, width, height, x, y, true);
+        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
     }
 
     bool DragDrop::CheckDrag(int dx, int dy)
@@ -93,6 +92,25 @@ namespace button {
         this->x = dx;
         this->y = dy;
     }
+    void DragDrop::setYPos(int n)
+    {
+        this->y = originY - (n * 150);
+    }
+    void DragDrop::setSize(int w, int h)
+    {
+        this->width = w;
+        this->height = h;
+    }
+
+    bool DragDrop::CheckClick(int dx, int dy)
+    {
+        if (dx >= x && dx <= x + width && dy >= y && dy <= y + height)
+        {
+            return true;
+        }
+        return false;
+    }
+
     const int DragDrop::getXPos() { return this->x; }
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }

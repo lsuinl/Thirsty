@@ -1,5 +1,6 @@
 #include "MoveScreen.h"
 #include "Animator.h"
+#include "LoadData.h"
 namespace MoveScreen
 {
 	std::wstring* imageList = new std::wstring[10];
@@ -15,9 +16,8 @@ namespace MoveScreen
 	}
 	void MoveToScreen() 
 	{
-		render::DrawBackGround("resource/background/loading.bmp", 1920, 1080, 0, 0, false);
+		LoadData::imageManager->DrawBitMapImage("로딩화면",0,0);
 		render::DrawTextF(130, 90, L"화면 체인지", RGB(0, 0, 0), 60);
-
 		moveAni.DrawAnimation();
 	}
 

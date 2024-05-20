@@ -2,18 +2,18 @@
 #include "RenderSystem.h"
 #include "InputSystem.h"
 #include "TextList.h"
-
+#include "LoadData.h"
 float printTime;
 
 TextList* textList1 = TextList::GetInstance();
-int curChar;     //ë³µì‚¬í•´ì„œ ì¶œë ¥í•œ ë¬¸ìžê¸¸ì´
-int maxChar;    //í•œ ë¬¸ìž¥ì˜ ë                  ///ë‚˜ì¤‘ì— í‚¤ìž…ë ¥ìœ¼ë¡œ ë‹¤ìŒ ë¬¸ìž¥ìœ¼ë¡œ ë„˜ì–´ê°€ë©´ ê·¸ë¬¸ìž¥ì˜ ì‚¬ì´ì¦ˆë¥¼ ìž¬ì„œ ì„¤ì •
-int curPage;   // ì¶œë ¥í•˜ê³ ìžˆëŠ” í˜„ìž¬íŽ˜ì´ì§€ ë„˜ë²„
-int maxPage;   // í•œ ì‹œë‚˜ë¦¬ì˜¤ì˜ ë§ˆì§€ë§‰ íŽ˜ì´ì§€ 
+int curChar;     //º¹»çÇØ¼­ Ãâ·ÂÇÑ ¹®ÀÚ±æÀÌ
+int maxChar;    //ÇÑ ¹®ÀåÀÇ ³¡                  ///³ªÁß¿¡ Å°ÀÔ·ÂÀ¸·Î ´ÙÀ½ ¹®ÀåÀ¸·Î ³Ñ¾î°¡¸é ±×¹®ÀåÀÇ »çÀÌÁî¸¦ Àç¼­ ¼³Á¤
+int curPage;   // Ãâ·ÂÇÏ°íÀÖ´Â ÇöÀçÆäÀÌÁö ³Ñ¹ö
+int maxPage;   // ÇÑ ½Ã³ª¸®¿ÀÀÇ ¸¶Áö¸· ÆäÀÌÁö 
 
 int txtLen;              
-wchar_t str2[20][500];    //êµ¬ë¶„ìžë¡œ ìž˜ë¼ì„œ ë‹´ì•„ë‘˜ë¶€ë¶„
-wchar_t str3[20][500];    //í•œê¸€ìžì”© ì¶œë ¥í• ë ¤ê³  ì¹´í”¼í• ë¶€ë¶„
+wchar_t str2[20][500];    //±¸ºÐÀÚ·Î Àß¶ó¼­ ´ã¾ÆµÑºÎºÐ
+wchar_t str3[20][500];    //ÇÑ±ÛÀÚ¾¿ Ãâ·ÂÇÒ·Á°í Ä«ÇÇÇÒºÎºÐ
 
 void SetStoryScript(int _stage)
 {     
@@ -128,7 +128,7 @@ void SetEndingScript(int _stage, bool success)
 	}
 	else if (_stage == 2)
 	{
-		if (success)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (success)
 		{
 			txtLen = wcslen(textList1->stage2_happy) + 1;
 			wchar_t* str1 = new wchar_t[txtLen];
@@ -159,7 +159,7 @@ void SetEndingScript(int _stage, bool success)
 	}
 	else if (_stage == 3)
 	{
-		if (success)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (success)//? ì™?™å ?™ì˜™? ì™?™å ?™ì˜™
 		{
 			txtLen = wcslen(textList1->stage3_happy) + 1;
 			wchar_t* str1 = new wchar_t[txtLen];
@@ -198,7 +198,7 @@ void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
 	elapsedTime += delta;
-	//ï¿½ï¿½Æ®ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ == ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¿Í¼ï¿½ ï¿½Ñ±ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ÂµÇ´Â°ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
 	if (input::IsKey(17))
 	{
 		printTime = 10;
@@ -207,21 +207,14 @@ void SkipText(float delta)
 	{
 		printTime = 100;
 	}
-	//ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½Îºï¿½
+
 	if(input::IsKeyUp(9))
 	{
 		if (curChar != maxChar)
 		{
 			curChar = maxChar;
 		}
-		//else
-		//{
-		//	if (curPage < maxPage - 1) // ï¿½ß°ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ Å°ï¿½Ô·Â½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-		//	{                          // ï¿½ï¿½Æ°ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ maxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-		//		curPage++;             //È®ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ø¾ï¿½ï¿½Òµï¿½? ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½ºÅ¬ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½?
-		//		curChar = 0;
-		//	}
-		//}
+
 	}
 	if (elapsedTime >= printTime)
 	{
@@ -231,28 +224,25 @@ void SkipText(float delta)
 			elapsedTime = 0;
 		}
 	}
-	//ï¿½ï¿½ ï¿½ï¿½Â‰ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½Îºï¿½
 	if (input::IsKeyUp(16))
 	{
-			if (curPage < maxPage - 1) // ì¶”ê°€í•„ìš” ë§‰ìž¥ì¼ê²½ìš° í‚¤ìž…ë ¥ì‹œ ë¯¸ë‹ˆê²Œìž„ìœ¼ë¡œ ê°€ê±°ë‚˜ ë²„íŠ¼ì¶œë ¥ìœ¼ë¡œ ë¯¸ë‹ˆê²Œìž„ì§„ìž…
-			{
-				curPage++;
-				curChar = 0;
-			}
+		if (curPage < maxPage - 1) // Ãß°¡ÇÊ¿ä ¸·ÀåÀÏ°æ¿ì Å°ÀÔ·Â½Ã ¹Ì´Ï°ÔÀÓÀ¸·Î °¡°Å³ª ¹öÆ°Ãâ·ÂÀ¸·Î ¹Ì´Ï°ÔÀÓÁøÀÔ
+		{
+			curPage++;
+			curChar = 0;
+		}
 	}
-	//ï¿½ï¿½ 9   //ï¿½ï¿½ï¿½ï¿½ 13  //ï¿½ï¿½ï¿½ï¿½Æ® 16
 }
+
 void UpdateText()
 {
-	
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar + 7);
-	// if(curPage == maxChar) ë§¥ìŠ¤ë©´ ë²„íŠ¼í´ë¦­ ê°€ëŠ¥í•˜ê²Œë”
+	// if(curPage == maxChar) ¸Æ½º¸é ¹öÆ°Å¬¸¯ °¡´ÉÇÏ°Ô²û
 }
 void PrintText()
 {	
 	render::DrawTextF(250, 730, str3[curPage], RGB(0, 0, 255), 50);
-
 }
 
 
@@ -262,34 +252,34 @@ void Figure::DrawFigure(int _stagenum)
 	{
 		if (_stagenum == 1)
 		{
-			if (expression == 0) // ê¸°ë³¸í‘œì •
+			if (expression == 0)
 			{
 				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
 			}
-			else if(expression == 1) //ê¸°ìœí‘œì •
+			else if(expression == 1)
 			{
 				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
 			}
-			else if(expression == 2)//ì“¸ì“¸í•œí‘œì •
+			else if(expression == 2)
 			{
 				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
 			}
-			else //ìš°ë™ë¨¹ëŠ” ê·¸ë¦¼
+			else 
 			{
 				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
 			}
 		}
 		else if (_stagenum == 2)
 		{
-			if (expression == 0) // ê¸°ë³¸í‘œì •
+			if (expression == 0) 
 			{
 				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
 			}
-			else if (expression == 1) //ê¸°ìœí‘œì •
+			else if (expression == 1) 
 			{
 				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
 			}
-			else if (expression == 2) //ì“¸ì“¸í•œí‘œì •
+			else if (expression == 2) 
 			{
 				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
 			}
@@ -300,15 +290,15 @@ void Figure::DrawFigure(int _stagenum)
 		}
 		else
 		{
-			if (expression == 0) // ê¸°ë³¸í‘œì •
+			if (expression == 0) 
 			{
 				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
 			}
-			else if (expression == 1) //ìš°ëŠ”í‘œì •
+			else if (expression == 1)
 			{
 				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
 			}
-			else if (expression == 2) //ì“¸ì“¸í•œí‘œì •
+			else if (expression == 2)
 			{
 				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
 			}

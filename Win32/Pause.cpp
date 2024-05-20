@@ -1,6 +1,7 @@
 #include "Pause.h"
 #include "Button.h"
 #include "ScreenSystem.h"
+#include "LoadData.h"
 namespace pause
 {
     // 게임 일시정지 상태를 나타내는 변수
@@ -10,10 +11,10 @@ namespace pause
     HDC hdcScreen;
 
     // restart 버튼 생성
-    button::Button restartButton = { "restart", 700, 600, 500, 130, L"resource\\object\\restart.bmp", ReStart };
+    button::Button restartButton = { "재시작버튼", 700, 600, 500, 130, ReStart };
 
     // title 버튼 생성
-    button::Button reTitleButton = { "title", 700, 800, 500, 130, L"resource\\object\\title.bmp", ReTitle };
+    button::Button reTitleButton = { "타이틀버튼", 700, 800, 500, 130,  ReTitle };
 
     void ReStart()
     {
@@ -44,7 +45,7 @@ namespace pause
 
     void RenderPause()
     {
-        render::DrawObject(L"resource\\background\\pause.bmp", 1000, 1000, 450, 50, false);
+        LoadData::imageManager->DrawBitMapImage("일시정지", 450, 50);
     }
 
     // 화면 캡처 함수

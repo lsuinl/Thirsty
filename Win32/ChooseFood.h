@@ -1,7 +1,7 @@
 namespace ChooseFood
 {
 	void ChooseScreen();
-	
+	void InitScreen();
 	//버튼 클릭 상호작용 체크
 	void CheckButton(int dx,int dy);
 	void CheckDragButton(int dx,int dy);

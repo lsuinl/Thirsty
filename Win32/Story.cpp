@@ -1,6 +1,6 @@
 #include "Story.h"
 #include "ScreenSystem.h"
-
+#include "LoadData.h"
 
 int maxScript= 0;
 int curScript = 0;
@@ -34,21 +34,21 @@ void DrawStoryBack(int _stagenum)
 		{
 			figure.expression = 0;
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 3 || curScript == 4 || curScript == 5 || curScript == 6 || curScript == 7 || curScript == 8)   //1스테이지 회상1
 		{
 			figure.isDraw = false;
-			render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 9 || curScript == 10 ) //1스테이지 회상 2
 		{
-			render::DrawBackGround("resource/object/best.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else  //1 스테이지 회상 끝
 		{
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 	}
 	else if(_stagenum == 2)
@@ -115,10 +115,9 @@ void DrawStoryBack(int _stagenum)
 			figure.isDraw = true;
 			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
 		}
-		
 	}
 	figure.DrawFigure(_stagenum);
-	render::DrawObject(L"resource\\object\\rect.png", 1600, 600, 200, 500, true, 0.8f);
+	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 500, 1600, 600, 0.8f);
 	PrintText();
 	
 

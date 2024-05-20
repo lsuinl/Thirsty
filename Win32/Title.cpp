@@ -1,13 +1,13 @@
 #include "Title.h"
-
+#include "LoadData.h"
 namespace Title
 {
 	bool isExit = false;
 	bool isStart = false;
 	bool isTutorial = false;
 
-	button::Button startButton = { "start", 1100, 600, 300, 100, L"resource\\object\\start.bmp", StartButton };
-	button::Button tutorialButton = { "tutorial", 1100, 750, 300, 100, L"resource\\object\\tutorial.bmp", TutorialButton };
+	button::Button startButton = { "시작버튼", 1100, 600, 300, 100, StartButton };
+	button::Button tutorialButton = { "튜토리얼버튼", 1100, 750, 300, 100, TutorialButton };
 
 	void Title::TitleCheckClick(int x, int y)
 	{
@@ -42,15 +42,15 @@ namespace Title
 
 	void Title::TitleRender()
 	{
-		render::DrawBackGround("resource\\background\\title.bmp", 0, 0, 0, 0, false);
-		render::DrawObject(L"resource\\object\\Logo.png", 1000, 500, 100, 100, false);
+		LoadData::imageManager->DrawBitMapImage("타이틀화면",0,0);
+		LoadData::imageManager->DrawPngImage("제목", 100, 100, 1000, 500,1.0f);
 
 		startButton.DrawButton();
 		tutorialButton.DrawButton();
 
 		if (isTutorial)
 		{
-			render::DrawObject(L"resource\\object\\rule.png", 500, 500, 750, 300, false);
+			LoadData::imageManager->DrawPngImage("규칙", 500, 500, 750, 300, 1.0f);
 		}
 	}
 }

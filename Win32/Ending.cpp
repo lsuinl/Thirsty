@@ -1,6 +1,6 @@
 #include "Ending.h"
 #include "ScreenSystem.h"
-
+#include "LoadData.h"
 
 int maxEndingScript = 0; //최대 대사 번호
 int curEndingScript = 0;
@@ -115,7 +115,7 @@ void DrawEndingBack(int _stagenum)
 	}
 	render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
 	endFigure.DrawFigure(_stagenum);
-	render::DrawObject(L"resource\\object\\rect.png", 1600, 600, 200, 500, true, 0.8f);
+	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 500, 1600, 600, 0.8f);
 	PrintText();
 	
 
