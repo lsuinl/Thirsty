@@ -166,7 +166,7 @@ namespace ChooseFood
 			{
 				continue;
 			}
-			if (buttonList[i].CheckClick(dx, dy))
+			if (buttonList[i].CheckClick(dx, dy) && draggingButton == nullptr)
 			{
 				buttonList[i].PlayFunction();
 			}
@@ -297,7 +297,7 @@ namespace ChooseFood
 		{
 			for (int i = 0; i < sizeof(decorationButtonList) / sizeof(button::DragDrop); i++)
 			{	//바구니에 값이 이미 들어가서 이미지가 안보이게 된 경우에는 드래그가 되지않도록 조건 추가
-				if ((draggingButton->isDragging) && (draggingButton->isShowing))
+				if ((draggingButton->isDragging))// && (draggingButton->isShowing))
 				{
 					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
 					int currentX = draggingButton->getXPos();
@@ -305,17 +305,13 @@ namespace ChooseFood
 					//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 it's able until 8
 					if ((currentX > decorationInBasket[0].getXPos() - 130 && currentY > decorationInBasket[0].getYPos() - 120) && decoBNum != 8)
 					{	//같은 값이 들어오지 않도록 하는 검사.
-						for (int j = 0; j < decoBNum; j++)
-						{
-							if (draggingButton->nameTag != decorationInBasket[j].nameTag)
-							{
-								int ingredient = draggingButton->nameTag;
-								decorationInBasket[soupBNum].nameTag = ingredient;
-								decorationInBasket[soupBNum].name = draggingButton->name;
-								////바구니 인덱스 증가시키기.
-								decoBNum++;
-							}
-						}
+
+						int ingredient = draggingButton->nameTag;
+						decorationInBasket[decoBNum].nameTag = ingredient;
+						decorationInBasket[decoBNum].name = draggingButton->name;
+						////바구니 인덱스 증가시키기.
+						decoBNum++;
+
 						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
 						draggingButton->isShowing = false;
 					}
@@ -351,6 +347,7 @@ namespace ChooseFood
 						noodleButtonList[i].isShowing = true;
 						noodleButtonList[i].setSize(200, 200);
 						noodleInBasket[0].nameTag = BASKET;
+						noodleInBasket[0].name = "바구니";
 					}
 				}
 			}
@@ -369,6 +366,7 @@ namespace ChooseFood
 							soupButtonList[j].isShowing = true;
 							soupButtonList[j].setSize(200, 200);
 							soupInBasket[i].nameTag = BASKET;
+							soupInBasket[i].name = "바구니";
 						}
 					}
 					soupBNum--; //바스켓의 인덱스값 줄이기
@@ -397,6 +395,7 @@ namespace ChooseFood
 							decorationButtonList[j].isShowing = true;
 							decorationButtonList[j].setSize(200, 200);
 							decorationInBasket[i].nameTag = BASKET;
+							decorationInBasket[i].name = "바구니";
 						}
 					}
 					decoBNum--;
@@ -436,7 +435,7 @@ namespace ChooseFood
 	void SoupScreen()
 	{
 		////바구니 그려져있기.
-		for (int i = basketIndex; i < 6 - basketIndex; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200+(i*150), true);
 		}
@@ -490,7 +489,7 @@ namespace ChooseFood
 		if (draggingButton->isDragging) {
 			input::UpdateMouse();
 			const input::MouseState& mouse = input::GetMouseState();
-			int xPos = mouse.x - 130;
+			int xPos = mouse.x - 120;
 			int yPos = mouse.y - 120;
 			if (input::GetMouseState().isDragging)
 			{

@@ -6,6 +6,7 @@ namespace ChooseFood
 	void CheckButton(int dx,int dy);
 	void CheckDragButton(int dx,int dy);
 	void CheckDropButton(int dx,int dy);
+	void CheckCancelButton(int dx, int dy);
 
 	//면, 육수, 고명 선택 화면
 	void NoodleScreen();

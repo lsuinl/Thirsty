@@ -50,11 +50,16 @@ namespace Screen
 			}
 			if (mouse.left)
 			{
+				if(input::IsKeyUp)
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
 			if (mouse.left && mouse.isDragging)
 			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.right)
+			{
+				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
 			else {
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
