@@ -4,6 +4,7 @@ namespace Types
 	//현재 스테이지
 	enum Stage
 	{
+		STAGE0 = 0,
 		STAGE1 = 1, //4
 		STAGE2 = 2,//8
 		STAGE3 = 3//6
