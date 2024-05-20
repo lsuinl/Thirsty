@@ -159,7 +159,7 @@ void SetEndingScript(int _stage, bool success)
 	}
 	else if (_stage == 3)
 	{
-		if (success)//?좎룞?쇿뜝?숈삕?좎룞?쇿뜝?숈삕
+		if (success)
 		{
 			txtLen = wcslen(textList1->stage3_happy) + 1;
 			wchar_t* str1 = new wchar_t[txtLen];
@@ -254,57 +254,57 @@ void Figure::DrawFigure(int _stagenum)
 		{
 			if (expression == 0)
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("꼬마유령기본", 700, 286, 350, 600, 1.0f);
 			}
 			else if(expression == 1)
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("꼬마유령웃음", 700, 286, 350, 600, 1.0f);
 			}
 			else if(expression == 2)
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("꼬마유령쓸쓸", 700, 286, 350, 600, 1.0f);
 			}
 			else 
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("꼬마유령우동", 700, 286, 350, 600, 1.0f);
 			}
 		}
 		else if (_stagenum == 2)
 		{
 			if (expression == 0) 
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼유령기본", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 1) 
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼유령웃음", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 2) 
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼유령쓸쓸", 700, 286, 350, 600, 1.0f);
 			}
 			else
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼유령우동", 700, 286, 350, 600, 1.0f);
 			}
 		}
 		else
 		{
 			if (expression == 0) 
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년유령기본", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 1)
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년유령웃음", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 2)
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년유령쓸쓸", 700, 286, 350, 600, 1.0f);
 			}
 			else
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년유령우동", 700, 286, 350, 600, 1.0f);
 			}
 		}
 	}

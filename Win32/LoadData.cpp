@@ -80,6 +80,19 @@ namespace LoadData
 		imageManager->LoadPngImages("썬김(김채)", L"resource\\object\\decoration\\sunkim.bmp");
 		imageManager->LoadPngImages("납작어묵", L"resource\\object\\decoration\\flatamuk.bmp");
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
+
+		imageManager->LoadPngImages("꼬마유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("꼬마유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("꼬마유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("꼬마유령우동", L"resource\\object\\right.png");
+		imageManager->LoadPngImages("고삼유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("고삼유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("고삼유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("고삼유령우동", L"resource\\object\\right.png");
+		imageManager->LoadPngImages("중년유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("중년유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("중년유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("중년유령우동", L"resource\\object\\right.png");
 		
 		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\rect.png");

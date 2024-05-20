@@ -56,29 +56,29 @@ void DrawStoryBack(int _stagenum)
 		if (curScript == 0)
 		{
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 1 || curScript == 2)
 		{   //억울한 표정때문에 일단나눠둠 표정시간없다하면 합치면됨
 			figure.expression = 2;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 3 || curScript == 4 || curScript == 5)
 		{
 			figure.isDraw = false;
 			//회상씬
-			render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면2", 0, 0);
 		}
 		else if (curScript == 6)
 		{ 
 			//두번쨰 회상씬
-			render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면3", 0, 0);
 		}
 		else
 		{
 			figure.expression = 0;
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 	}
 	else
@@ -89,31 +89,31 @@ void DrawStoryBack(int _stagenum)
 		{
 			figure.expression = 0;
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 3)
 		{
 			//캐릭터 씁쓿한표정 없어질수도있
 			figure.expression = 2;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 		else if (curScript == 4 || curScript == 5 || curScript ==  6)
 		{
 			figure.isDraw = false;
 			//첫번째 회상씬
-			render::DrawBackGround("resource/object/Prriceshrimp.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면2", 0, 0);
 		}
 		else if(curScript == 7 || curScript == 8)
 		{
 			//두번째 회상씬
-			render::DrawBackGround("resource/object/basket.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면3", 0, 0);
 		}
 		//이후 추가필요
 		else
 		{
 			figure.expression = 0;
 			figure.isDraw = true;
-			render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+			LoadData::imageManager->DrawBitMapImage("스토리화면1", 0, 0);
 		}
 	}
 	figure.DrawFigure(_stagenum);

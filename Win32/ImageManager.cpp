@@ -1,6 +1,7 @@
 #include <atlstr.h>
 #include "ImageManager.h"
 namespace Images {
+
     ImageManager* ImageManager::mInstance = nullptr;
 
     ImageManager* ImageManager::GetInstance()
@@ -15,11 +16,8 @@ namespace Images {
 
     void ImageManager::DestroyInstance()
     {
-        if (mInstance != nullptr)
-        {
-            delete mInstance;
-            mInstance = nullptr;
-        }
+        delete mInstance;
+        mInstance = nullptr;
     }
 
     void ImageManager::LoadBitMapImages(std::string name, const char* path, int width, int height)

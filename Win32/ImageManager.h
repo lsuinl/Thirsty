@@ -5,7 +5,7 @@
 
 namespace Images
 {
-    class ImageManager final
+    class ImageManager
     {
     public:
         static ImageManager* GetInstance();
