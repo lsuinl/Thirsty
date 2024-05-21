@@ -10,6 +10,7 @@
 #include "PlayerData.h"
 #include "Types.h"
 #include "EndingCredit.h"
+#include "FadeinFadeout.h"
 
 namespace Screen
 {
@@ -182,6 +183,8 @@ namespace Screen
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
 			break;
+		case Screen::CreditScreen:
+			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
 			if (!MoveScreen::EndMoveScreen()) {
@@ -197,7 +200,7 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE3);
+					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
@@ -211,33 +214,24 @@ namespace Screen
 				case PlaceFoodScreen:
 					break;
 				case EndingScreen:
-					PlayerData::player.ResetScore();
-					SetStoryStage(PlayerData::player.GetStage());
-					if(PlayerData::player.GetStage()==1)
+					if(PlayerData::player.GetStage()==3)
 					{
-						end::SetMoveCredit();
-						currentScreen = CreditScreen;
+						PlayerData::player.ResetScore();
+						currentScreen = TitleScreen;
 					}
 					else
 					{
+						PlayerData::player.ResetScore();
+						SetStoryStage(PlayerData::player.GetStage());
 						currentScreen = StoryScreen;
 					}
 					break;
 				case CreditScreen:
-					currentScreen = TitleScreen;
 					break;
 				default:
 					break;
 				}
 			}
-			break;
-		case CreditScreen:
-			if (!end::EndMoveCredit())
-			{
-				end::ReleasCredit();
-				currentScreen = TitleScreen;
-			}
-			end::MoveToCredit();
 			break;
 		default:
 			break;

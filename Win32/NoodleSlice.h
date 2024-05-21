@@ -65,6 +65,9 @@ public:
 	// success
 	bool NoodleSuccess();
 
+	// 애니메이션
+	void SliceAni();
+
 private:
 
 	// 배열 사이즈

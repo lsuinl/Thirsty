@@ -38,7 +38,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	global::winApp.Finalize();
 
-	GdiplusShutdown(gpToken);
+	//GdiplusShutdown(gpToken);
 
 	return EXIT_SUCCESS;
 }
