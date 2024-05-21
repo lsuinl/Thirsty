@@ -100,7 +100,7 @@ namespace render
         for (size_t i = 0; i < wcslen(text); ++i)
         {
             wchar_t ch = text[i];
-            if (currentX >= 1500)
+            if (currentX >= 1550)
             {
                 currentX = x; 
                 currentY += 50; 

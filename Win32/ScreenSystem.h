@@ -12,6 +12,7 @@ namespace Screen
 		TitleScreen,
 		StoryScreen,
 		EndingScreen,
+		TrueEndingScreen,
 	};
 	void SetScreen();
 	void ReStartScreen();

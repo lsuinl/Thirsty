@@ -6,6 +6,7 @@
 #include "Animator.h"
 #include "ScreenSystem.h"
 #include "LoadData.h"
+
 //두 오브젝트 충돌검사
 
 bool StockGame::isCollide(boxObject obj1, boxObject obj2)
@@ -135,6 +136,7 @@ void StockGame::SetGame(int stage)
         targetSalinity = 30; //시나리오에따라 값수정필요 25 35  20 40
         redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0.5, RGB(255, 0, 0)); 
         yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 0.6, RGB(255, 255, 0));
+        LoadData::soundManager->PlayMusic(Music::eSoundList::StartBGM, Music::eSoundChannel::Effect);
 
         for (int i = 0; i < 4; i++)
         {
@@ -229,7 +231,7 @@ void StockGame::UpdateGame(float delta)
 }
 void StockGame::RenderStockGame()
 {
-    LoadData::imageManager->DrawBitMapImage("배경화면",0,0);
+    LoadData::imageManager->DrawBitMapImage("미니게임",0,0);
 
     DrawProgressBar();
     DrawBoxs();
@@ -255,19 +257,19 @@ void StockGame::DrawBasket()
 {
     for (int i = 0; i < 5; i++)
     {
-        LoadData::imageManager->DrawPngImage("바구니", 1485, 200 + (i * 150), 150, 100,  1.0f);
+        //LoadData::imageManager->DrawPngImage("바구니", 1485, 200 + (i * 150), 150, 100,  1.0f);
     }
 }
 void StockGame::DrawPot()
 {
-    //일단 배경그리는걸로 냄비그림 수정필요
+    //일단 배경그리는걸로 냄비그림 수정필요 //냄비 끓는듯한 애니메이션 필요
     if ((Overlab(yellowBox, redBox) == true))
     {
         LoadData::imageManager->DrawPngImage("짱",pot.x, pot.y, pot.width, pot.height, 1.0f);
     }
     else
-    {
-        LoadData::imageManager->DrawPngImage("바구니", pot.x, pot.y, pot.width, pot.height, 1.0f);
+    { 
+        LoadData::imageManager->DrawPngImage("냄비", pot.x, pot.y, pot.width, pot.height, 1.0f);
     }
 }
 int StockGame::GameScore()
@@ -288,6 +290,7 @@ bool StockGame::IsStockClear()
     return salinity >= targetSalinity - 10 && salinity <= targetSalinity + 10;
 }
 
+
 void StockGarnish::SetGarnish(float y, int garnish_num)
 {
     this->y = y;
@@ -306,10 +309,11 @@ void StockGarnish::DrawGarnish()
     }
     else if (garnish_num == 3)
     {
-        LoadData::imageManager->DrawPngImage("짱", x, y, width, height, 1.0f);
+        LoadData::imageManager->DrawPngImage("무", x, y, width, height, 1.0f);
     }
     else if (garnish_num == 4)
     {
-        LoadData::imageManager->DrawPngImage("가쓰오부시", x, y, width, height, 1.0f);
+        LoadData::imageManager->DrawPngImage("건다시마", x, y, width, height, 1.0f);
     }
 }
+

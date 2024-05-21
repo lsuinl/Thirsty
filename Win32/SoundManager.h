@@ -26,6 +26,7 @@ namespace Music
         success,
         fail,
         Size,
+        stock
     };
     class SoundManager;  // 클래스 전방 선언
 

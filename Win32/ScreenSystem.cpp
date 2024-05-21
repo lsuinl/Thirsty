@@ -132,7 +132,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 2000)
 			{
 				SetScreen();
 			}
@@ -149,6 +149,9 @@ namespace Screen
 			break;
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::TrueEndingScreen:
+			ChangeTrueEndingScript(TimeSystem::GetDeltaTime());
 			break;
 		default:
 			break;
@@ -181,6 +184,9 @@ namespace Screen
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
 			break;
+		case Screen::TrueEndingScreen:
+			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
 			if (!MoveScreen::EndMoveScreen()) {
@@ -211,15 +217,20 @@ namespace Screen
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();
-					SetStoryStage(PlayerData::player.GetStage());
-					if(PlayerData::player.GetStage()==1)
+					if(PlayerData::player.GetStage() == 4)
 					{
-						currentScreen = TitleScreen;
+						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
+						currentScreen = TrueEndingScreen;
 					}
 					else
 					{
+						SetStoryStage(PlayerData::player.GetStage());
 						currentScreen = StoryScreen;
 					}
+					break;
+				case TrueEndingScreen:
+					PlayerData::player.ResetScore();
+					currentScreen = TitleScreen;
 					break;
 				default:
 					break;

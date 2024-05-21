@@ -14,7 +14,7 @@ namespace Images
         void LoadBitMapImages(std::string name, const char* path, int width, int height);
         void DrawBitMapImage(std::string name, int x, int y);
         void LoadPngImages(std::string name, const WCHAR* path);
-        void DrawPngImage(std::string name, int x, int y, int width, int height, float alpha);
+        void DrawPngImage(std::string name, int x, int y, int width, int height, float alpha = 1.0f);
 
     private:
         ImageManager();

@@ -3,7 +3,7 @@
 #include "InputSystem.h"
 #include "TextList.h"
 #include "LoadData.h"
-float printTime;
+float printTime = 10;
 
 TextList* textList1 = TextList::GetInstance();
 int curChar;     //복사해서 출력한 문자길이
@@ -12,8 +12,8 @@ int curPage;   // 출력하고있는 현재페이지 넘버
 int maxPage;   // 한 시나리오의 마지막 페이지 
 
 int txtLen;              
-wchar_t str2[20][500];    //구분자로 잘라서 담아둘부분
-wchar_t str3[20][500];    //한글자씩 출력할려고 카피할부분
+wchar_t str2[21][500];    //구분자로 잘라서 담아둘부분
+wchar_t str3[21][500];    //한글자씩 출력할려고 카피할부분
 
 void SetStoryScript(int _stage)
 {     
@@ -159,7 +159,7 @@ void SetEndingScript(int _stage, bool success)
 	}
 	else if (_stage == 3)
 	{
-		if (success)//?좎룞?쇿뜝?숈삕?좎룞?쇿뜝?숈삕
+		if (success)
 		{
 			txtLen = wcslen(textList1->stage3_happy) + 1;
 			wchar_t* str1 = new wchar_t[txtLen];
@@ -190,6 +190,52 @@ void SetEndingScript(int _stage, bool success)
 	}
 }
 
+void SetTrueEndingScript(bool success)
+{
+	wchar_t* token;
+	wchar_t* p = nullptr;
+	curChar = 0;
+	maxChar = 0;
+	curPage = 0;
+	maxPage = 0;
+	memset(str2, 0, sizeof(str2));
+
+	if (success)
+	{
+		txtLen = wcslen(textList1->ture_ending) + 1;
+		wchar_t* str1 = new wchar_t[txtLen];
+		wcscpy_s(str1, txtLen, textList1->ture_ending);
+		token = wcstok_s(str1, L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+
+		delete[] str1;
+	}
+	else
+	{
+
+		txtLen = wcslen(textList1->ending) + 1;
+		wchar_t* str1 = new wchar_t[txtLen];
+		wcscpy_s(str1, txtLen, textList1->ending);
+		token = wcstok_s(str1, L"&", &p);
+		while (token != NULL)
+		{
+			wcscpy_s(str2[maxPage], token);
+			token = wcstok_s(NULL, L"&", &p);
+			maxPage++;
+		}
+		delete[] str1;
+	}
+}
+
+int GetCurPage()
+{
+	return curPage;
+}
 int GetMaxPage()
 {
 	return maxPage;
@@ -198,17 +244,7 @@ void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
 	elapsedTime += delta;
-
-	if (input::IsKey(17))
-	{
-		printTime = 10;
-	}
-	else
-	{
-		printTime = 100;
-	}
-
-	if(input::IsKeyUp(9))
+	if(input::IsKeyUp(32))
 	{
 		if (curChar != maxChar)
 		{
@@ -224,12 +260,12 @@ void SkipText(float delta)
 			elapsedTime = 0;
 		}
 	}
-	if (input::IsKeyUp(16))
+	if (input::IsKeyUp(13))
 	{
-		if (curPage < maxPage - 1) // 추가필요 막장일경우 키입력시 미니게임으로 가거나 버튼출력으로 미니게임진입
+		if (curChar == maxChar)
 		{
-			curPage++;
-			curChar = 0;
+				curPage++;
+				curChar = 0;
 		}
 	}
 }
@@ -238,13 +274,15 @@ void UpdateText()
 {
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar + 7);
-	// if(curPage == maxChar) 맥스면 버튼클릭 가능하게끔
 }
 void PrintText()
 {	
-	render::DrawTextF(250, 730, str3[curPage], RGB(0, 0, 255), 50);
+	render::DrawTextF(340, 820, str3[curPage], RGB(0, 0, 255), 50);
 }
-
+void PrintTextEnd()
+{
+	render::DrawTextF(400, 400, str3[curPage], RGB(0, 0, 255), 50);
+}
 
 void Figure::DrawFigure(int _stagenum)
 {
@@ -254,57 +292,57 @@ void Figure::DrawFigure(int _stagenum)
 		{
 			if (expression == 0)
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("아이기본", 700, 436, 450, 450, 1.0f);
 			}
 			else if(expression == 1)
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("아이웃음", 700, 436, 450, 450, 1.0f);
 			}
 			else if(expression == 2)
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("아이화남", 700, 436, 450, 450, 1.0f);
 			}
-			else 
+			else
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("아이우동", 700, 436, 450, 450, 1.0f);
 			}
 		}
 		else if (_stagenum == 2)
 		{
 			if (expression == 0) 
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼기본", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 1) 
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼웃음", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 2) 
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼화남", 700, 286, 350, 600, 1.0f);
 			}
 			else
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("고삼우동", 700, 286, 350, 600, 1.0f);
 			}
 		}
 		else
 		{
 			if (expression == 0) 
 			{
-				render::DrawBackGround("resource/object/test.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년기본", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 1)
 			{
-				render::DrawBackGround("resource/object/basket.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년웃음", 700, 286, 350, 600, 1.0f);
 			}
 			else if (expression == 2)
 			{
-				render::DrawBackGround("resource/object/shrimp.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년화남", 700, 286, 350, 600, 1.0f);
 			}
 			else
 			{
-				render::DrawBackGround("resource/object/best.bmp", 350, 600, 700, 286, false);
+				LoadData::imageManager->DrawPngImage("중년우동", 700, 286, 350, 600, 1.0f);
 			}
 		}
 	}
