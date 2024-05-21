@@ -2,6 +2,7 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
+#include "PlaceFood.h"
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
@@ -12,6 +13,7 @@
 
 namespace Screen
 {
+	int clickTime = 0;
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	TextList* textList = TextList::GetInstance();
@@ -41,21 +43,19 @@ namespace Screen
 
 	
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
+		clickTime += TimeSystem::GetDeltaTime();
+
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
-			if (input::IsSame(mouse, premouse))
-			{
-				return;
-			}
-			if (mouse.left)
-			{
-				if(input::IsKeyUp)
-				ChooseFood::CheckButton(mouse.x, mouse.y);
-			}
 			if (mouse.left && mouse.isDragging)
 			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
 			else if (mouse.right)
 			{
@@ -176,6 +176,7 @@ namespace Screen
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
+			PlaceFood::PrintScreen();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();

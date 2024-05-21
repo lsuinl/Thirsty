@@ -1,1 +1,5 @@
-HKH#pragma once
+#pragma once
+namespace PlaceFood
+{
+	void PrintScreen();
+ }

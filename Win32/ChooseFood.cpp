@@ -56,7 +56,7 @@ namespace ChooseFood
 	int screenIndex = 0;
 	int basketIndex = 0;
 	int index;
-	button::DragDrop* draggingButton;
+	button::DragDrop* draggingButton = nullptr;
 
 	int originXPos = 0;
 	int originYPos = 0;
@@ -125,13 +125,13 @@ namespace ChooseFood
 			decorationInBasket[i] = button::DragDrop(BASKET, "바구니", 1485, 200 + (150 * i), 100, 100, Selected);
 	}
 
-	void ChooseScreen() 
+	void ChooseScreen()
 	{
 		//배경 이미지 그리기
-		LoadData::imageManager->DrawBitMapImage("미니게임", 0,0);
-		LoadData::imageManager->DrawBitMapImage("도마", 100,100);
+		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
+		LoadData::imageManager->DrawBitMapImage("도마", 100, 100);
 
-		if (screenIndex==0)
+		if (screenIndex == 0)
 		{
 			NoodleScreen();
 		}
@@ -145,7 +145,7 @@ namespace ChooseFood
 		}
 
 		//버튼 그리기
-		for (int i = 0; i < sizeof(buttonList)/sizeof(button::Button); i++)
+		for (int i = 0; i < sizeof(buttonList) / sizeof(button::Button); i++)
 		{
 			//현재 상태에 따라 이동 화살표 보여주기 여부 설정
 			if ((screenIndex == 0 && i == 0) || (screenIndex == 2 && i == 1) || (basketIndex == 0 && i == 2) || (basketIndex == 10 && i == 3))
@@ -156,7 +156,7 @@ namespace ChooseFood
 		}
 	}
 
-	void CheckButton(int dx,int dy)
+	void CheckButton(int dx, int dy)
 	{
 
 		for (int i = 0; i < sizeof(buttonList) / sizeof(button::Button); i++)
@@ -171,7 +171,7 @@ namespace ChooseFood
 				buttonList[i].PlayFunction();
 			}
 		}
-			
+
 	}
 	//-------------
 	void CheckDragButton(int dx, int dy) {
@@ -187,7 +187,7 @@ namespace ChooseFood
 					//이동..함수..
 					noodleButtonList[i].PlayFunction();
 					break;
-				 }
+				}
 			}
 			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
 			{
@@ -208,6 +208,7 @@ namespace ChooseFood
 				{
 					//draggingButton에 저장.
 					draggingButton = &decorationButtonList[i];
+
 					//isDragging=true로 변경
 					draggingButton->isDragging = true;
 					//이동..함수..
@@ -270,8 +271,7 @@ namespace ChooseFood
 					//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 6개까지만 가능하다
 					if ((currentX > soupInBasket[0].getXPos() - 130 && currentY > soupInBasket[0].getYPos() - 120) && soupBNum != 6)
 					{
-						int ingredient = draggingButton->nameTag;
-						soupInBasket[soupBNum].nameTag = ingredient;
+						soupInBasket[soupBNum].nameTag = draggingButton->nameTag;
 						soupInBasket[soupBNum].name = draggingButton->name;
 						////바구니 인덱스 증가시키기.
 						soupBNum++;
@@ -304,10 +304,8 @@ namespace ChooseFood
 					int currentY = draggingButton->getYPos();
 					//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 it's able until 8
 					if ((currentX > decorationInBasket[0].getXPos() - 130 && currentY > decorationInBasket[0].getYPos() - 120) && decoBNum != 8)
-					{	//같은 값이 들어오지 않도록 하는 검사.
-
-						int ingredient = draggingButton->nameTag;
-						decorationInBasket[decoBNum].nameTag = ingredient;
+					{
+						decorationInBasket[decoBNum].nameTag = draggingButton->nameTag;
 						decorationInBasket[decoBNum].name = draggingButton->name;
 						////바구니 인덱스 증가시키기.
 						decoBNum++;
@@ -370,7 +368,7 @@ namespace ChooseFood
 						}
 					}
 					soupBNum--; //바스켓의 인덱스값 줄이기
-					while (i <= 5)
+					while (i <= 4)
 					{
 						soupInBasket[i].nameTag = soupInBasket[i + 1].nameTag; // 한칸씩 값 땡기기.
 						soupInBasket[i].name = soupInBasket[i + 1].name;
@@ -399,7 +397,7 @@ namespace ChooseFood
 						}
 					}
 					decoBNum--;
-					while (i <= 7)
+					while (i <= 6)
 					{
 						decorationInBasket[i].nameTag = decorationInBasket[i + 1].nameTag; // 한칸씩 값 땡기기.
 						decorationInBasket[i].name = decorationInBasket[i + 1].name;
@@ -437,7 +435,7 @@ namespace ChooseFood
 		////바구니 그려져있기.
 		for (int i = 0; i < 5; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200+(i*150), true);
+			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
 		}
 		////재료가 들어가있으면 바구니 위에 재료를 띄우기.
 		for (int i = 0; i < 6; i++)
@@ -463,7 +461,7 @@ namespace ChooseFood
 		////바구니 그려져있기.
 		for (int i = 0; i < 5; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200+(i*150), true);
+			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
 		}
 		//고명 재료 출력
 		for (int i = 0; i < 8; i++)
@@ -489,7 +487,7 @@ namespace ChooseFood
 		if (draggingButton->isDragging) {
 			input::UpdateMouse();
 			const input::MouseState& mouse = input::GetMouseState();
-			int xPos = mouse.x - 120;
+			int xPos = mouse.x - 130;
 			int yPos = mouse.y - 120;
 			if (input::GetMouseState().isDragging)
 			{
@@ -501,20 +499,20 @@ namespace ChooseFood
 
 
 	//선택창 넘기기
-	void LeftPage() 
+	void LeftPage()
 	{
 		game::texts = "왼쪽";
 		screenIndex--;
 	}
 
-	void RightPage() 
+	void RightPage()
 	{
 		game::texts = "오른쪽";
 		screenIndex++;
 	}
 
 	//바구니 위아래로 이동하기
-	void UpBasket() 
+	void UpBasket()
 	{
 		game::texts = "위쪽";
 		basketIndex--;
@@ -527,7 +525,7 @@ namespace ChooseFood
 	}
 
 	//선택완료버튼
-	void Selected() 
+	void Selected()
 	{
 		game::texts = "완료";
 		Screen::SetScreen();
