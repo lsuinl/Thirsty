@@ -136,7 +136,6 @@ void StockGame::SetGame(int stage)
         targetSalinity = 30; //시나리오에따라 값수정필요 25 35  20 40
         redBox.SetBox(blackBox.x, blackBox.y, 360, 90, 0.5, RGB(255, 0, 0)); 
         yellowBox.SetBox(blackBox.x, blackBox.y, 260, 70, 0.6, RGB(255, 255, 0));
-        LoadData::soundManager->PlayMusic(Music::eSoundList::StartBGM, Music::eSoundChannel::Effect);
 
         for (int i = 0; i < 4; i++)
         {
