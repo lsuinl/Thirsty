@@ -1,28 +1,48 @@
 #include "MoveScreen.h"
 #include "Animator.h"
 #include "LoadData.h"
+#include "Pause.h"
 namespace MoveScreen
 {
-	std::wstring* imageList = new std::wstring[10];
-	Animator moveAni;
+	Animator openAni;
+	Animator closeAni;
+
 	void SetMoveAni()
 	{
-		for (int i = 1; i <= 10; i++)
+		std::wstring* imageOpenList = new std::wstring[43];
+		std::wstring* imageClosseList = new std::wstring[43];
+		for (int i = 1; i <=43; i++)
 		{
-			imageList[i - 1] = L"resource\\animation\\test\\" + std::to_wstring(i) + L".bmp";
+			imageOpenList[i - 1] = L"resource\\animation\\curten\\" + std::to_wstring(i) + L".png";
 		}
-		moveAni = Animator("테스트", 300, 600, 400, 400, 2000, imageList, false , false);
-		moveAni.SetAnimation();
-	}
-	void MoveToScreen() 
-	{
-		LoadData::imageManager->DrawBitMapImage("로딩화면",0,0);
-		render::DrawTextF(130, 90, L"화면 체인지", RGB(0, 0, 0), 60);
-		moveAni.DrawAnimation();
+		openAni = Animator("커튼열어", 0, 0, 1920, 1080, 1000, imageOpenList, false , true, 43);
+
+		for (int i = 1; i <= 43; i++)
+		{
+			imageClosseList[i - 1] = L"resource\\animation\\curten\\" + std::to_wstring(44- i) + L".png";
+		}
+		closeAni = Animator("커튼닫어", 0, 0, 1920, 1080, 2000, imageClosseList, false, true, 43);
+
+		closeAni.SetAnimation();
 	}
 
+	void MoveToScreen() 
+	{
+		closeAni.DrawAnimation();
+	}
+	
+	void FirstAniScreen() 
+	{
+		openAni.DrawAnimation();
+	}
+	
 	bool EndMoveScreen()
 	{
-		return moveAni.GetAnimationCheck(); 
+		if (!closeAni.GetAnimationCheck()) {
+			openAni.SetAnimation();
+			return false;
+		}
+		return true;
 	}
+
 };

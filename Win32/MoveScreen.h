@@ -5,6 +5,7 @@ namespace MoveScreen
 {
 	void SetMoveAni();
 	void MoveToScreen();
+	void FirstAniScreen();
 	bool EndMoveScreen();
 };
 
