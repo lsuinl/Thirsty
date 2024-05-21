@@ -4,6 +4,7 @@
 // 게임 세팅
 void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
 {
+    LoadData::soundManager->PlayMusic(Music::eSoundList::noodleslice, Music::eSoundChannel::BGM);
     input::SetKeyCode(false);
     srand(time(NULL));
 
@@ -43,7 +44,7 @@ void NoodleSlice::UpdateGame()
 {
     playTimer += TimeSystem::GetDeltaTime();
 
-    if (playTimer <= 20000)
+    if (playTimer <= 200000)
     {
         InputArrow();
 
@@ -91,6 +92,7 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
     // 맞았다면?
     if (arrowArr[setCnt][cnt % stage].arrowType == (int)keyCode)
     {
+        LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
         arrowArr[setCnt][cnt % stage].isTrue = true;
 
         if (cnt < arrSize - 1)
@@ -113,6 +115,7 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
     }
     else // 못맞췄을 시 처음부터 다시
     {
+        LoadData::soundManager->PlayMusic(Music::eSoundList::wrong, Music::eSoundChannel::Effect);
         resetTimer = 0;
         isReset = true;
         playerScore = 0;
@@ -134,6 +137,7 @@ void NoodleSlice::InputArrow()
     if (input::IsKeyCode()) {
         if (input::IsKeyUp(37) || input::IsKeyUp(38) || input::IsKeyUp(39) || input::IsKeyUp(40))
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::arrow, Music::eSoundChannel::Effect);
             input::SetKeyCode(false);
         }
     }

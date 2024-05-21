@@ -20,7 +20,7 @@ struct boxObject
     }
     void MoveRight(float speed, float delta)
     {
-        if (this->x + this->width / 2 <= 1800)
+        if (this->x + this->width / 2 <= 1740)
         {
             this->x += speed * delta;
         }
@@ -28,7 +28,7 @@ struct boxObject
 
     void MoveLeft(float speed, float delta)
     {
-        if (this->x - this->width / 2 >= 200)
+        if (this->x - this->width / 2 >= 170)
         {
             this->x += speed * -1 * delta;
         }
@@ -73,7 +73,7 @@ private:
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
+    boxObject blackBox = { 870 ,900, 1400, 70, 0, RGB(0, 0, 0)};
     boxObject redBox;
     boxObject yellowBox;
     boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0) };

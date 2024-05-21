@@ -128,6 +128,8 @@ void StockGame::DrawBoxs()
 
 void StockGame::SetGame(int stage)
 {
+    LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
+
     if (stage == 1)
     {
         isTimeOver = false;
@@ -213,7 +215,6 @@ void StockGame::UpdateRedBox(float delta)
 }
 void StockGame::UpdateGame(float delta)
 {
-
     if (isTimeOver == false)
     {
         UpdateSalinity(delta);

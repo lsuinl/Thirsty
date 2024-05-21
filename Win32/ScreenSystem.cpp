@@ -132,7 +132,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 2000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 200000 || input::IsKeyDown(13))
 			{
 				SetScreen();
 			}

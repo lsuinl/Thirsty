@@ -29,6 +29,7 @@ namespace button {
     void Button::PlayFunction()
     {
         this->onClickFunction();
+        LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect);
     }
 
     DragDrop::DragDrop()
