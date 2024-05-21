@@ -136,6 +136,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChooseFood.cpp" />
     <ClCompile Include="Ending.cpp" />
+    <ClCompile Include="FadeinFadeout.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="InputSystem.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChooseFood.h" />
     <ClInclude Include="Ending.h" />
+    <ClInclude Include="FadeinFadeout.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GlobalHeader.h" />
     <ClInclude Include="ImageManager.h" />

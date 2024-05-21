@@ -31,7 +31,7 @@ namespace button {
         bool canClick = true;
         DragDrop();
         ~DragDrop();
-        DragDrop(int nameTag,const char* name, int x, int y, int width, int height, std::function<void()> function);
+        DragDrop(int nameTag, const char* name, int x, int y, int width, int height, std::function<void()> function);
         void DrawButton();
         bool CheckDrag(int dx, int dy);
         void PlayFunction();

@@ -36,13 +36,13 @@ void DrawEndingBack(int _stagenum)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 3;
-				
+
 			}
 			else
 			{
 				endFigure.expression = 1;
 			}
-			
+
 		}
 		else if (_stagenum == 2)
 		{
@@ -112,6 +112,6 @@ void DrawEndingBack(int _stagenum)
 	endFigure.DrawFigure(_stagenum);
 	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 	PrintText();
-	
+
 
 }

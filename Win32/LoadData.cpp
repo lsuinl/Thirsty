@@ -3,22 +3,35 @@
 #include "SoundManager.h"
 namespace LoadData
 {
-	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();   
-	Images::ImageManager* imageManager = Images::ImageManager::GetInstance(); 
+	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();
+	Images::ImageManager* imageManager = Images::ImageManager::GetInstance();
 	void LoadMusic()
 	{
-		soundManager->GetInstance(); 
-		soundManager->LoadMusic(Music::eSoundList::StartBGM, true, "resource//sound//title.ogg");
-		soundManager->LoadMusic(Music::eSoundList::correct, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::hint, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::win, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::start, false, "resource//sound//bgm3.mp3"); 
-		soundManager->LoadMusic(Music::eSoundList::success, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::fail, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::stock, true, "resource//sound//stock.ogg");
 
-		soundManager->SetVolume(0.5f);
+		soundManager->GetInstance();
+		soundManager->LoadMusic(Music::eSoundList::click, false, "resource//sound//click.ogg"); //버튼 클릭 기본 효과음
+		soundManager->LoadMusic(Music::eSoundList::inside, false, "resource//sound//inside.ogg"); //손님 입장 효과음
+		soundManager->LoadMusic(Music::eSoundList::typeing, false, "resource//sound//typeing.ogg"); //스토리 타이핑
+		soundManager->LoadMusic(Music::eSoundList::moveani, false, "resource//sound//moveani.ogg"); //커튼 효과음
+
+		soundManager->LoadMusic(Music::eSoundList::put, false, "resource//sound//put.ogg"); //고명 내려놓기
+
+		soundManager->LoadMusic(Music::eSoundList::stock, false, "resource//sound//stock.ogg"); //면 끓이기
+
+		soundManager->LoadMusic(Music::eSoundList::arrow, false, "resource//sound//arrow.ogg"); //방향키 입력 완료시
+		soundManager->LoadMusic(Music::eSoundList::right, false, "resource//sound//right.ogg"); //방향키 맞았을 때
+		soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//wrong.ogg"); //키보드 틀렸을 때
+		soundManager->LoadMusic(Music::eSoundList::slice, false, "resource//sound//slice.ogg"); //면자르기 효과음
+		soundManager->LoadMusic(Music::eSoundList::noodleslice, false, "resource//sound//noodleslice.ogg"); //면자르기 배경
+
+		soundManager->LoadMusic(Music::eSoundList::story, true, "resource//sound//story.ogg"); //스토리 진행 배경음
+		soundManager->LoadMusic(Music::eSoundList::timemout, true, "resource//sound//timemout.ogg"); //타임오버
+		soundManager->LoadMusic(Music::eSoundList::title, true, "resource//sound//title.ogg"); //타이틀
+		soundManager->LoadMusic(Music::eSoundList::realEnding, true, "resource//sound//realEnding.ogg"); //진엔딩
+		soundManager->LoadMusic(Music::eSoundList::normalEnding, true, "resource//sound//normalEnding.ogg"); //노말엔딩
+
+		soundManager->SetVolume(0.5f, 1);
+
 	}
 	void LoadImages()
 	{
@@ -40,6 +53,31 @@ namespace LoadData
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
+		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
+
+		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
+
+		//면반죽
+		imageManager->LoadPngImages("면반죽", L"resource\\object\\noodleSlice\\noodle.bmp");
+		imageManager->LoadPngImages("납작면1", L"resource\\object\\noodleSlice\\flat1.bmp");
+		imageManager->LoadPngImages("납작면2", L"resource\\object\\noodleSlice\\flat2.bmp");
+		imageManager->LoadPngImages("납작면3", L"resource\\object\\noodleSlice\\flat3.bmp");
+		imageManager->LoadPngImages("납작면4", L"resource\\object\\noodleSlice\\flat4.bmp");
+		imageManager->LoadPngImages("중면1", L"resource\\object\\noodleSlice\\middle1.bmp");
+		imageManager->LoadPngImages("중면2", L"resource\\object\\noodleSlice\\middle2.bmp");
+		imageManager->LoadPngImages("중면3", L"resource\\object\\noodleSlice\\middle3.bmp");
+		imageManager->LoadPngImages("중면4", L"resource\\object\\noodleSlice\\middle4.bmp");
+		imageManager->LoadPngImages("중면5", L"resource\\object\\noodleSlice\\middle5.bmp");
+		imageManager->LoadPngImages("중면6", L"resource\\object\\noodleSlice\\middle6.bmp");
+		imageManager->LoadPngImages("소면1", L"resource\\object\\noodleSlice\\small1.bmp");
+		imageManager->LoadPngImages("소면2", L"resource\\object\\noodleSlice\\small2.bmp");
+		imageManager->LoadPngImages("소면3", L"resource\\object\\noodleSlice\\small3.bmp");
+		imageManager->LoadPngImages("소면4", L"resource\\object\\noodleSlice\\small4.bmp");
+		imageManager->LoadPngImages("소면5", L"resource\\object\\noodleSlice\\small5.bmp");
+		imageManager->LoadPngImages("소면6", L"resource\\object\\noodleSlice\\small6.bmp");
+		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
+		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
+		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
 
 
 		//png
@@ -47,6 +85,7 @@ namespace LoadData
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
 
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start.bmp");
+		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
 		imageManager->LoadPngImages("튜토리얼버튼", L"resource\\object\\tutorial.bmp");
 		imageManager->LoadPngImages("제목", L"resource\\object\\Logo.png");
 		imageManager->LoadPngImages("규칙", L"resource\\object\\rule.png");
@@ -98,6 +137,7 @@ namespace LoadData
 		imageManager->LoadPngImages("썬김(김채)", L"resource\\object\\decoration\\sunkim.bmp");
 		imageManager->LoadPngImages("납작어묵", L"resource\\object\\decoration\\flatamuk.bmp");
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
+
 		imageManager->LoadPngImages("썬대파", L"resource\\object\\decoration\\sundaepa.bmp");
 		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
 		

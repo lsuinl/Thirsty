@@ -17,16 +17,23 @@ namespace Music
 
     enum class eSoundList
     {
-        StartBGM,
-        correct,
+        click,
+        inside,
+        typeing,
+        moveani,
+        put,
+        stock,
+        arrow,
+        right,
         wrong,
-        hint,
-        win,
-        start,
-        success,
-        fail,
-        Size,
-        stock
+        slice,
+        noodleslice,
+        story,
+        timemout,
+        title,
+        realEnding,
+        normalEnding,
+        Size
     };
     class SoundManager;  // 클래스 전방 선언
 
@@ -41,7 +48,7 @@ namespace Music
         void PlayMusic(eSoundList list, eSoundChannel channel);
         void StopMusic(eSoundChannel channel);
 
-        void SetVolume(float volume);
+        void SetVolume(float volume, int channel);
 
     private:
         SoundManager();
