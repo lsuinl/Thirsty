@@ -18,6 +18,9 @@ public:
 	wchar_t* stage3_story;
 	wchar_t* stage3_happy;
 	wchar_t* stage3_bad;
+	wchar_t* ending;
+	wchar_t* ture_ending;
+	
 
 	//해당코드떄문에 생성자를 추가로 생성해도 한개의 생성자로 다 반환됨
 	static TextList* GetInstance() {

@@ -44,8 +44,19 @@ struct boxObject
         this->color = color;
     }
 };
+struct StockGarnish  //고명 그려진거
+{
+    float x = 1485;
+    float y = 200;
+    float width = 150;
+    float height = 100;
+    int garnish_num; //고명 값
 
+    void DrawGarnish();
 
+    void SetGarnish(float y, int garnish_num);
+
+};
 class StockGame
 {
 private:
@@ -67,6 +78,7 @@ public:
     boxObject yellowBox;
     boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0) };
 
+    StockGarnish garnishList[4];
     //박스충돌확인
     bool isCollide(boxObject obj1, boxObject obj2);
 
@@ -115,4 +127,4 @@ public:
     //스톡게임 클리어 여부반환
     bool IsStockClear();
 
-};
+}; 

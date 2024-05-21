@@ -13,18 +13,13 @@ void SetEndingStage(int _stagenum, bool _success)
 	SetEndingScript(_stagenum, _success);
 	success = _success;
 }
-
-
 void ChangeEndingScript(float delta)
 {
 	maxEndingScript = GetMaxPage();
+	curEndingScript = GetCurPage();
 	SkipText(delta);
 	UpdateText();
-	if (input::IsKeyUp(16))
-	{
-		if (curEndingScript < maxEndingScript)
-			curEndingScript++;
-	}
+	
 	if (curEndingScript == maxEndingScript)
 	{
 		Screen::SetScreen();
@@ -115,7 +110,7 @@ void DrawEndingBack(int _stagenum)
 	}
 	LoadData::imageManager->DrawBitMapImage("배경화면", 0, 0);
 	endFigure.DrawFigure(_stagenum);
-	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 500, 1600, 600, 0.8f);
+	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 	PrintText();
 
 

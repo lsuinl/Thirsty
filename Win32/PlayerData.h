@@ -19,6 +19,8 @@ namespace PlayerData {
 		//게임클리어시 다음스테이지로 념겨줄지 확인할거
 		bool isClearStage = false;
 
+		bool isTrueEnding = false;  // 1 , 2, 3 스테이지 성공 값 필요 
+
 		//담은 재료 종류
 		Types::Noodle noodle; //면
 		Types::Decoration* decoration; //고명(여러개)
@@ -43,6 +45,9 @@ namespace PlayerData {
 
 			//성공실패여부
 			bool IsGameClear();
+
+			//트루엔딩 확인
+			bool IsTrueEnding();
 
 			Types::Noodle GetNoodle(); //면썰기=면가져오기
 			Types::Decoration* GetDecoation(); //고명얹기=고명가져오기
