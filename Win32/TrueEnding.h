@@ -9,3 +9,7 @@ void DrawTrueEndingBack(float delta);
 void ChangeTrueEndingScript(float delta);
 
 void Endingcre(float delta);
+
+void Rendercre(float delta); \
+
+void GoTitle();

@@ -126,12 +126,12 @@ namespace LoadData
 		imageManager->LoadPngImages("냄비", L"resource\\object\\soup\\pot.bmp");
 
 
+		imageManager->LoadPngImages("기본우동", L"resource\\object\\decoration\\udong.bmp");
 
-		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\soup\\gathobusi.bmp");
+		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\decoration\\gathobusi.bmp");
 		imageManager->LoadPngImages("반달어묵", L"resource\\object\\decoration\\bandalmuk.bmp");
 		imageManager->LoadPngImages("튀김가루", L"resource\\object\\decoration\\frygaru.bmp");
-		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.png");
-		imageManager->LoadPngImages("쪽파", L"resource\\object\\decoration\\chupa.bmp");
+		imageManager->LoadPngImages("대파", L"resource\\object\\decoration\\daepa.bmp");
 		imageManager->LoadPngImages("표고버섯", L"resource\\object\\decoration\\pyogo.bmp");
 		imageManager->LoadPngImages("직화고기", L"resource\\object\\decoration\\firemeet.bmp");
 		imageManager->LoadPngImages("썬유부", L"resource\\object\\decoration\\yubu.bmp");
@@ -139,9 +139,10 @@ namespace LoadData
 		imageManager->LoadPngImages("썬김(김채)", L"resource\\object\\decoration\\sunkim.bmp");
 		imageManager->LoadPngImages("납작어묵", L"resource\\object\\decoration\\flatamuk.bmp");
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
-
 		imageManager->LoadPngImages("썬대파", L"resource\\object\\decoration\\sundaepa.bmp");
 		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
+
+		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.png");
 		
 		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.png");

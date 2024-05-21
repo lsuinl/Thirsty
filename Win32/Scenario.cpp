@@ -292,57 +292,57 @@ void Figure::DrawFigure(int _stagenum)
 		{
 			if (expression == 0)
 			{
-				LoadData::imageManager->DrawPngImage("아이기본", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이기본", 700, 436, 382, 384, 1.0f);
 			}
 			else if(expression == 1)
 			{
-				LoadData::imageManager->DrawPngImage("아이웃음", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이웃음", 700, 436, 382, 384, 1.0f);
 			}
 			else if(expression == 2)
 			{
-				LoadData::imageManager->DrawPngImage("아이화남", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이화남", 700, 436, 382, 384, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("아이우동", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이우동", 700, 436, 382, 384, 1.0f);
 			}
 		}
 		else if (_stagenum == 2)
 		{
 			if (expression == 0) 
 			{
-				LoadData::imageManager->DrawPngImage("고삼기본", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼기본", 700, 286, 380, 513, 1.0f);
 			}
 			else if (expression == 1) 
 			{
-				LoadData::imageManager->DrawPngImage("고삼웃음", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼웃음", 700, 286, 380, 513, 1.0f);
 			}
 			else if (expression == 2) 
 			{
-				LoadData::imageManager->DrawPngImage("고삼화남", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼화남", 700, 286, 380, 513, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("고삼우동", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼우동", 700, 286, 380, 513, 1.0f);
 			}
 		}
 		else
 		{
 			if (expression == 0) 
 			{
-				LoadData::imageManager->DrawPngImage("중년기본", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년기본", 700, 321, 567, 563, 1.0f);
 			}
 			else if (expression == 1)
 			{
-				LoadData::imageManager->DrawPngImage("중년웃음", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년기본", 700, 321, 567, 563, 1.0f);
 			}
 			else if (expression == 2)
 			{
-				LoadData::imageManager->DrawPngImage("중년화남", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년기본", 700, 321, 567, 563, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("중년우동", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년기본", 700, 321, 567, 563, 1.0f);
 			}
 		}
 	}

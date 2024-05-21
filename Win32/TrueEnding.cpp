@@ -29,7 +29,7 @@ void DrawTrueEndingBack(float delta)
 			PrintText();
 
 		}
-		else if(curTrueEndingScript > 7 && curTrueEndingScript <= maxTrueEndingScript)
+		else if(curTrueEndingScript > 7 && curTrueEndingScript < maxTrueEndingScript)
 		{
 			//페이드아웃 넣기필요 배경 페이드아웃 끝나면 출력하게끔
 			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
@@ -38,18 +38,7 @@ void DrawTrueEndingBack(float delta)
 
 			PrintTextEnd();
 		}
-
-
-		////////////////////////////////////////////////////
 		else if (curTrueEndingScript == maxTrueEndingScript)
-		{
-
-			fadeinfadeout::FadeInUpdate();
-			fadeinfadeout::RenderFadeIn("우동한그릇");
-			Endingcre(delta);
-			
-		}
-		if (curTrueEndingScript > maxTrueEndingScript)
 		{
 			Screen::SetScreen();
 		}
@@ -63,7 +52,6 @@ void ChangeTrueEndingScript(float delta)
 	curTrueEndingScript = GetCurPage();
 	SkipText(delta);
 	UpdateText();
-	
 }
 
 void Endingcre(float delta)
@@ -75,8 +63,17 @@ void Endingcre(float delta)
 		posY = posY - 0.3 * delta;
 		LoadData::imageManager->DrawPngImage("엔딩", 0, posY, 1935, 6035, 1.0f, false);
 	}
-	;
+}
 
-
-	
+void Rendercre(float delta)
+{
+	//페이드 인 넣기
+	Endingcre(delta);
+}
+void GoTitle()
+{  //이 함수가 엔딩크레딧이 다올라가면 실행되게끔
+	if (input::IsKeyUp(27))
+	{
+		Screen::SetScreen();
+	}
 }
