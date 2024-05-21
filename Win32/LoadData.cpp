@@ -3,20 +3,33 @@
 #include "SoundManager.h"
 namespace LoadData
 {
-	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();   
-	Images::ImageManager* imageManager = Images::ImageManager::GetInstance(); 
+	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();
+	Images::ImageManager* imageManager = Images::ImageManager::GetInstance();
 	void LoadMusic()
 	{
-		//soundManager->GetInstance(); 
-		//soundManager->LoadMusic(Music::eSoundList::StartBGM, true, "resource//sound//title.ogg");
-		//soundManager->LoadMusic(Music::eSoundList::correct, false, "resource//sound//bgm3.mp3");
-		//soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//bgm3.mp3");
-		//soundManager->LoadMusic(Music::eSoundList::hint, false, "resource//sound//bgm3.mp3");
-		//soundManager->LoadMusic(Music::eSoundList::win, false, "resource//sound//bgm3.mp3");
-		//soundManager->LoadMusic(Music::eSoundList::start, false, "resource//sound//bgm3.mp3"); 
-		//soundManager->LoadMusic(Music::eSoundList::success, false, "resource//sound//bgm3.mp3");
-		//soundManager->LoadMusic(Music::eSoundList::fail, false, "resource//sound//bgm3.mp3");
-		//soundManager->SetVolume(0.5f);
+		soundManager->GetInstance();
+		soundManager->LoadMusic(Music::eSoundList::click, false, "resource//sound//click.ogg"); //버튼 클릭 기본 효과음
+		soundManager->LoadMusic(Music::eSoundList::inside, false, "resource//sound//inside.ogg"); //손님 입장 효과음
+		soundManager->LoadMusic(Music::eSoundList::typeing, false, "resource//sound//typeing.ogg"); //스토리 타이핑
+		soundManager->LoadMusic(Music::eSoundList::moveani, false, "resource//sound//moveani.ogg"); //커튼 효과음
+
+		soundManager->LoadMusic(Music::eSoundList::put, false, "resource//sound//put.ogg"); //고명 내려놓기
+
+		soundManager->LoadMusic(Music::eSoundList::stock, false, "resource//sound//stock.ogg"); //면 끓이기
+
+		soundManager->LoadMusic(Music::eSoundList::arrow, false, "resource//sound//arrow.ogg"); //방향키 입력 완료시
+		soundManager->LoadMusic(Music::eSoundList::right, false, "resource//sound//right.ogg"); //방향키 맞았을 때
+		soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//wrong.ogg"); //키보드 틀렸을 때
+		soundManager->LoadMusic(Music::eSoundList::slice, false, "resource//sound//slice.ogg"); //면자르기 효과음
+		soundManager->LoadMusic(Music::eSoundList::noodleslice, false, "resource//sound//noodleslice.ogg"); //면자르기 배경
+
+		soundManager->LoadMusic(Music::eSoundList::story, true, "resource//sound//story.ogg"); //스토리 진행 배경음
+		soundManager->LoadMusic(Music::eSoundList::timemout, true, "resource//sound//timemout.ogg"); //타임오버
+		soundManager->LoadMusic(Music::eSoundList::title, true, "resource//sound//title.ogg"); //타이틀
+		soundManager->LoadMusic(Music::eSoundList::realEnding, true, "resource//sound//realEnding.ogg"); //진엔딩
+		soundManager->LoadMusic(Music::eSoundList::normalEnding, true, "resource//sound//normalEnding.ogg"); //노말엔딩
+
+		soundManager->SetVolume(0.5f, 1);
 	}
 	void LoadImages()
 	{
@@ -38,7 +51,7 @@ namespace LoadData
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
 
 		//면반죽
-		imageManager->LoadPngImages("면반죽",  L"resource\\object\\noodleSlice\\noodle.bmp");
+		imageManager->LoadPngImages("면반죽", L"resource\\object\\noodleSlice\\noodle.bmp");
 		imageManager->LoadPngImages("납작면1", L"resource\\object\\noodleSlice\\flat1.bmp");
 		imageManager->LoadPngImages("납작면2", L"resource\\object\\noodleSlice\\flat2.bmp");
 		imageManager->LoadPngImages("납작면3", L"resource\\object\\noodleSlice\\flat3.bmp");
@@ -106,9 +119,22 @@ namespace LoadData
 		imageManager->LoadPngImages("썬김(김채)", L"resource\\object\\decoration\\sunkim.bmp");
 		imageManager->LoadPngImages("납작어묵", L"resource\\object\\decoration\\flatamuk.bmp");
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
-		
-		
+
+		imageManager->LoadPngImages("꼬마유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("꼬마유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("꼬마유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("꼬마유령우동", L"resource\\object\\right.png");
+		imageManager->LoadPngImages("고삼유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("고삼유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("고삼유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("고삼유령우동", L"resource\\object\\right.png");
+		imageManager->LoadPngImages("중년유령기본", L"resource\\object\\test.png");
+		imageManager->LoadPngImages("중년유령웃음", L"resource\\object\\rule.png");
+		imageManager->LoadPngImages("중년유령쓸쓸", L"resource\\object\\left.png");
+		imageManager->LoadPngImages("중년유령우동", L"resource\\object\\right.png");
+
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\rect.png");
+
 
 	}
 	void LoadAnimation()

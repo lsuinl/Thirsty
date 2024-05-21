@@ -41,13 +41,13 @@ void DrawEndingBack(int _stagenum)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 3;
-				
+
 			}
 			else
 			{
 				endFigure.expression = 1;
 			}
-			
+
 		}
 		else if (_stagenum == 2)
 		{
@@ -113,10 +113,10 @@ void DrawEndingBack(int _stagenum)
 			}
 		}
 	}
-	render::DrawBackGround("resource/background/back.bmp", 1920, 1080, 0, 0, false);
+	LoadData::imageManager->DrawBitMapImage("배경화면", 0, 0);
 	endFigure.DrawFigure(_stagenum);
 	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 500, 1600, 600, 0.8f);
 	PrintText();
-	
+
 
 }

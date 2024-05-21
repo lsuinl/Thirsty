@@ -9,8 +9,8 @@ namespace render
 {
     HWND hWnd;
 
-    HDC frontMemDC;  
-    HDC backMemDC;     
+    HDC frontMemDC;
+    HDC backMemDC;
 
     HBITMAP backBitmap = nullptr;
 
@@ -92,7 +92,7 @@ namespace render
 
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);
-        SetBkMode(backMemDC, TRANSPARENT); 
+        SetBkMode(backMemDC, TRANSPARENT);
 
         int currentX = x;
         int currentY = y;
@@ -102,8 +102,8 @@ namespace render
             wchar_t ch = text[i];
             if (currentX >= 1500)
             {
-                currentX = x; 
-                currentY += 50; 
+                currentX = x;
+                currentY += 50;
             }
 
             TextOutW(backMemDC, currentX, currentY, &ch, 1);
@@ -135,7 +135,7 @@ namespace render
 
         ::BitBlt(backMemDC, x, y, bm.bmWidth, bm.bmHeight, bitmapMemDC, 0, 0, SRCCOPY);
 
-        SelectObject(bitmapMemDC, hOldBitmap); 
+        SelectObject(bitmapMemDC, hOldBitmap);
     }
 
     HBITMAP LoadImages(const char* path, int width, int height)
@@ -157,20 +157,11 @@ namespace render
         render::ReleaseImage(hBackmap);
         return hBackmap;
     }
-   
+
     void DrawObjects(Image* name, int width, int height, int x, int y, bool to, float alpha)
     {
         static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
-        Gdiplus::Color _alpha_Color;
-
-        if (to == false)
-        {
-            _alpha_Color = (0, 255, 234, 39);
-        }
-        else if (to == true)
-        {
-            _alpha_Color = (0, 0, 0, 0);
-        }
+        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
         static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
         Gdiplus::ColorMatrix colorMatrix = {
             1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
@@ -185,7 +176,7 @@ namespace render
         imgAtt.SetColorMatrix(&colorMatrix);
         imgAtt.SetColorKey(_alpha_Color, _alpha_Color);
         Gdiplus::Rect destRect(x, y, width, height);
-        g. DrawImage(name, destRect, 0, 0, name->GetWidth(), name->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
+        g.DrawImage(name, destRect, 0, 0, name->GetWidth(), name->GetHeight(), Gdiplus::UnitPixel, &imgAtt);
     }
 
 

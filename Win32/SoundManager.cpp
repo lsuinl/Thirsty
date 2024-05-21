@@ -24,9 +24,6 @@ namespace Music
 
     void SoundManager::LoadMusic(eSoundList soundlist, bool loopcheck, const char* music)
     {
-        System_Create(&mSystem);
-        mSystem->init(2, FMOD_INIT_NORMAL, 0);
-
         if (loopcheck)
         {
             mSystem->createSound(music, FMOD_LOOP_NORMAL, 0, &mSoundList[static_cast<int>(soundlist)]);
@@ -50,12 +47,12 @@ namespace Music
         mChannel[static_cast<int>(channel)]->stop();
     }
 
-    void SoundManager::SetVolume(float volume)
+    void SoundManager::SetVolume(float volume, int channel = 1)
     {
         mVolume = volume;
         for (unsigned int i = 0; i < static_cast<unsigned int>(eSoundChannel::Size); ++i)
         {
-            mChannel[i]->setVolume(mVolume);
+            mChannel[channel]->setVolume(mVolume);
         }
     }
 
@@ -65,6 +62,8 @@ namespace Music
         , mSoundList{}
         , mVolume(0.5f)
     {
+        System_Create(&mSystem);
+        mSystem->init(2, FMOD_INIT_NORMAL, 0);
     }
 
     SoundManager::~SoundManager()
