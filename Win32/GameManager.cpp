@@ -19,10 +19,10 @@ namespace game
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
-		//LoadData::LoadMusic();
+	    LoadData::LoadMusic();
 		LoadData::LoadImages();
 		LoadData::LoadAnimation();
-		//LoadData::soundManager->PlayMusic(Music::eSoundList::StartBGM, Music::eSoundChannel::BGM);
+		LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
 	}
 	void GameManager::Update()
 	{
@@ -63,6 +63,10 @@ namespace game
 	void GameManager::Finalize()
 	{
 		render::ReleaseRender();
+		LoadData::imageManager->DestroyInstance();
+		LoadData::imageManager = nullptr;
+		LoadData::soundManager->DestroyInstance();
+		LoadData::soundManager = nullptr;
 	}
 	void GameManager::Run()
 	{

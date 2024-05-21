@@ -85,6 +85,7 @@ namespace input
         curMouse.x = pt.x;
         curMouse.y = pt.y;
         curMouse.wheel = 0;
+
         curMouse.isDragging = (GetKeyState(VK_LBUTTON) & 0x8001) != 0 && curMouse.left;
         curMouse.left = (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
         curMouse.right = (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;

@@ -2,7 +2,6 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
-#include "PlaceFood.h"
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
@@ -10,15 +9,14 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
-#include "EndingCredit.h"
-#include "FadeinFadeout.h"
 
 namespace Screen
 {
-	int clickTime = 0;
+	int clickTime = 2000;
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	TextList* textList = TextList::GetInstance();
+	float _timer;
 	ScreenName preScreen = TitleScreen;
 	ScreenName currentScreen = TitleScreen;
 
@@ -28,7 +26,7 @@ namespace Screen
 		preScreen = currentScreen;
 		currentScreen = MoveAniScreen;
 	}
-	
+
 	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
@@ -42,10 +40,9 @@ namespace Screen
 		currentScreen = TitleScreen;
 	}
 
-	
+
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		clickTime += TimeSystem::GetDeltaTime();
-
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
@@ -57,10 +54,6 @@ namespace Screen
 			{
 				clickTime = 0;
 				ChooseFood::CheckButton(mouse.x, mouse.y);
-			}
-			else if (mouse.right)
-			{
-				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
 			else {
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
@@ -138,7 +131,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000 || input::IsKeyDown(16) == true)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
 			{
 				SetScreen();
 			}
@@ -156,7 +149,6 @@ namespace Screen
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
 			break;
-		case CreditScreen:
 		default:
 			break;
 		}
@@ -178,7 +170,6 @@ namespace Screen
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
-			PlaceFood::PrintScreen();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -188,8 +179,6 @@ namespace Screen
 			break;
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
-			break;
-		case Screen::CreditScreen:
 			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
@@ -210,7 +199,7 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingStage(PlayerData::player.GetStage(),PlayerData::player.IsGameClear());
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear());
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
@@ -220,19 +209,16 @@ namespace Screen
 				case PlaceFoodScreen:
 					break;
 				case EndingScreen:
-					if(PlayerData::player.GetStage()==3)
+					PlayerData::player.ResetScore();
+					SetStoryStage(PlayerData::player.GetStage());
+					if (PlayerData::player.GetStage() == 1)
 					{
-						PlayerData::player.ResetScore();
 						currentScreen = TitleScreen;
 					}
 					else
 					{
-						PlayerData::player.ResetScore();
-						SetStoryStage(PlayerData::player.GetStage());
 						currentScreen = StoryScreen;
 					}
-					break;
-				case CreditScreen:
 					break;
 				default:
 					break;
@@ -247,6 +233,6 @@ namespace Screen
 			pause::RenderPause();
 			pause::DrawReButton();
 			pause::DrawReButton();
-		}	
+		}
 	}
 }
