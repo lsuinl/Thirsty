@@ -37,9 +37,9 @@ namespace Images {
         mImageList[name] = Image::FromFile(path);
     }
 
-    void ImageManager::DrawPngImage(std::string name, int x, int y, int width, int height, float alpha)
+    void ImageManager::DrawPngImage(std::string name, int x, int y, int width, int height, float alpha, bool to)
     {
-        render::DrawObjects(mImageList.find(name)->second, width, height, x, y, true, alpha);
+        render::DrawObjects(mImageList.find(name)->second, width, height, x, y, to, alpha);
     }
 
     ImageManager::ImageManager()

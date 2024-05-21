@@ -9,13 +9,14 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "EndingCredit.h"
+#include "FadeinFadeout.h"
 
 namespace Screen
 {
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	TextList* textList = TextList::GetInstance();
-	float _timer;
 	ScreenName preScreen = TitleScreen;
 	ScreenName currentScreen = TitleScreen;
 
@@ -132,7 +133,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000 || input::IsKeyDown(16) == true)
 			{
 				SetScreen();
 			}
@@ -150,6 +151,7 @@ namespace Screen
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
 			break;
+		case CreditScreen:
 		default:
 			break;
 		}
@@ -181,6 +183,8 @@ namespace Screen
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
 			break;
+		case Screen::CreditScreen:
+			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
 			if (!MoveScreen::EndMoveScreen()) {
@@ -210,16 +214,19 @@ namespace Screen
 				case PlaceFoodScreen:
 					break;
 				case EndingScreen:
-					PlayerData::player.ResetScore();
-					SetStoryStage(PlayerData::player.GetStage());
-					if(PlayerData::player.GetStage()==1)
+					if(PlayerData::player.GetStage()==3)
 					{
+						PlayerData::player.ResetScore();
 						currentScreen = TitleScreen;
 					}
 					else
 					{
+						PlayerData::player.ResetScore();
+						SetStoryStage(PlayerData::player.GetStage());
 						currentScreen = StoryScreen;
 					}
+					break;
+				case CreditScreen:
 					break;
 				default:
 					break;

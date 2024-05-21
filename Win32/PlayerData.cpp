@@ -5,6 +5,7 @@ namespace PlayerData {
 	Player::Player()
 	{
 		stage = Types::STAGE1;
+
 	}
 	
 	Player::~Player()

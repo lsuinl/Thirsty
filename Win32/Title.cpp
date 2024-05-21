@@ -42,15 +42,14 @@ namespace Title
 
 	void Title::TitleRender()
 	{
-		LoadData::imageManager->DrawBitMapImage("타이틀화면",0,0);
-		LoadData::imageManager->DrawPngImage("제목", 100, 100, 1000, 500,1.0f);
+		LoadData::imageManager->DrawPngImage("시작화면", 0, 0, 1920, 1080, 1.0f, false);
 
 		startButton.DrawButton();
 		tutorialButton.DrawButton();
 
 		if (isTutorial)
 		{
-			LoadData::imageManager->DrawPngImage("규칙", 500, 500, 750, 300, 1.0f);
+			LoadData::imageManager->DrawPngImage("규칙", 500, 500, 750, 300, 1.0f, false);
 		}
 	}
 }

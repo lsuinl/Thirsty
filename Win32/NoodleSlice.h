@@ -31,7 +31,7 @@ public:
 		NOODLE3 = 8
 	};
 
-	// 성공 여부
+	// 방향키 올킬 여부
 	bool isSuccess;
 
 	// timer
@@ -61,6 +61,12 @@ public:
 
 	// render
 	void NoodleSliceScreen();
+
+	// success
+	bool NoodleSuccess();
+
+	// 애니메이션
+	void SliceAni();
 
 private:
 
