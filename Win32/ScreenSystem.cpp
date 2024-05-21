@@ -12,6 +12,7 @@
 
 namespace Screen
 {
+	int clickTime =2000;
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	TextList* textList = TextList::GetInstance();
@@ -41,58 +42,56 @@ namespace Screen
 
 	
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
-		switch (currentScreen)
-		{
-		case Screen::ChooseFoodScreen:
-			if (input::IsSame(mouse, premouse))
+		clickTime += TimeSystem::GetDeltaTime();
+			switch (currentScreen)
 			{
-				return;
+			case Screen::ChooseFoodScreen:
+				if (mouse.left && mouse.isDragging)
+				{
+					ChooseFood::CheckDragButton(mouse.x, mouse.y);
+				}
+				else if (mouse.left && clickTime>100)
+				{
+					clickTime =0;
+					ChooseFood::CheckButton(mouse.x, mouse.y);
+				}
+				else {
+					ChooseFood::CheckDropButton(mouse.x, mouse.y);
+				}
+				break;
+			case Screen::StockGameScreen:
+				break;
+			case Screen::NoodleSliceScreen:
+				break;
+			case Screen::PlaceFoodScreen:
+				break;
+			case Screen::MoveAniScreen:
+				break;
+			case Screen::TitleScreen:
+				if (input::IsSame(mouse, premouse))
+				{
+					return;
+				}
+				if (mouse.left) {
+					Title::TitleCheckClick(mouse.x, mouse.y);
+				}
+				break;
+			case Screen::StoryScreen:
+				break;
+			default:
+				break;
 			}
-			if (mouse.left)
-			{
-				ChooseFood::CheckButton(mouse.x, mouse.y);
-			}
-			if (mouse.left && mouse.isDragging)
-			{
-				ChooseFood::CheckDragButton(mouse.x, mouse.y);
-			}
-			else {
-				ChooseFood::CheckDropButton(mouse.x, mouse.y);
-			}
-			break;
-		case Screen::StockGameScreen:
-			break;
-		case Screen::NoodleSliceScreen:
-			break;
-		case Screen::PlaceFoodScreen:
-			break;
-		case Screen::MoveAniScreen:
-			break;
-		case Screen::TitleScreen:
-			if (input::IsSame(mouse, premouse))
-			{
-				return;
-			}
-			if (mouse.left) {
-				Title::TitleCheckClick(mouse.x, mouse.y);
-			}
-			break;
-		case Screen::StoryScreen:
-			break;
-		default:
-			break;
-		}
 
-		if (pause::GetIsPause())
-		{
-			if (input::IsSame(mouse, premouse))
+			if (pause::GetIsPause())
 			{
-				return;
+				if (input::IsSame(mouse, premouse))
+				{
+					return;
+				}
+				if (mouse.left) {
+					pause::IsCheckReButton(mouse.x, mouse.y);
+				}
 			}
-			if (mouse.left) {
-				pause::IsCheckReButton(mouse.x, mouse.y);
-			}
-		}
 	}
 
 	void InputKeyBoard() {

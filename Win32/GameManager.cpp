@@ -19,9 +19,10 @@ namespace game
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
-		//LoadData::LoadMusic();
+		LoadData::LoadMusic();
 		LoadData::LoadImages();
 		LoadData::LoadAnimation();
+		LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
 	}
 	void GameManager::Update()
 	{
