@@ -42,7 +42,7 @@ namespace Title
 
 	void Title::TitleRender()
 	{
-		LoadData::imageManager->DrawPngImage("시작화면", 0, 0, 1920, 1080, 1.0f, false);
+		LoadData::imageManager->DrawPngImage("시작화면", 0, 0, 1935, 1080, 1.0f, false);
 
 		startButton.DrawButton();
 		tutorialButton.DrawButton();

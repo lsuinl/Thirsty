@@ -9,6 +9,6 @@ namespace fadeinfadeout
 	void SetFadeOut();
 	void FadeInUpdate();
 	void FadeOutUpdate();
-	void RenderFadeIn();
+	void RenderFadeIn(const char* name);
 	void RenderFadeOut();
 }

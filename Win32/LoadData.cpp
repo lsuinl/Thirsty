@@ -56,6 +56,8 @@ namespace LoadData
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
+		imageManager->LoadPngImages("우동한그릇", L"resource\\background\\fade.bmp");
+		//imageManager->LoadPngImages("페이드", L"resource\\background\\fade2.bmp");
 
 		//면반죽
 		imageManager->LoadPngImages("면반죽", L"resource\\object\\noodleSlice\\noodle.bmp");
