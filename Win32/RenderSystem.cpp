@@ -87,8 +87,8 @@ namespace render
 
     void DrawTextF(int x, int y, const wchar_t* text, COLORREF color, int fontsize)
     {
-        AddFontResource(TEXT("resource//font//BlackHanSans-Regular.ttf"));
-        HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Black Han Sans"));
+        AddFontResource(TEXT("resource//font//ChosunCentennial_ttf.ttf"));
+        HFONT currentFont = CreateFont(fontsize, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("조선100년체 "));
 
         HFONT oldFont = (HFONT)SelectObject(backMemDC, currentFont);
         SetTextColor(backMemDC, color);
@@ -161,7 +161,16 @@ namespace render
     void DrawObjects(Image* name, int width, int height, int x, int y, bool to, float alpha)
     {
         static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
-        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        Gdiplus::Color _alpha_Color;
+
+        if (to == false)
+        {
+            _alpha_Color = (0, 255, 234, 39);
+        }
+        else if (to == true)
+        {
+            _alpha_Color = (0, 0, 0, 0);
+        }
         static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
         Gdiplus::ColorMatrix colorMatrix = {
             1.0f, 0.0f, 0.0f, 0.0f, 0.0f,

@@ -277,4 +277,3 @@ bool StockGame::IsStockClear()
 {
     return salinity >= targetSalinity - 10 && salinity <= targetSalinity + 10;
 }
-

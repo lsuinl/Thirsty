@@ -117,7 +117,7 @@ void DrawStoryBack(int _stagenum)
 		}
 	}
 	figure.DrawFigure(_stagenum);
-	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 500, 1600, 600, 0.8f);
+	LoadData::imageManager->DrawPngImage("텍스트박스", 200, 700, 1600, 300, 0.8f);
 	PrintText();
 	
 

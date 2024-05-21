@@ -7,16 +7,16 @@ namespace LoadData
 	Images::ImageManager* imageManager = Images::ImageManager::GetInstance(); 
 	void LoadMusic()
 	{
-		soundManager->GetInstance(); 
-		soundManager->LoadMusic(Music::eSoundList::StartBGM, true, "resource//sound//title.ogg");
-		soundManager->LoadMusic(Music::eSoundList::correct, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::hint, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::win, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::start, false, "resource//sound//bgm3.mp3"); 
-		soundManager->LoadMusic(Music::eSoundList::success, false, "resource//sound//bgm3.mp3");
-		soundManager->LoadMusic(Music::eSoundList::fail, false, "resource//sound//bgm3.mp3");
-		soundManager->SetVolume(0.5f);
+		//soundManager->GetInstance(); 
+		//soundManager->LoadMusic(Music::eSoundList::StartBGM, true, "resource//sound//title.ogg");
+		//soundManager->LoadMusic(Music::eSoundList::correct, false, "resource//sound//bgm3.mp3");
+		//soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//bgm3.mp3");
+		//soundManager->LoadMusic(Music::eSoundList::hint, false, "resource//sound//bgm3.mp3");
+		//soundManager->LoadMusic(Music::eSoundList::win, false, "resource//sound//bgm3.mp3");
+		//soundManager->LoadMusic(Music::eSoundList::start, false, "resource//sound//bgm3.mp3"); 
+		//soundManager->LoadMusic(Music::eSoundList::success, false, "resource//sound//bgm3.mp3");
+		//soundManager->LoadMusic(Music::eSoundList::fail, false, "resource//sound//bgm3.mp3");
+		//soundManager->SetVolume(0.5f);
 	}
 	void LoadImages()
 	{
@@ -33,9 +33,35 @@ namespace LoadData
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1920);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
+		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
+
+		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
+
+		//면반죽
+		imageManager->LoadPngImages("면반죽",  L"resource\\object\\noodleSlice\\noodle.bmp");
+		imageManager->LoadPngImages("납작면1", L"resource\\object\\noodleSlice\\flat1.bmp");
+		imageManager->LoadPngImages("납작면2", L"resource\\object\\noodleSlice\\flat2.bmp");
+		imageManager->LoadPngImages("납작면3", L"resource\\object\\noodleSlice\\flat3.bmp");
+		imageManager->LoadPngImages("납작면4", L"resource\\object\\noodleSlice\\flat4.bmp");
+		imageManager->LoadPngImages("중면1", L"resource\\object\\noodleSlice\\middle1.bmp");
+		imageManager->LoadPngImages("중면2", L"resource\\object\\noodleSlice\\middle2.bmp");
+		imageManager->LoadPngImages("중면3", L"resource\\object\\noodleSlice\\middle3.bmp");
+		imageManager->LoadPngImages("중면4", L"resource\\object\\noodleSlice\\middle4.bmp");
+		imageManager->LoadPngImages("중면5", L"resource\\object\\noodleSlice\\middle5.bmp");
+		imageManager->LoadPngImages("중면6", L"resource\\object\\noodleSlice\\middle6.bmp");
+		imageManager->LoadPngImages("소면1", L"resource\\object\\noodleSlice\\small1.bmp");
+		imageManager->LoadPngImages("소면2", L"resource\\object\\noodleSlice\\small2.bmp");
+		imageManager->LoadPngImages("소면3", L"resource\\object\\noodleSlice\\small3.bmp");
+		imageManager->LoadPngImages("소면4", L"resource\\object\\noodleSlice\\small4.bmp");
+		imageManager->LoadPngImages("소면5", L"resource\\object\\noodleSlice\\small5.bmp");
+		imageManager->LoadPngImages("소면6", L"resource\\object\\noodleSlice\\small6.bmp");
+		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
+		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
+		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
 
 		//png
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start.bmp");
+		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
 		imageManager->LoadPngImages("튜토리얼버튼", L"resource\\object\\tutorial.bmp");
 		imageManager->LoadPngImages("제목", L"resource\\object\\Logo.png");
 		imageManager->LoadPngImages("규칙", L"resource\\object\\rule.png");
