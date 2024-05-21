@@ -3,6 +3,7 @@
 //화면을 이동합니다!
 namespace MoveScreen
 {
+	void InitAni();
 	void SetMoveAni();
 	void MoveToScreen();
 	void FirstAniScreen();

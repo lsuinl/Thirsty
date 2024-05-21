@@ -12,7 +12,7 @@ class Animator {
 public:
 	~Animator();
 	Animator();
-	Animator(std::string name,int x, int y, int width, int height, int animationLimit, std::wstring* imageList, bool loop, bool to, int imagelength);
+	Animator(std::string name,int x, int y, int width, int height, int animationLimit,  std::wstring* imageList, bool loop, bool to, int imagelength);
 	//애니메이션 활성화
 	void SetAnimation(); 
 	//애니메이션 상태보기
