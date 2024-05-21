@@ -55,6 +55,10 @@ namespace Screen
 				clickTime = 0;
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
+			else if (mouse.right)
+			{
+				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
+			}
 			else {
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
 			}

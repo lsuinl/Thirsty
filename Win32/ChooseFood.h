@@ -23,6 +23,6 @@ namespace ChooseFood
 
 	//선택완료버튼
 	void Selected();
-
+	void basketfunction(); 
 	void Test();
 }
