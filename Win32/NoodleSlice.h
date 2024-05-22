@@ -23,14 +23,6 @@ public:
 	// Arrow 구조체 배열 선언
 	Arrow** arrowArr;
 
-	// 면 타입
-	enum NoodleType
-	{
-		NOODLE1 = 4,
-		NOODLE2 = 6,
-		NOODLE3 = 8
-	};
-
 	// 방향키 올킬 여부
 	bool isSuccess;
 
@@ -39,7 +31,7 @@ public:
 	float playTimer;
 
 	// 게임 세팅
-	void SetGame(int _stage, NoodleType _noodle);
+	void SetGame(int _stage, int _noodle);
 
 	// 게임루프
 	void UpdateGame();
