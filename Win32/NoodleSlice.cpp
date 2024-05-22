@@ -2,7 +2,7 @@
 #include <time.h>
 #include "LoadData.h"
 // 게임 세팅
-void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
+void NoodleSlice::SetGame(int _stage, int _noodle)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::noodleslice, Music::eSoundChannel::BGM);
     input::SetKeyCode(false);
@@ -28,9 +28,12 @@ void NoodleSlice::SetGame(int _stage, NoodleType _noodle)
 
     // 변수 대입
     if (_stage == 1) stage = 4;
-    else if (_stage == 2) stage = 8;
-    else stage = 6;
-    noodle = (int)_noodle;
+    else if (_stage == 2) stage = 6;
+    else stage = 8;
+
+    if (_noodle == 1) noodle = 4;
+    else if (_noodle == 2) noodle = 6;
+    else noodle = 8;
 
     // 최대 사이즈
     arrSize = stage * noodle;
@@ -46,8 +49,6 @@ void NoodleSlice::UpdateGame()
 
     if (playTimer <= 200000)
     {
-        InputArrow();
-
         if (isReset)
         {
             resetTimer += TimeSystem::GetDeltaTime();
@@ -55,6 +56,10 @@ void NoodleSlice::UpdateGame()
             {
                 isReset = false;
             }
+        }
+        else
+        {
+            InputArrow();
         }
     }
 }

@@ -1,4 +1,4 @@
-#include "ScreenSystem.h"
+﻿#include "ScreenSystem.h"
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
@@ -148,13 +148,13 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 20000 || input::IsKeyDown(13))
 			{
-				if (noodleSlice.playTimer >= 200000)
+				if (noodleSlice.playTimer >= 20000)
 				{
 					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
 				}
-
+				PlayerData::player.MiniGameClear(noodleSlice.isSuccess);
 				SetScreen();
 			}
 			break;
@@ -258,7 +258,8 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
+					noodleSlice.SetGame(PlayerData::player.GetStage(), PlayerData::player.GetNoodle());
 					currentScreen = NoodleSliceScreen;
 					break;
 				case NoodleSliceScreen:
@@ -266,11 +267,12 @@ namespace Screen
 					currentScreen = StockGameScreen;
 					break;
 				case StockGameScreen:
+					PlayerData::player.MiniGameClear(stock.IsStockClear());
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
-					PlayerData::player.IsGameClear(PlayerData::player.GetStage());
 					break;
 				case PlaceFoodScreen:
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
 					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
