@@ -128,8 +128,21 @@ namespace LoadData
 		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.bmp");
 		imageManager->LoadPngImages("건다시마", L"resource\\object\\soup\\dasima.bmp");
 		imageManager->LoadPngImages("냄비", L"resource\\object\\soup\\pot.bmp");
-		imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.bmp");
-		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.bmp");
+
+		imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.png");
+		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.png");
+
+		imageManager->LoadPngImages("노란막대", L"resource\\object\\soup\\yellowbox.bmp");
+		imageManager->LoadPngImages("빨간막대", L"resource\\object\\soup\\redbox.bmp");
+		imageManager->LoadPngImages("검은막대", L"resource\\object\\soup\\blackbox.png");
+		imageManager->LoadPngImages("베스트선", L"resource\\object\\soup\\best.bmp");
+		imageManager->LoadPngImages("베스트글자", L"resource\\object\\soup\\bestword.png");
+
+		imageManager->LoadPngImages("약불냄비", L"resource\\object\\soup\\weakpot.png");
+		imageManager->LoadPngImages("강불냄비", L"resource\\object\\soup\\strongpot.png");
+		imageManager->LoadPngImages("넘치는냄비", L"resource\\object\\soup\\megastrongpot.png");
+		imageManager->LoadPngImages("연기", L"resource\\object\\soup\\brim.png");
+
 
 
 

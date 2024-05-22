@@ -119,79 +119,63 @@ namespace button {
 
     void DragDrop::DrawDeco()
     {
-        if (nameTag == 14)
+        if (nameTag == 7)
+        {
+            LoadData::imageManager->DrawPngImage("가쓰오부시", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 8)
+        {
+            LoadData::imageManager->DrawPngImage("반달어묵", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 9)
+        {
+            LoadData::imageManager->DrawPngImage("튀김가루", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 10)
         {
             LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 11)
+        {
+            LoadData::imageManager->DrawPngImage("표고버섯", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 12)
+        {
+            LoadData::imageManager->DrawPngImage("직화고기", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 13)
+        {
+            LoadData::imageManager->DrawPngImage("썬유부", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 14)
+        {
+            LoadData::imageManager->DrawPngImage("쑥갓", x, y, width, height, 1.0f, true);
+
         }
         else if (nameTag == 15)
         {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("썬김(김채)", x, y, width, height, 1.0f, true);
+
         }
         else if (nameTag == 16)
         {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("납작어묵", x, y, width, height, 1.0f, true);
+
         }
         else if (nameTag == 17)
         {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("새우튀김", x, y, width, height, 1.0f, true);
+
         }
         else if (nameTag == 18)
         {
-            LoadData::imageManager->DrawPngImage("대파", x,y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("썬대파", x, y, width, height, 1.0f, true);
+
         }
         else if (nameTag == 19)
         {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 20)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x,y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 21)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 22)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 23)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 24)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 25)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 26)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 27)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 28)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 29)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 30)
-        {
-            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 31)
-        {
-            LoadData::imageManager->DrawPngImage("바구니", x, y, width, height, 1.0f, true);
-        }
+            LoadData::imageManager->DrawPngImage("썬청양고추", x, y, width, height, 1.0f, true);
 
-    }
-   
+        }      
+    }  
 }

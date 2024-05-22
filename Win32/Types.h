@@ -18,36 +18,36 @@ namespace Types
         SMALL = 2,//¼Ò¸é
     };
 
-    //À°¼ö Á¾·ù
-    enum Soup
-    {
-        MAULCHI = 3,//¸êÄ¡
-        TZUYU = 4,//ÂêÀ¯
-        DASIMA = 5,//´Ù½Ã¸¶
-        MU = 6,//¹«
-    };
+	//À°¼ö Á¾·ù
+	enum Soup
+	{
+		MAULCHI = 3,//¸êÄ¡
+		TZUYU = 4,//ÂêÀ¯
+		DASIMA = 5,//´Ù½Ã¸¶
+		MU = 6,//¹«
+	};
 
-    //°í¸í Á¾·ù
-    enum Decoration
-    {
-        GATHOBUSI = 7,//"°¡¾²¿ÀºÎ½Ã"
-        BANDALAMUK,//"¹Ý´Þ¾î¹¬"
-        FRYGARU,//"Æ¢±è°¡·ç"
-        DAEPA,//"´ëÆÄ"
-        PYOGO,//"Ç¥°í¹ö¼¸"
-        FIREMEET,//"Á÷È­°í±â"
-        YUBU,//"½ãÀ¯ºÎ"
-        SUKK,//"¾¦°«"
-        SUNKIM,//"½ã±è(±èÃ¤)"
-        FLATAMUK,//"³³ÀÛ¾î¹¬"
-        SHRIMP,//"»õ¿ìÆ¢±è"
-        SUNDAEPA,//"½ã´ëÆÄ"
-        CHOUNGYANGGOCHU = 19,//"½ãÃ»¾ç°íÃß"
-        SICHIME = 20
-    };
-    enum Basket
-    {
-        BASKET = 31,//¹Ù±¸´Ï
-    };
+	//°í¸í Á¾·ù
+	enum Decoration
+	{
+		GATHOBUSI=7,//"°¡¾²¿ÀºÎ½Ã"
+		BANDALAMUK,//"¹Ý´Þ¾î¹¬"
+		FRYGARU,//"Æ¢±è°¡·ç"
+		DAEPA,//"´ëÆÄ"
+		PYOGO,//"Ç¥°í¹ö¼¸"
+		FIREMEET,//"Á÷È­°í±â"
+		YUBU,//"½ãÀ¯ºÎ"
+		SUKK,//"¾¦°«"
+		SUNKIM,//"½ã±è(±èÃ¤)"
+		FLATAMUK,//"³³ÀÛ¾î¹¬"
+		SHRIMP,//"»õ¿ìÆ¢±è"
+		SUNDAEPA,//"½ã´ëÆÄ"
+		CHOUNGYANGGOCHU = 19,//"½ãÃ»¾ç°íÃß"
+		SICHIME = 20
+	};
+	enum Basket
+	{
+		BASKET = 31,//¹Ù±¸´Ï
+	};
 
 };
