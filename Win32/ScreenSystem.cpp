@@ -265,7 +265,7 @@ namespace Screen
 				case StockGameScreen:
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
-					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
 					break;
 				case NoodleSliceScreen:
 				
@@ -279,7 +279,7 @@ namespace Screen
 					PlayerData::player.ResetScore();
 					if (PlayerData::player.GetStage() == 4)
 					{
-						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
+						//SetTrueEndingStage(PlayerData::player.IsTrueEnding());
 						currentScreen = TrueEndingScreen;
 					}
 					else
