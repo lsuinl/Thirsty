@@ -206,14 +206,17 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), 여기를 추즈프드 성공실패 여부 bool값으로stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
+					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
 					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), 여기를 누들 슬라이스 성공실패 여부 bool값으로stock.IsStockClear());
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
@@ -253,7 +256,6 @@ namespace Screen
 
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
-			pause::DrawReButton();
 			pause::DrawReButton();
 		}
 	}

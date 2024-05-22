@@ -40,12 +40,14 @@ namespace LoadData
 		//imageManager->LoadBitMapImages("배경화면", "resource/background/back.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("로딩화면", "resource/background/loading.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("타이틀화면", "resource/background/title.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("스테이지1_1", "resource/background/story/stage1_1.bmp", 1600, 750);
-		imageManager->LoadBitMapImages("스테이지1_2", "resource/background/story/stage1_2.bmp", 1600, 750);
+		imageManager->LoadBitMapImages("스테이지1_1", "resource/background/story/stage1_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지1_2", "resource/background/story/stage1_2.bmp", 1935, 1080);
 
-		imageManager->LoadBitMapImages("스테이지2_1", "resource/background/story/stage2_1.bmp", 1600, 750);
+		imageManager->LoadBitMapImages("스테이지2_1", "resource/background/story/stage2_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지2_2", "resource/background/story/stage2_2.bmp", 1935, 1080);
 
-		imageManager->LoadBitMapImages("스테이지3_2", "resource/background/story/stage3_2.bmp", 1600, 750);
+		imageManager->LoadBitMapImages("스테이지3_1", "resource/background/story/stage3_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지3_2", "resource/background/story/stage3_2.bmp", 1935, 1080);
 		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
@@ -123,8 +125,8 @@ namespace LoadData
 		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.bmp");
 		imageManager->LoadPngImages("건다시마", L"resource\\object\\soup\\dasima.bmp");
 		imageManager->LoadPngImages("냄비", L"resource\\object\\soup\\pot.bmp");
-		//imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.bmp");
-		//imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.bmp");
+		imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.bmp");
+		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.bmp");
 
 
 		imageManager->LoadPngImages("기본우동", L"resource\\object\\decoration\\udong.bmp");

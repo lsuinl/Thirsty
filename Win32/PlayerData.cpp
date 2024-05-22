@@ -5,7 +5,7 @@ namespace PlayerData {
 	Player::Player()
 	{
 
-		stage = Types::STAGE3;
+		stage = Types::STAGE1;
 
 	}
 
@@ -85,17 +85,17 @@ namespace PlayerData {
 
 	void Player::GameClear(int _stagenum, bool success)
 	{
-		if (_stagenum == 1)
+		if (_stagenum == 1&& isClear1Stage)
 		{
-			isClear1Stage == success;
+			isClear1Stage = success;
 		}
-		else if (_stagenum == 2)
+		else if (_stagenum == 2&& isClear2Stage)
 		{
-			isClear2Stage == success;
+			isClear2Stage = success;
 		}
-		else if (_stagenum == 3)
+		else if (_stagenum == 3&& isClear3Stage)
 		{
-			isClear3Stage == success;
+			isClear3Stage = success;
 		}
 	}
 
@@ -116,6 +116,6 @@ namespace PlayerData {
 	}
 	bool Player::IsTrueEnding()
 	{
-		return isClear1Stage && isClear2Stage && isClear3Stage;
+		return isClear1Stage == true && isClear2Stage == true && isClear3Stage == true;
 	}
 }

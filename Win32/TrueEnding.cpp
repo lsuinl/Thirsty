@@ -69,6 +69,7 @@ void SetCre()
 {
 	//여기에 엔딩크레딧전 페이드인
 
+
 }
 void RenderCre(float delta)
 {
