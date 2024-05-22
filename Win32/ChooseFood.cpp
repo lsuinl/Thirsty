@@ -118,6 +118,7 @@ namespace ChooseFood
 	};
 
 	void InitScreen() {
+		LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 		noodleInBasket[0] = button::DragDrop(BASKET, "바구니", 1485, 200, 100, 100, Selected);
 		for (int i = 0; i < 6; i++)
 			soupInBasket[i] = button::DragDrop(BASKET, "바구니", 1485, 200 + (150 * i), 100, 100, Selected);

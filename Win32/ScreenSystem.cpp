@@ -9,12 +9,12 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "LoadData.h"
 
 namespace Screen
 {
 	NoodleSlice noodleSlice;
 	StockGame stock;
-	TextList* textList = TextList::GetInstance();
 	float _timer;
 	ScreenName preScreen = TitleScreen;
 	ScreenName currentScreen = TitleScreen;
@@ -25,7 +25,7 @@ namespace Screen
 		preScreen = currentScreen;
 		currentScreen = MoveAniScreen;
 	}
-	
+
 	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
@@ -39,7 +39,7 @@ namespace Screen
 		currentScreen = TitleScreen;
 	}
 
-	
+
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
@@ -131,9 +131,13 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 2000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
 			{
+				if (noodleSlice.playTimer >= 200000)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				}
+
 				SetScreen();
 			}
 			break;
@@ -152,6 +156,9 @@ namespace Screen
 			break;
 		case Screen::TrueEndingScreen:
 			ChangeTrueEndingScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::EndingcreditScreen:
+			GoTitle();
 			break;
 		default:
 			break;
@@ -223,7 +230,8 @@ namespace Screen
 				switch (preScreen)
 				{
 				case TitleScreen:
-					textList->LoadtTextAll();
+					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
+
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -232,14 +240,17 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear());
+					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
+				
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
@@ -259,10 +270,16 @@ namespace Screen
 					}
 					break;
 				case TrueEndingScreen:
+					currentScreen = EndingcreditScreen;
+					SetCre();
+					break;
+				case EndingcreditScreen:
 					PlayerData::player.ResetScore();
 					currentScreen = TitleScreen;
 					break;
 				default:
+
+
 					break;
 				}
 			}

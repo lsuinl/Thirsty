@@ -12,7 +12,7 @@ struct Figure
 	float width;
 	float heidht;
 
-	int expression =0; //표정 0기본 1해피엔딩 2 배드엔딩 3 우동먹는캐릭터 출력;
+	int expression = 0; //표정 0기본 1해피엔딩 2 배드엔딩 3 우동먹는캐릭터 출력 4중년울음;
 	bool isDraw = true;
 
 	void DrawFigure(int _stagenum);

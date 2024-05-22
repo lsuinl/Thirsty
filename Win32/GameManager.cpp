@@ -12,6 +12,7 @@
 namespace game
 {
 	const char* texts = "22";
+	TextList* textList = TextList::GetInstance();
 	GameManager* GameManager::instance = nullptr;
 	GameManager::GameManager() {}
 	GameManager::~GameManager() {}
@@ -24,6 +25,7 @@ namespace game
 	    LoadData::LoadMusic();
 		LoadData::LoadImages();
 		LoadData::LoadAnimation();
+		textList->LoadtTextAll();
 		LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
 	}
 	void GameManager::Update()

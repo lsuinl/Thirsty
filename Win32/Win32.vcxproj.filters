@@ -68,6 +68,7 @@
     <ClCompile Include="FadeinFadeout.cpp">
       <Filter>4.scene\1.Title</Filter>
     </ClCompile>
+    <ClCompile Include="TrueEnding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -83,9 +84,6 @@
       <Filter>2.system</Filter>
     </ClInclude>
     <ClInclude Include="RenderSystem.h">
-      <Filter>2.system</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeSystem.h">
       <Filter>2.system</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
@@ -142,6 +140,10 @@
     </ClInclude>
     <ClInclude Include="FadeinFadeout.h">
       <Filter>4.scene\1.Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueEnding.h" />
+    <ClInclude Include="TimeSystem.h">
+      <Filter>3.feature</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
