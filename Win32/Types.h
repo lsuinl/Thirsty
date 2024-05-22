@@ -1,22 +1,22 @@
 #pragma once
 namespace Types
 {
-	//현재 스테이지
-	enum Stage
-	{
-		STAGE1 = 1, //4
-		STAGE2 = 2,//8
-		STAGE3 = 3,//6
-		STAGE4 = 4,
-	};
+    //현재 스테이지
+    enum Stage
+    {
+        STAGE1 = 1, //4
+        STAGE2 = 2,//8
+        STAGE3 = 3,//6
+        STAGE4 = 4,
+    };
 
-	//면 종류
-	enum Noodle
-	{
-		FLAT = 0, //납작면
-		MIDDLE = 1, //중면
-		SMALL = 2,//소면
-	};
+    //면 종류
+    enum Noodle
+    {
+        FLAT = 0, //납작면
+        MIDDLE = 1, //중면
+        SMALL = 2,//소면
+    };
 
 	//육수 종류
 	enum Soup
@@ -51,4 +51,3 @@ namespace Types
 	};
 
 };
-
