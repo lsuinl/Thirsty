@@ -223,7 +223,7 @@ namespace ChooseFood
 		{
 			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 			{
-				if ((draggingButton->isDragging))// && (draggingButton->isShowing))
+				if ((draggingButton->isDragging) && (draggingButton->canClick))// && (draggingButton->isShowing))
 				{
 					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
 					int currentX = draggingButton->getXPos();
@@ -237,6 +237,7 @@ namespace ChooseFood
 						soupBNum++;
 						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
 						draggingButton->isShowing = false;
+						draggingButton->canClick = false;
 					}
 					//바구니 안이 아닌경우 원래자리로 돌아가기.
 					else
@@ -257,7 +258,7 @@ namespace ChooseFood
 		{
 			for (int i = 0; i < sizeof(decorationButtonList) / sizeof(button::DragDrop); i++)
 			{	//바구니에 값이 이미 들어가서 이미지가 안보이게 된 경우에는 드래그가 되지않도록 조건 추가
-				if ((draggingButton->isDragging))// && (draggingButton->isShowing))
+				if ((draggingButton->isDragging) && (draggingButton->canClick))// && (draggingButton->isShowing))
 				{
 					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
 					int currentX = draggingButton->getXPos();
@@ -272,6 +273,7 @@ namespace ChooseFood
 
 						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
 						draggingButton->isShowing = false;
+						draggingButton->canClick = false;
 					}
 					//바구니 안이 아닌경우 원래자리로 돌아가기.
 					else
@@ -303,6 +305,7 @@ namespace ChooseFood
 					if (noodleButtonList[i].nameTag == noodleInBasket[0].nameTag)
 					{
 						noodleButtonList[i].isShowing = true;
+						noodleButtonList[i].canClick = true;
 						noodleButtonList[i].setSize(200, 200);
 						noodleInBasket[0].nameTag = Types::Basket::BASKET;
 						noodleInBasket[0].name = "바구니";
@@ -322,6 +325,7 @@ namespace ChooseFood
 						if (soupButtonList[j].nameTag == soupInBasket[i].nameTag)
 						{
 							soupButtonList[j].isShowing = true;
+							soupButtonList[i].canClick = true;
 							soupButtonList[j].setSize(200, 200);
 							soupInBasket[i].nameTag = Types::Basket::BASKET;
 							soupInBasket[i].name = "바구니";
@@ -351,6 +355,7 @@ namespace ChooseFood
 						if (decorationButtonList[j].nameTag == decorationInBasket[i].nameTag)
 						{
 							decorationButtonList[j].isShowing = true;
+							decorationButtonList[i].canClick = true;
 							decorationButtonList[j].setSize(200, 200);
 							decorationInBasket[i].nameTag = Types::Basket::BASKET;
 							decorationInBasket[i].name = "바구니";
