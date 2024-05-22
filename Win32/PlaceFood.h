@@ -1,1 +1,1 @@
-HKH#pragma once
+#pragma once

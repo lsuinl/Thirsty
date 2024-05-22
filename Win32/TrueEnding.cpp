@@ -43,6 +43,29 @@ void DrawTrueEndingBack(float delta)
 			Screen::SetScreen();
 		}
 	}
+	else
+	{
+		if (curTrueEndingScript <= 3)
+		{
+			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
+			LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+			PrintText();
+
+		}
+		else if (curTrueEndingScript > 3 && curTrueEndingScript < maxTrueEndingScript)
+		{
+			//페이드아웃 넣기필요 배경 페이드아웃 끝나면 출력하게끔
+			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
+			fadeinfadeout::FadeInUpdate();
+			fadeinfadeout::RenderFadeIn("페이드");
+
+			PrintTextEnd();
+		}
+		else if (curTrueEndingScript == maxTrueEndingScript)
+		{
+			Screen::SetScreen();
+		}
+	}
 
 }
 

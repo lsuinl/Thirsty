@@ -10,7 +10,7 @@
 #include "PlayerData.h"
 #include "Types.h"
 #include "LoadData.h"
-
+#include "PlaceFood.h"
 namespace Screen
 {
 	NoodleSlice noodleSlice;
@@ -175,12 +175,15 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
-			stock.RenderStockGame();
+			stock.RenderStockGame(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
+
+			//////
+			////
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -204,12 +207,13 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
-				stock.RenderStockGame();
+				stock.RenderStockGame(TimeSystem::GetDeltaTime());
 				break;
 			case Screen::NoodleSliceScreen:
 				noodleSlice.NoodleSliceScreen();
 				break;
 			case Screen::PlaceFoodScreen:
+				
 				break;
 			case Screen::TitleScreen:
 				Title::TitleRender();
@@ -240,21 +244,22 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), 추즈푸드 결과  bool값으로 반환 bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
 					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
-					currentScreen = EndingScreen;
+					currentScreen = PlaceFoodScreen;
 					break;
 				case NoodleSliceScreen:
-				
+				   //PlayerData::player.GameClear(PlayerData::player.GetStage(), 누들슬라이스 불값으로 반환 stock.IsStockClear());
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
+					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();
@@ -286,7 +291,6 @@ namespace Screen
 		}
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
-			pause::DrawReButton();
 			pause::DrawReButton();
 		}
 		MoveScreen::MoveToScreen();
