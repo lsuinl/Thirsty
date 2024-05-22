@@ -192,7 +192,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
-			stock.RenderStockGame();
+			stock.RenderStockGame(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
@@ -222,7 +222,7 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
-				stock.RenderStockGame();
+				stock.RenderStockGame(TimeSystem::GetDeltaTime());
 				break;
 			case Screen::NoodleSliceScreen:
 				noodleSlice.NoodleSliceScreen();

@@ -25,13 +25,7 @@ namespace ChooseFood
     button::DragDrop noodleInBasket[1];
     button::DragDrop soupInBasket[4];
     button::DragDrop decorationInBasket[8];
-	int originXPos = 0;
-	int originYPos = 0;
-	int soupBNum = 0; // 육수바구니 인덱스
-	int decoBNum = 0; //고명바구니 인덱스
-	button::DragDrop noodleInBasket[1];
-	button::DragDrop soupInBasket[4];
-	button::DragDrop decorationInBasket[8];
+
 
     button::Button buttonList[5] =
     {
@@ -44,17 +38,6 @@ namespace ChooseFood
     button::DragDrop noodleButtonList[3];
     button::DragDrop soupButtonList[4];
     button::DragDrop decorationButtonList[14];
-	button::Button buttonList[5] =
-	{
-		button::Button("왼쪽버튼",80,500,100,100,LeftPage),
-		button::Button("오른쪽버튼",1280, 500, 100, 100, RightPage),
-		button::Button("위쪽버튼",1500,100, 100, 100, UpBasket),
-		button::Button("아래쪽버튼",1500, 900, 100, 100,DownBasket),
-		button::Button("완료버튼",1650, 50, 200, 100, Selected),
-	};
-	button::DragDrop noodleButtonList[3];
-	button::DragDrop soupButtonList[4];
-	button::DragDrop decorationButtonList[14];
 
 	void InitScreen() {
 		noodleButtonList[0] = button::DragDrop(Types::Noodle::FLAT, "납작면", 300, 400, 200, 200, Test);
