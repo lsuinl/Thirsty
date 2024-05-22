@@ -118,57 +118,77 @@ namespace button {
 
     void DragDrop::DrawDeco()
     {
-        if (nameTag == 1)
+        if (nameTag == 14)
         {
-            LoadData::imageManager->DrawPngImage("°¡¾²¿ÀºÎ½Ã",x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 2)
+        else if (nameTag == 15)
         {
-            LoadData::imageManager->DrawPngImage("¹Ý´Þ¾î¹¬", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 3)
+        else if (nameTag == 16)
         {
-            LoadData::imageManager->DrawPngImage("Æ¢±è°¡·ç", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 14)
+        else if (nameTag == 17)
         {
-            LoadData::imageManager->DrawPngImage("´ëÆÄ", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 5)
+        else if (nameTag == 18)
         {
-            LoadData::imageManager->DrawPngImage("Ç¥°í¹ö¼¸", x,y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x,y, width, height, 1.0f, true);
         }
-        else if (nameTag == 6)
+        else if (nameTag == 19)
         {
-            LoadData::imageManager->DrawPngImage("Á÷È­°í±â", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 7)
+        else if (nameTag == 20)
         {
-            LoadData::imageManager->DrawPngImage("½ãÀ¯ºÎ", x,y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x,y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 21)
+        {
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 22)
+        {
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 23)
+        {
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 24)
+        {
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
         else if (nameTag == 25)
         {
-            LoadData::imageManager->DrawPngImage("¾¦°«", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 9)
+        else if (nameTag == 26)
         {
-            LoadData::imageManager->DrawPngImage("½ã±è(±èÃ¤)", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 10)
+        else if (nameTag == 27)
         {
-            LoadData::imageManager->DrawPngImage("³³ÀÛ¾î¹¬", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 11)
+        else if (nameTag == 28)
         {
-            LoadData::imageManager->DrawPngImage("»õ¿ìÆ¢±è", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 12)
+        else if (nameTag == 29)
         {
-            LoadData::imageManager->DrawPngImage("½ã´ëÆÄ", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
         }
-        else if (nameTag == 13)
+        else if (nameTag == 30)
         {
-            LoadData::imageManager->DrawPngImage("½ãÃ»¾ç°íÃß", x, y, width, height, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("ÂÊÆÄ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 31)
+        {
+            LoadData::imageManager->DrawPngImage("¹Ù±¸´Ï", x, y, width, height, 1.0f, true);
         }
 
     }

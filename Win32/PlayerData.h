@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "Types.h"
 //플레이에 필요한 정보를 관리 
 
@@ -21,8 +22,8 @@ namespace PlayerData {
 
 		//담은 재료 종류
 		Types::Noodle noodle; //면
-		Types::Decoration* decoration; //고명(여러개)
-		Types::Soup* soup; //육수(여러개)
+		std::vector <Types::Decoration> decoration; //고명(여러개)
+		std::vector <Types::Soup> soup; //육수(여러개)
 
 		public:
 		
@@ -33,7 +34,7 @@ namespace PlayerData {
 			//점수 초기화(스테이지 변경마다 실행)
 			void ResetScore();
 			//재료담기 점수 측정 + 재료 담기(재료 일치여부)
-			void SetChooseFood(Types::Noodle noodle, Types::Decoration* decoration, Types::Soup* soup);
+			void SetChooseFood(Types::Noodle noodle, std::vector <Types::Decoration> decoration, std::vector <Types::Soup> soup);
 			//면썰기 점수 측정 (클리어시간, 클리어여부)
 			void SetNoodleSlice(int second, bool clear);
 			//육수끓이기 점수 측정 (퍼센테이지 일치율)
@@ -45,8 +46,8 @@ namespace PlayerData {
 			bool IsGameClear();
 
 			Types::Noodle GetNoodle(); //면썰기=면가져오기
-			Types::Decoration* GetDecoation(); //고명얹기=고명가져오기
-			Types::Soup* GetSoup(); //육수끓이기=육수재료가져오기
+			std::vector<Types::Decoration> GetDecoation(); //고명얹기=고명가져오기
+			std::vector <Types::Soup> GetSoup(); //육수끓이기=육수재료가져오기
 	};
 	extern Player player;
 }

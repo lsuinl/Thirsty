@@ -84,10 +84,9 @@ namespace ChooseFood
 		for (int i = 0; i < 8; i++)
 			decorationInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1485, 200 + (150 * i), 100, 100, basketfunction);
 	}
-
+	//배경 이미지 그리기
 	void ChooseScreen()
-	{
-		//배경 이미지 그리기
+	{		
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
 		LoadData::imageManager->DrawBitMapImage("도마", 100, 100);
 
@@ -136,46 +135,52 @@ namespace ChooseFood
 	//-------------
 	void CheckDragButton(int dx, int dy) {
 		if (draggingButton == nullptr) { //드래그중인 버튼이 없는 경우에만 검사
-			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::Button); i++)
-			{
-				if ((screenIndex == 0) && noodleButtonList[i].CheckDrag(dx, dy))
+			if (screenIndex == 0) {
+				for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::DragDrop); i++)
 				{
-					//draggingButton에 저장. 
-					draggingButton = &noodleButtonList[i];
-					//isDragging=true로 변경
-					draggingButton->isDragging = true;
-					//이동..함수..
-					noodleButtonList[i].PlayFunction();
-					break;
+					if (noodleButtonList[i].isShowing && noodleButtonList[i].CheckDrag(dx, dy))
+					{
+						//draggingButton에 저장. 
+						draggingButton = &noodleButtonList[i];
+						//isDragging=true로 변경
+							draggingButton->isDragging = true;
+							//이동..함수..
+							noodleButtonList[i].PlayFunction();
+							break;
+					}
 				}
 			}
-			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::Button); i++)
-			{
-				if ((screenIndex == 1) && (soupButtonList[i].CheckDrag(dx, dy)))
+			else if(screenIndex == 1) {
+				for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 				{
-					//draggingButton에 저장.
-					draggingButton = &soupButtonList[i];
-					//isDragging=true로 변경
-					draggingButton->isDragging = true;
-					//이동..함수..
-					soupButtonList[i].PlayFunction();
-					break;
+					if (soupButtonList[i].isShowing && (soupButtonList[i].CheckDrag(dx, dy)))
+					{
+						//draggingButton에 저장.
+						draggingButton = &soupButtonList[i];
+						//isDragging=true로 변경
+						draggingButton->isDragging = true;
+						//이동..함수..
+						soupButtonList[i].PlayFunction();
+						break;
+					}
 				}
 			}
-			for (int i = 0; i < sizeof(decorationButtonList) / sizeof(button::DragDrop); i++)
-			{
-				if ((screenIndex == 2) && (decorationButtonList[i].CheckDrag(dx, dy)))
+			else {
+				for (int i = 0; i < sizeof(decorationButtonList) / sizeof(button::DragDrop); i++)
 				{
-					//draggingButton에 저장.
-					draggingButton = &decorationButtonList[i];
+					if (decorationButtonList[i].isShowing && (decorationButtonList[i].CheckDrag(dx, dy)))
+					{
+						//draggingButton에 저장.
+						draggingButton = &decorationButtonList[i];
 
-					//isDragging=true로 변경
-					draggingButton->isDragging = true;
-					//이동..함수..
-					decorationButtonList[i].PlayFunction();
-					break;
+						//isDragging=true로 변경
+						draggingButton->isDragging = true;
+						//이동..함수..
+						decorationButtonList[i].PlayFunction();
+						break;
+					}
 				}
-			}
+		}
 		}
 		else {
 			draggingButton->PlayFunction();
@@ -185,37 +190,34 @@ namespace ChooseFood
 	{	////면 선택은 하나만 되므로 사이즈가 1이다.
 		if (draggingButton != nullptr && screenIndex == 0)
 		{
-			for (int i = 0; i < sizeof(noodleButtonList) / sizeof(button::DragDrop); i++)
+			if (draggingButton->isDragging)
 			{
-				if (draggingButton->isDragging)
+				//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
+				int currentX = draggingButton->getXPos();
+				int currentY = draggingButton->getYPos();
+				//범위 안에 들어오면 바구니버튼에 값이 저장되고 
+				if ((currentX > noodleInBasket[0].getXPos() - 130 && currentY > noodleInBasket[0].getYPos() - 120) && (currentX < noodleInBasket[0].getXPos() + 130 && currentY < noodleInBasket[0].getYPos() + 120) && noodleInBasket[0].nameTag == Types::Basket::BASKET)
 				{
-					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
-					int currentX = draggingButton->getXPos();
-					int currentY = draggingButton->getYPos();
-					//범위 안에 들어오면 바구니버튼에 값이 저장되고 
-					if ((currentX > noodleInBasket[0].getXPos() - 130 && currentY > noodleInBasket[0].getYPos() - 120) && (currentX < noodleInBasket[0].getXPos() + 130 && currentY < noodleInBasket[0].getYPos() + 120) && noodleInBasket[0].nameTag == Types::Basket::BASKET)
-					{
-
-						int ingredient = draggingButton->nameTag;
-						noodleInBasket[0].nameTag = ingredient;
-						noodleInBasket[0].name = draggingButton->name;
-						////바구니버튼에 이미지값을 전달하고 나서 재료는 안보이도록 설정.
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->isShowing = false;
-					}
-					//바구니 안이 아닌경우 원래자리로 돌아가기.
-					else
-					{
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->width = 200;
-						draggingButton->height = 200;
-					}
-					//noodleButtonList[i]getdragg6ing ==false로변경
-					draggingButton->isDragging = false;
-					//draggingButton에 있는 값 없애기
-					draggingButton = nullptr;
-					break;
+					int ingredient = draggingButton->nameTag;
+					noodleInBasket[0].nameTag = ingredient;
+					noodleInBasket[0].name = draggingButton->name;
+					////바구니버튼에 이미지값을 전달하고 나서 재료는 안보이도록 설정.
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->isShowing = false;
+					draggingButton->canClick = false;
 				}
+				//바구니 안이 아닌경우 원래자리로 돌아가기.
+				else
+				{
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->width = 200;
+					draggingButton->height = 200;
+				}
+				//noodleButtonList[i]getdragg6ing ==false로변경
+				draggingButton->isDragging = false;
+				//draggingButton에 있는 값 없애기
+				draggingButton = nullptr;
+				//break;
 			}
 		}
 		////육수재료 선택부터는 여러개가 가능하므로 바구니 인덱스를 증가시켜야한다.
@@ -223,71 +225,71 @@ namespace ChooseFood
 		{
 			for (int i = 0; i < sizeof(soupButtonList) / sizeof(button::DragDrop); i++)
 			{
-				if ((draggingButton->isDragging) && (draggingButton->canClick))// && (draggingButton->isShowing))
+			if ((draggingButton->isDragging))// && (draggingButton->canClick))// && (draggingButton->isShowing))
+			{
+				//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
+				int currentX = draggingButton->getXPos();
+				int currentY = draggingButton->getYPos();
+				//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 6개까지만 가능하다
+				if ((currentX > soupInBasket[0].getXPos() - 130 && currentY > soupInBasket[0].getYPos() - 120) && soupBNum != 6)
 				{
-					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
-					int currentX = draggingButton->getXPos();
-					int currentY = draggingButton->getYPos();
-					//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 6개까지만 가능하다
-					if ((currentX > soupInBasket[0].getXPos() - 130 && currentY > soupInBasket[0].getYPos() - 120) && soupBNum != 6)
-					{
-						soupInBasket[soupBNum].nameTag = draggingButton->nameTag;
-						soupInBasket[soupBNum].name = draggingButton->name;
-						////바구니 인덱스 증가시키기.
-						soupBNum++;
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->isShowing = false;
-						draggingButton->canClick = false;
-					}
-					//바구니 안이 아닌경우 원래자리로 돌아가기.
-					else
-					{
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->width = 200;
-						draggingButton->height = 200;
-					}
-					//noodleButtonList[i]getdragging ==false로변경
-					draggingButton->isDragging = false;
-					//draggingButton에 있는 값 없애기
-					draggingButton = nullptr;
-					break;
+					soupInBasket[soupBNum].nameTag = draggingButton->nameTag;
+					soupInBasket[soupBNum].name = draggingButton->name;
+					////바구니 인덱스 증가시키기.
+					soupBNum++;
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->isShowing = false;
+					draggingButton->canClick = false;
 				}
+				//바구니 안이 아닌경우 원래자리로 돌아가기.
+				else
+				{
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->width = 200;
+					draggingButton->height = 200;
+				}
+				//noodleButtonList[i]getdragging ==false로변경
+				draggingButton->isDragging = false;
+				//draggingButton에 있는 값 없애기
+				draggingButton = nullptr;
+				break;
+			}
 			}
 		}
 		if (draggingButton != nullptr && screenIndex == 2)
 		{
 			for (int i = 0; i < sizeof(decorationButtonList) / sizeof(button::DragDrop); i++)
 			{	//바구니에 값이 이미 들어가서 이미지가 안보이게 된 경우에는 드래그가 되지않도록 조건 추가
-				if ((draggingButton->isDragging) && (draggingButton->canClick))// && (draggingButton->isShowing))
+			if ((draggingButton->isDragging))//&& (draggingButton->canClick))// && (draggingButton->isShowing))
+			{
+				//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
+				int currentX = draggingButton->getXPos();
+				int currentY = draggingButton->getYPos();
+				//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 it's able until 8
+				if ((currentX > decorationInBasket[0].getXPos() - 130 && currentY > decorationInBasket[0].getYPos() - 120) && decoBNum != 8)
 				{
-					//현재위치 검사하여, 바구니 안인 경우 바구니에 값 넘기기.
-					int currentX = draggingButton->getXPos();
-					int currentY = draggingButton->getYPos();
-					//범위 안에 들어오면 위에서부터 순서대로 바구니버튼에 값이 저장되고 it's able until 8
-					if ((currentX > decorationInBasket[0].getXPos() - 130 && currentY > decorationInBasket[0].getYPos() - 120) && decoBNum != 8)
-					{
-						decorationInBasket[decoBNum].nameTag = draggingButton->nameTag;
-						decorationInBasket[decoBNum].name = draggingButton->name;
-						////바구니 인덱스 증가시키기.
-						decoBNum++;
+					decorationInBasket[decoBNum].nameTag = draggingButton->nameTag;
+					decorationInBasket[decoBNum].name = draggingButton->name;
+					////바구니 인덱스 증가시키기.
+					decoBNum++;
 
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->isShowing = false;
-						draggingButton->canClick = false;
-					}
-					//바구니 안이 아닌경우 원래자리로 돌아가기.
-					else
-					{
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->width = 200;
-						draggingButton->height = 200;
-					}
-					//noodleButtonList[i]getdragging ==false로변경
-					draggingButton->isDragging = false;
-					//draggingButton에 있는 값 없애기
-					draggingButton = nullptr;
-					break;
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->isShowing = false;
+					draggingButton->canClick = false;
 				}
+				//바구니 안이 아닌경우 원래자리로 돌아가기.
+				else
+				{
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->width = 200;
+					draggingButton->height = 200;
+				}
+				//noodleButtonList[i]getdragging ==false로변경
+				draggingButton->isDragging = false;
+				//draggingButton에 있는 값 없애기
+				draggingButton = nullptr;
+				break;
+			}
 			}
 		}
 	}
@@ -298,7 +300,7 @@ namespace ChooseFood
 		//누들바구니 한개.
 		if (screenIndex == 0)
 		{
-			if (noodleInBasket[0].CheckClick(dx, dy))
+			if (noodleInBasket[0].nameTag != Types::Basket::BASKET&&noodleInBasket[0].CheckClick(dx, dy))
 			{
 				for (int i = 0; i < 3; i++)
 				{
@@ -314,68 +316,76 @@ namespace ChooseFood
 			}
 		}
 		//육수 바구니
-		if (screenIndex == 1)
-		{	////육수 바구니 6개.
+		else if (screenIndex == 1)
+		{
+			int temp = 0;
+			////육수 바구니 6개.
 			for (int i = 0; i < 6; i++)
 			{
-				if (soupInBasket[i].CheckClick(dx, dy))
+				if (soupInBasket[i].nameTag != Types::Basket::BASKET && soupInBasket[i].CheckClick(dx, dy))
 				{	////육수 재료 11개.
 					for (int j = 0; j < 11; j++)
 					{
 						if (soupButtonList[j].nameTag == soupInBasket[i].nameTag)
 						{
 							soupButtonList[j].isShowing = true;
-							soupButtonList[i].canClick = true;
+							soupButtonList[j].canClick = true;
 							soupButtonList[j].setSize(200, 200);
 							soupInBasket[i].nameTag = Types::Basket::BASKET;
 							soupInBasket[i].name = "바구니";
+							soupBNum--;//바스켓의 인덱스값 줄이기
+							temp = i;
+							while (temp <= 4)
+							{
+								soupInBasket[temp].nameTag = soupInBasket[temp + 1].nameTag; // 한칸씩 값 땡기기.
+								soupInBasket[temp].name = soupInBasket[temp + 1].name;
+								soupInBasket[temp + 1].nameTag = Types::Basket::BASKET;
+								temp++;
+							}
+							break;
 						}
-					}
-					soupBNum--; //바스켓의 인덱스값 줄이기
-					while (i <= 4)
-					{
-						soupInBasket[i].nameTag = soupInBasket[i + 1].nameTag; // 한칸씩 값 땡기기.
-						soupInBasket[i].name = soupInBasket[i + 1].name;
-						soupInBasket[i + 1].nameTag = Types::Basket::BASKET;
-						i++;
 					}
 				}
 			}
-
 		}
 		//고명 바구니
-		if (screenIndex == 2)
-		{	////고명 바구니 8 개.
+		else
+		{	
+			int temp = 0;
+			////고명 바구니 8 개.
 			for (int i = 0; i < 8; i++)
 			{
-				if (decorationInBasket[i].CheckClick(dx, dy))
+				if (decorationInBasket[i].nameTag != Types::Basket::BASKET && decorationInBasket[i].CheckClick(dx, dy) )
 				{	////고명 재료 17개.
 					for (int j = 0; j < 17; j++)
 					{
 						if (decorationButtonList[j].nameTag == decorationInBasket[i].nameTag)
 						{
 							decorationButtonList[j].isShowing = true;
-							decorationButtonList[i].canClick = true;
+							decorationButtonList[j].canClick = true;
 							decorationButtonList[j].setSize(200, 200);
 							decorationInBasket[i].nameTag = Types::Basket::BASKET;
 							decorationInBasket[i].name = "바구니";
+							decoBNum--;//바스켓의 인덱스값 줄이기
+							temp = i;
+							while (temp <= 6)
+							{
+								decorationInBasket[temp].nameTag = decorationInBasket[temp + 1].nameTag; // 한칸씩 값 땡기기.
+								decorationInBasket[temp].name = decorationInBasket[temp + 1].name;
+								decorationInBasket[temp + 1].nameTag = Types::Basket::BASKET;
+								temp++;
+							}
+							break;
 						}
+
 					}
-					decoBNum--;
-					while (i <= 6)
-					{
-						decorationInBasket[i].nameTag = decorationInBasket[i + 1].nameTag; // 한칸씩 값 땡기기.
-						decorationInBasket[i].name = decorationInBasket[i + 1].name;
-						decorationInBasket[i + 1].nameTag = Types::Basket::BASKET;
-						i++;
-					}
+
 				}
 			}
-
+			
 		}
 
 	}
-
 	void NoodleScreen()
 	{
 		////바구니 그려져있기.
@@ -462,7 +472,6 @@ namespace ChooseFood
 		}
 	}
 
-
 	//선택창 넘기기
 	void LeftPage()
 	{
@@ -496,15 +505,15 @@ namespace ChooseFood
 		game::texts = "완료";
 		//담은 재료 종류
 		Types::Noodle noodle; //면
-		Types::Decoration* decoration; //고명(여러개)
-		Types::Soup* soup; //육수(여러개)
-
+		std::vector <Types::Decoration> decoration; //고명(여러개)
+		std::vector <Types::Soup> soup; //육수(여러개)
 		noodle = (Types::Noodle)(noodleInBasket[0].nameTag);
+
 		for (int i = 0; i < 6; i++) {
-			*soup = (Types::Soup)(soupInBasket[i].nameTag);
+			soup.push_back((Types::Soup)(soupInBasket[i].nameTag));
 		}
 		for (int i = 0; i < 8; i++) {
-			*decoration = (Types::Decoration)(decorationInBasket[i].nameTag);
+			decoration.push_back((Types::Decoration)(decorationInBasket[i].nameTag));
 		}
 		PlayerData::player.SetChooseFood(noodle, decoration, soup);
 		Screen::SetScreen();

@@ -2,6 +2,7 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
+#include "PlaceFood.h"
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
@@ -18,7 +19,7 @@ namespace Screen
 	TextList* textList = TextList::GetInstance();
 	float _timer;
 	ScreenName preScreen = TitleScreen;
-	ScreenName currentScreen = TitleScreen;
+	ScreenName currentScreen = StoryScreen;
 
 	void SetScreen()
 	{
@@ -55,8 +56,9 @@ namespace Screen
 				clickTime = 0;
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
-			else if (mouse.right)
+			else if (mouse.right && clickTime > 100)
 			{
+				clickTime = 0;
 				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
 			else {
@@ -68,6 +70,18 @@ namespace Screen
 		case Screen::NoodleSliceScreen:
 			break;
 		case Screen::PlaceFoodScreen:
+			if (mouse.left && mouse.isDragging)
+			{
+				PlaceFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				PlaceFood::CheckButton(mouse.x, mouse.y);
+			}
+			else {
+				PlaceFood::CheckDropButton(mouse.x, mouse.y);
+			}
 			break;
 		case Screen::MoveAniScreen:
 			break;
@@ -135,7 +149,7 @@ namespace Screen
 				pause::CaptureScreen();
 			}
 
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 20000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer > 100)
 			{
 				SetScreen();
 			}
@@ -174,6 +188,7 @@ namespace Screen
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
+			PlaceFood::PrintScreen();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -203,14 +218,16 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear());
-					currentScreen = EndingScreen;
+					PlaceFood::InitScreen();
+					currentScreen = PlaceFoodScreen;
 					break;
 				case NoodleSliceScreen:
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear());
+					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();

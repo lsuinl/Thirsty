@@ -45,7 +45,7 @@ namespace PlayerData {
 	}
 
 
-	void Player::SetChooseFood(Types::Noodle noodle, Types::Decoration* decoration,Types::Soup* soup) 
+	void Player::SetChooseFood(Types::Noodle noodle, std::vector <Types::Decoration> decoration, std::vector <Types::Soup> soup)
 	{
 		this->noodle = noodle;
 		this->decoration = decoration;
@@ -73,12 +73,12 @@ namespace PlayerData {
 		return noodle;
 	}
 	
-	Types::Decoration* Player::GetDecoation()
+	std::vector <Types::Decoration> Player::GetDecoation()
 	{
 		return decoration;
 	}
 
-	Types::Soup* Player::GetSoup()
+	std::vector <Types::Soup> Player::GetSoup()
 	{
 		return soup;
 	}

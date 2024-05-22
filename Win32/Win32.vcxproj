@@ -144,6 +144,7 @@
     <ClCompile Include="MoveScreen.cpp" />
     <ClCompile Include="NoodleSlice.cpp" />
     <ClCompile Include="Pause.cpp" />
+    <ClCompile Include="PlaceFood.cpp" />
     <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="Scenario.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="MoveScreen.h" />
     <ClInclude Include="NoodleSlice.h" />
     <ClInclude Include="Pause.h" />
+    <ClInclude Include="PlaceFood.h" />
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Scenario.h" />

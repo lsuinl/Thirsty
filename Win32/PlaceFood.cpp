@@ -7,12 +7,14 @@
 #include "RenderSystem.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include <vector>
+#include "ScreenSystem.h"
 
 namespace PlaceFood
 {
 	int basketIndex = 0;
 	//재료 선택에서 뽑힌 고명들을 옮겨받는다.
-	Types::Decoration* a = PlayerData::player.GetDecoation();
+	std::vector <Types::Decoration> a;
 	button::DragDrop userPickDeco[8];  
 
 	//우동위에 올려지는 고명들을 저장할 배열.
@@ -37,6 +39,14 @@ namespace PlaceFood
 		{
 			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
 		}
+		//바구니 버튼 그리기
+		for (int i = 0; i < 3; i++)
+		{
+			if ((basketIndex == 0 && i == 0) || (basketIndex == 5 && i == 1)) { continue; }
+			buttonList[i].DrawButton();
+		}
+		
+		PlaceFoodScreen();
 	}
 	//우동위에 좌표버튼 생성.
 	void InitScreen()
@@ -51,13 +61,23 @@ namespace PlaceFood
 
 		userSet[6] = button::DragDrop(31, "바구니", 550, 600, 200, 200, Empty);
 		userSet[7] = button::DragDrop(31, "바구니", 750, 600, 200, 200, Empty);
-
+		a = PlayerData::player.GetDecoation();
 		for (int i = 0; i < 8; i++)
 		{
-			userPickDeco[i] = button::DragDrop((int)(a + i), NULL, 1485, 200 + (i * 150), 100, 100, Test);
+			userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1485, 200 + (i * 150), 100, 100, Test);
 		}
 	}
-	
+	void CheckButton(int dx, int dy)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			if ((basketIndex == 0 && i == 0) || (basketIndex == 5 && i == 1)) { continue; }
+			if (buttonList[i].CheckClick(dx, dy) && draggingButton == nullptr)
+			{
+				buttonList[i].PlayFunction();
+			}
+		}
+	}
 	void CheckDragButton(int dx, int dy)
 	{
 		if (draggingButton == nullptr)
@@ -82,42 +102,48 @@ namespace PlaceFood
 	{
 		if (draggingButton != nullptr)
 		{
-			for (int i = 0; i < 8; i++)
+			if (draggingButton->isDragging)
 			{
-				if (draggingButton->isDragging)
+				int currentX = draggingButton->getXPos();
+				int currentY = draggingButton->getYPos();
+				for (int i = 0; i < 8; i++)
 				{
-					int currentX = draggingButton->getXPos();
-					int currentY = draggingButton->getYPos();
-
-					if ((currentX > userSet[i].getXPos() - 50 && currentY > userSet[i].getYPos() - 50) && (currentX < userSet[0].getXPos() + 50 && currentY < userSet[0].getYPos() + 50) && userSet[i].nameTag == Types::Basket::BASKET)
+					if ((currentX > userSet[i].getXPos()  && currentY > userSet[i].getYPos() ) && (currentX < userSet[i].getXPos() + 200 && currentY < userSet[i].getYPos() + 200) && userSet[i].nameTag == Types::Basket::BASKET)
 					{
+						//놓기
 						userSet[i].nameTag = draggingButton->nameTag;
 						////바구니버튼에 이미지값을 전달하고 나서 재료는 클릭할수없도록 설정.
 						draggingButton->nameTag = -1;
 						draggingButton->canClick = false;
+						break;
 					}
 					//바구니 안이 아닌경우 원래자리로 돌아가기.
-					else
-					{
-						draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-						draggingButton->width = 100;
-						draggingButton->height = 100;
-					}
 					//noodleButtonList[i]getdragg6ing ==false로변경
-					draggingButton->isDragging = false;
 					//draggingButton에 있는 값 없애기
-					draggingButton = nullptr;
-					break;
 				}
+				if (draggingButton->canClick != false)
+				{
+					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
+					draggingButton->width = 100;
+					draggingButton->height = 100;
+				}
+				draggingButton->isDragging = false;
+				draggingButton = nullptr;
 			}
 		}
 	}
+
+
+
 	void PlaceFoodScreen()
 	{
 		for (int i = 0; i < 8; i++)
 		{
 			//바구니위에 고명 랜더
-			userPickDeco[i].setYPos(basketIndex);
+			if (userPickDeco[i].canClick == true && draggingButton == nullptr)
+			{
+				userPickDeco[i].setYPos(basketIndex);
+			}
 			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900)
 			{
 				userPickDeco[i].DrawDeco();
@@ -148,10 +174,13 @@ namespace PlaceFood
 	{
 		basketIndex--;
 	}
-
 	void DownBasket()
 	{
 		basketIndex++;
+	}
+	void Selected()
+	{
+		Screen::SetScreen();
 	}
 	void Empty(){}
 
