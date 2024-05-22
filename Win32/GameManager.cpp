@@ -8,6 +8,7 @@
 #include "Story.h"
 #include "TextList.h"
 #include "LoadData.h"
+#include "MoveScreen.h"
 namespace game
 {
 	const char* texts = "22";
@@ -20,6 +21,7 @@ namespace game
 		input::InitInput();
 		TimeSystem::InitTime();
 		render::InitRender();
+		MoveScreen::InitAni();
 	    LoadData::LoadMusic();
 		LoadData::LoadImages();
 		LoadData::LoadAnimation();

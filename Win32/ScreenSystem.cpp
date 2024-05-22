@@ -194,11 +194,38 @@ namespace Screen
 		case Screen::TrueEndingScreen:
 			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
 			break;
-		case Screen::EndingcreditScreen:
-			RenderCre(TimeSystem::GetDeltaTime());
+		default:
 			break;
-		case Screen::MoveAniScreen:
-			MoveScreen::MoveToScreen();
+		}
+		if (currentScreen == Screen::MoveAniScreen) {
+			switch (preScreen)
+			{
+			case Screen::ChooseFoodScreen:
+				ChooseFood::ChooseScreen();
+				break;
+			case Screen::StockGameScreen:
+				stock.RenderStockGame();
+				break;
+			case Screen::NoodleSliceScreen:
+				noodleSlice.NoodleSliceScreen();
+				break;
+			case Screen::PlaceFoodScreen:
+				break;
+			case Screen::TitleScreen:
+				Title::TitleRender();
+				break;
+			case Screen::StoryScreen:
+				DrawStoryBack(PlayerData::player.GetStage());
+				break;
+			case Screen::EndingScreen:
+				DrawEndingBack(PlayerData::player.GetStage());
+				break;
+			case Screen::TrueEndingScreen:
+				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+				break;
+			default:
+				break;
+			}
 			if (!MoveScreen::EndMoveScreen()) {
 				switch (preScreen)
 				{
@@ -256,14 +283,12 @@ namespace Screen
 					break;
 				}
 			}
-			break;
-		default:
-			break;
 		}
-
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
 			pause::DrawReButton();
+			pause::DrawReButton();
 		}
+		MoveScreen::MoveToScreen();
 	}
 }

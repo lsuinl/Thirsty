@@ -5,9 +5,9 @@ namespace LoadData
 {
 	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();
 	Images::ImageManager* imageManager = Images::ImageManager::GetInstance();
+	Animator* AniManager = new Animator[3];
 	void LoadMusic()
 	{
-
 		soundManager->GetInstance();
 		soundManager->LoadMusic(Music::eSoundList::click, false, "resource//sound//click.ogg"); //버튼 클릭 기본 효과음
 		soundManager->LoadMusic(Music::eSoundList::inside, false, "resource//sound//inside.ogg"); //손님 입장 효과음
@@ -85,8 +85,6 @@ namespace LoadData
 		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
 		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
 		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
-
-
 		//png
 		imageManager->LoadPngImages("배경화면", L"resource/background/back.png");
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
@@ -133,7 +131,6 @@ namespace LoadData
 		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.bmp");
 
 
-		imageManager->LoadPngImages("기본우동", L"resource\\object\\decoration\\udong.bmp");
 
 		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\decoration\\gathobusi.bmp");
 		imageManager->LoadPngImages("반달어묵", L"resource\\object\\decoration\\bandalmuk.bmp");
@@ -148,10 +145,8 @@ namespace LoadData
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
 		imageManager->LoadPngImages("썬대파", L"resource\\object\\decoration\\sundaepa.bmp");
 		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
-
-		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.png");
-
-
+		
+		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.png");
 
 		imageManager->LoadPngImages("아이기본", L"resource\\object\\figure\\boygibon.bmp");
@@ -173,5 +168,31 @@ namespace LoadData
 	}
 	void LoadAnimation()
 	{
+		//커튼닫기 애니메이션(0)
+		Gdiplus::Image** closeList= new Gdiplus::Image*[43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(44 - i) + L".png";
+			closeList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[0] = Animator("커튼닫어", 0, 0, 1920, 1080, 1000, &closeList, false, true, 43);
+		//커튼열기 (1)
+		Gdiplus::Image** openList = new Gdiplus::Image * [43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(i) + L".png";
+			openList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[1] = Animator("커튼열어", 0, 0, 1920, 1080, 2000, &openList, false, true, 43);
+		
+		//타이틀
+		Gdiplus::Image** titleList = new Gdiplus::Image * [180];
+		for (int i = 1; i <= 180; i++)
+		{
+			std::wstring path = L"resource\\animation\\title\\" + std::to_wstring(i) + L".bmp";
+			titleList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[2] = Animator("타이틀", 0, 0, 1920, 1080, 6000, &titleList, true, false, 180);
+		AniManager[2].SetAnimation();
 	}
 }

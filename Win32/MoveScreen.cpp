@@ -1,28 +1,41 @@
 #include "MoveScreen.h"
 #include "Animator.h"
 #include "LoadData.h"
+#include "Pause.h"
+
 namespace MoveScreen
 {
-	std::wstring* imageList = new std::wstring[10];
-	Animator moveAni;
+
+	bool check = false;
+
+	void InitAni()
+	{
+	}
 	void SetMoveAni()
 	{
-		for (int i = 1; i <= 10; i++)
-		{
-			imageList[i - 1] = L"resource\\animation\\test\\" + std::to_wstring(i) + L".bmp";
-		}
-		moveAni = Animator("테스트", 300, 600, 400, 400, 2000, imageList, false , false);
-		moveAni.SetAnimation();
+		LoadData::AniManager[0].SetAnimation();
 	}
-	void MoveToScreen() 
+
+
+	void MoveToScreen()
 	{
-		LoadData::imageManager->DrawBitMapImage("로딩화면",0,0);
-		render::DrawTextF(130, 90, L"화면 체인지", RGB(0, 0, 0), 60);
-		moveAni.DrawAnimation();
+		LoadData::AniManager[0].DrawAnimation();
+		LoadData::AniManager[1].DrawAnimation();
+		if (check&& LoadData::AniManager[1].GetAnimationCheck() == false)
+		{
+			check = false;
+		}
 	}
+
 
 	bool EndMoveScreen()
 	{
-		return moveAni.GetAnimationCheck(); 
+		if (!LoadData::AniManager[0].GetAnimationCheck()) {
+			check = true;
+			LoadData::AniManager[1].SetAnimation();
+			return false;
+		}
+		return true;
 	}
+
 };

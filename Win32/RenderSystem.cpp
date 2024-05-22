@@ -192,7 +192,15 @@ namespace render
     {
         Image* img = Image::FromFile(name);
         static Gdiplus::Graphics g(backMemDC); // Graphics 객체를 정적으로 생성하여 재사용
-        Gdiplus::Color _alpha_Color(0, 0, 0, 0);
+        Gdiplus::Color _alpha_Color;
+        if (to)
+        {
+            _alpha_Color = (0, 0, 0, 0);
+        }
+        else
+        {
+            _alpha_Color = (0, 255, 98, 32);
+        }
         static Gdiplus::ImageAttributes imgAtt; // ImageAttributes 객체를 정적으로 생성하여 재사용
         Gdiplus::ColorMatrix colorMatrix = {
             1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
