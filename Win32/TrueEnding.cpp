@@ -6,7 +6,7 @@
 int maxTrueEndingScript;
 int curTrueEndingScript;
 bool trueEnding;
-float wait_timer = 5000.0f; 
+float wait_timer = 5000.0f;
 void SetTrueEndingStage(bool _success)
 {
 	wait_timer = 5000.0f;
@@ -29,7 +29,7 @@ void DrawTrueEndingBack(float delta)
 			PrintText();
 
 		}
-		else if(curTrueEndingScript > 7 && curTrueEndingScript < maxTrueEndingScript)
+		else if (curTrueEndingScript > 7 && curTrueEndingScript < maxTrueEndingScript)
 		{
 			//페이드아웃 넣기필요 배경 페이드아웃 끝나면 출력하게끔
 			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
@@ -54,10 +54,10 @@ void ChangeTrueEndingScript(float delta)
 	UpdateText();
 }
 
-void Endingcre(float delta)
+void EndingCre(float delta)
 {
 	wait_timer -= delta;
-	if (wait_timer <= 0 )
+	if (wait_timer <= 0)
 	{
 		static float posY = 0.0f;
 		posY = posY - 0.3 * delta;
@@ -65,11 +65,18 @@ void Endingcre(float delta)
 	}
 }
 
-void Rendercre(float delta)
+void SetCre()
 {
-	//페이드 인 넣기
-	Endingcre(delta);
+	//여기에 엔딩크레딧전 페이드인
+
 }
+void RenderCre(float delta)
+{
+
+	EndingCre(delta);
+}
+
+
 void GoTitle()
 {  //이 함수가 엔딩크레딧이 다올라가면 실행되게끔
 	if (input::IsKeyUp(27))

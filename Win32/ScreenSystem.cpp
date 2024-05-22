@@ -24,7 +24,7 @@ namespace Screen
 		preScreen = currentScreen;
 		currentScreen = MoveAniScreen;
 	}
-	
+
 	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
@@ -38,7 +38,7 @@ namespace Screen
 		currentScreen = TitleScreen;
 	}
 
-	
+
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
 		switch (currentScreen)
 		{
@@ -190,7 +190,7 @@ namespace Screen
 			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingcreditScreen:
-			Rendercre(TimeSystem::GetDeltaTime());
+			RenderCre(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::MoveAniScreen:
 			MoveScreen::MoveToScreen();
@@ -210,7 +210,7 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
-					SetEndingStage(PlayerData::player.GetStage(),PlayerData::player.IsGameClear());
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
@@ -221,7 +221,7 @@ namespace Screen
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();
-					if(PlayerData::player.GetStage() == 4)
+					if (PlayerData::player.GetStage() == 4)
 					{
 						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
 						currentScreen = TrueEndingScreen;
@@ -234,12 +234,15 @@ namespace Screen
 					break;
 				case TrueEndingScreen:
 					currentScreen = EndingcreditScreen;
+					SetCre();
 					break;
 				case EndingcreditScreen:
 					PlayerData::player.ResetScore();
 					currentScreen = TitleScreen;
 					break;
 				default:
+
+
 					break;
 				}
 			}
@@ -252,6 +255,6 @@ namespace Screen
 			pause::RenderPause();
 			pause::DrawReButton();
 			pause::DrawReButton();
-		}	
+		}
 	}
 }

@@ -13,26 +13,26 @@ void SetEndingStage(int _stagenum, bool _success)
 	curEndingScript = 0;
 	SetEndingScript(_stagenum, _success);
 	success = _success;
-	endFigure.expression = 3;
+	endFigure.expression = 0;
 	for (int i = 0; i < 2; i++) // 0부터 2까지 반복
 	{
-		decoudong[i].SetDecoudong(i * 70 + 910, 780);
-		
+		decoudong[i].SetDecoudong(i * 70 + 820, 780);
+
 	}
 	for (int i = 0; i < 4; i++) // 0부터 2까지 반복
 	{
-		decoudong[i+2].SetDecoudong(i * 30 + 900, 820);
+		decoudong[i + 2].SetDecoudong(i * 30 + 810, 820);
 
 	}
 	for (int i = 0; i < 3; i++) // 0부터 2까지 반복
 	{
-		decoudong[i + 6].SetDecoudong(i * 70 + 900, 835);
+		decoudong[i + 6].SetDecoudong(i * 70 + 820, 835);
 
 	}
-	
+
 	for (int i = 0; i < 9; i++)
 	{
-		decoudong[i].SetDeco(i+1);
+		decoudong[i].SetDeco(i + 1);
 	}
 
 
@@ -40,11 +40,11 @@ void SetEndingStage(int _stagenum, bool _success)
 void ChangeEndingScript(float delta)
 {
 	maxEndingScript = GetMaxPage();
-	curEndingScript = GetCurPage() -1;
+	curEndingScript = GetCurPage();
 	SkipText(delta);
 	UpdateText();
-	
-	if (curEndingScript == maxEndingScript - 1)
+
+	if (curEndingScript == maxEndingScript)
 	{
 		Screen::SetScreen();
 	}
@@ -54,10 +54,10 @@ void ChangeEndingScript(float delta)
 void DrawEndingBack(int _stagenum)
 {
 
-	LoadData::imageManager->DrawBitMapImage("배경화면", 0, 0);
+	LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
 	endFigure.DrawFigure(_stagenum);
 
-	LoadData::imageManager->DrawPngImage("기본우동", 840, 750, 300, 200, 1.0f, true);
+	LoadData::imageManager->DrawPngImage("기본우동", 750, 750, 300, 200, 1.0f, true);
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -70,12 +70,18 @@ void DrawEndingBack(int _stagenum)
 	{
 		if (_stagenum == 1)//일떄 스테이지1의 배경순차적으로
 		{
-			if (curEndingScript == -1)
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
 			}
-			else 
-			{	
+			else
+			{
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
@@ -85,7 +91,13 @@ void DrawEndingBack(int _stagenum)
 		}
 		else if (_stagenum == 2)
 		{
-			if (curEndingScript == -1)
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
 			}
@@ -94,20 +106,27 @@ void DrawEndingBack(int _stagenum)
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
+
 			}
 		}
 		else
 		{
-			if (curEndingScript == -1)
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
 			}
 			else
 			{
-				endFigure.expression = 1;
+				endFigure.expression = 4;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
-				
+
 			}
 		}
 	}
@@ -115,7 +134,13 @@ void DrawEndingBack(int _stagenum)
 	{
 		if (_stagenum == 1)
 		{
-			if (curEndingScript == -1)
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
 			}
@@ -124,27 +149,40 @@ void DrawEndingBack(int _stagenum)
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
+
 			}
 
 		}
 		else if (_stagenum == 2)
 		{
-			
-			if (curEndingScript == -1)
+
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
-
 			}
 			else
 			{
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
+
 			}
 		}
 		else
 		{
-			if (curEndingScript == -1)
+			if (curEndingScript == 0)
+			{
+				endFigure.expression = 0;
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				PrintText();
+			}
+			else if (curEndingScript == 1)
 			{
 				endFigure.expression = 3;
 			}
@@ -153,8 +191,9 @@ void DrawEndingBack(int _stagenum)
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
 				PrintText();
+
 			}
-			
+
 		}
 	}
 }
@@ -162,8 +201,8 @@ void DrawEndingBack(int _stagenum)
 void Decoudong::DrawDeco()
 {
 	if (deconum == 1)
-	{                                                           
-		LoadData::imageManager->DrawPngImage("가쓰오부시", this->posX, this->posY, 70, 55, 1.0f,true);
+	{
+		LoadData::imageManager->DrawPngImage("가쓰오부시", this->posX, this->posY, 70, 55, 1.0f, true);
 	}
 	else if (deconum == 2)
 	{
@@ -212,7 +251,7 @@ void Decoudong::DrawDeco()
 	else if (deconum == 13)
 	{
 		LoadData::imageManager->DrawPngImage("썬청양고추", this->posX, this->posY, 60, 52, 1.0f, true);
-	}	
+	}
 }
 
 void Decoudong::SetDecoudong(float x, float y)
