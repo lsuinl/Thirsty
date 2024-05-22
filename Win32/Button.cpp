@@ -116,4 +116,82 @@ namespace button {
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }
     const int DragDrop::getOriginY() { return this->originY; }
+
+    void DragDrop::DrawDeco()
+    {
+        if (nameTag == 14)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 15)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 16)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 17)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 18)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x,y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 19)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 20)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x,y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 21)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 22)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 23)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 24)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 25)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 26)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 27)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 28)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 29)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 30)
+        {
+            LoadData::imageManager->DrawPngImage("대파", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 31)
+        {
+            LoadData::imageManager->DrawPngImage("바구니", x, y, width, height, 1.0f, true);
+        }
+
+    }
+   
 }

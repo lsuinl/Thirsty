@@ -2,6 +2,7 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
+#include "PlaceFood.h"
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
@@ -13,6 +14,7 @@
 
 namespace Screen
 {
+	int clickTime = 2000;
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	float _timer;
@@ -41,20 +43,23 @@ namespace Screen
 
 
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
+		clickTime += TimeSystem::GetDeltaTime();
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
-			if (input::IsSame(mouse, premouse))
-			{
-				return;
-			}
-			if (mouse.left)
-			{
-				ChooseFood::CheckButton(mouse.x, mouse.y);
-			}
 			if (mouse.left && mouse.isDragging)
 			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				ChooseFood::CheckButton(mouse.x, mouse.y);
+			}
+			else if (mouse.right && clickTime > 100)
+			{
+				clickTime = 0;
+				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
 			else {
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
@@ -65,6 +70,18 @@ namespace Screen
 		case Screen::NoodleSliceScreen:
 			break;
 		case Screen::PlaceFoodScreen:
+			if (mouse.left && mouse.isDragging)
+			{
+				PlaceFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				PlaceFood::CheckButton(mouse.x, mouse.y);
+			}
+			else {
+				PlaceFood::CheckDropButton(mouse.x, mouse.y);
+			}
 			break;
 		case Screen::MoveAniScreen:
 			break;
@@ -181,6 +198,7 @@ namespace Screen
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
+			PlaceFood::PrintScreen();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -245,9 +263,9 @@ namespace Screen
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
+					PlaceFood::InitScreen();
+					currentScreen = PlaceFoodScreen;
 					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
-					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
 				
@@ -255,6 +273,7 @@ namespace Screen
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
+					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();

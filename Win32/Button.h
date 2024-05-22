@@ -45,6 +45,7 @@ namespace button {
         const int getYPos();
         const int getOriginX();
         const int getOriginY();
+        void DrawDeco();
     };
 
 }
