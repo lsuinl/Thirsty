@@ -46,6 +46,8 @@
 	{
 		if (animation)
 		{
+			if(imagelength==180)
+				render::DrawObjects(*(imageList+imagelength - 1), width, height, x, y, 1.0f, to);
 			animationTime += TimeSystem::GetDeltaTime();
 			//애니메이션 젼환
 			if ( animationTime < animationLimit)
@@ -53,12 +55,16 @@
 				int index = animationTime / (animationLimit / imagelength);
 				if (index < imagelength)
 				{
-					Image* image = *(imageList + index);
-					render::DrawObjects(image, width, height, x, y, 1.0f, to);
+					render::DrawObjects(*(imageList + index), width, height, x, y, 1.0f, to);
+				}
+				if (index == imagelength && imagelength ==180)
+				{
+					render::DrawObjects(*(imageList +179), width, height, x, y, 1.0f, to);
 				}
 			}
 			else 
 			{
+				render::DrawObjects(*(imageList+imagelength-1), width, height, x, y, 1.0f, to);
 				animationTime = 0;
 				//전환 종료(반복인 경우는 다시 재생)
 				if (!loop) 
