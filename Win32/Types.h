@@ -13,49 +13,42 @@ namespace Types
 	//면 종류
 	enum Noodle
 	{
-		FLAT, //납작면
-		MIDDLE, //중면
-		SMALL,//소면
+		FLAT = 0, //납작면
+		MIDDLE = 1, //중면
+		SMALL = 2,//소면
 	};
 
 	//육수 종류
 	enum Soup
 	{
-		MAULCHI,//멸치
-		SALT,//소금
-		TZUYU,//쯔유
-		GUKSAUCE,//국간장
-		DASIMA,//다시마
-		MU,//무
-		DRYDIPORI,//말린디포리
-		DRYMUSHROOMS,//말린버섯
-		GATHOBUSI,//가쓰오부시
-		SUGAR,//설탕
-		HUCHU,//후추
+		MAULCHI = 3,//멸치
+		TZUYU = 4,//쯔유
+		DASIMA = 5,//다시마
+		MU = 6,//무
 	};
 
 	//고명 종류
 	enum Decoration
 	{
-		DAEPA,//대파
-		SICHIME,//시치미
-		CHUPA,//쪽파
-		PYOGO,//표고
-		PANGE,//팽이
-		FIREMEET,//직화고기
-		YANGPA,//양파
-		DOOBU,//두부
-		HOBAK,//호박
-		YUBU,//유부
-		GOCHIAMUK,//꼬치어묵
-		SUKK,//쑥갓
-		GOCHUGARU,//고추가루
-		CHOUNGYANGGOCHU,//청양고추
-		SUNKIM,//썬김
-		FLATAMUK,//납작어묵
-		SHRIMP,//새우튀김
+		GATHOBUSI=7,//"가쓰오부시"
+		BANDALAMUK,//"반달어묵"
+		FRYGARU,//"튀김가루"
+		DAEPA,//"대파"
+		PYOGO,//"표고버섯"
+		FIREMEET,//"직화고기"
+		YUBU,//"썬유부"
+		SUKK,//"쑥갓"
+		SUNKIM,//"썬김(김채)"
+		FLATAMUK,//"납작어묵"
+		SHRIMP,//"새우튀김"
+		SUNDAEPA,//"썬대파"
+		CHOUNGYANGGOCHU = 19,//"썬청양고추"
+		SICHIME = 20
 	};
-
+	enum Basket
+	{
+		BASKET = 31,//바구니
+	};
 
 };
 

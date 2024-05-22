@@ -86,7 +86,7 @@ namespace LoadData
 		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
 		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
 		//png
-		imageManager->LoadPngImages("배경화면", L"resource/background/back.png");
+		imageManager->LoadPngImages("배경화면", L"resource\\background\\back.png");
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
 
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start.bmp");
@@ -175,6 +175,7 @@ namespace LoadData
 		imageManager->LoadPngImages("중년화남", L"resource\\object\\figure\\oldmanangry.bmp");
 		imageManager->LoadPngImages("중년우동", L"resource\\object\\figure\\oldmanudong.bmp");
 		imageManager->LoadPngImages("중년울음", L"resource\\object\\figure\\oldmancry.bmp");
+		imageManager->LoadPngImages("기본우동", L"resource\\object\\decoration\\udong.bmp");
 
 
 

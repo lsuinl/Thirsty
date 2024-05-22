@@ -116,4 +116,66 @@ namespace button {
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }
     const int DragDrop::getOriginY() { return this->originY; }
+
+    void DragDrop::DrawDeco()
+    {
+        if (nameTag == 7)
+        {
+            LoadData::imageManager->DrawPngImage("∞°æ≤ø¿∫ŒΩ√", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 8)
+        {
+            LoadData::imageManager->DrawPngImage("π›¥ﬁæÓπ¨", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 9)
+        {
+            LoadData::imageManager->DrawPngImage("∆¢±Ë∞°∑Á", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 10)
+        {
+            LoadData::imageManager->DrawPngImage("¥Î∆ƒ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 11)
+        {
+            LoadData::imageManager->DrawPngImage("«•∞Ìπˆº∏", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 12)
+        {
+            LoadData::imageManager->DrawPngImage("¡˜»≠∞Ì±‚", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 13)
+        {
+            LoadData::imageManager->DrawPngImage("Ω„¿Ø∫Œ", x, y, width, height, 1.0f, true);
+        }
+        else if (nameTag == 14)
+        {
+            LoadData::imageManager->DrawPngImage("æ¶∞´", x, y, width, height, 1.0f, true);
+
+        }
+        else if (nameTag == 15)
+        {
+            LoadData::imageManager->DrawPngImage("Ω„±Ë(±Ë√§)", x, y, width, height, 1.0f, true);
+
+        }
+        else if (nameTag == 16)
+        {
+            LoadData::imageManager->DrawPngImage("≥≥¿€æÓπ¨", x, y, width, height, 1.0f, true);
+
+        }
+        else if (nameTag == 17)
+        {
+            LoadData::imageManager->DrawPngImage("ªıøÏ∆¢±Ë", x, y, width, height, 1.0f, true);
+
+        }
+        else if (nameTag == 18)
+        {
+            LoadData::imageManager->DrawPngImage("Ω„¥Î∆ƒ", x, y, width, height, 1.0f, true);
+
+        }
+        else if (nameTag == 19)
+        {
+            LoadData::imageManager->DrawPngImage("Ω„√ªæÁ∞Ì√ﬂ", x, y, width, height, 1.0f, true);
+
+        }      
+    }  
 }

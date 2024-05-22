@@ -2,6 +2,7 @@
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
+#include "PlaceFood.h"
 #include "MoveScreen.h"
 #include "Title.h"
 #include "Story.h"
@@ -10,9 +11,10 @@
 #include "PlayerData.h"
 #include "Types.h"
 #include "LoadData.h"
-#include "PlaceFood.h"
+
 namespace Screen
 {
+	int clickTime = 2000;
 	NoodleSlice noodleSlice;
 	StockGame stock;
 	float _timer;
@@ -41,20 +43,23 @@ namespace Screen
 
 
 	void InputMouse(const input::MouseState& mouse, const input::MouseState& premouse) {
+		clickTime += TimeSystem::GetDeltaTime();
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
-			if (input::IsSame(mouse, premouse))
-			{
-				return;
-			}
-			if (mouse.left)
-			{
-				ChooseFood::CheckButton(mouse.x, mouse.y);
-			}
 			if (mouse.left && mouse.isDragging)
 			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				ChooseFood::CheckButton(mouse.x, mouse.y);
+			}
+			else if (mouse.right && clickTime > 100)
+			{
+				clickTime = 0;
+				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
 			else {
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
@@ -65,6 +70,18 @@ namespace Screen
 		case Screen::NoodleSliceScreen:
 			break;
 		case Screen::PlaceFoodScreen:
+			if (mouse.left && mouse.isDragging)
+			{
+				PlaceFood::CheckDragButton(mouse.x, mouse.y);
+			}
+			else if (mouse.left && clickTime > 100)
+			{
+				clickTime = 0;
+				PlaceFood::CheckButton(mouse.x, mouse.y);
+			}
+			else {
+				PlaceFood::CheckDropButton(mouse.x, mouse.y);
+			}
 			break;
 		case Screen::MoveAniScreen:
 			break;
@@ -175,15 +192,13 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
-			stock.RenderStockGame(TimeSystem::GetDeltaTime());
+			stock.RenderStockGame();
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
 			break;
 		case Screen::PlaceFoodScreen:
-
-			//////
-			////
+			PlaceFood::PrintScreen();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -207,13 +222,13 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
-				stock.RenderStockGame(TimeSystem::GetDeltaTime());
+				stock.RenderStockGame();
 				break;
 			case Screen::NoodleSliceScreen:
 				noodleSlice.NoodleSliceScreen();
 				break;
 			case Screen::PlaceFoodScreen:
-				
+				PlaceFood::PrintScreen();
 				break;
 			case Screen::TitleScreen:
 				Title::TitleRender();
@@ -235,7 +250,6 @@ namespace Screen
 				{
 				case TitleScreen:
 					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
-
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -244,21 +258,19 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), 추즈푸드 결과  bool값으로 반환 bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
-				case StockGameScreen:
-					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
-					currentScreen = PlaceFoodScreen;
-					break;
 				case NoodleSliceScreen:
-				   //PlayerData::player.GameClear(PlayerData::player.GetStage(), 누들슬라이스 불값으로 반환 stock.IsStockClear());
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
+				case StockGameScreen:
+					PlaceFood::InitScreen();
+					currentScreen = PlaceFoodScreen;
+					PlayerData::player.IsGameClear(PlayerData::player.GetStage());
+					break;
 				case PlaceFoodScreen:
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
 					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
@@ -291,6 +303,7 @@ namespace Screen
 		}
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
+			pause::DrawReButton();
 			pause::DrawReButton();
 		}
 		MoveScreen::MoveToScreen();
