@@ -1,4 +1,4 @@
-#include "ScreenSystem.h"
+﻿#include "ScreenSystem.h"
 #include "ChooseFood.h"
 #include "NoodleSlice.h"
 #include "StockGame.h"
@@ -192,7 +192,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
-			stock.RenderStockGame();
+			stock.RenderStockGame(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
@@ -222,12 +222,13 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
-				stock.RenderStockGame();
+				stock.RenderStockGame(TimeSystem::GetDeltaTime());
 				break;
 			case Screen::NoodleSliceScreen:
 				noodleSlice.NoodleSliceScreen();
 				break;
 			case Screen::PlaceFoodScreen:
+				PlaceFood::PrintScreen();
 				break;
 			case Screen::TitleScreen:
 				Title::TitleRender();
@@ -249,7 +250,6 @@ namespace Screen
 				{
 				case TitleScreen:
 					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
-
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -262,14 +262,14 @@ namespace Screen
 					noodleSlice.SetGame(PlayerData::player.GetStage(), PlayerData::player.GetNoodle());
 					currentScreen = NoodleSliceScreen;
 					break;
+				case NoodleSliceScreen:
+					stock.SetGame(PlayerData::player.GetStage());
+					currentScreen = StockGameScreen;
+					break;
 				case StockGameScreen:
 					PlayerData::player.MiniGameClear(stock.IsStockClear());
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
-					break;
-				case NoodleSliceScreen:
-					stock.SetGame(PlayerData::player.GetStage());
-					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
 					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
@@ -279,7 +279,7 @@ namespace Screen
 					PlayerData::player.ResetScore();
 					if (PlayerData::player.GetStage() == 4)
 					{
-						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
+						//SetTrueEndingStage(PlayerData::player.IsTrueEnding());
 						currentScreen = TrueEndingScreen;
 					}
 					else
