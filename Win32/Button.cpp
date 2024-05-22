@@ -16,7 +16,7 @@ namespace button {
     }
     void Button::DrawButton()
     {
-        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
+        LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f, true);
     }
     bool Button::CheckClick(int dx, int dy)
     {
@@ -29,6 +29,7 @@ namespace button {
     void Button::PlayFunction()
     {
         this->onClickFunction();
+        LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect);
     }
 
     DragDrop::DragDrop()

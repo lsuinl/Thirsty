@@ -1,7 +1,7 @@
 #pragma once
 #include "SoundManager.h"
 #include "ImageManager.h"
-
+#include "Animator.h"
 namespace LoadData
 {
 	extern Music::SoundManager* soundManager;
@@ -9,6 +9,9 @@ namespace LoadData
 
 	extern Images::ImageManager* imageManager;
 	void LoadImages();
+
+	extern Animator* AniManager;
+	void LoadAni();
 
 	void LoadAnimation();
 };

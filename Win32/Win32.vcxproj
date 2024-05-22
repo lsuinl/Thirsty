@@ -155,6 +155,7 @@
     <ClCompile Include="TextList.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="TrueEnding.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <ClInclude Include="TextList.h" />
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="TrueEnding.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>

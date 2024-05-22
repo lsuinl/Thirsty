@@ -39,14 +39,14 @@ namespace fadeinfadeout
 		}
 	}
 
-	void RenderFadeIn()
+	void RenderFadeIn(const char* name)
 	{
-		LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, alpha, false);
+		LoadData::imageManager->DrawPngImage(name, 0, 0, 1935, 1080, alpha, false);
 	}
 	
 	void RenderFadeOut()
 	{
-		LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, alpha,false);
+		LoadData::imageManager->DrawPngImage("페이드아웃", 0, 0, 1935, 1080, alpha,false);
 	}
 
 }

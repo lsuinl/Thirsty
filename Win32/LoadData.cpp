@@ -5,12 +5,13 @@ namespace LoadData
 {
 	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();
 	Images::ImageManager* imageManager = Images::ImageManager::GetInstance();
+	Animator* AniManager = new Animator[3];
 	void LoadMusic()
 	{
 		soundManager->GetInstance();
 		soundManager->LoadMusic(Music::eSoundList::click, false, "resource//sound//click.ogg"); //버튼 클릭 기본 효과음
 		soundManager->LoadMusic(Music::eSoundList::inside, false, "resource//sound//inside.ogg"); //손님 입장 효과음
-		soundManager->LoadMusic(Music::eSoundList::typeing, false, "resource//sound//typeing.ogg"); //스토리 타이핑
+		soundManager->LoadMusic(Music::eSoundList::typeing, true, "resource//sound//typeing.ogg"); //스토리 타이핑
 		soundManager->LoadMusic(Music::eSoundList::moveani, false, "resource//sound//moveani.ogg"); //커튼 효과음
 
 		soundManager->LoadMusic(Music::eSoundList::put, false, "resource//sound//put.ogg"); //고명 내려놓기
@@ -23,6 +24,10 @@ namespace LoadData
 		soundManager->LoadMusic(Music::eSoundList::slice, false, "resource//sound//slice.ogg"); //면자르기 효과음
 		soundManager->LoadMusic(Music::eSoundList::noodleslice, false, "resource//sound//noodleslice.ogg"); //면자르기 배경
 
+		soundManager->LoadMusic(Music::eSoundList::eat, false, "resource//sound//eat.ogg"); //우동먹기
+		soundManager->LoadMusic(Music::eSoundList::choose, false, "resource//sound//choose.ogg"); //고명 배경음
+		soundManager->LoadMusic(Music::eSoundList::complete, false, "resource//sound//complete.ogg"); //우동완성
+
 		soundManager->LoadMusic(Music::eSoundList::story, true, "resource//sound//story.ogg"); //스토리 진행 배경음
 		soundManager->LoadMusic(Music::eSoundList::timemout, true, "resource//sound//timemout.ogg"); //타임오버
 		soundManager->LoadMusic(Music::eSoundList::title, true, "resource//sound//title.ogg"); //타이틀
@@ -30,25 +35,34 @@ namespace LoadData
 		soundManager->LoadMusic(Music::eSoundList::normalEnding, true, "resource//sound//normalEnding.ogg"); //노말엔딩
 
 		soundManager->SetVolume(0.5f, 1);
+
 	}
 	void LoadImages()
 	{
 		//bmp
 		imageManager->GetInstance();
-		imageManager->LoadBitMapImages("배경화면", "resource/background/back.bmp", 1920, 1080);
+		//imageManager->LoadBitMapImages("배경화면", "resource/background/back.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("로딩화면", "resource/background/loading.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("타이틀화면", "resource/background/title.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("스토리화면1", "resource/background/story/1.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("스토리화면2", "resource/background/story/2.bmp", 1920, 1080);
+		imageManager->LoadBitMapImages("스테이지1_1", "resource/background/story/stage1_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지1_2", "resource/background/story/stage1_2.bmp", 1935, 1080);
+
+		imageManager->LoadBitMapImages("스테이지2_1", "resource/background/story/stage2_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지2_2", "resource/background/story/stage2_2.bmp", 1935, 1080);
+
+		imageManager->LoadBitMapImages("스테이지3_1", "resource/background/story/stage3_1.bmp", 1935, 1080);
+		imageManager->LoadBitMapImages("스테이지3_2", "resource/background/story/stage3_2.bmp", 1935, 1080);
 		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
-		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1920);
+		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
+		imageManager->LoadPngImages("우동한그릇", L"resource\\background\\fade.bmp");
+		//imageManager->LoadPngImages("페이드", L"resource\\background\\fade2.bmp");
 
 		//면반죽
 		imageManager->LoadPngImages("면반죽", L"resource\\object\\noodleSlice\\noodle.bmp");
@@ -71,8 +85,10 @@ namespace LoadData
 		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
 		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
 		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
-
 		//png
+		imageManager->LoadPngImages("배경화면", L"resource/background/back.png");
+		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
+
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start.bmp");
 		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
 		imageManager->LoadPngImages("튜토리얼버튼", L"resource\\object\\tutorial.bmp");
@@ -101,17 +117,25 @@ namespace LoadData
 		imageManager->LoadPngImages("위쪽버튼", L"resource\\object\\upPage.bmp");
 		imageManager->LoadPngImages("아래쪽버튼", L"resource\\object\\downPage.bmp");
 		imageManager->LoadPngImages("완료버튼", L"resource\\object\\clear.bmp");
+
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");
 		imageManager->LoadPngImages("소면", L"resource\\object\\noodle\\small.bmp");
+
 		imageManager->LoadPngImages("멸치", L"resource\\object\\soup\\maulchi.bmp");
-		imageManager->LoadPngImages("쯔유", L"resource\\object\\soup\\tzuyu.bmp");
+		imageManager->LoadPngImages("쯔유", L"resource\\object\\soup\\tzuyu.png");
 		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.bmp");
-		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\soup\\gathobusi.bmp");
+		imageManager->LoadPngImages("건다시마", L"resource\\object\\soup\\dasima.bmp");
+		imageManager->LoadPngImages("냄비", L"resource\\object\\soup\\pot.bmp");
+		imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.bmp");
+		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.bmp");
+
+
+
+		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\decoration\\gathobusi.bmp");
+		imageManager->LoadPngImages("반달어묵", L"resource\\object\\decoration\\bandalmuk.bmp");
+		imageManager->LoadPngImages("튀김가루", L"resource\\object\\decoration\\frygaru.bmp");
 		imageManager->LoadPngImages("대파", L"resource\\object\\decoration\\daepa.bmp");
-		imageManager->LoadPngImages("건다시마", L"resource\\object\\decoration\\dasima.bmp");
-		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.bmp");
-		imageManager->LoadPngImages("쪽파", L"resource\\object\\decoration\\chupa.bmp");
 		imageManager->LoadPngImages("표고버섯", L"resource\\object\\decoration\\pyogo.bmp");
 		imageManager->LoadPngImages("직화고기", L"resource\\object\\decoration\\firemeet.bmp");
 		imageManager->LoadPngImages("썬유부", L"resource\\object\\decoration\\yubu.bmp");
@@ -119,25 +143,56 @@ namespace LoadData
 		imageManager->LoadPngImages("썬김(김채)", L"resource\\object\\decoration\\sunkim.bmp");
 		imageManager->LoadPngImages("납작어묵", L"resource\\object\\decoration\\flatamuk.bmp");
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
+		imageManager->LoadPngImages("썬대파", L"resource\\object\\decoration\\sundaepa.bmp");
+		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
+		
+		
+		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.png");
 
-		imageManager->LoadPngImages("꼬마유령기본", L"resource\\object\\test.png");
-		imageManager->LoadPngImages("꼬마유령웃음", L"resource\\object\\rule.png");
-		imageManager->LoadPngImages("꼬마유령쓸쓸", L"resource\\object\\left.png");
-		imageManager->LoadPngImages("꼬마유령우동", L"resource\\object\\right.png");
-		imageManager->LoadPngImages("고삼유령기본", L"resource\\object\\test.png");
-		imageManager->LoadPngImages("고삼유령웃음", L"resource\\object\\rule.png");
-		imageManager->LoadPngImages("고삼유령쓸쓸", L"resource\\object\\left.png");
-		imageManager->LoadPngImages("고삼유령우동", L"resource\\object\\right.png");
-		imageManager->LoadPngImages("중년유령기본", L"resource\\object\\test.png");
-		imageManager->LoadPngImages("중년유령웃음", L"resource\\object\\rule.png");
-		imageManager->LoadPngImages("중년유령쓸쓸", L"resource\\object\\left.png");
-		imageManager->LoadPngImages("중년유령우동", L"resource\\object\\right.png");
+		imageManager->LoadPngImages("아이기본", L"resource\\object\\figure\\boygibon.bmp");
+		imageManager->LoadPngImages("아이웃음", L"resource\\object\\figure\\boysmile.bmp");
+		imageManager->LoadPngImages("아이화남", L"resource\\object\\figure\\boyangre.bmp");
+		imageManager->LoadPngImages("아이우동", L"resource\\object\\figure\\boyudong.bmp");
+		imageManager->LoadPngImages("고삼기본", L"resource\\object\\figure\\girlgibon.bmp");
+		imageManager->LoadPngImages("고삼웃음", L"resource\\object\\figure\\girlsmile.bmp");
+		imageManager->LoadPngImages("고삼화남", L"resource\\object\\figure\\girlangry.bmp");
+		imageManager->LoadPngImages("고삼우동", L"resource\\object\\figure\\girludong.bmp");
+		imageManager->LoadPngImages("중년기본", L"resource\\object\\figure\\oldmangibon.bmp");
+		imageManager->LoadPngImages("중년웃음", L"resource\\object\\figure\\oldmansmile.bmp");
+		imageManager->LoadPngImages("중년화남", L"resource\\object\\figure\\oldmanangry.bmp");
+		imageManager->LoadPngImages("중년우동", L"resource\\object\\figure\\oldmanudong.bmp");
+		imageManager->LoadPngImages("중년울음", L"resource\\object\\figure\\oldmancry.bmp");
 
-		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\rect.png");
 
 
 	}
 	void LoadAnimation()
 	{
+		//커튼닫기 애니메이션(0)
+		Gdiplus::Image** closeList= new Gdiplus::Image*[43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(44 - i) + L".png";
+			closeList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[0] = Animator("커튼닫어", 0, 0, 1920, 1080, 1000, &closeList, false, true, 43);
+		//커튼열기 (1)
+		Gdiplus::Image** openList = new Gdiplus::Image * [43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(i) + L".png";
+			openList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[1] = Animator("커튼열어", 0, 0, 1920, 1080, 2000, &openList, false, true, 43);
+		
+		//타이틀
+		Gdiplus::Image** titleList = new Gdiplus::Image * [180];
+		for (int i = 1; i <= 180; i++)
+		{
+			std::wstring path = L"resource\\animation\\title\\" + std::to_wstring(i) + L".bmp";
+			titleList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[2] = Animator("타이틀", 0, 0, 1920, 1080, 6000, &titleList, true, false, 180);
+		AniManager[2].SetAnimation();
 	}
 }

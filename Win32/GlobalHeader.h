@@ -18,3 +18,4 @@
 #include "Story.h"
 #include "Ending.h"
 #include "TextList.h"
+#include "TrueEnding.h"

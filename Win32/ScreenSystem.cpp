@@ -10,16 +10,16 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "LoadData.h"
 
 namespace Screen
 {
 	int clickTime = 2000;
 	NoodleSlice noodleSlice;
 	StockGame stock;
-	TextList* textList = TextList::GetInstance();
 	float _timer;
 	ScreenName preScreen = TitleScreen;
-	ScreenName currentScreen = StoryScreen;
+	ScreenName currentScreen = TitleScreen;
 
 	void SetScreen()
 	{
@@ -148,9 +148,13 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 100)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
 			{
+				if (noodleSlice.playTimer >= 200000)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				}
+
 				SetScreen();
 			}
 			break;
@@ -166,6 +170,12 @@ namespace Screen
 			break;
 		case Screen::EndingScreen:
 			ChangeEndingScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::TrueEndingScreen:
+			ChangeTrueEndingScript(TimeSystem::GetDeltaTime());
+			break;
+		case Screen::EndingcreditScreen:
+			GoTitle();
 			break;
 		default:
 			break;
@@ -199,13 +209,47 @@ namespace Screen
 		case Screen::EndingScreen:
 			DrawEndingBack(PlayerData::player.GetStage());
 			break;
-		case Screen::MoveAniScreen:
-			MoveScreen::MoveToScreen();
+		case Screen::TrueEndingScreen:
+			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+			break;
+		default:
+			break;
+		}
+		if (currentScreen == Screen::MoveAniScreen) {
+			switch (preScreen)
+			{
+			case Screen::ChooseFoodScreen:
+				ChooseFood::ChooseScreen();
+				break;
+			case Screen::StockGameScreen:
+				stock.RenderStockGame();
+				break;
+			case Screen::NoodleSliceScreen:
+				noodleSlice.NoodleSliceScreen();
+				break;
+			case Screen::PlaceFoodScreen:
+				break;
+			case Screen::TitleScreen:
+				Title::TitleRender();
+				break;
+			case Screen::StoryScreen:
+				DrawStoryBack(PlayerData::player.GetStage());
+				break;
+			case Screen::EndingScreen:
+				DrawEndingBack(PlayerData::player.GetStage());
+				break;
+			case Screen::TrueEndingScreen:
+				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+				break;
+			default:
+				break;
+			}
 			if (!MoveScreen::EndMoveScreen()) {
 				switch (preScreen)
 				{
 				case TitleScreen:
-					textList->LoadtTextAll();
+					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
+
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -214,46 +258,56 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
 				case StockGameScreen:
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
+					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
 					break;
 				case NoodleSliceScreen:
+				
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
 				case PlaceFoodScreen:
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear());
 					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();
-					SetStoryStage(PlayerData::player.GetStage());
-					if (PlayerData::player.GetStage() == 1)
+					if (PlayerData::player.GetStage() == 4)
 					{
-						currentScreen = TitleScreen;
+						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
+						currentScreen = TrueEndingScreen;
 					}
 					else
 					{
+						SetStoryStage(PlayerData::player.GetStage());
 						currentScreen = StoryScreen;
 					}
 					break;
+				case TrueEndingScreen:
+					currentScreen = EndingcreditScreen;
+					SetCre();
+					break;
+				case EndingcreditScreen:
+					PlayerData::player.ResetScore();
+					currentScreen = TitleScreen;
+					break;
 				default:
+
+
 					break;
 				}
 			}
-			break;
-		default:
-			break;
 		}
-
 		if (pause::GetIsPause()) {
 			pause::RenderPause();
 			pause::DrawReButton();
 			pause::DrawReButton();
 		}
+		MoveScreen::MoveToScreen();
 	}
 }

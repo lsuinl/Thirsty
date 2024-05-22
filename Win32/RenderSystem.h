@@ -28,6 +28,6 @@ namespace render
     void ReleaseImage(HBITMAP hBitmap);
     HBITMAP DrawBackGround(const char* name, int width, int height, int x, int y, bool to);
     
-   void DrawObjects(Gdiplus::Image* name, int width, int height, int x, int y, bool to, float alpha = 1.0f);
-   void DrawObject(const WCHAR* name, int width, int height, int x, int y, bool to, float alpha = 1.0f);
+   void DrawObjects(Gdiplus::Image* name, int width, int height, int x, int y, float alpha = 1.0f, bool to=true);
+   void DrawObject(const WCHAR* name, int width, int height, int x, int y, float alpha = 1.0f, bool to=true);
 }

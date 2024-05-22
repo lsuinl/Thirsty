@@ -13,6 +13,7 @@ struct boxObject
 
     COLORREF color;
 
+    int num;
 
     void MoveStop()
     {
@@ -20,7 +21,7 @@ struct boxObject
     }
     void MoveRight(float speed, float delta)
     {
-        if (this->x + this->width / 2 <= 1800)
+        if (this->x + this->width / 2 <= 1740)
         {
             this->x += speed * delta;
         }
@@ -28,13 +29,13 @@ struct boxObject
 
     void MoveLeft(float speed, float delta)
     {
-        if (this->x - this->width / 2 >= 200)
+        if (this->x - this->width / 2 >= 170)
         {
             this->x += speed * -1 * delta;
         }
     }
 
-    void SetBox(float x, float y, float width, float height, float speed, COLORREF color)
+    void SetBox(float x, float y, float width, float height, float speed, COLORREF color, int _num)
     {
         this->x = x;
         this->y = y;
@@ -42,10 +43,24 @@ struct boxObject
         this->height = height;
         this->speed = speed;
         this->color = color;
+        this->num = _num;
     }
+
+    void DrawObj();
 };
+struct StockGarnish  //고명 그려진거
+{
+    float x = 1485;
+    float y = 200;
+    float width = 150;
+    float height = 100;
+    int garnish_num; //고명 값
 
+    void DrawGarnish();
 
+    void SetGarnish(float y, int garnish_num);
+
+};
 class StockGame
 {
 private:
@@ -62,11 +77,14 @@ private:
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0) };
+    boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0),0 };
     boxObject redBox;
     boxObject yellowBox;
-    boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0) };
-
+    boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0),0 };
+    boxObject singerum;
+    boxObject zzzam;
+    
+    StockGarnish garnishList[4];
     //박스충돌확인
     bool isCollide(boxObject obj1, boxObject obj2);
 
@@ -115,4 +133,4 @@ public:
     //스톡게임 클리어 여부반환
     bool IsStockClear();
 
-};
+}; 
