@@ -28,6 +28,9 @@ namespace Music
         wrong,
         slice,
         noodleslice,
+        eat,
+        choose,
+        complete,
         story,
         timemout,
         title,
@@ -48,7 +51,7 @@ namespace Music
         void PlayMusic(eSoundList list, eSoundChannel channel);
         void StopMusic(eSoundChannel channel);
 
-        void SetVolume(float volume, int channel);
+        void SetVolume(float volume, int channel = 1);
 
     private:
         SoundManager();

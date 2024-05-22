@@ -92,7 +92,6 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
     // 맞았다면?
     if (arrowArr[setCnt][cnt % stage].arrowType == (int)keyCode)
     {
-        LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
         arrowArr[setCnt][cnt % stage].isTrue = true;
 
         if (cnt < arrSize - 1)
@@ -109,6 +108,7 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
         {
             if (cnt % stage == 0)
             {
+                LoadData::soundManager->PlayMusic(Music::eSoundList::arrow, Music::eSoundChannel::Effect);
                 setCnt++;
             }
         }
@@ -137,28 +137,31 @@ void NoodleSlice::InputArrow()
     if (input::IsKeyCode()) {
         if (input::IsKeyUp(37) || input::IsKeyUp(38) || input::IsKeyUp(39) || input::IsKeyUp(40))
         {
-            LoadData::soundManager->PlayMusic(Music::eSoundList::arrow, Music::eSoundChannel::Effect);
             input::SetKeyCode(false);
         }
     }
     else {
         if (input::IsKeyDown(38)) // up
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
             CompareArrow(UPARROW);
             input::SetKeyCode(true);
         }
         else if (input::IsKeyDown(37)) // left
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
             CompareArrow(LEFTARROW);
             input::SetKeyCode(true);
         }
         else if (input::IsKeyDown(40)) // down
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
             CompareArrow(DOWNARROW);
             input::SetKeyCode(true);
         }
         else if (input::IsKeyDown(39)) // right
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::right, Music::eSoundChannel::Effect);
             CompareArrow(RIGHTARROW);
             input::SetKeyCode(true);
         }

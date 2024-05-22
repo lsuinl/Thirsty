@@ -16,14 +16,17 @@ wchar_t str2[21][500];    //구분자로 잘라서 담아둘부분
 wchar_t str3[21][500];    //한글자씩 출력할려고 카피할부분
 
 void SetStoryScript(int _stage)
-{     
-	wchar_t* token;
+{   
 	wchar_t* p = nullptr;
 	curChar = 0;
 	maxChar = 0;
 	curPage = 0;
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
+	wchar_t* token;
+
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
 
 	if (_stage == 0)
 	{
@@ -95,6 +98,10 @@ void SetEndingScript(int _stage, bool success)
 	curPage = 0;
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
+
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+
 	if (_stage == 1)
 	{
 		if (success)
@@ -200,6 +207,9 @@ void SetTrueEndingScript(bool success)
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
 
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+
 	if (success)
 	{
 		txtLen = wcslen(textList1->ture_ending) + 1;
@@ -246,6 +256,7 @@ void SkipText(float delta)
 	elapsedTime += delta;
 	if(input::IsKeyUp(32))
 	{
+		wchar_t* token;
 		if (curChar != maxChar)
 		{
 			curChar = maxChar;
@@ -262,6 +273,7 @@ void SkipText(float delta)
 	}
 	if (input::IsKeyUp(13))
 	{
+		wchar_t* token;
 		if (curChar == maxChar)
 		{
 				curPage++;
@@ -276,12 +288,12 @@ void UpdateText()
 	wcsncpy_s(str3[curPage], str2[curPage], curChar + 7);
 }
 void PrintText()
-{	
-	render::DrawTextF(340, 820, str3[curPage], RGB(0, 0, 255), 50);
+{
+	render::DrawTextF(340, 820, str3[curPage], RGB(255, 255, 255), 50);
 }
 void PrintTextEnd()
 {
-	render::DrawTextF(400, 400, str3[curPage], RGB(0, 0, 255), 50);
+	render::DrawTextF(400, 400, str3[curPage], RGB(255, 255, 255), 50);
 }
 
 void Figure::DrawFigure(int _stagenum)

@@ -9,6 +9,7 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "LoadData.h"
 
 namespace Screen
 {
@@ -131,9 +132,13 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 200000 || input::IsKeyDown(13))
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
 			{
+				if (noodleSlice.playTimer >= 200000)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				}
+
 				SetScreen();
 			}
 			break;
@@ -193,6 +198,7 @@ namespace Screen
 				switch (preScreen)
 				{
 				case TitleScreen:
+					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
 					textList->LoadtTextAll();
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
