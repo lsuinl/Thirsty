@@ -21,7 +21,7 @@ struct boxObject
     }
     void MoveRight(float speed, float delta)
     {
-        if (this->x + this->width / 2 <= 1740)
+        if (this->x + this->width<= 1740)
         {
             this->x += speed * delta;
         }
@@ -29,7 +29,7 @@ struct boxObject
 
     void MoveLeft(float speed, float delta)
     {
-        if (this->x - this->width / 2 >= 170)
+        if (this->x >= 200)
         {
             this->x += speed * -1 * delta;
         }
@@ -77,13 +77,17 @@ private:
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0),0 };
+    boxObject blackBox = { 200 ,900, 1540, 70, 0, RGB(0, 0, 0), 3 };
     boxObject redBox;
     boxObject yellowBox;
-    boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0),0 };
+    boxObject pot = { 550,150, 700,700, 0, RGB(0,0,0), 8 };
     boxObject singerum;
     boxObject zzzam;
-    
+    boxObject bestline;
+    boxObject bestword;
+    boxObject brim={ 500, 150, 50, 50 ,0 ,RGB(0,0,0), 11 };
+
+ 
     StockGarnish garnishList[4];
     //박스충돌확인
     bool isCollide(boxObject obj1, boxObject obj2);
@@ -119,10 +123,10 @@ public:
     void UpdateGame(float delta);
 
     //StockGame 전체렌더
-    void RenderStockGame();
+    void RenderStockGame(float delta);
 
     //냄비 그려줄 함수
-    void DrawPot();
+    void DrawPot(float delta);
 
     //재료가 담길 바구니 그리기
     void DrawBasket();
