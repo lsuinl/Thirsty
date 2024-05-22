@@ -47,7 +47,7 @@ namespace Music
         mChannel[static_cast<int>(channel)]->stop();
     }
 
-    void SoundManager::SetVolume(float volume, int channel = 1)
+    void SoundManager::SetVolume(float volume, int channel)
     {
         mVolume = volume;
         for (unsigned int i = 0; i < static_cast<unsigned int>(eSoundChannel::Size); ++i)

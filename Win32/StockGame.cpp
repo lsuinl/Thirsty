@@ -140,9 +140,10 @@ void StockGame::DrawBoxs()
 }
 
 void StockGame::SetGame(int stage)
-{  //render::DrawRect(100, 700, 100, -500, RGB(251, 206, 177));
+{
+    LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
+  //render::DrawRect(100, 700, 100, -500, RGB(251, 206, 177));
     //render::DrawRect(100, 700, 100, -((500 / 100) * salinity), RGB(255, 0, 0));
-    singerum.SetBox(100, 700, 100, -500, 0,RGB(251, 206, 177), 1);
     if (stage == 1)
     {
         isTimeOver = false;
@@ -229,7 +230,6 @@ void StockGame::UpdateRedBox(float delta)
 }
 void StockGame::UpdateGame(float delta)
 {
-
     if (isTimeOver == false)
     {
         UpdateSalinity(delta);

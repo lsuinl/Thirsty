@@ -21,7 +21,7 @@ struct boxObject
     }
     void MoveRight(float speed, float delta)
     {
-        if (this->x + this->width / 2 <= 1800)
+        if (this->x + this->width / 2 <= 1740)
         {
             this->x += speed * delta;
         }
@@ -29,7 +29,7 @@ struct boxObject
 
     void MoveLeft(float speed, float delta)
     {
-        if (this->x - this->width / 2 >= 200)
+        if (this->x - this->width / 2 >= 170)
         {
             this->x += speed * -1 * delta;
         }

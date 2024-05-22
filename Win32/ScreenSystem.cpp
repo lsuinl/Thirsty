@@ -9,6 +9,7 @@
 #include "TextList.h"
 #include "PlayerData.h"
 #include "Types.h"
+#include "LoadData.h"
 
 namespace Screen
 {
@@ -130,9 +131,13 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-
-			if (noodleSlice.isSuccess || noodleSlice.playTimer > 2000)
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
 			{
+				if (noodleSlice.playTimer >= 200000)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				}
+
 				SetScreen();
 			}
 			break;
@@ -198,6 +203,8 @@ namespace Screen
 				switch (preScreen)
 				{
 				case TitleScreen:
+					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
+
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -206,7 +213,7 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ¿©±â¸¦ ÃßÁîÇÁµå ¼º°ø½ÇÆÐ ¿©ºÎ bool°ªÀ¸·Îstock.IsStockClear());
+					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
 					break;
@@ -216,7 +223,7 @@ namespace Screen
 					currentScreen = EndingScreen;
 					break;
 				case NoodleSliceScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ¿©±â¸¦ ´©µé ½½¶óÀÌ½º ¼º°ø½ÇÆÐ ¿©ºÎ bool°ªÀ¸·Îstock.IsStockClear());
+				
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;

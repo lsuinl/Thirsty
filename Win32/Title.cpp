@@ -6,8 +6,8 @@ namespace Title
 	bool isStart = false;
 	bool isTutorial = false;
 
-	button::Button startButton = { "시작버튼", 1100, 600, 300, 100, StartButton };
-	button::Button tutorialButton = { "튜토리얼버튼", 1100, 750, 300, 100, TutorialButton };
+	button::Button startButton = { "시작버튼", 1190, 570, 225, 65, StartButton };
+	button::Button tutorialButton = { "튜토리얼버튼", 1190, 700, 225, 65, TutorialButton };
 
 	void Title::TitleCheckClick(int x, int y)
 	{

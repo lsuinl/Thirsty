@@ -11,7 +11,7 @@ namespace LoadData
 		soundManager->GetInstance();
 		soundManager->LoadMusic(Music::eSoundList::click, false, "resource//sound//click.ogg"); //버튼 클릭 기본 효과음
 		soundManager->LoadMusic(Music::eSoundList::inside, false, "resource//sound//inside.ogg"); //손님 입장 효과음
-		soundManager->LoadMusic(Music::eSoundList::typeing, false, "resource//sound//typeing.ogg"); //스토리 타이핑
+		soundManager->LoadMusic(Music::eSoundList::typeing, true, "resource//sound//typeing.ogg"); //스토리 타이핑
 		soundManager->LoadMusic(Music::eSoundList::moveani, false, "resource//sound//moveani.ogg"); //커튼 효과음
 
 		soundManager->LoadMusic(Music::eSoundList::put, false, "resource//sound//put.ogg"); //고명 내려놓기
@@ -23,6 +23,10 @@ namespace LoadData
 		soundManager->LoadMusic(Music::eSoundList::wrong, false, "resource//sound//wrong.ogg"); //키보드 틀렸을 때
 		soundManager->LoadMusic(Music::eSoundList::slice, false, "resource//sound//slice.ogg"); //면자르기 효과음
 		soundManager->LoadMusic(Music::eSoundList::noodleslice, false, "resource//sound//noodleslice.ogg"); //면자르기 배경
+
+		soundManager->LoadMusic(Music::eSoundList::eat, false, "resource//sound//eat.ogg"); //우동먹기
+		soundManager->LoadMusic(Music::eSoundList::choose, false, "resource//sound//choose.ogg"); //고명 배경음
+		soundManager->LoadMusic(Music::eSoundList::complete, false, "resource//sound//complete.ogg"); //우동완성
 
 		soundManager->LoadMusic(Music::eSoundList::story, true, "resource//sound//story.ogg"); //스토리 진행 배경음
 		soundManager->LoadMusic(Music::eSoundList::timemout, true, "resource//sound//timemout.ogg"); //타임오버

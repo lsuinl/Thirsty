@@ -25,6 +25,9 @@ void SetStoryScript(int _stage)
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
 
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+
 	if (_stage == 0)
 	{
 		txtLen = wcslen(textList1->stage0_prologue) + 1;
@@ -95,6 +98,10 @@ void SetEndingScript(int _stage, bool success)
 	curPage = 0;
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
+
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+
 	if (_stage == 1)
 	{
 		if (success)
@@ -200,6 +207,9 @@ void SetTrueEndingScript(bool success)
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
 
+	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+
 	if (success)
 	{
 		txtLen = wcslen(textList1->ture_ending) + 1;
@@ -246,6 +256,7 @@ void SkipText(float delta)
 	elapsedTime += delta;
 	if (input::IsKeyUp(32))
 	{
+		wchar_t* token;
 		if (curChar != maxChar)
 		{
 			curChar = maxChar;
@@ -262,6 +273,7 @@ void SkipText(float delta)
 	}
 	if (input::IsKeyUp(13))
 	{
+		wchar_t* token;
 		if (curChar == maxChar)
 		{
 			curPage++;
@@ -277,11 +289,11 @@ void UpdateText()
 }
 void PrintText()
 {
-	render::DrawTextF(340, 820, str3[curPage], RGB(0, 0, 255), 50);
+	render::DrawTextF(340, 820, str3[curPage], RGB(255, 255, 255), 50);
 }
 void PrintTextEnd()
 {
-	render::DrawTextF(400, 400, str3[curPage], RGB(0, 0, 255), 50);
+	render::DrawTextF(400, 400, str3[curPage], RGB(255, 255, 255), 50);
 }
 
 void Figure::DrawFigure(int _stagenum)
