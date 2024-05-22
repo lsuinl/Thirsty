@@ -228,6 +228,7 @@ namespace Screen
 				noodleSlice.NoodleSliceScreen();
 				break;
 			case Screen::PlaceFoodScreen:
+				PlaceFood::PrintScreen();
 				break;
 			case Screen::TitleScreen:
 				Title::TitleRender();
@@ -249,7 +250,6 @@ namespace Screen
 				{
 				case TitleScreen:
 					LoadData::soundManager->PlayMusic(Music::eSoundList::title, Music::eSoundChannel::BGM);
-
 					SetStoryStage(PlayerData::player.GetStage());
 					currentScreen = StoryScreen;
 					break;
@@ -258,19 +258,17 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), noodleSlice.NOODLE2);
 					currentScreen = NoodleSliceScreen;
+					break;
+				case NoodleSliceScreen:
+					stock.SetGame(PlayerData::player.GetStage());
+					currentScreen = StockGameScreen;
 					break;
 				case StockGameScreen:
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
-					PlayerData::player.GameClear(PlayerData::player.GetStage(), stock.IsStockClear());
-					break;
-				case NoodleSliceScreen:
-				
-					stock.SetGame(PlayerData::player.GetStage());
-					currentScreen = StockGameScreen;
+					PlayerData::player.IsGameClear(PlayerData::player.GetStage());
 					break;
 				case PlaceFoodScreen:
 					currentScreen = EndingScreen;

@@ -51,16 +51,17 @@ namespace PlaceFood
 	//우동위에 좌표버튼 생성.
 	void InitScreen()
 	{
-		userSet[0] = button::DragDrop(31, "바구니", 550, 300, 200, 200, Empty);
-		userSet[1] = button::DragDrop(31, "바구니", 750, 300, 200, 200, Empty);
+		userSet[0] = button::DragDrop(31, "바구니", 600, 250, 200, 200, Empty);
+		userSet[1] = button::DragDrop(31, "바구니", 950, 250, 200, 200, Empty);
 
-		userSet[2] = button::DragDrop(31, "바구니", 350, 450, 200, 200, Empty);
-		userSet[3] = button::DragDrop(31, "바구니", 550, 450, 200, 200, Empty);
-		userSet[4] = button::DragDrop(31, "바구니", 750, 450, 200, 200, Empty);
-		userSet[5] = button::DragDrop(31, "바구니", 950, 450, 200, 200, Empty);
+		userSet[2] = button::DragDrop(31, "바구니", 500, 450, 200, 200, Empty);
+		userSet[3] = button::DragDrop(31, "바구니", 700, 450, 200, 200, Empty);
+		userSet[4] = button::DragDrop(31, "바구니", 900, 450, 200, 200, Empty);
+		userSet[5] = button::DragDrop(31, "바구니", 1100, 450, 200, 200, Empty);
 
-		userSet[6] = button::DragDrop(31, "바구니", 550, 600, 200, 200, Empty);
-		userSet[7] = button::DragDrop(31, "바구니", 750, 600, 200, 200, Empty);
+		userSet[6] = button::DragDrop(31, "바구니", 600, 550, 200, 200, Empty);
+		userSet[7] = button::DragDrop(31, "바구니", 950, 550, 200, 200, Empty);
+
 		a = PlayerData::player.GetDecoation();
 		for (int i = 0; i < 8; i++)
 		{

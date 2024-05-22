@@ -17,8 +17,13 @@ namespace PlayerData {
 		//종합 점수
 		int sum;
 
-		//게임클리어시 다음스테이지로 념겨줄지 확인할거
-		bool isClearStage = false;
+	 //게임클리어시 다음스테이지로 념겨줄지 확인할거
+		bool isClear1Stage = true;
+
+		bool isClear2Stage = true;
+
+		bool isClear3Stage = true;
+
 
 		//담은 재료 종류
 		Types::Noodle noodle; //면
@@ -43,7 +48,12 @@ namespace PlayerData {
 			int GetSumScore();
 
 			//성공실패여부
-			bool IsGameClear();
+			void GameClear(int _stagenum, bool success);
+
+			bool IsGameClear(int _stagenum);
+			//트루엔딩 확인
+			bool IsTrueEnding();
+
 
 			Types::Noodle GetNoodle(); //면썰기=면가져오기
 			std::vector<Types::Decoration> GetDecoation(); //고명얹기=고명가져오기
