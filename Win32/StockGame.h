@@ -13,6 +13,7 @@ struct boxObject
 
     COLORREF color;
 
+    int num;
 
     void MoveStop()
     {
@@ -34,7 +35,7 @@ struct boxObject
         }
     }
 
-    void SetBox(float x, float y, float width, float height, float speed, COLORREF color)
+    void SetBox(float x, float y, float width, float height, float speed, COLORREF color, int _num)
     {
         this->x = x;
         this->y = y;
@@ -42,7 +43,10 @@ struct boxObject
         this->height = height;
         this->speed = speed;
         this->color = color;
+        this->num = _num;
     }
+
+    void DrawObj();
 };
 struct StockGarnish  //고명 그려진거
 {
@@ -73,11 +77,13 @@ private:
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 870 ,900, 1400, 70, 0, RGB(0, 0, 0)};
+    boxObject blackBox = { 900 ,900, 1400, 70, 0, RGB(0, 0, 0),0 };
     boxObject redBox;
     boxObject yellowBox;
-    boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0) };
-
+    boxObject pot = { 700,300, 500,500, 0, RGB(0,0,0),0 };
+    boxObject singerum;
+    boxObject zzzam;
+    
     StockGarnish garnishList[4];
     //박스충돌확인
     bool isCollide(boxObject obj1, boxObject obj2);

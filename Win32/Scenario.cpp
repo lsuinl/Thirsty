@@ -11,19 +11,19 @@ int maxChar;    //한 문장의 끝                  ///나중에 키입력으로 다음 문장으
 int curPage;   // 출력하고있는 현재페이지 넘버
 int maxPage;   // 한 시나리오의 마지막 페이지 
 
-int txtLen;              
+int txtLen;
 wchar_t str2[21][500];    //구분자로 잘라서 담아둘부분
 wchar_t str3[21][500];    //한글자씩 출력할려고 카피할부분
 
 void SetStoryScript(int _stage)
-{   
+{
+	wchar_t* token;
 	wchar_t* p = nullptr;
 	curChar = 0;
 	maxChar = 0;
 	curPage = 0;
 	maxPage = 0;
 	memset(str2, 0, sizeof(str2));
-	wchar_t* token;
 
 	LoadData::soundManager->PlayMusic(Music::eSoundList::story, Music::eSoundChannel::BGM);
 	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
@@ -32,7 +32,7 @@ void SetStoryScript(int _stage)
 	{
 		txtLen = wcslen(textList1->stage0_prologue) + 1;
 		wchar_t* str1 = new wchar_t[txtLen];
-		wcscpy_s(str1, txtLen,textList1->stage0_prologue);
+		wcscpy_s(str1, txtLen, textList1->stage0_prologue);
 		token = wcstok_s(str1, L"&", &p);
 		while (token != NULL)
 		{
@@ -254,7 +254,7 @@ void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
 	elapsedTime += delta;
-	if(input::IsKeyUp(32))
+	if (input::IsKeyUp(32))
 	{
 		wchar_t* token;
 		if (curChar != maxChar)
@@ -265,7 +265,7 @@ void SkipText(float delta)
 	}
 	if (elapsedTime >= printTime)
 	{
-		if (curChar < maxChar)                 
+		if (curChar < maxChar)
 		{
 			curChar++;
 			elapsedTime = 0;
@@ -276,8 +276,8 @@ void SkipText(float delta)
 		wchar_t* token;
 		if (curChar == maxChar)
 		{
-				curPage++;
-				curChar = 0;
+			curPage++;
+			curChar = 0;
 		}
 	}
 }
@@ -304,57 +304,61 @@ void Figure::DrawFigure(int _stagenum)
 		{
 			if (expression == 0)
 			{
-				LoadData::imageManager->DrawPngImage("아이기본", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이기본", 680, 476, 382, 384, 1.0f);
 			}
-			else if(expression == 1)
+			else if (expression == 1)
 			{
-				LoadData::imageManager->DrawPngImage("아이웃음", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이웃음", 680, 476, 382, 384, 1.0f);
 			}
-			else if(expression == 2)
+			else if (expression == 2)
 			{
-				LoadData::imageManager->DrawPngImage("아이화남", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이화남", 680, 476, 382, 384, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("아이우동", 700, 436, 450, 450, 1.0f);
+				LoadData::imageManager->DrawPngImage("아이우동", 680, 476, 382, 384, 1.0f);
 			}
 		}
 		else if (_stagenum == 2)
 		{
-			if (expression == 0) 
+			if (expression == 0)
 			{
-				LoadData::imageManager->DrawPngImage("고삼기본", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼기본", 700, 346, 380, 513, 1.0f);
 			}
-			else if (expression == 1) 
+			else if (expression == 1)
 			{
-				LoadData::imageManager->DrawPngImage("고삼웃음", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼웃음", 700, 346, 380, 513, 1.0f);
 			}
-			else if (expression == 2) 
+			else if (expression == 2)
 			{
-				LoadData::imageManager->DrawPngImage("고삼화남", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼화남", 700, 346, 380, 513, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("고삼우동", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("고삼우동", 700, 346, 380, 513, 1.0f);
 			}
 		}
 		else
 		{
-			if (expression == 0) 
+			if (expression == 0)
 			{
-				LoadData::imageManager->DrawPngImage("중년기본", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년기본", 640, 321, 567, 563, 1.0f);
 			}
 			else if (expression == 1)
 			{
-				LoadData::imageManager->DrawPngImage("중년웃음", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년웃음", 640, 321, 567, 563, 1.0f);
 			}
 			else if (expression == 2)
 			{
-				LoadData::imageManager->DrawPngImage("중년화남", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년화남", 640, 321, 567, 563, 1.0f);
+			}
+			else if (expression == 3)
+			{
+				LoadData::imageManager->DrawPngImage("중년우동", 640, 321, 567, 563, 1.0f);
 			}
 			else
 			{
-				LoadData::imageManager->DrawPngImage("중년우동", 700, 286, 350, 600, 1.0f);
+				LoadData::imageManager->DrawPngImage("중년울음", 640, 321, 567, 563, 1.0f);
 			}
 		}
 	}
