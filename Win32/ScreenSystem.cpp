@@ -219,7 +219,6 @@ namespace Screen
 			default:
 				break;
 			}
-			MoveScreen::MoveToScreen();
 			if (!MoveScreen::EndMoveScreen()) {
 				switch (preScreen)
 				{
@@ -273,6 +272,6 @@ namespace Screen
 			pause::DrawReButton();
 			pause::DrawReButton();
 		}
-		MoveScreen::FirstAniScreen();
+		MoveScreen::MoveToScreen();
 	}
 }

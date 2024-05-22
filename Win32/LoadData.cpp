@@ -5,6 +5,7 @@ namespace LoadData
 {
 	Music::SoundManager* soundManager = Music::SoundManager::GetInstance();
 	Images::ImageManager* imageManager = Images::ImageManager::GetInstance();
+	Animator* AniManager = new Animator[2];
 	void LoadMusic()
 	{
 
@@ -164,5 +165,21 @@ namespace LoadData
 	}
 	void LoadAnimation()
 	{
+		//커튼닫기 애니메이션(0)
+		Gdiplus::Image** closeList= new Gdiplus::Image*[43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(44 - i) + L".png";
+			closeList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[0] = Animator("커튼닫어", 0, 0, 1920, 1080, 2000, &closeList, false, true, 43);
+		//커튼열기 (1)
+		Gdiplus::Image** openList = new Gdiplus::Image * [43];
+		for (int i = 1; i <= 43; i++)
+		{
+			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(i) + L".png";
+			openList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
+		}
+		AniManager[1] = Animator("커튼열어", 0, 0, 1920, 1080, 2000, &openList, false, true, 43);
 	}
 }
