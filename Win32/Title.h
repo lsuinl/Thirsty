@@ -10,5 +10,6 @@ namespace Title
 	void TitleCheckClick(int x, int y);
 	void StartButton();
 	void TutorialButton();
+	void ExitButton();
 	void TitleRender();
 };

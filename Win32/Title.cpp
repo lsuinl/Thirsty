@@ -7,7 +7,8 @@ namespace Title
 	bool isTutorial = false;
 
 	button::Button startButton = { "시작버튼", 1230, 480, 360, 200, StartButton };
-	button::Button tutorialButton = { "튜토리얼버튼", 1230, 600, 360, 200, TutorialButton };
+	button::Button tutorialButton = { "튜토리얼버튼", 1230, 650, 360, 200, TutorialButton };
+	button::Button exitButton = { "종료버튼", 1230, 820, 360, 200, ExitButton };
 
 	void Title::TitleCheckClick(int x, int y)
 	{
@@ -18,6 +19,10 @@ namespace Title
 		if (tutorialButton.CheckClick(x, y))
 		{
 			tutorialButton.PlayFunction();
+		}
+		if (exitButton.CheckClick(x, y))
+		{
+			exitButton.PlayFunction();
 		}
 	}
 
@@ -40,12 +45,18 @@ namespace Title
 		isTutorial = true;
 	}
 
+	void Title::ExitButton()
+	{
+
+	}
+
 	void Title::TitleRender()
 	{
 		LoadData::AniManager[2].DrawAnimation();
 		LoadData::imageManager->DrawPngImage("제목", 930, 130, 850, 410, 1.0f, false);
 		startButton.DrawButton();
 		tutorialButton.DrawButton();
+		exitButton.DrawButton();
 
 		if (isTutorial)
 		{

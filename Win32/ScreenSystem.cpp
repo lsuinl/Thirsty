@@ -107,7 +107,17 @@ namespace Screen
 				return;
 			}
 			if (mouse.left) {
-				pause::IsCheckReButton(mouse.x, mouse.y);
+				pause::IsButton(mouse.x, mouse.y);
+			}
+		}
+		else
+		{
+			if (input::IsSame(mouse, premouse))
+			{
+				return;
+			}
+			if (mouse.left) {
+				pause::IsMenuButton(mouse.x, mouse.y);
 			}
 		}
 	}
@@ -183,19 +193,20 @@ namespace Screen
 	}
 
 
-
-
 	void ScreenRender() {
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
 			ChooseFood::ChooseScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::StockGameScreen:
 			stock.RenderStockGame(TimeSystem::GetDeltaTime());
+			pause::DrawMenuButton();
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::PlaceFoodScreen:
 			PlaceFood::PrintScreen();
