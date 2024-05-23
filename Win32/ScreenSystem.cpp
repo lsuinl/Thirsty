@@ -11,6 +11,7 @@
 #include "PlayerData.h"
 #include "Types.h"
 #include "LoadData.h"
+#include "FadeinFadeout.h"
 
 namespace Screen
 {
@@ -212,10 +213,10 @@ namespace Screen
 				DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::TrueEndingScreen:
-				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+				LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, 1.0f, false);
 				break;
 			case Screen::EndingcreditScreen:
-				EndingCre(TimeSystem::GetDeltaTime());
+				LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, 1.0f, false);
 				break;
 			default:
 				break;

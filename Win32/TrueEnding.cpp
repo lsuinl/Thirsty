@@ -6,10 +6,10 @@
 int maxTrueEndingScript;
 int curTrueEndingScript;
 bool trueEnding;
-float wait_timer = 5000.0f;
+float wait_timer = 2500.0f;
 void SetTrueEndingStage(bool _success)
 {
-	wait_timer = 5000.0f;
+	wait_timer = 2500.0f;
 	maxTrueEndingScript = 0;
 	curTrueEndingScript = 0;
 	SetTrueEndingScript(_success);
@@ -64,6 +64,7 @@ void DrawTrueEndingBack(float delta)
 		}
 		else 
 		{
+			LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, 1.0f, false);
 			curTrueEndingScript = 0;
 			Screen::SetScreen();
 		}
@@ -81,6 +82,10 @@ void ChangeTrueEndingScript(float delta)
 
 void EndingCre(float delta)
 {
+	LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, 1.0f, false);
+	fadeinfadeout::FadeInUpdate();
+	fadeinfadeout::RenderFadeIn("우동한그릇");
+	//LoadData::imageManager->DrawPngImage("우동한그릇", 0, 0, 1935, 1080, 1.0f, false);
 	wait_timer -= delta;
 	if (wait_timer <= 0)
 	{
@@ -92,14 +97,10 @@ void EndingCre(float delta)
 
 void SetCre()
 {
-
-	//여기에 엔딩크레딧전 페이드인
-
-
+	fadeinfadeout::SetFadeIn();
 }
 void RenderCre(float delta)
 {
-
 	EndingCre(delta);
 }
 

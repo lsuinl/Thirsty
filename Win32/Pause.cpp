@@ -12,10 +12,10 @@ namespace pause
     button::Button menuButton = { "메뉴", 1800, 30, 75, 70, Menu };
 
     // restart 버튼 생성
-    button::Button restartButton = { "재시작버튼", 960, 500, 210, 65, ReStart };
+    button::Button restartButton = { "재시작버튼", 920, 470, 220, 65, ReStart };
 
     // title 버튼 생성
-    button::Button reTitleButton = { "타이틀버튼", 960, 670, 210, 65,  ReTitle };
+    button::Button reTitleButton = { "타이틀버튼", 920, 640, 220, 65,  ReTitle };
 
     void Menu()
     {

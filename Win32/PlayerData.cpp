@@ -24,7 +24,7 @@ namespace PlayerData {
 
 	Player::Player()
 	{
-		stage = Types::STAGE1;
+		stage = Types::STAGE3;
 
 	}
 	

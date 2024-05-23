@@ -61,7 +61,7 @@ namespace Title
 
 		if (isTutorial)
 		{
-			LoadData::imageManager->DrawPngImage("규칙", 392, 35, 1150, 1000, 1.0f, false);
+			LoadData::imageManager->DrawPngImage("규칙", 167, 90, 1600, 900, 1.0f, false);
 		}
 	}
 
