@@ -203,10 +203,10 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawStoryBack(PlayerData::player.GetStage());
+			DrawStoryBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingScreen:
-			DrawEndingBack(PlayerData::player.GetStage());
+			DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 			break;
 		case Screen::TrueEndingScreen:
 			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
@@ -233,10 +233,10 @@ namespace Screen
 				Title::TitleRender();
 				break;
 			case Screen::StoryScreen:
-				DrawStoryBack(PlayerData::player.GetStage());
+				DrawStoryBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::EndingScreen:
-				DrawEndingBack(PlayerData::player.GetStage());
+				DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::TrueEndingScreen:
 				DrawTrueEndingBack(TimeSystem::GetDeltaTime());

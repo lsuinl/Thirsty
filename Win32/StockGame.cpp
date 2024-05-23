@@ -191,7 +191,7 @@ void StockGame::DrawBoxs()
 void StockGame::SetGame(int stage)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
-    singerum.SetBox(100, 200, 100, 500, 0, RGB(251, 206, 177), 1);
+    singerum.SetBox(100, 200, 170, 650, 0, RGB(251, 206, 177), 1);
     soupdeco = PlayerData::player.GetSoup();
 
     for (int i = 0; i < 4; i++)
@@ -247,7 +247,7 @@ void StockGame::UpdateYellowBox(float delta)
         }
     }
 
-    if(input::IsKey(16))
+    if(input::IsKey(13))
     {
         salinity = targetSalinity;
         isTimeOver = true;

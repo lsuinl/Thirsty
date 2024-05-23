@@ -3,6 +3,7 @@
 #include "InputSystem.h"
 #include "TextList.h"
 #include "LoadData.h"
+
 float printTime = 5;
 
 TextList* textList1 = TextList::GetInstance();
@@ -12,9 +13,9 @@ int curPage;   // 출력하고있는 현재페이지 넘버
 int maxPage;   // 한 시나리오의 마지막 페이지 
 
 int txtLen;
+int enternum = 1;
 wchar_t str2[21][500];    //구분자로 잘라서 담아둘부분
 wchar_t str3[21][500];    //한글자씩 출력할려고 카피할부분
-
 void SetStoryScript(int _stage)
 {
 	wchar_t* token;
@@ -282,9 +283,28 @@ void UpdateText()
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar + 7);
 }
-void PrintText()
+void PrintText(float delta)
 {
+	static float elpastedtime = 0.0f;
+	elpastedtime += delta;
+	if (elpastedtime >= 500.0f)
+	{
+		enternum++;
+		elpastedtime = 0;
+	}
 	render::DrawTextF(340, 840, str3[curPage], RGB(255, 255, 255), 50);
+	if (curChar == maxChar)
+	{
+		if (enternum % 2 == 0)
+		{
+			LoadData::imageManager->DrawPngImage("엔터상자", 1360, 970, 116, 24, 1.0f);
+		}
+		else
+		{
+			LoadData::imageManager->DrawPngImage("엔터상자", 1360, 970, 116, 24, 0.4f);
+		}
+	}
+	
 }
 void PrintTextEnd()
 {

@@ -51,13 +51,13 @@ void ChangeEndingScript(float delta)
 
 }
 
-void DrawEndingBack(int _stagenum)
+void DrawEndingBack(int _stagenum,float delta)
 {
 
 	LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
 	endFigure.DrawFigure(_stagenum);
 
-	LoadData::imageManager->DrawPngImage("기본우동", 750, 750, 300, 200, 1.0f, true);
+	LoadData::imageManager->DrawPngImage("기본우동", 740, 750, 300, 200, 1.0f, true);
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -70,11 +70,12 @@ void DrawEndingBack(int _stagenum)
 	{
 		if (_stagenum == 1)//일떄 스테이지1의 배경순차적으로
 		{
+			LoadData::imageManager->DrawPngImage("기본우동", 730, 750, 300, 200, 1.0f, true);
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -84,7 +85,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 
@@ -95,7 +96,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -105,7 +106,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 		}
@@ -115,7 +116,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -125,7 +126,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 4;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 		}
@@ -138,7 +139,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -148,7 +149,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 
@@ -160,7 +161,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -170,7 +171,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 		}
@@ -180,7 +181,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 0;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
 			{
@@ -190,7 +191,7 @@ void DrawEndingBack(int _stagenum)
 			{
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-				PrintText();
+				PrintText(delta);
 
 			}
 

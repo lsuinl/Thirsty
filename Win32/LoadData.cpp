@@ -161,6 +161,7 @@ namespace LoadData
 		
 		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.png");
+		imageManager->LoadPngImages("엔터상자", L"resource\\object\\figure\\entertext.bmp");
 
 		imageManager->LoadPngImages("아이기본", L"resource\\object\\figure\\boygibon.bmp");
 		imageManager->LoadPngImages("아이웃음", L"resource\\object\\figure\\boysmile.bmp");

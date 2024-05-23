@@ -27,7 +27,7 @@ void ChangeStoryScript(float delta)
 		LoadData::soundManager->SetVolume(1);
 	}
 }
-void DrawStoryBack(int _stagenum)
+void DrawStoryBack(int _stagenum,float delta)
 {
 	
 	if (_stagenum == 1)
@@ -125,7 +125,7 @@ void DrawStoryBack(int _stagenum)
 	}
 	figure.DrawFigure(_stagenum);
 	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.98f);
-	PrintText();
+	PrintText(delta);
 
 
 
