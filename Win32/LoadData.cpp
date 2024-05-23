@@ -42,7 +42,6 @@ namespace LoadData
 	{
 		//bmp
 		imageManager->GetInstance();
-		//imageManager->LoadBitMapImages("배경화면", "resource/background/back.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("로딩화면", "resource/background/loading.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("타이틀화면", "resource/background/title.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스테이지1_1", "resource/background/story/stage1_1.bmp", 1935, 1080);
@@ -56,14 +55,12 @@ namespace LoadData
 		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
-		//imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1935, 1080);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1415, 650);
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
 		imageManager->LoadPngImages("우동한그릇", L"resource\\background\\fade2.bmp");
-		//imageManager->LoadPngImages("페이드", L"resource\\background\\fade2.bmp");
 		imageManager->LoadPngImages("일시정지", L"resource\\background\\pause.bmp");
 
 		//면반죽
@@ -86,7 +83,7 @@ namespace LoadData
 		imageManager->LoadPngImages("소면6", L"resource\\object\\noodleSlice\\small6.bmp");
 		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
 		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
-		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
+		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife1.bmp");
 		//png
 		imageManager->LoadPngImages("배경화면", L"resource\\background\\back.png");
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
@@ -129,6 +126,7 @@ namespace LoadData
 		imageManager->LoadPngImages("메뉴", L"resource\\object\\menu.bmp");
 		imageManager->LoadPngImages("성공", L"resource\\object\\clear.bmp");
 		imageManager->LoadPngImages("타임오버", L"resource\\object\\timeout.bmp");
+		imageManager->LoadPngImages("시간", L"resource\\object\\time.bmp");
 
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");
@@ -171,7 +169,6 @@ namespace LoadData
 		
 		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox1.bmp");
-
 		imageManager->LoadPngImages("엔터상자", L"resource\\object\\figure\\entertext.bmp");
 
 

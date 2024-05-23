@@ -137,17 +137,18 @@ namespace Screen
 				noodleSlice.UpdateGame();
 			else
 				pause::CaptureScreen();
-			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 22000 || input::IsKeyDown(13))
+			if (noodleSlice.playTimer >= 22000) 
 			{
-				if (noodleSlice.playTimer >= 22000) 
-				{
-					noodleSlice.SetClearCheck(2);
-					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
-				}
-				else 
-				{
-					noodleSlice.SetClearCheck(1);
-				}
+				noodleSlice.SetClearCheck(2);
+				LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+			}
+			else 
+			{
+				noodleSlice.SetClearCheck(1);
+			}
+
+			if (noodleSlice.isSuccess || input::IsKeyDown(13))
+			{
 				PlayerData::player.MiniGameClear(noodleSlice.isSuccess);
 				SetScreen();
 			}

@@ -1,5 +1,8 @@
 #pragma once
 #include "GlobalHeader.h"
+#include "LoadData.h"
+#include "Pause.h"
+
 class NoodleSlice
 {
 public:
@@ -28,6 +31,7 @@ public:
 
 	// timer
 	float resetTimer;
+	float endTimer;
 	float playTimer;
 
 	int clearState = 0; //0=기본,1=성공, 2=실패
