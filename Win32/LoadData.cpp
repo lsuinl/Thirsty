@@ -58,7 +58,7 @@ namespace LoadData
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
 		//imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1935, 1080);
-		imageManager->LoadBitMapImages("도마", "resource/object/doma.bmp", 1300, 900);
+		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1415, 650);
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
@@ -100,8 +100,9 @@ namespace LoadData
 
 		imageManager->LoadPngImages("규칙", L"resource\\object\\rule.png");
 		imageManager->LoadPngImages("짱", L"resource\\object\\best.bmp");
-		imageManager->LoadPngImages("바구니", L"resource\\object\\basket.bmp");
-		imageManager->LoadPngImages("재료담는바구니", L"resource\\object\\baguni.bmp");
+
+		imageManager->LoadPngImages("바구니", L"resource\\object\\baguni.bmp");
+		imageManager->LoadPngImages("재료담는바구니", L"resource\\object\\ddoma.bmp");
 		imageManager->LoadPngImages("새우", L"resource\\object\\Prriceshrimp.bmp");
 		imageManager->LoadPngImages("재시작버튼", L"resource\\object\\restart1.bmp");
 		imageManager->LoadPngImages("타이틀버튼", L"resource\\object\\title.bmp");
@@ -151,11 +152,9 @@ namespace LoadData
 		imageManager->LoadPngImages("넘치는냄비", L"resource\\object\\soup\\megastrongpot.png");
 		imageManager->LoadPngImages("연기", L"resource\\object\\soup\\brim.png");
 
-
-
-
 		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\decoration\\gathobusi.bmp");
 		imageManager->LoadPngImages("반달어묵", L"resource\\object\\decoration\\bandalmuk.bmp");
+		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.bmp");
 		imageManager->LoadPngImages("튀김가루", L"resource\\object\\decoration\\frygaru.bmp");
 		imageManager->LoadPngImages("대파", L"resource\\object\\decoration\\daepa.bmp");
 		imageManager->LoadPngImages("표고버섯", L"resource\\object\\decoration\\pyogo.bmp");
