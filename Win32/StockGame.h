@@ -67,10 +67,12 @@ class StockGame
 {
 private:
     int score = 0;
+
+
     int salinity = 50;
     int targetSalinity; //1스테이지       2스테이지 40 60            3스테이지
     float curTime = 0;
-    float timeLimit = 40000;  //게임 시간제한
+    float timeLimit = 30000;  //게임 시간제한
     bool isTimeOver = false;
     float redBoxSpeed = 0.6;
     float yelloBoxSpeed = 0.7;
@@ -80,15 +82,18 @@ private:
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 260 ,900, 1400, 70, 0, RGB(0, 0, 0), 3 };
+    boxObject blackBox = { 260 ,950, 1400, 70, 0, RGB(0, 0, 0), 3 };
     boxObject redBox;
     boxObject yellowBox;
     boxObject pot = { 550,150, 700,700, 0, RGB(0,0,0), 8 };
     boxObject singerum;
+    boxObject singerum2;
+    boxObject zzamword;
+    boxObject singerumword;
     boxObject zzzam;
     boxObject bestline;
     boxObject bestword;
-    boxObject brim={ 500, 150, 50, 50 ,0 ,RGB(0,0,0), 11 };
+    boxObject brim={ 500, 150, 50, 50 ,0 ,RGB(0,0,0), 11};
 
  
     StockGarnish garnishList[4];

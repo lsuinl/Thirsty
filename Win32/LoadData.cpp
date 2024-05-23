@@ -52,9 +52,6 @@ namespace LoadData
 
 		imageManager->LoadBitMapImages("스테이지3_1", "resource/background/story/stage3_1.bmp", 1935, 1080);
 		imageManager->LoadBitMapImages("스테이지3_2", "resource/background/story/stage3_2.bmp", 1935, 1080);
-		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
@@ -88,6 +85,7 @@ namespace LoadData
 		//png
 		imageManager->LoadPngImages("배경화면", L"resource\\background\\back.png");
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
+		//imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\endingcredit.png");
 
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start1.bmp");
 		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
@@ -130,6 +128,9 @@ namespace LoadData
 
 		imageManager->LoadPngImages("싱거움", L"resource\\object\\soup\\singer.png");
 		imageManager->LoadPngImages("짬", L"resource\\object\\soup\\zzam.png");
+		imageManager->LoadPngImages("싱거움2", L"resource\\object\\soup\\singer2.png");
+		imageManager->LoadPngImages("짬글자", L"resource\\object\\soup\\zzamword.png");
+		imageManager->LoadPngImages("싱거움글자", L"resource\\object\\soup\\singerword.png");
 
 		imageManager->LoadPngImages("노란막대", L"resource\\object\\soup\\yellowbox.bmp");
 		imageManager->LoadPngImages("빨간막대", L"resource\\object\\soup\\redbox.bmp");
@@ -177,7 +178,10 @@ namespace LoadData
 		imageManager->LoadPngImages("중년화남", L"resource\\object\\figure\\oldmanangry.bmp");
 		imageManager->LoadPngImages("중년우동", L"resource\\object\\figure\\oldmanudong.bmp");
 		imageManager->LoadPngImages("중년울음", L"resource\\object\\figure\\oldmancry.bmp");
-		imageManager->LoadPngImages("기본우동", L"resource\\object\\decoration\\udong.bmp");
+
+		imageManager->LoadPngImages("소면우동", L"resource\\object\\decoration\\small.png");
+		imageManager->LoadPngImages("중면우동", L"resource\\object\\decoration\\middle.png");
+		imageManager->LoadPngImages("납작면우동", L"resource\\object\\decoration\\napzap.png");
 
 
 
