@@ -3,7 +3,7 @@
 #include "InputSystem.h"
 #include "TextList.h"
 #include "LoadData.h"
-float printTime = 10;
+float printTime = 5;
 
 TextList* textList1 = TextList::GetInstance();
 int curChar;     //복사해서 출력한 문자길이
@@ -254,15 +254,6 @@ void SkipText(float delta)
 {
 	static ULONGLONG elapsedTime;
 	elapsedTime += delta;
-	if (input::IsKeyUp(32))
-	{
-		wchar_t* token;
-		if (curChar != maxChar)
-		{
-			curChar = maxChar;
-		}
-
-	}
 	if (elapsedTime >= printTime)
 	{
 		if (curChar < maxChar)
@@ -273,13 +264,17 @@ void SkipText(float delta)
 	}
 	if (input::IsKeyUp(13))
 	{
-		wchar_t* token;
-		if (curChar == maxChar)
+		if (curChar != maxChar)
+		{
+			curChar = maxChar;
+		}
+		else if (curChar == maxChar)
 		{
 			curPage++;
 			curChar = 0;
 		}
 	}
+	
 }
 
 void UpdateText()
@@ -289,7 +284,7 @@ void UpdateText()
 }
 void PrintText()
 {
-	render::DrawTextF(340, 820, str3[curPage], RGB(255, 255, 255), 50);
+	render::DrawTextF(340, 840, str3[curPage], RGB(255, 255, 255), 50);
 }
 void PrintTextEnd()
 {

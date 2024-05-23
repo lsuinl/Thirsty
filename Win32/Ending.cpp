@@ -1,13 +1,13 @@
 #include "Ending.h"
 #include "ScreenSystem.h"
 #include "LoadData.h"
-
+#include <vector>
 int maxEndingScript = 0; //ÃÖ´ë ´ë»ç ¹øÈ£
 int curEndingScript = 0;
 bool success;
 Figure endFigure;
 Decoudong decoudong[9];
-void SetEndingStage(int _stagenum, bool _success)
+void SetEndingStage(int _stagenum, bool _success,int* _decolist)
 {
 	maxEndingScript = 0;
 	curEndingScript = 0;
@@ -32,7 +32,7 @@ void SetEndingStage(int _stagenum, bool _success)
 
 	for (int i = 0; i < 9; i++)
 	{
-		decoudong[i].SetDeco(i + 1);
+		decoudong[i].SetDeco(_decolist[i]);
 	}
 
 
@@ -200,55 +200,55 @@ void DrawEndingBack(int _stagenum)
 
 void Decoudong::DrawDeco()
 {
-	if (deconum == 1)
+	if (deconum == 7)
 	{
 		LoadData::imageManager->DrawPngImage("°¡¾²¿ÀºÎ½Ã", this->posX, this->posY, 70, 55, 1.0f, true);
 	}
-	else if (deconum == 2)
+	else if (deconum == 8)
 	{
 		LoadData::imageManager->DrawPngImage("¹Ý´Þ¾î¹¬", this->posX, this->posY, 65, 46, 1.0f, true);
 	}
-	else if (deconum == 3)
+	else if (deconum == 9)
 	{
 		LoadData::imageManager->DrawPngImage("Æ¢±è°¡·ç", this->posX, this->posY, 64, 42, 1.0f, true);
 	}
-	else if (deconum == 4)
+	else if (deconum == 10)
 	{
 		LoadData::imageManager->DrawPngImage("´ëÆÄ", this->posX, this->posY, 70, 55, 1.0f, true);
 	}
-	else if (deconum == 5)
+	else if (deconum == 11)
 	{
 		LoadData::imageManager->DrawPngImage("Ç¥°í¹ö¼¸", this->posX, this->posY, 55, 54, 1.0f, true);
 	}
-	else if (deconum == 6)
+	else if (deconum == 12)
 	{
 		LoadData::imageManager->DrawPngImage("Á÷È­°í±â", this->posX, this->posY, 110, 60, 1.0f, true);
 	}
-	else if (deconum == 7)
+	else if (deconum == 13)
 	{
 		LoadData::imageManager->DrawPngImage("½ãÀ¯ºÎ", this->posX, this->posY, 60, 50, 1.0f, true);
 	}
-	else if (deconum == 8)
+	else if (deconum == 14)
 	{
 		LoadData::imageManager->DrawPngImage("¾¦°«", this->posX, this->posY, 60, 60, 1.0f, true);
 	}
-	else if (deconum == 9)
+	else if (deconum == 15)
 	{
 		LoadData::imageManager->DrawPngImage("½ã±è(±èÃ¤)", this->posX, this->posY, 50, 50, 1.0f, true);
 	}
-	else if (deconum == 10)
+	else if (deconum == 16)
 	{
 		LoadData::imageManager->DrawPngImage("³³ÀÛ¾î¹¬", this->posX, this->posY, 60, 45, 1.0f, true);
 	}
-	else if (deconum == 11)
+	else if (deconum == 17)
 	{
 		LoadData::imageManager->DrawPngImage("»õ¿ìÆ¢±è", this->posX, this->posY, 100, 80, 1.0f, true);
 	}
-	else if (deconum == 12)
+	else if (deconum == 18)
 	{
 		LoadData::imageManager->DrawPngImage("½ã´ëÆÄ", this->posX, this->posY, 55, 45, 1.0f, true);
 	}
-	else if (deconum == 13)
+	else if (deconum == 19)
 	{
 		LoadData::imageManager->DrawPngImage("½ãÃ»¾ç°íÃß", this->posX, this->posY, 60, 52, 1.0f, true);
 	}

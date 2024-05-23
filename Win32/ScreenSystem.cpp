@@ -99,7 +99,6 @@ namespace Screen
 		default:
 			break;
 		}
-
 		if (pause::GetIsPause())
 		{
 			if (input::IsSame(mouse, premouse))
@@ -192,7 +191,7 @@ namespace Screen
 			ChooseFood::ChooseScreen();
 			break;
 		case Screen::StockGameScreen:
-			stock.RenderStockGame();
+			stock.RenderStockGame(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
@@ -222,7 +221,7 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
-				stock.RenderStockGame();
+				stock.RenderStockGame(TimeSystem::GetDeltaTime());
 				break;
 			case Screen::NoodleSliceScreen:
 				noodleSlice.NoodleSliceScreen();
@@ -271,6 +270,7 @@ namespace Screen
 					PlayerData::player.IsGameClear(PlayerData::player.GetStage());
 					break;
 				case PlaceFoodScreen:
+					SetEndingStage(PlayerData::player.GetStage(),PlayerData::player.IsGameClear(PlayerData::player.GetStage()), PlaceFood::GetDeco());
 					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
