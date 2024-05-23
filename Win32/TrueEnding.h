@@ -14,4 +14,4 @@ void EndingCre(float delta);
 
 void RenderCre(float delta); 
 
-void GoTitle();
+void GoTitle(float delta);

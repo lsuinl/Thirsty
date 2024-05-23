@@ -127,6 +127,8 @@ namespace LoadData
 		imageManager->LoadPngImages("아래쪽버튼", L"resource\\object\\downPage.bmp");
 		imageManager->LoadPngImages("완료버튼", L"resource\\object\\complete.bmp");
 		imageManager->LoadPngImages("메뉴", L"resource\\object\\menu.bmp");
+		imageManager->LoadPngImages("성공", L"resource\\object\\clear.bmp");
+		imageManager->LoadPngImages("타임오버", L"resource\\object\\timeout.bmp");
 
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");

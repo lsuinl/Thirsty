@@ -139,8 +139,15 @@ namespace Screen
 				pause::CaptureScreen();
 			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 22000 || input::IsKeyDown(13))
 			{
-				if (noodleSlice.playTimer >= 22000)
+				if (noodleSlice.playTimer >= 22000) 
+				{
+					noodleSlice.SetClearCheck(2);
 					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				}
+				else 
+				{
+					noodleSlice.SetClearCheck(1);
+				}
 				PlayerData::player.MiniGameClear(noodleSlice.isSuccess);
 				SetScreen();
 			}
@@ -158,7 +165,6 @@ namespace Screen
 			ChangeTrueEndingScript(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingcreditScreen:
-			GoTitle();
 			break;
 		default:
 			break;
@@ -263,7 +269,6 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), PlayerData::player.GetNoodle());
 					currentScreen = NoodleSliceScreen;
 					break;

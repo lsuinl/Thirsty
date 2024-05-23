@@ -30,6 +30,9 @@ public:
 	float resetTimer;
 	float playTimer;
 
+	int clearState = 0; //0=기본,1=성공, 2=실패
+
+	void SetClearCheck(int n);
 	// 게임 세팅
 	void SetGame(int _stage, int _noodle);
 

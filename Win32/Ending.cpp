@@ -7,8 +7,10 @@ int curEndingScript = 0;
 bool success;
 Figure endFigure;
 Decoudong decoudong[9];
+bool isUdong = false;
 void SetEndingStage(int _stagenum, bool _success,int* _decolist)
 {
+	bool isUdong = false;
 	maxEndingScript = 0;
 	curEndingScript = 0;
 	SetEndingScript(_stagenum, _success);
@@ -61,7 +63,8 @@ void DrawEndingBack(int _stagenum,float delta)
 
 	for (int i = 0; i < 9; i++)
 	{
-
+		
+		
 		decoudong[i].DrawDeco();
 	}
 
@@ -80,10 +83,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -104,10 +117,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 1;
 
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
@@ -126,10 +149,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 4;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -149,10 +182,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -171,10 +214,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
@@ -192,10 +245,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);

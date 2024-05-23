@@ -6,9 +6,15 @@
 int maxTrueEndingScript;
 int curTrueEndingScript;
 bool trueEnding;
+float waitTime = 4000.0f;
 float wait_timer = 2500.0f;
+static float posY = 0.0f;
+//int scale;
 void SetTrueEndingStage(bool _success)
 {
+	//scale = 1;
+	posY = 0.0f;
+	waitTime = 4000.0f;
 	wait_timer = 2500.0f;
 	maxTrueEndingScript = 0;
 	curTrueEndingScript = 0;
@@ -87,12 +93,13 @@ void EndingCre(float delta)
 	fadeinfadeout::RenderFadeIn("우동한그릇");
 	//LoadData::imageManager->DrawPngImage("우동한그릇", 0, 0, 1935, 1080, 1.0f, false);
 	wait_timer -= delta;
-	if (wait_timer <= 0)
+	if (wait_timer <= 0 && posY >= -4955)
 	{
-		static float posY = 0.0f;
 		posY = posY - 0.3 * delta;
-		LoadData::imageManager->DrawPngImage("엔딩", 0, posY, 1935, 6035, 1.0f, false);
 	}
+	LoadData::imageManager->DrawPngImage("엔딩", 0, posY, 1935, 6035, 1.0f, false);
+	GoTitle(delta);
+	
 }
 
 void SetCre()
@@ -105,10 +112,18 @@ void RenderCre(float delta)
 }
 
 
-void GoTitle()
+void GoTitle(float delta)
 {  //이 함수가 엔딩크레딧이 다올라가면 실행되게끔
-	if (input::IsKeyUp(27))
+	/*if (input::IsKeyUp(27))
 	{
 		Screen::SetScreen();
+	}*/
+	if (posY <= -4955)
+	{
+		waitTime -= delta;
+		if (waitTime <= 0)
+		{	
+			Screen::SetScreen();
+		}
 	}
 }

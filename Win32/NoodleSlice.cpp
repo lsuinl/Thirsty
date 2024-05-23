@@ -42,6 +42,11 @@ void NoodleSlice::SetGame(int _stage, int _noodle)
     CreatArrowArr();
 }
 
+void NoodleSlice::SetClearCheck(int n)
+{
+    clearState = n;
+}
+
 // 게임루프
 void NoodleSlice::UpdateGame()
 {
@@ -290,6 +295,14 @@ void NoodleSlice::NoodleSliceScreen()
 
     std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - playTimer / 1000)) + L" 초";
     render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
+    if (clearState == 1)
+    {
+        LoadData::imageManager->DrawPngImage("성공",0,0,1920,1080,1.0f,true);
+    }
+    else if (clearState == 2)
+    {
+        LoadData::imageManager->DrawPngImage("타임오버", 0, 0, 1920, 1080, 1.0f, true);
+    }
 }
 
 // 게임 성공 여부

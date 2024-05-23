@@ -11,7 +11,7 @@ void SetStoryStage(int _stagenum)
 	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
-	LoadData::soundManager->PlayMusic(Music::eSoundList::inside, Music::eSoundChannel::Effect);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
 	maxScript = GetMaxPage();
 }
 void ChangeStoryScript(float delta)
