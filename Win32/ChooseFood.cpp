@@ -31,13 +31,15 @@ namespace ChooseFood
        button::Button("오른쪽버튼",1800, 500, 100, 100, RightPage),
        button::Button("위쪽버튼",1550,100, 100, 100, UpBasket),
        button::Button("아래쪽버튼",1550, 900, 100, 100,DownBasket),
-       button::Button("완료버튼",1650, 50, 200, 100, Selected),
+       button::Button("요리시작", 1650, 950, 200, 70, Selected),
     };
     button::DragDrop noodleButtonList[3];
     button::DragDrop soupButtonList[4];
     button::DragDrop decorationButtonList[13];
 
 	void InitScreen() {
+
+        LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 		noodleButtonList[0] = button::DragDrop(Types::Noodle::FLAT, "납작면", 300, 600, 2.5, 1.5, Test);
 		noodleButtonList[1] = button::DragDrop(Types::Noodle::MIDDLE, "기본면", 650, 700, 2.5, 1.5, Test);
 		noodleButtonList[2] = button::DragDrop(Types::Noodle::SMALL, "소면", 1000, 600, 2.5, 1.5, Test);
@@ -72,7 +74,8 @@ namespace ChooseFood
 	void ChooseScreen()
 	{		
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
-        LoadData::imageManager->DrawBitMapImage("도마", 300, 300);
+        LoadData::imageManager->DrawPngImage("재료담는바구니", 100, 100, 1300, 900, true);
+
 
         if (screenIndex == 0)
         {

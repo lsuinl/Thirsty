@@ -16,8 +16,8 @@ namespace PlaceFood
 	//재료 선택에서 뽑힌 고명들을 옮겨받는다.
 	Types::Noodle noo;
 	std::vector <Types::Decoration> a;
-	button::DragDrop userPickDeco[8]; 
-
+	button::DragDrop userPickDeco[8];  
+	int decoList[8];
 	//우동위에 올려지는 고명들을 저장할 배열.
 	button::DragDrop userSet[8];
 
@@ -28,7 +28,7 @@ namespace PlaceFood
 	{
 		button::Button("위쪽버튼",1550,100, 100, 100, UpBasket),
 		button::Button("아래쪽버튼",1550, 900, 100, 100,DownBasket),
-		button::Button("완료버튼",1650, 50, 200, 100, Selected),
+		button::Button("요리종료", 1650, 950, 200, 70, Selected),
 	};
 	//배경 이미지 그리기
 	void PrintScreen()
@@ -64,9 +64,10 @@ namespace PlaceFood
 	//우동위에 좌표버튼 생성.
 	void InitScreen()
 	{
+		LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
+
 		userSet[0] = button::DragDrop(31, "바구니", 680, 300, 230, 230, Empty);
 		userSet[1] = button::DragDrop(31, "바구니", 880, 300, 230, 230, Empty);
-
 		userSet[2] = button::DragDrop(31, "바구니", 530, 400, 230, 230, Empty);
 		userSet[3] = button::DragDrop(31, "바구니", 690, 400, 230, 230, Empty);
 		userSet[4] = button::DragDrop(31, "바구니", 840, 400, 230, 230, Empty);
@@ -125,6 +126,7 @@ namespace PlaceFood
 				{
 					if ((currentX > userSet[i].getXPos()  && currentY > userSet[i].getYPos() ) && (currentX < userSet[i].getXPos() + 200 && currentY < userSet[i].getYPos() + 200) && userSet[i].nameTag == Types::Basket::BASKET)
 					{
+						LoadData::soundManager->PlayMusic(Music::eSoundList::put, Music::eSoundChannel::Effect);
 						//놓기
 						userSet[i].nameTag = draggingButton->nameTag;
 						userSet[i].name = draggingButton->name;
@@ -205,4 +207,16 @@ namespace PlaceFood
 	}
 	void Empty(){}
 
+
+	int* GetDeco()
+	{
+
+		for (size_t i = 0; i < 8; i++)
+		{
+			decoList[i] = userSet[i].nameTag;
+		}
+
+		return decoList;
+	}
+	
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 namespace PlaceFood
 {
 	//배경 이미지 그리기
@@ -18,4 +19,6 @@ namespace PlaceFood
 	void DownBasket();
 	void Selected();
 	void Empty();
+
+	int* GetDeco();
  }

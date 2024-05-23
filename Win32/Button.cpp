@@ -31,6 +31,13 @@ namespace button {
         this->onClickFunction();
         LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect);
     }
+    void Button::SetSize(int x, int y, int width, int height)
+    {
+        this->x = x;
+        this->y = y;
+        this->width = width;
+        this->height = height;
+    }
 
     DragDrop::DragDrop()
     {

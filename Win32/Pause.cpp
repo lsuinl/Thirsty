@@ -1,7 +1,5 @@
 #include "Pause.h"
-#include "Button.h"
-#include "ScreenSystem.h"
-#include "LoadData.h"
+
 namespace pause
 {
     // 게임 일시정지 상태를 나타내는 변수
@@ -10,11 +8,20 @@ namespace pause
     HDC hdcWindow = GetDC(NULL);
     HDC hdcScreen;
 
+    // 메뉴버튼
+    button::Button menuButton = { "메뉴", 1800, 30, 75, 70, Menu };
+
     // restart 버튼 생성
-    button::Button restartButton = { "재시작버튼", 700, 600, 500, 130, ReStart };
+    button::Button restartButton = { "재시작버튼", 960, 500, 210, 65, ReStart };
 
     // title 버튼 생성
-    button::Button reTitleButton = { "타이틀버튼", 700, 800, 500, 130,  ReTitle };
+    button::Button reTitleButton = { "타이틀버튼", 960, 670, 210, 65,  ReTitle };
+
+    void Menu()
+    {
+        // 반전시키기
+        isPaused = !isPaused;
+    }
 
     void ReStart()
     {
@@ -38,6 +45,7 @@ namespace pause
     {
         if (input::IsKeyDown(27))
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect1);
             // 일시정지 상태를 반전시킴
             isPaused = !isPaused;
         }
@@ -45,7 +53,12 @@ namespace pause
 
     void RenderPause()
     {
-        LoadData::imageManager->DrawBitMapImage("일시정지", 450, 50);
+        LoadData::imageManager->DrawPngImage("일시정지", 667, 240, 600, 600, true);
+    }
+
+    void DrawMenuButton()
+    {
+        menuButton.DrawButton();
     }
 
     // 화면 캡처 함수
@@ -62,7 +75,7 @@ namespace pause
         reTitleButton.DrawButton();
     }
 
-    void IsCheckReButton(int x, int y)
+    void IsButton(int x, int y)
     {
         if (restartButton.CheckClick(x, y))
         {
@@ -71,6 +84,18 @@ namespace pause
         if (reTitleButton.CheckClick(x, y))
         {
             reTitleButton.PlayFunction();
+        }
+        if (menuButton.CheckClick(x, y))
+        {
+            menuButton.PlayFunction();
+        }
+    }
+
+    void IsMenuButton(int x, int y)
+    {
+        if (menuButton.CheckClick(x, y))
+        {
+            menuButton.PlayFunction();
         }
     }
 }

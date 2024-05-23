@@ -14,8 +14,8 @@ namespace MoveScreen
 	void SetMoveAni()
 	{
 		LoadData::AniManager[0].SetAnimation();
+		LoadData::soundManager->PlayMusic(Music::eSoundList::moveani, Music::eSoundChannel::Effect1);
 	}
-
 
 	void MoveToScreen()
 	{
@@ -33,6 +33,7 @@ namespace MoveScreen
 		if (!LoadData::AniManager[0].GetAnimationCheck()) {
 			check = true;
 			LoadData::AniManager[1].SetAnimation();
+			LoadData::soundManager->PlayMusic(Music::eSoundList::moveani, Music::eSoundChannel::Effect1);
 			return false;
 		}
 		return true;
