@@ -52,6 +52,7 @@ namespace button {
         float getOriginWidth();
         float getOriginHeight();
         void DrawDeco();
+        void DrawPick();
     };
 
 }

@@ -82,7 +82,7 @@ namespace PlaceFood
 		{
 			if (a.size() > i)
 			{
-				userPickDeco[i] = button::DragDrop((int)a[i], 1555, 180 + (i * 150), Test);
+				userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 180 + (i * 150), 1, 1, Test);
 			}
 			else
 			{
@@ -183,15 +183,13 @@ namespace PlaceFood
 			}
 			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900&& userPickDeco[i].isShowing)
 			{
-				userPickDeco[i].SetImage(7, 7);
-				userPickDeco[i].DrawButton();
+				userPickDeco[i].DrawPick();
 			}
 
 			//유저가 우동위에올리는 고명 랜더
 			if (userSet[i].nameTag != 31&& (userSet[i].isShowing ))
 			{
-				userPickDeco[i].SetImage(10, 10);
-				userSet[i].DrawButton();
+				userSet[i].DrawDeco();
 			}
 		}
 
