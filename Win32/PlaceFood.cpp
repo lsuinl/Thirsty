@@ -37,15 +37,15 @@ namespace PlaceFood
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
 		if (PlayerData::player.GetNoodle() == 1)
 		{
-			LoadData::imageManager->DrawPngImage("납작면우동", 450, 300, 900, 700,1.0f,true);//납작면
+			LoadData::imageManager->DrawPngImage("납작면우동", 450, 200, 900, 800, 1.0f,true);//납작면
 		}
 		if (PlayerData::player.GetNoodle() == 2)
 		{
-			LoadData::imageManager->DrawPngImage("중면우동", 450, 300, 900, 700, 1.0f, true);//증면
+			LoadData::imageManager->DrawPngImage("중면우동", 450, 200, 900, 800, 1.0f, true);//증면
 		}
 		if (PlayerData::player.GetNoodle() == 3)
 		{
-			LoadData::imageManager->DrawPngImage("소면우동", 450, 300, 900, 700, 1.0f, true);//소면
+			LoadData::imageManager->DrawPngImage("소면우동", 450, 200, 900, 800, 1.0f, true);//소면
 		}
 		//바구니 그리기
 		for (int i = 0; i < 5; i++)
@@ -67,22 +67,22 @@ namespace PlaceFood
 	{
 		LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 
-		userSet[0] = button::DragDrop(31, "바구니", 680, 300, 230, 230, Empty);
-		userSet[1] = button::DragDrop(31, "바구니", 880, 300, 230, 230, Empty);
-		userSet[2] = button::DragDrop(31, "바구니", 530, 400, 230, 230, Empty);
-		userSet[3] = button::DragDrop(31, "바구니", 690, 400, 230, 230, Empty);
-		userSet[4] = button::DragDrop(31, "바구니", 840, 400, 230, 230, Empty);
-		userSet[5] = button::DragDrop(31, "바구니", 1000, 400, 230, 230, Empty);
+		userSet[0] = button::DragDrop(31, "바구니", 710, 350, 230, 230, Empty);
+		userSet[1] = button::DragDrop(31, "바구니", 910, 350, 230, 230, Empty);
+		userSet[2] = button::DragDrop(31, "바구니", 560, 430, 230, 230, Empty);
+		userSet[3] = button::DragDrop(31, "바구니", 720, 430, 230, 230, Empty);
+		userSet[4] = button::DragDrop(31, "바구니", 870, 430, 230, 230, Empty);
+		userSet[5] = button::DragDrop(31, "바구니", 1010, 430, 230, 230, Empty);
 
-		userSet[6] = button::DragDrop(31, "바구니", 680, 490, 230, 230, Empty);
-		userSet[7] = button::DragDrop(31, "바구니", 880, 490, 230, 230, Empty);
+		userSet[6] = button::DragDrop(31, "바구니", 710, 520, 230, 230, Empty);
+		userSet[7] = button::DragDrop(31, "바구니", 910, 520, 230, 230, Empty);
 		a = PlayerData::player.GetDecoation();
 		
 		for (int i = 0; i < 8; i++)
 		{
 			if (a.size() > i)
 			{
-				userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 180 + (i * 150), 1, 1, Test);
+				userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 200 + (i * 150), 100, 100, Test);
 			}
 			else
 			{
@@ -91,14 +91,11 @@ namespace PlaceFood
 			}
 		}
 		
-		
-
 		for (int i = 0; i < 8; i++)
 		{
 			decoList[i] = 0;
 		}
 		
-
 	}
 	void CheckButton(int dx, int dy)
 	{
@@ -146,8 +143,6 @@ namespace PlaceFood
 						LoadData::soundManager->PlayMusic(Music::eSoundList::put, Music::eSoundChannel::Effect);
 						//놓기
 						userSet[i].nameTag = draggingButton->nameTag;
-						userSet[i].name = draggingButton->name;
-						userSet[i].setSize(draggingButton->getOriginWidth(), draggingButton->getOriginHeight());
 
 						////바구니버튼에 이미지값을 전달하고 나서 재료는 클릭할수없도록 설정.
 						draggingButton->nameTag = -1;
@@ -162,7 +157,6 @@ namespace PlaceFood
 				if (draggingButton->canClick != false)
 				{
 					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-					draggingButton->SetImage(5, 5);
 				}
 				draggingButton->isDragging = false;
 				draggingButton = nullptr;
@@ -181,18 +175,17 @@ namespace PlaceFood
 			{
 				userPickDeco[i].setYPos(basketIndex);
 			}
-			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900&& userPickDeco[i].isShowing)
+			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900 && userPickDeco[i].isShowing)
 			{
 				userPickDeco[i].DrawPick();
 			}
 
 			//유저가 우동위에올리는 고명 랜더
-			if (userSet[i].nameTag != 31&& (userSet[i].isShowing ))
+			if (userSet[i].nameTag != 31 && (userSet[i].isShowing))
 			{
 				userSet[i].DrawDeco();
 			}
 		}
-
 	}
 	void Test()
 	{
@@ -203,7 +196,6 @@ namespace PlaceFood
 			int yPos = mouse.y - 50;
 			if (input::GetMouseState().isDragging)
 			{
-				draggingButton->SetImage(10, 10);
 				draggingButton->setPos(xPos, yPos);
 			}
 		}
