@@ -114,12 +114,14 @@ namespace Screen
 		//0 = 해피엔딩
 		if (input::IsKey(48)) 
 		{
+			PlayerData::player.stage = Types::STAGE4;
 			SetTrueEndingStage(true);
 			currentScreen = TrueEndingScreen;
 		}
 		//9 = 기본엔딩
 		if (input::IsKey(57))
 		{
+			PlayerData::player.stage = Types::STAGE4;
 			SetTrueEndingStage(false);
 			currentScreen = TrueEndingScreen;
 		}
@@ -150,8 +152,8 @@ namespace Screen
 				pause::CaptureScreen();
 			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 22000 || input::IsKeyDown(13))
 			{
-				if (noodleSlice.playTimer >= 22000)
-					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
+				//if (noodleSlice.playTimer >= 22000)
+					//LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect1);
 				PlayerData::player.MiniGameClear(noodleSlice.isSuccess);
 				SetScreen();
 			}
@@ -169,7 +171,9 @@ namespace Screen
 			ChangeTrueEndingScript(TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingcreditScreen:
-			GoTitle();
+			break;
+		case Screen::PlaceFoodScreen:
+			pause::IsPause();
 			break;
 		default:
 			break;
@@ -224,10 +228,10 @@ namespace Screen
 				DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::TrueEndingScreen:
-				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
+				LoadData::imageManager->DrawPngImage("페이드", 0, 0, 1935, 1080, 1.0f, false);
 				break;
 			case Screen::EndingcreditScreen:
-				EndingCre(TimeSystem::GetDeltaTime());
+				LoadData::imageManager->DrawPngImage("리얼엔드", 0, 0, 1935, 1080, 1.0f, false);
 				break;
 			default:
 				break;
@@ -274,10 +278,13 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
+					//PlayerData::player.MiniGameClear(true);
+					//PlayerData::player.SetChooseFood();
 					noodleSlice.SetGame(PlayerData::player.GetStage(), PlayerData::player.GetNoodle());
 					currentScreen = NoodleSliceScreen;
 					break;
 				case NoodleSliceScreen:
+					PlayerData::player.MiniGameClear(noodleSlice.NoodleSuccess());
 					stock.SetGame(PlayerData::player.GetStage());
 					currentScreen = StockGameScreen;
 					break;
@@ -305,8 +312,8 @@ namespace Screen
 					}
 					break;
 				case TrueEndingScreen:
-					currentScreen = EndingcreditScreen;
 					SetCre();
+					currentScreen = EndingcreditScreen;
 					break;
 				case EndingcreditScreen:
 					PlayerData::player.ResetScore();

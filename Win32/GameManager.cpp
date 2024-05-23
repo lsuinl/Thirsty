@@ -53,15 +53,15 @@ namespace game
 	{
 		render::BeginDraw();
 		Screen::ScreenRender();
-		static int fps;
+	/*	static int fps;
 		static float time;
 		time += TimeSystem::GetDeltaTime();
 		while (time > 1000) {
 			fps = m_UpdateCount;
 			m_UpdateCount = 0;
 			time -= 1000;
-		}
-		render::DrawTextF(0, 100, std::to_wstring(fps).c_str(), RGB(100, 100, 100), 50);
+		}*/
+		//render::DrawTextF(0, 100, std::to_wstring(fps).c_str(), RGB(100, 100, 100), 50);
 		render::EndDraw();
 	}
 	void GameManager::Finalize()

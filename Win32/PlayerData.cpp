@@ -6,7 +6,7 @@ namespace PlayerData {
 	
 	FoodStage FoodStage1 = {
 		Types::Noodle::FLAT,
-		{Types::Decoration::SHRIMP,Types::Decoration::FRYGARU,Types::Decoration::FLATAMUK,Types::Decoration::DAEPA},
+		{Types::Decoration::SHRIMP,Types::Decoration::FRYGARU,Types::Decoration::FLATAMUK,Types::Decoration::SUNDAEPA},
 		{Types::Soup::MAULCHI,Types::Soup::DASIMA},
 	};
 
@@ -42,7 +42,7 @@ namespace PlayerData {
 	}
 	void Player::ResetScore()
 	{
-		
+		noodle = Types::SMALL;
 		soup.clear();
 		decoration.clear();
 		//다음 스테이지로 넘어갑니다.

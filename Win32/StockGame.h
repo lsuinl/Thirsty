@@ -85,7 +85,7 @@ public:
     boxObject blackBox = { 260 ,950, 1400, 70, 0, RGB(0, 0, 0), 3 };
     boxObject redBox;
     boxObject yellowBox;
-    boxObject pot = { 550,150, 700,700, 0, RGB(0,0,0), 8 };
+    boxObject pot = { 967 - 350 ,150, 700,700, 0, RGB(0,0,0), 8 };
     boxObject singerum;
     boxObject singerum2;
     boxObject zzamword;

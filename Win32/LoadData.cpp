@@ -42,9 +42,11 @@ namespace LoadData
 	{
 		//bmp
 		imageManager->GetInstance();
-		//imageManager->LoadBitMapImages("배경화면", "resource/background/back.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("로딩화면", "resource/background/loading.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("타이틀화면", "resource/background/title.bmp", 1920, 1080);
+
+
+
 		imageManager->LoadBitMapImages("스테이지1_1", "resource/background/story/stage1_1.bmp", 1935, 1080);
 		imageManager->LoadBitMapImages("스테이지1_2", "resource/background/story/stage1_2.bmp", 1935, 1080);
 
@@ -60,14 +62,11 @@ namespace LoadData
 		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
-
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
-		imageManager->LoadPngImages("우동한그릇", L"resource\\background\\fade.bmp");
-		//imageManager->LoadPngImages("페이드", L"resource\\background\\fade2.bmp");
+		imageManager->LoadPngImages("우동한그릇", L"resource\\background\\fade2.bmp");
 		imageManager->LoadPngImages("일시정지", L"resource\\background\\pause.bmp");
-
 
 		imageManager->LoadPngImages("도마", L"resource\\object\\ddoma.png");
 		//면반죽
@@ -90,11 +89,12 @@ namespace LoadData
 		imageManager->LoadPngImages("소면6", L"resource\\object\\noodleSlice\\small6.bmp");
 		imageManager->LoadPngImages("소면7", L"resource\\object\\noodleSlice\\small7.bmp");
 		imageManager->LoadPngImages("소면8", L"resource\\object\\noodleSlice\\small8.bmp");
-		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife.bmp");
+		imageManager->LoadPngImages("칼든손", L"resource\\object\\knife1.bmp");
 		//png
 		imageManager->LoadPngImages("배경화면", L"resource\\background\\back.png");
 		imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\123.png");
 		//imageManager->LoadPngImages("엔딩", L"resource\\background\\story\\endingcredit.png");
+		imageManager->LoadPngImages("리얼엔드", L"resource\\object\\realend.bmp");
 
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start1.bmp");
 		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
@@ -132,6 +132,9 @@ namespace LoadData
 		imageManager->LoadPngImages("아래쪽버튼", L"resource\\object\\downPage.bmp");
 		imageManager->LoadPngImages("완료버튼", L"resource\\object\\complete.bmp");
 		imageManager->LoadPngImages("메뉴", L"resource\\object\\menu.bmp");
+		imageManager->LoadPngImages("성공", L"resource\\object\\clear.bmp");
+		imageManager->LoadPngImages("타임오버", L"resource\\object\\timeout.bmp");
+		imageManager->LoadPngImages("시간", L"resource\\object\\time.bmp");
 
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");
@@ -175,10 +178,9 @@ namespace LoadData
 		imageManager->LoadPngImages("새우튀김", L"resource\\object\\decoration\\shirimp.bmp");
 		imageManager->LoadPngImages("썬대파", L"resource\\object\\decoration\\sundaepa.bmp");
 		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
-		
-		
-		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox1.bmp");
 
+
+		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox1.bmp");
 		imageManager->LoadPngImages("엔터상자", L"resource\\object\\figure\\entertext.bmp");
 
 
@@ -207,7 +209,7 @@ namespace LoadData
 	void LoadAnimation()
 	{
 		//커튼닫기 애니메이션(0)
-		Gdiplus::Image** closeList= new Gdiplus::Image*[43];
+		Gdiplus::Image** closeList = new Gdiplus::Image * [43];
 		for (int i = 1; i <= 43; i++)
 		{
 			std::wstring path = L"resource\\animation\\curten\\" + std::to_wstring(44 - i) + L".png";
@@ -222,7 +224,7 @@ namespace LoadData
 			openList[i - 1] = Gdiplus::Image::FromFile(path.c_str());
 		}
 		AniManager[1] = Animator("커튼열어", 0, 0, 1920, 1080, 2000, &openList, false, true, 43);
-		
+
 		//타이틀
 		Gdiplus::Image** titleList = new Gdiplus::Image * [180];
 		for (int i = 1; i <= 180; i++)

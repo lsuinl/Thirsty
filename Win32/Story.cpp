@@ -11,7 +11,7 @@ void SetStoryStage(int _stagenum)
 	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
-	LoadData::soundManager->PlayMusic(Music::eSoundList::inside, Music::eSoundChannel::Effect);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
 	maxScript = GetMaxPage();
 }
 void ChangeStoryScript(float delta)
@@ -25,9 +25,9 @@ void ChangeStoryScript(float delta)
 		Screen::SetScreen();
 	}
 }
-void DrawStoryBack(int _stagenum,float delta)
+void DrawStoryBack(int _stagenum, float delta)
 {
-	
+
 	if (_stagenum == 1)
 	{
 		if (curScript == 0 || curScript == 1 || curScript == 2)

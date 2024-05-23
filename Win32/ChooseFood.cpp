@@ -539,6 +539,10 @@ namespace ChooseFood
         Types::Noodle noodle; //면
         std::vector <Types::Decoration> decoration; //고명(여러개)
         std::vector <Types::Soup> soup; //육수(여러개)
+        if (noodleInBasket[0].nameTag == 31)
+        {
+            noodleInBasket[0].nameTag = 3;
+        }
         noodle = (Types::Noodle)(noodleInBasket[0].nameTag);
 
 		for (int i = 0; i < 4; i++) {
@@ -561,4 +565,9 @@ namespace ChooseFood
 
 		Screen::SetScreen();
 	}
+
+  
+
+
+    
 }

@@ -13,15 +13,15 @@ namespace PlayerData {
 	class Player
 	{
 		//현재 스테이지
-		Types::Stage stage;
 		bool stageClear1 = true, stageClear2 = true, stageClear3 = true;
 
 		//담은 재료 종류
-		Types::Noodle noodle; //면
+		Types::Noodle noodle = Types::SMALL; //면
 		std::vector <Types::Decoration> decoration; //고명(여러개)
 		std::vector <Types::Soup> soup; //육수(여러개)
 
 		public:
+			Types::Stage stage;
 			Player();
 			~Player();
 			//현재 스테이지 정보 가져오기

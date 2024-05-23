@@ -18,7 +18,8 @@ void boxObject::DrawObj()
     }
     else if (num == 2)
     {
-        LoadData::imageManager->DrawPngImage("Â«", this->x, this->y, 80, 520, 1.0f);
+       // LoadData::imageManager->DrawPngImage("Â«", this->x, this->y, 80, 520, 1.0f);
+        LoadData::imageManager->DrawPngImage("Â«", this->x, this->y, this->width, this->height, 1.0f);
     }
     else if (num == 3)
     {
@@ -163,9 +164,13 @@ void StockGame::DrawProgressBar()
   
     singerum.DrawObj();
 
-    //63, (-(420 / 100) * salinity),
-    singerum2.SetBox(119, 200, 80, (((float)520 / (float)100) * (100 - salinity)), 0, RGB(251, 206, 177), 15);
-    zzzam.DrawObj();
+
+    int length = 5.2 * (salinity);
+    int yy = (5.2 * (100 - salinity));
+    singerum2.SetBox(119, 193 + yy , 80, length, 0, RGB(251, 206, 177), 2);
+    //63, (-(420 / 100) * salinity),                  5.2     *  1~100      0~100
+    //singerum2.SetBox(119, 200, 80, ( ( (float)520 / (float)100) * (100 - salinity) ), 0, RGB(251, 206, 177), 15);
+   // zzzam.DrawObj();
     singerum2.DrawObj();
     bestline.DrawObj();
     bestword.DrawObj();
@@ -240,8 +245,10 @@ void StockGame::SetGame(int stage)
         curTime = 0;
         salinity = 50;
         targetSalinity = 50;
-        redBox.SetBox(blackBox.x + blackBox.width /2, blackBox.y - 10, 240, 90, 0.45, RGB(255, 0, 0), 4);
-        yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 170, 70, 0.55, RGB(255, 255, 0), 5);
+        redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 360, 90, 0.4, RGB(255, 0, 0), 4);
+        yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 260, 70, 0.5, RGB(255, 255, 0), 5);
+        //redBox.SetBox(blackBox.x + blackBox.width /2, blackBox.y - 10, 240, 90, 0.45, RGB(255, 0, 0), 4);
+       // yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 170, 70, 0.55, RGB(255, 255, 0), 5);
     }
     else if (stage == 3)
     {
@@ -249,8 +256,10 @@ void StockGame::SetGame(int stage)
         curTime = 0;
         salinity = 50;
         targetSalinity = 90;
-        redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 210, 90, 0.45, RGB(255, 0, 0), 4);
-        yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 140, 70, 0.55, RGB(255, 255, 0), 5);
+        redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 360, 90, 0.4, RGB(255, 0, 0), 4);
+        yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 260, 70, 0.5, RGB(255, 255, 0), 5);
+        //redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 210, 90, 0.45, RGB(255, 0, 0), 4);
+        //yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 140, 70, 0.55, RGB(255, 255, 0), 5);
     }
     bestline.SetBox(105, 720 - ((520 / 100) * targetSalinity) -40, 100, 50, 0, RGB(0, 0, 0), 6);
     bestword.SetBox(200, (720 - ((520 / 100) * targetSalinity)  ) - 40, 154, 50, 0, RGB(0, 255, 0), 7);
@@ -326,8 +335,14 @@ void StockGame::RenderStockGame(float delta)
     DrawProgressBar();
     DrawBoxs();
     DrawPot(delta);
-    std::wstring time = L"³²Àº ½Ã°£  " + std::to_wstring((int)(30 - curTime / 1000)) + L" ÃÊ";
-    render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
+
+
+    LoadData::imageManager->DrawPngImage("½Ã°£", 807, 30, 320, 100, true);
+    std::wstring S = std::to_wstring((int)(30 - curTime / 1000) / 10);
+    std::wstring s = std::to_wstring((int)(30 - curTime / 1000) % 10);
+    render::DrawTextF(940, 40, S.c_str(), RGB(59, 34, 18), 78);
+    render::DrawTextF(986, 40, s.c_str(), RGB(59, 34, 18), 78);
+
     DrawBasket();
 
     for (size_t i = 0; i < 4; i++)

@@ -275,7 +275,7 @@ void SkipText(float delta)
 			curChar = 0;
 		}
 	}
-	
+
 }
 
 void UpdateText()
@@ -297,14 +297,14 @@ void PrintText(float delta)
 	{
 		if (enternum % 2 == 0)
 		{
-			LoadData::imageManager->DrawPngImage("엔터상자", 1360, 970, 116, 24, 1.0f);
+			LoadData::imageManager->DrawPngImage("엔터상자", 1470, 970, 116, 24, 1.0f);
 		}
 		else
 		{
-			LoadData::imageManager->DrawPngImage("엔터상자", 1360, 970, 116, 24, 0.4f);
+			LoadData::imageManager->DrawPngImage("엔터상자", 1470, 970, 116, 24, 0.4f);
 		}
 	}
-	
+
 }
 void PrintTextEnd()
 {

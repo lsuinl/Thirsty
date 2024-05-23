@@ -1,9 +1,12 @@
 ﻿#include "NoodleSlice.h"
 #include <time.h>
 #include "LoadData.h"
+#include "Pause.h"
 // 게임 세팅
 void NoodleSlice::SetGame(int _stage, int _noodle)
 {
+    clearState = 0;
+
     LoadData::soundManager->PlayMusic(Music::eSoundList::noodleslice, Music::eSoundChannel::BGM);
     input::SetKeyCode(false);
     srand(time(NULL));
@@ -11,7 +14,10 @@ void NoodleSlice::SetGame(int _stage, int _noodle)
     // 플레이 시간
     playTimer = 0;
 
-    // 방향키 올킬 여부
+    // 종료
+    endTimer = 0;
+
+    // 게임 진행 성공 여부
     isSuccess = false;
 
     // 맞춘 횟수
@@ -42,17 +48,22 @@ void NoodleSlice::SetGame(int _stage, int _noodle)
     CreatArrowArr();
 }
 
+void NoodleSlice::SetClearCheck(int n)
+{
+    clearState = n;
+}
+
 // 게임루프
 void NoodleSlice::UpdateGame()
 {
     playTimer += TimeSystem::GetDeltaTime();
 
-    if (playTimer <= 200000)
+    if (playTimer <= 220000)
     {
         if (isReset)
         {
             resetTimer += TimeSystem::GetDeltaTime();
-            if (resetTimer > 700)
+            if (resetTimer > 300)
             {
                 isReset = false;
             }
@@ -194,7 +205,7 @@ int NoodleSlice::GetArrSize()
 // render
 void NoodleSlice::NoodleSliceScreen()
 {
-    LoadData::imageManager->DrawBitMapImage("미니게임",0,0);
+    LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
     SliceAni();
 
     // 치기 전
@@ -276,26 +287,42 @@ void NoodleSlice::NoodleSliceScreen()
         }
     }
 
-   /* render::DrawRect(1500, 200, 300, 300, RGB(255, 255, 255));
-    render::DrawRect(1500, 600, 300, 300, RGB(255, 255, 255));*/
+    LoadData::imageManager->DrawPngImage("시간", 807, 30, 320, 100, true);
+    std::wstring S = std::to_wstring((int)(22 - playTimer / 1000) / 10);
+    std::wstring s = std::to_wstring((int)(22 - playTimer / 1000) % 10);
+    render::DrawTextF(940, 40, S.c_str(), RGB(59, 34, 18), 78);
+    render::DrawTextF(986, 40, s.c_str(), RGB(59, 34, 18), 78);
 
-   /* std::wstring str1 = L"완료 횟수";
-    std::wstring str2 = L"남은 세트";
-    std::wstring clear_s = std::to_wstring(setCnt);
-    std::wstring before_s = std::to_wstring(noodle - setCnt);
-    render::DrawTextF(1560, 250, str1.c_str(), RGB(0, 0, 0), 50);
-    render::DrawTextF(1560, 650, str2.c_str(), RGB(0, 0, 0), 50);
-    render::DrawTextF(1620, 350, clear_s.c_str(), RGB(0, 0, 0), 100);
-    render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);*/
+    /*if (clearState == 1)
+    {
+        endTimer += TimeSystem::GetDeltaTime();
 
-    std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - playTimer / 1000)) + L" 초";
-    render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
+        pause::CaptureScreen();
+        LoadData::imageManager->DrawPngImage("성공", 967 - 250, 540 - 100, 500, 200, 1.0f, true);
+
+        if (endTimer >= 5000)
+        {
+            isSuccess = true;
+        }
+    }
+    else if (clearState == 2)
+    {
+        endTimer += TimeSystem::GetDeltaTime();
+
+        pause::CaptureScreen();
+        LoadData::imageManager->DrawPngImage("타임오버", 967 - 300, 540 - 100, 600, 200, 1.0f, true);
+
+        if (endTimer >= 5000)
+        {
+            isSuccess = true;
+        }
+    }*/
 }
 
 // 게임 성공 여부
 bool NoodleSlice::NoodleSuccess()
 {
-    if (cnt >= arrSize - 2)
+    if (cnt == arrSize )
     {
         return true;
     }
@@ -326,7 +353,17 @@ void NoodleSlice::SliceAni()
     {
         LoadData::imageManager->DrawPngImage("면반죽", 717, 550, 500, 500, true);
     }
-    
-    LoadData::imageManager->DrawPngImage("칼든손", 1070 - ((800 / (noodle * 2)) * setCnt), 500, 800, 900, true);
 
+    if (noodle == 4)
+    {
+        LoadData::imageManager->DrawPngImage("칼든손", 900 - (100 * setCnt), 500, 450, 900, true);
+    }
+    if (noodle == 6)
+    {
+        LoadData::imageManager->DrawPngImage("칼든손", 900 - (64 * setCnt), 500, 450, 900, true);
+    }
+    if (noodle == 8)
+    {
+        LoadData::imageManager->DrawPngImage("칼든손", 900 - (50 * setCnt), 500, 450, 900, true);
+    }
 }

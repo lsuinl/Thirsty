@@ -7,9 +7,12 @@ int curEndingScript = 0;
 bool success;
 Figure endFigure;
 Decoudong decoudong[9];
+bool isUdong = false;
 Decoudong udong;
-void SetEndingStage(int _stagenum, bool _success,int* _decolist)
+
+void SetEndingStage(int _stagenum, bool _success, int* _decolist)
 {
+	isUdong = false;
 	maxEndingScript = 0;
 	curEndingScript = 0;
 	SetEndingScript(_stagenum, _success);
@@ -53,7 +56,7 @@ void ChangeEndingScript(float delta)
 
 }
 
-void DrawEndingBack(int _stagenum,float delta)
+void DrawEndingBack(int _stagenum, float delta)
 {
 
 	LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
@@ -63,6 +66,7 @@ void DrawEndingBack(int _stagenum,float delta)
 
 	for (int i = 0; i < 9; i++)
 	{
+
 
 		decoudong[i].DrawDeco();
 	}
@@ -82,10 +86,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 1;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -106,10 +120,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 1;
 
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
@@ -128,10 +152,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 4;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -151,10 +185,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -173,10 +217,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
@@ -194,10 +248,20 @@ void DrawEndingBack(int _stagenum,float delta)
 			}
 			else if (curEndingScript == 1)
 			{
+				if (isUdong == false)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::eat, Music::eSoundChannel::Effect);
+					isUdong = true;
+				}
 				endFigure.expression = 3;
 			}
 			else
 			{
+				if (isUdong == true)
+				{
+					LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
+					isUdong = false;
+				}
 				endFigure.expression = 2;
 				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
@@ -285,11 +349,11 @@ void Decoudong::Drawudong()
 	{
 		LoadData::imageManager->DrawPngImage("납작면우동", 740, 750, 300, 200, 1.0f, true);
 	}
-	else if(udongnum == 2)
+	else if (udongnum == 2)
 	{
 		LoadData::imageManager->DrawPngImage("중면우동", 740, 750, 300, 200, 1.0f, true);
 	}
-	else if(udongnum == 3)
+	else if (udongnum == 3)
 	{
 		LoadData::imageManager->DrawPngImage("소면우동", 740, 750, 300, 200, 1.0f, true);
 	}
