@@ -11,6 +11,7 @@ void SetStoryStage(int _stagenum)
 	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
+	LoadData::soundManager->PlayMusic(Music::eSoundList::inside, Music::eSoundChannel::Effect);
 	maxScript = GetMaxPage();
 }
 void ChangeStoryScript(float delta)
@@ -24,7 +25,7 @@ void ChangeStoryScript(float delta)
 		Screen::SetScreen();
 	}
 }
-void DrawStoryBack(int _stagenum)
+void DrawStoryBack(int _stagenum,float delta)
 {
 	
 	if (_stagenum == 1)
@@ -44,7 +45,7 @@ void DrawStoryBack(int _stagenum)
 		else if (curScript == 9 || curScript == 10) //1스테이지 회상 2
 		{
 			LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
-			LoadData::imageManager->DrawBitMapImage("스테이지1_2", 0, 0);
+			LoadData::imageManager->DrawBitMapImage("스테이지1_1", 0, 0);
 		}
 		else  //1 스테이지 회상 끝
 		{
@@ -69,7 +70,7 @@ void DrawStoryBack(int _stagenum)
 			figure.isDraw = false;
 			//회상씬
 			LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
-			LoadData::imageManager->DrawBitMapImage("스테이지2_1", 0, 0);
+			LoadData::imageManager->DrawBitMapImage("스테이지2_2", 0, 0);
 		}
 		else if (curScript == 6)
 		{
@@ -110,7 +111,7 @@ void DrawStoryBack(int _stagenum)
 		{
 			//두번째 회상씬
 			LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
-			LoadData::imageManager->DrawBitMapImage("스테이지3_2", 0, 0);
+			LoadData::imageManager->DrawBitMapImage("스테이지3_1", 0, 0);
 		}
 		//이후 추가필요
 		else
@@ -122,9 +123,7 @@ void DrawStoryBack(int _stagenum)
 	}
 	figure.DrawFigure(_stagenum);
 	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
-	PrintText();
-
-
+	PrintText(delta);
 
 }
 

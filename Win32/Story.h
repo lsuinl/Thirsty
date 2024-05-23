@@ -12,4 +12,4 @@ void SetStoryStage(int _stagenum);
 
 void ChangeStoryScript(float delta);
 
-void DrawStoryBack(int _stagenum);
+void DrawStoryBack(int _stagenum,float delta);

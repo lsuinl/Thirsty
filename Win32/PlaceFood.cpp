@@ -16,6 +16,7 @@ namespace PlaceFood
 	//재료 선택에서 뽑힌 고명들을 옮겨받는다.
 	std::vector <Types::Decoration> a;
 	button::DragDrop userPickDeco[8];  
+	int decoList[8];
 
 	//우동위에 올려지는 고명들을 저장할 배열.
 	button::DragDrop userSet[8];
@@ -25,19 +26,20 @@ namespace PlaceFood
 	
 	button::Button buttonList[3] =
 	{
-		button::Button("위쪽버튼",1500,100, 100, 100, UpBasket),
-		button::Button("아래쪽버튼",1500, 900, 100, 100,DownBasket),
-		button::Button("요리종료",1650, 950, 200, 70, Selected),
+		button::Button("위쪽버튼",1550,100, 100, 100, UpBasket),
+		button::Button("아래쪽버튼",1550, 900, 100, 100,DownBasket),
+		button::Button("요리종료", 1650, 950, 200, 70, Selected),
 	};
 	//배경 이미지 그리기
 	void PrintScreen()
 	{
 		//배경그리기
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
+		render::DrawObject(L"resource\\object\\decoration\\udong.bmp", 850, 600, 450, 300, true);
 		//바구니 그리기
 		for (int i = 0; i < 5; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
+			render::DrawObject(L"resource\\object\\basket.bmp", 330, 150, 1455, 170 + (i * 150), true);
 		}
 		//바구니 버튼 그리기
 		for (int i = 0; i < 3; i++)
@@ -45,7 +47,7 @@ namespace PlaceFood
 			if ((basketIndex == 0 && i == 0) || (basketIndex == 5 && i == 1)) { continue; }
 			buttonList[i].DrawButton();
 		}
-		
+
 		PlaceFoodScreen();
 	}
 	//우동위에 좌표버튼 생성.
@@ -53,21 +55,20 @@ namespace PlaceFood
 	{
 		LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 
-		userSet[0] = button::DragDrop(31, "바구니", 600, 250, 200, 200, Empty);
-		userSet[1] = button::DragDrop(31, "바구니", 950, 250, 200, 200, Empty);
+		userSet[0] = button::DragDrop(31, "바구니", 680, 300, 230, 230, Empty);
+		userSet[1] = button::DragDrop(31, "바구니", 880, 300, 230, 230, Empty);
+		userSet[2] = button::DragDrop(31, "바구니", 530, 400, 230, 230, Empty);
+		userSet[3] = button::DragDrop(31, "바구니", 690, 400, 230, 230, Empty);
+		userSet[4] = button::DragDrop(31, "바구니", 840, 400, 230, 230, Empty);
+		userSet[5] = button::DragDrop(31, "바구니", 1000, 400, 230, 230, Empty);
 
-		userSet[2] = button::DragDrop(31, "바구니", 500, 450, 200, 200, Empty);
-		userSet[3] = button::DragDrop(31, "바구니", 700, 450, 200, 200, Empty);
-		userSet[4] = button::DragDrop(31, "바구니", 900, 450, 200, 200, Empty);
-		userSet[5] = button::DragDrop(31, "바구니", 1100, 450, 200, 200, Empty);
-
-		userSet[6] = button::DragDrop(31, "바구니", 600, 550, 200, 200, Empty);
-		userSet[7] = button::DragDrop(31, "바구니", 950, 550, 200, 200, Empty);
+		userSet[6] = button::DragDrop(31, "바구니", 680, 490, 230, 230, Empty);
+		userSet[7] = button::DragDrop(31, "바구니", 880, 490, 230, 230, Empty);
 
 		a = PlayerData::player.GetDecoation();
 		for (int i = 0; i < 8; i++)
 		{
-			userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1485, 200 + (i * 150), 100, 100, Test);
+			userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 180 + (i * 150), 120, 120, Test);
 		}
 	}
 	void CheckButton(int dx, int dy)
@@ -188,4 +189,16 @@ namespace PlaceFood
 	}
 	void Empty(){}
 
+
+	int* GetDeco()
+	{
+
+		for (size_t i = 0; i < 8; i++)
+		{
+			decoList[i] = userSet[i].nameTag;
+		}
+
+		return decoList;
+	}
+	
 }

@@ -11,11 +11,9 @@
 
 namespace ChooseFood
 {
-    int num = 0;
-
     int screenIndex = 0;
     int basketIndex = 0;
-    int index;
+
     button::DragDrop* draggingButton = nullptr;
 
     int originXPos = 0;
@@ -31,9 +29,9 @@ namespace ChooseFood
     {
        button::Button("왼쪽버튼",80,500,100,100,LeftPage),
        button::Button("오른쪽버튼",1280, 500, 100, 100, RightPage),
-       button::Button("위쪽버튼",1500,100, 100, 100, UpBasket),
-       button::Button("아래쪽버튼",1500, 900, 100, 100,DownBasket),
-       button::Button("요리시작",1650, 950, 200, 70, Selected),
+       button::Button("위쪽버튼",1550,100, 100, 100, UpBasket),
+       button::Button("아래쪽버튼",1550, 900, 100, 100,DownBasket),
+       button::Button("요리시작", 1650, 950, 200, 70, Selected),
     };
     button::DragDrop noodleButtonList[3];
     button::DragDrop soupButtonList[4];
@@ -42,36 +40,37 @@ namespace ChooseFood
 	void InitScreen() {
         LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 
-		noodleButtonList[0] = button::DragDrop(Types::Noodle::FLAT, "납작면", 300, 400, 200, 200, Test);
-		noodleButtonList[1] = button::DragDrop(Types::Noodle::MIDDLE, "기본면", 650, 600, 200, 200, Test);
-		noodleButtonList[2] = button::DragDrop(Types::Noodle::SMALL, "소면", 1000, 400, 200, 200, Test);
+		noodleButtonList[0] = button::DragDrop(Types::Noodle::FLAT, "납작면", 300, 600, 200, 200, Test);
+		noodleButtonList[1] = button::DragDrop(Types::Noodle::MIDDLE, "기본면", 650, 700, 200, 200, Test);
+		noodleButtonList[2] = button::DragDrop(Types::Noodle::SMALL, "소면", 1000, 600, 200, 200, Test);
 
 
-		soupButtonList[0] = button::DragDrop(Types::Soup::MAULCHI, "멸치", 300, 400, 200, 200, Test);
-		soupButtonList[1] = button::DragDrop(Types::Soup::DASIMA, "건다시마", 380, 600, 200, 200, Test);
-		soupButtonList[2] = button::DragDrop(Types::Soup::TZUYU, "쯔유", 460, 400, 200, 200, Test);
-		soupButtonList[3] = button::DragDrop(Types::Soup::MU, "무", 620, 400, 200, 200, Test);
 
-		decorationButtonList[0] = button::DragDrop(Types::Decoration::DAEPA, "대파", 300, 400, 200, 200, Test);		
-		decorationButtonList[1] = button::DragDrop(Types::Decoration::SICHIME, "대파", 380, 600, 200, 200, Test);
-		decorationButtonList[2] = button::DragDrop(Types::Decoration::BANDALAMUK,"반달어묵", 460, 400, 200, 200, Test);
-		decorationButtonList[3] = button::DragDrop(Types::Decoration::PYOGO, "표고버섯", 540, 600, 200, 200, Test);
-		decorationButtonList[4] = button::DragDrop(Types::Decoration::FIREMEET,"직화고기", 700, 600, 200, 200, Test);
-		decorationButtonList[5] = button::DragDrop(Types::Decoration::GATHOBUSI, "가쓰오부시", 780, 400, 200, 200, Test);
-		decorationButtonList[6] = button::DragDrop(Types::Decoration::YUBU, "썬유부", 1000, 600, 200, 200, Test);
-		decorationButtonList[7] = button::DragDrop(Types::Decoration::SUKK, "쑥갓", 540, 200, 200, 200, Test);
-		decorationButtonList[8] = button::DragDrop(Types::Decoration::CHOUNGYANGGOCHU, "썬청양고추", 860, 200, 200, 200, Test);
-		decorationButtonList[9] = button::DragDrop(Types::Decoration::SUNKIM, "썬김(김채)", 1000, 200, 200, 200, Test);
-		decorationButtonList[10] = button::DragDrop(Types::Decoration::FLATAMUK, "납작어묵", 540, 800, 200, 200, Test);
-		decorationButtonList[11] = button::DragDrop(Types::Decoration::SHRIMP, "새우튀김", 700, 800, 200, 200, Test);
-		decorationButtonList[12] = button::DragDrop(Types::Decoration::FRYGARU,"튀김가루", 400, 800, 200, 200, Test);
-		decorationButtonList[13] = button::DragDrop(Types::Decoration::SUNDAEPA,"썬대파", 200, 600, 200, 200, Test);
+		soupButtonList[0] = button::DragDrop(Types::Soup::MAULCHI, "멸치", 250, 600, 200, 200, Test);
+		soupButtonList[1] = button::DragDrop(Types::Soup::DASIMA, "건다시마", 500, 600, 200, 200, Test);
+		soupButtonList[2] = button::DragDrop(Types::Soup::TZUYU, "쯔유", 750, 600, 200, 200, Test);
+		soupButtonList[3] = button::DragDrop(Types::Soup::MU, "무", 1000, 600, 200, 200, Test);
 
-		noodleInBasket[0] = button::DragDrop(Types::Basket::BASKET, "바구니", 1485, 200, 100, 100, basketfunction);
+		decorationButtonList[0] = button::DragDrop(Types::Decoration::DAEPA, "대파", 250, 350, 200, 200, Test);
+		decorationButtonList[1] = button::DragDrop(Types::Decoration::SICHIME, "대파", 500, 350, 200, 200, Test);
+		decorationButtonList[2] = button::DragDrop(Types::Decoration::BANDALAMUK,"반달어묵", 750, 350, 200, 200, Test);
+		decorationButtonList[3] = button::DragDrop(Types::Decoration::PYOGO, "표고버섯", 1000, 350, 200, 200, Test);
+		decorationButtonList[4] = button::DragDrop(Types::Decoration::FIREMEET,"직화고기", 150, 550, 200, 200, Test);
+		decorationButtonList[5] = button::DragDrop(Types::Decoration::GATHOBUSI, "가쓰오부시", 400, 550, 200, 200, Test);
+		decorationButtonList[6] = button::DragDrop(Types::Decoration::YUBU, "썬유부", 650, 550, 200, 200, Test);
+		decorationButtonList[7] = button::DragDrop(Types::Decoration::SUKK, "쑥갓", 900, 550, 200, 200, Test);
+		decorationButtonList[8] = button::DragDrop(Types::Decoration::CHOUNGYANGGOCHU, "썬청양고추", 1150, 550, 200, 200, Test);
+		decorationButtonList[9] = button::DragDrop(Types::Decoration::SUNKIM, "썬김(김채)", 150, 750, 200, 200, Test);
+		decorationButtonList[10] = button::DragDrop(Types::Decoration::FLATAMUK, "납작어묵", 400, 750, 200, 200, Test);
+		decorationButtonList[11] = button::DragDrop(Types::Decoration::SHRIMP, "새우튀김", 650, 750, 200, 200, Test);
+		decorationButtonList[12] = button::DragDrop(Types::Decoration::FRYGARU,"튀김가루", 900, 750, 200, 200, Test);
+		decorationButtonList[13] = button::DragDrop(Types::Decoration::SUNDAEPA,"썬대파", 1150, 750, 200, 200, Test);
+
+		noodleInBasket[0] = button::DragDrop(Types::Basket::BASKET, "바구니", 1555, 180, 120, 120, basketfunction);
 		for (int i = 0; i < 4; i++)
-			soupInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1485, 200 + (150 * i), 100, 100, basketfunction);
+			soupInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1555, 180 + (i * 150), 120, 120, basketfunction);
 		for (int i = 0; i < 8; i++)
-			decorationInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1485, 200 + (150 * i), 100, 100, basketfunction);
+			decorationInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1555, 180 + (i * 150), 120, 120, basketfunction);
 	}
 	//배경 이미지 그리기
 	void ChooseScreen()
@@ -378,7 +377,7 @@ namespace ChooseFood
     void NoodleScreen()
     {
         ////바구니 그려져있기.
-        render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200, true);
+        render::DrawObject(L"resource\\object\\basket.bmp", 330, 150, 1455, 170, true);
         ////재료가 들어가있으면 바구니 위에 재료를 띄우기.
         if (noodleInBasket[0].nameTag != Types::Basket::BASKET)
         {
@@ -399,7 +398,7 @@ namespace ChooseFood
 		////바구니 그려져있기.
 		for (int i = 0; i < 4; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
+            render::DrawObject(L"resource\\object\\basket.bmp", 330, 150, 1455, 170 + (i * 150), true);
 		}
 		////재료가 들어가있으면 바구니 위에 재료를 띄우기.
 		for (int i = 0; i < 4; i++)
@@ -425,7 +424,7 @@ namespace ChooseFood
 		////바구니 그려져있기.
 		for (int i = 0; i < 5; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 150, 100, 1485, 200 + (i * 150), true);
+            render::DrawObject(L"resource\\object\\basket.bmp", 330, 150, 1455, 170 + (i * 150), true);
 		}
 		//고명 재료 출력
 		for (int i = 0; i < 8; i++)
@@ -505,6 +504,11 @@ namespace ChooseFood
 			decoration.push_back((Types::Decoration)(decorationInBasket[i].nameTag));
 		}
 		PlayerData::player.SetChooseFood(noodle, decoration, soup);
+
+        screenIndex = 0;
+        basketIndex = 0;
+        soupBNum = 0; // 육수바구니 인덱스
+        decoBNum = 0; //고명바구니 인덱스
 
 		Screen::SetScreen();
 	}
