@@ -37,6 +37,9 @@ namespace PlayerData {
 		return stage;
 	}
 
+	void Player::SetStage(Types::Stage st) {
+		stage = st;
+	}
 	void Player::ResetScore()
 	{
 		//다음 스테이지로 넘어갑니다.
@@ -49,7 +52,10 @@ namespace PlayerData {
 			stage = Types::STAGE3;
 			break;
 		case Types::STAGE3:       //일단 스테이지3끝나면 1로보내는 무한순환 타이틀로 보내야함 
-			stage = Types::STAGE1;             
+			stage = Types::STAGE4;             
+			break;
+		case Types::STAGE4:
+			stage = Types::STAGE1;
 			break;
 		default:
 			break;

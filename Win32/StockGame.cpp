@@ -209,10 +209,14 @@ void StockGame::DrawBoxs()
 void StockGame::SetGame(int stage)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
+    LoadData::soundManager->PlayMusic(Music::eSoundList::stockbgm, Music::eSoundChannel::BGM);
+
+
     zzamword.SetBox(138, 160, 80, 520, 0, RGB(255, 0, 0), 16);
     singerumword.SetBox(115, 720, 80, 520, 0, RGB(255, 0, 0), 17);
     zzzam.SetBox(119, 200, 80, 520, 0, RGB(255, 0, 0), 2);
     singerum.SetBox(119, 200, 80, 520, 0, RGB(251, 206, 177), 1);
+
     soupdeco = PlayerData::player.GetSoup();
 
     for (int i = 0; i < 4; i++)

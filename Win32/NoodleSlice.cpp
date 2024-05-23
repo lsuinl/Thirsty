@@ -113,7 +113,7 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
         {
             if (cnt % stage == 0)
             {
-                LoadData::soundManager->PlayMusic(Music::eSoundList::arrow, Music::eSoundChannel::Effect);
+                LoadData::soundManager->PlayMusic(Music::eSoundList::slice, Music::eSoundChannel::Effect1);
                 setCnt++;
             }
         }
@@ -276,17 +276,17 @@ void NoodleSlice::NoodleSliceScreen()
         }
     }
 
-    render::DrawRect(1500, 200, 300, 300, RGB(255, 255, 255));
-    render::DrawRect(1500, 600, 300, 300, RGB(255, 255, 255));
+   /* render::DrawRect(1500, 200, 300, 300, RGB(255, 255, 255));
+    render::DrawRect(1500, 600, 300, 300, RGB(255, 255, 255));*/
 
-    std::wstring str1 = L"완료 횟수";
+   /* std::wstring str1 = L"완료 횟수";
     std::wstring str2 = L"남은 세트";
     std::wstring clear_s = std::to_wstring(setCnt);
     std::wstring before_s = std::to_wstring(noodle - setCnt);
     render::DrawTextF(1560, 250, str1.c_str(), RGB(0, 0, 0), 50);
     render::DrawTextF(1560, 650, str2.c_str(), RGB(0, 0, 0), 50);
     render::DrawTextF(1620, 350, clear_s.c_str(), RGB(0, 0, 0), 100);
-    render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);
+    render::DrawTextF(1620, 750, before_s.c_str(), RGB(0, 0, 0), 100);*/
 
     std::wstring time = L"남은 시간  " + std::to_wstring((int)(20 - playTimer / 1000)) + L" 초";
     render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
@@ -327,7 +327,6 @@ void NoodleSlice::SliceAni()
         LoadData::imageManager->DrawPngImage("면반죽", 717, 550, 500, 500, true);
     }
     
-    //LoadData::imageManager->DrawPngImage("칼든손", 1100, 500, 800, 900, true);
     LoadData::imageManager->DrawPngImage("칼든손", 1070 - ((800 / (noodle * 2)) * setCnt), 500, 800, 900, true);
 
 }
