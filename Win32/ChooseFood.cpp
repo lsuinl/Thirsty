@@ -33,7 +33,7 @@ namespace ChooseFood
        button::Button("오른쪽버튼",1280, 500, 100, 100, RightPage),
        button::Button("위쪽버튼",1500,100, 100, 100, UpBasket),
        button::Button("아래쪽버튼",1500, 900, 100, 100,DownBasket),
-       button::Button("완료버튼",1650, 950, 200, 70, Selected),
+       button::Button("요리시작",1650, 950, 200, 70, Selected),
     };
     button::DragDrop noodleButtonList[3];
     button::DragDrop soupButtonList[4];

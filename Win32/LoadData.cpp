@@ -103,6 +103,8 @@ namespace LoadData
 		imageManager->LoadPngImages("새우", L"resource\\object\\Prriceshrimp.bmp");
 		imageManager->LoadPngImages("재시작버튼", L"resource\\object\\restart1.bmp");
 		imageManager->LoadPngImages("타이틀버튼", L"resource\\object\\title.bmp");
+		imageManager->LoadPngImages("요리시작", L"resource\\object\\cookstart.bmp");
+		imageManager->LoadPngImages("요리종료", L"resource\\object\\cookcomplete.bmp");
 
 		imageManager->LoadPngImages("아래", L"resource\\object\\down.bmp");
 		imageManager->LoadPngImages("빨간아래", L"resource\\object\\down1.bmp");
