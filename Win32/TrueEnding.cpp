@@ -38,8 +38,9 @@ void DrawTrueEndingBack(float delta)
 
 			PrintTextEnd();
 		}
-		else if (curTrueEndingScript == maxTrueEndingScript)
+		else
 		{
+			curTrueEndingScript = 0;
 			Screen::SetScreen();
 		}
 	}
@@ -61,8 +62,9 @@ void DrawTrueEndingBack(float delta)
 
 			PrintTextEnd();
 		}
-		else if (curTrueEndingScript == maxTrueEndingScript)
+		else 
 		{
+			curTrueEndingScript = 0;
 			Screen::SetScreen();
 		}
 	}
@@ -90,6 +92,7 @@ void EndingCre(float delta)
 
 void SetCre()
 {
+
 	//여기에 엔딩크레딧전 페이드인
 
 

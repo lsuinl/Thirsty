@@ -39,6 +39,7 @@ namespace Screen
 
 	void ReTitleScreen()
 	{
+		PlayerData::player.SetStage(Types::STAGE1);
 		preScreen = TitleScreen;
 		currentScreen = TitleScreen;
 	}
@@ -75,6 +76,7 @@ namespace Screen
 				PlaceFood::CheckDropButton(mouse.x, mouse.y);
 			break;
 		case Screen::TitleScreen:
+			Title::TitleCheckHover(mouse.x, mouse.y);
 			if (input::IsSame(mouse, premouse))
 				return;
 			if (mouse.left) 
@@ -91,9 +93,21 @@ namespace Screen
 				return;
 			}
 			if (mouse.left) {
-				pause::IsCheckReButton(mouse.x, mouse.y);
+				pause::IsButton(mouse.x, mouse.y);
 			}
 		}
+		else
+		{
+			if (input::IsSame(mouse, premouse))
+			{
+				return;
+			}
+			if (mouse.left && (currentScreen != TitleScreen && currentScreen != EndingcreditScreen && currentScreen != StoryScreen && currentScreen != EndingScreen && currentScreen != TrueEndingScreen)) {
+				pause::IsMenuButton(mouse.x, mouse.y);
+			}
+		}
+
+
 	}
 
 	void InputKeyBoard() {
@@ -122,9 +136,9 @@ namespace Screen
 				noodleSlice.UpdateGame();
 			else
 				pause::CaptureScreen();
-			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 20000 || input::IsKeyDown(13))
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 22000 || input::IsKeyDown(13))
 			{
-				if (noodleSlice.playTimer >= 20000)
+				if (noodleSlice.playTimer >= 22000)
 					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
 				PlayerData::player.MiniGameClear(noodleSlice.isSuccess);
 				SetScreen();
@@ -200,6 +214,9 @@ namespace Screen
 			case Screen::TrueEndingScreen:
 				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
 				break;
+			case Screen::EndingcreditScreen:
+				EndingCre(TimeSystem::GetDeltaTime());
+				break;
 			default:
 				break;
 			}
@@ -240,6 +257,7 @@ namespace Screen
 					currentScreen = StoryScreen;
 					break;
 				case StoryScreen:
+					LoadData::soundManager->StopMusic(Music::eSoundChannel::Effect);
 					ChooseFood::InitScreen();
 					currentScreen = ChooseFoodScreen;
 					break;
@@ -253,6 +271,7 @@ namespace Screen
 					currentScreen = StockGameScreen;
 					break;
 				case StockGameScreen:
+					LoadData::soundManager->StopMusic(Music::eSoundChannel::Effect);
 					PlayerData::player.MiniGameClear(stock.IsStockClear());
 					PlaceFood::InitScreen();
 					currentScreen = PlaceFoodScreen;
@@ -263,8 +282,11 @@ namespace Screen
 					break;
 				case EndingScreen:
 					PlayerData::player.ResetScore();
-					if (PlayerData::player.GetStage() == 4)
+					if (PlayerData::player.GetStage() == Types::STAGE4)
+					{
+						SetTrueEndingStage(PlayerData::player.IsTrueEnding());
 						currentScreen = TrueEndingScreen;
+					}
 					else
 					{
 						SetStoryStage(PlayerData::player.GetStage());
@@ -293,15 +315,19 @@ namespace Screen
 		{
 		case Screen::ChooseFoodScreen:
 			ChooseFood::ChooseScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::StockGameScreen:
 			stock.RenderStockGame(TimeSystem::GetDeltaTime());
+			pause::DrawMenuButton();
 			break;
 		case Screen::NoodleSliceScreen:
 			noodleSlice.NoodleSliceScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::PlaceFoodScreen:
 			PlaceFood::PrintScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
@@ -315,6 +341,9 @@ namespace Screen
 		case Screen::TrueEndingScreen:
 			DrawTrueEndingBack(TimeSystem::GetDeltaTime());
 			break;
+		case Screen::EndingcreditScreen:
+			EndingCre(TimeSystem::GetDeltaTime());
+			break;
 		case Screen::MoveAniScreen:
 			aniRender();
 		default:
@@ -323,7 +352,6 @@ namespace Screen
 		if (pause::GetIsPause()) 
 		{
 			pause::RenderPause();
-			pause::DrawReButton();
 			pause::DrawReButton();
 		}
 		MoveScreen::MoveToScreen();

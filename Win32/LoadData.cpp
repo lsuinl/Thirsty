@@ -101,6 +101,7 @@ namespace LoadData
 		imageManager->LoadPngImages("규칙", L"resource\\object\\rule.png");
 		imageManager->LoadPngImages("짱", L"resource\\object\\best.bmp");
 		imageManager->LoadPngImages("바구니", L"resource\\object\\basket.bmp");
+		imageManager->LoadPngImages("재료담는바구니", L"resource\\object\\baguni.bmp");
 		imageManager->LoadPngImages("새우", L"resource\\object\\Prriceshrimp.bmp");
 		imageManager->LoadPngImages("재시작버튼", L"resource\\object\\restart1.bmp");
 		imageManager->LoadPngImages("타이틀버튼", L"resource\\object\\title.bmp");
