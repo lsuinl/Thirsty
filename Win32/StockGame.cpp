@@ -191,6 +191,8 @@ void StockGame::DrawBoxs()
 void StockGame::SetGame(int stage)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
+    LoadData::soundManager->PlayMusic(Music::eSoundList::stockbgm, Music::eSoundChannel::BGM);
+
     singerum.SetBox(100, 200, 170, 650, 0, RGB(251, 206, 177), 1);
     soupdeco = PlayerData::player.GetSoup();
 

@@ -28,7 +28,7 @@ namespace PlaceFood
 	{
 		button::Button("위쪽버튼",1550,100, 100, 100, UpBasket),
 		button::Button("아래쪽버튼",1550, 900, 100, 100,DownBasket),
-		button::Button("완료버튼",1650, 50, 200, 100, Selected),
+		button::Button("요리종료", 1650, 950, 200, 70, Selected),
 	};
 	//배경 이미지 그리기
 	void PrintScreen()
@@ -53,9 +53,10 @@ namespace PlaceFood
 	//우동위에 좌표버튼 생성.
 	void InitScreen()
 	{
+		LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
+
 		userSet[0] = button::DragDrop(31, "바구니", 680, 300, 230, 230, Empty);
 		userSet[1] = button::DragDrop(31, "바구니", 880, 300, 230, 230, Empty);
-
 		userSet[2] = button::DragDrop(31, "바구니", 530, 400, 230, 230, Empty);
 		userSet[3] = button::DragDrop(31, "바구니", 690, 400, 230, 230, Empty);
 		userSet[4] = button::DragDrop(31, "바구니", 840, 400, 230, 230, Empty);
@@ -115,6 +116,7 @@ namespace PlaceFood
 					{
 						//놓기
 						userSet[i].nameTag = draggingButton->nameTag;
+						LoadData::soundManager->PlayMusic(Music::eSoundList::put, Music::eSoundChannel::Effect);
 						////바구니버튼에 이미지값을 전달하고 나서 재료는 클릭할수없도록 설정.
 						draggingButton->nameTag = -1;
 						draggingButton->canClick = false;

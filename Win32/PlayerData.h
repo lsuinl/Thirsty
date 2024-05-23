@@ -26,6 +26,7 @@ namespace PlayerData {
 			~Player();
 			//현재 스테이지 정보 가져오기
 			Types::Stage GetStage();
+			void SetStage(Types::Stage st);
 			//점수 초기화(스테이지 변경마다 실행)
 			void ResetScore();
 			//재료담기 점수 측정 + 재료 담기(재료 일치여부)
@@ -37,7 +38,7 @@ namespace PlayerData {
 			//성공실패여부
 			bool IsGameClear(int _stagenum);
 			bool IsTrueEnding();
-
+			
 			Types::Noodle GetNoodle(); //면썰기=면가져오기
 			std::vector<Types::Decoration> GetDecoation(); //고명얹기=고명가져오기
 			std::vector <Types::Soup> GetSoup(); //육수끓이기=육수재료가져오기

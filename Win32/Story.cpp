@@ -7,6 +7,7 @@ int curScript = 0;
 Figure figure;
 void SetStoryStage(int _stagenum)
 {
+	LoadData::soundManager->PlayMusic(Music::eSoundList::inside, Music::eSoundChannel::Effect);
 	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
@@ -21,10 +22,7 @@ void ChangeStoryScript(float delta)
 
 	if (curScript == maxScript)
 	{
-		LoadData::soundManager->SetVolume(0);
 		Screen::SetScreen();
-		LoadData::soundManager->PlayMusic(Music::eSoundList::moveani, Music::eSoundChannel::Effect);
-		LoadData::soundManager->SetVolume(1);
 	}
 }
 void DrawStoryBack(int _stagenum,float delta)
@@ -124,10 +122,8 @@ void DrawStoryBack(int _stagenum,float delta)
 		}
 	}
 	figure.DrawFigure(_stagenum);
-	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.98f);
+	LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 	PrintText(delta);
-
-
 
 }
 

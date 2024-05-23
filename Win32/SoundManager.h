@@ -12,6 +12,7 @@ namespace Music
     {
         BGM,
         Effect,
+        Effect1,
         Size
     };
 
@@ -23,6 +24,7 @@ namespace Music
         moveani,
         put,
         stock,
+        stockbgm,
         arrow,
         right,
         wrong,

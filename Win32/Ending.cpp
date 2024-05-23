@@ -74,8 +74,9 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
+
 			}
 			else if (curEndingScript == 1)
 			{
@@ -84,7 +85,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 1;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 
 			}
@@ -95,8 +96,11 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
+
 				PrintText(delta);
+
 			}
 			else if (curEndingScript == 1)
 			{
@@ -105,8 +109,10 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 1;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
+
 
 			}
 		}
@@ -115,7 +121,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
@@ -125,7 +131,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 4;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 
 			}
@@ -138,7 +144,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
@@ -148,7 +154,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 2;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 
 			}
@@ -160,7 +166,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
@@ -170,7 +176,8 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 2;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 
 			}
@@ -180,7 +187,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 			}
 			else if (curEndingScript == 1)
@@ -190,7 +197,7 @@ void DrawEndingBack(int _stagenum,float delta)
 			else
 			{
 				endFigure.expression = 2;
-				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
+				LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.95f);
 				PrintText(delta);
 
 			}
