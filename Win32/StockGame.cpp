@@ -14,11 +14,11 @@ void boxObject::DrawObj()
 {
     if (num == 1)
     {
-        LoadData::imageManager->DrawPngImage("싱거움", this->x,this->y,this->width,this->height,1.0f);
+        LoadData::imageManager->DrawPngImage("싱거움", this->x,this->y,80,520,1.0f);
     }
     else if (num == 2)
     {
-        LoadData::imageManager->DrawPngImage("짬", this->x, this->y, this->width, this->height, 1.0f);
+        LoadData::imageManager->DrawPngImage("짬", this->x, this->y, 80, 520, 1.0f);
     }
     else if (num == 3)
     {
@@ -66,7 +66,19 @@ void boxObject::DrawObj()
     }
     else if (num == 14)
     {
-        LoadData::imageManager->DrawPngImage("연기", this->x, this->y, this->width, this->height, 0.3f);
+        LoadData::imageManager->DrawPngImage("연기", this->x, this->y, this->width, this->height, 1.0f);
+    }
+    else if (num == 15)
+    {
+        LoadData::imageManager->DrawPngImage("싱거움2", this->x, this->y, this->width, this->height, 1.0f);
+    }
+    else if (num == 16)
+    {
+        LoadData::imageManager->DrawPngImage("짬글자", this->x, this->y, 38, 46, 1.0f);
+    }
+    else if (num == 17)
+    {
+        LoadData::imageManager->DrawPngImage("싱거움글자", this->x, this->y, 105, 45, 1.0f);
     }
 }
 
@@ -150,10 +162,15 @@ void StockGame::DrawProgressBar()
 {
   
     singerum.DrawObj();
-    zzzam.SetBox(119, 640, 63, (-(420 / 100) * salinity), 0, RGB(255, 0, 0), 2);
+
+    //63, (-(420 / 100) * salinity),
+    singerum2.SetBox(119, 200, 80, (((float)520 / (float)100) * (100 - salinity)), 0, RGB(251, 206, 177), 15);
     zzzam.DrawObj();
+    singerum2.DrawObj();
     bestline.DrawObj();
     bestword.DrawObj();
+    zzamword.DrawObj();
+    singerumword.DrawObj();
    
 }
 
@@ -162,6 +179,7 @@ StockGame::StockGame()
 }
 StockGame::~StockGame()
 {
+   
 }
 int StockGame::GetSalinity()
 {
@@ -193,12 +211,17 @@ void StockGame::SetGame(int stage)
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
     LoadData::soundManager->PlayMusic(Music::eSoundList::stockbgm, Music::eSoundChannel::BGM);
 
-    singerum.SetBox(100, 200, 170, 650, 0, RGB(251, 206, 177), 1);
+
+    zzamword.SetBox(138, 160, 80, 520, 0, RGB(255, 0, 0), 16);
+    singerumword.SetBox(115, 720, 80, 520, 0, RGB(255, 0, 0), 17);
+    zzzam.SetBox(119, 200, 80, 520, 0, RGB(255, 0, 0), 2);
+    singerum.SetBox(119, 200, 80, 520, 0, RGB(251, 206, 177), 1);
+
     soupdeco = PlayerData::player.GetSoup();
 
     for (int i = 0; i < 4; i++)
     {
-        garnishList[i].SetGarnish( i * 150+ 200, soupdeco[i]);
+        garnishList[i].SetGarnish( i * 150 +210, soupdeco[i]);
     }
     if (stage == 1)
     {
@@ -229,11 +252,8 @@ void StockGame::SetGame(int stage)
         redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 210, 90, 0.45, RGB(255, 0, 0), 4);
         yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 140, 70, 0.55, RGB(255, 255, 0), 5);
     }
-
-    bestline.SetBox(127, 650 - ((450 / 100) * targetSalinity), 43, 5, 0,RGB(0, 0, 0),6);
-    bestword.SetBox(200, (650 - ((450 / 100) * targetSalinity)) - 20,100, 50,0, RGB(0, 255, 0), 7);
-
-
+    bestline.SetBox(105, 720 - ((520 / 100) * targetSalinity) -40, 100, 50, 0, RGB(0, 0, 0), 6);
+    bestword.SetBox(200, (720 - ((520 / 100) * targetSalinity)  ) - 40, 154, 50, 0, RGB(0, 255, 0), 7);
 }
 void StockGame::UpdateYellowBox(float delta)
 {
@@ -290,7 +310,6 @@ void StockGame::UpdateGame(float delta)
     {
         UpdateSalinity(delta);
         UpdateRedBox(delta);
-
     }
     else
     {
@@ -307,9 +326,9 @@ void StockGame::RenderStockGame(float delta)
     DrawProgressBar();
     DrawBoxs();
     DrawPot(delta);
-    std::wstring time = L"남은 시간  " + std::to_wstring((int)(40 - curTime / 1000)) + L" 초";
+    std::wstring time = L"남은 시간  " + std::to_wstring((int)(30 - curTime / 1000)) + L" 초";
     render::DrawTextF(0, 0, time.c_str(), RGB(255, 255, 255), 50);
-    //DrawBasket();
+    DrawBasket();
 
     for (size_t i = 0; i < 4; i++)
     {
@@ -321,7 +340,7 @@ void StockGame::DrawBasket()
 {
     for (int i = 0; i < 5; i++)
     {
-        //LoadData::imageManager->DrawPngImage("바구니", 1485, 200 + (i * 150), 150, 100,  1.0f);
+        LoadData::imageManager->DrawPngImage("바구니", 1455, 170 + (i * 150), 330, 150, 1.0f, true);
     }
 }
 void StockGame::DrawPot(float delta)
@@ -346,7 +365,6 @@ void StockGame::DrawPot(float delta)
         pot.num = 9;
     }
     pot.DrawObj();
-    //brim.DrawObj();
 }
 int StockGame::GameScore()
 {
@@ -381,7 +399,7 @@ void StockGarnish::DrawGarnish()
     }
     else if (garnish_num == 4)
     {
-        LoadData::imageManager->DrawPngImage("쯔유", x, y, width, height, 1.0f);
+        LoadData::imageManager->DrawPngImage("누운쯔유", x, y-20, width, height, 1.0f);
     }
     else if (garnish_num == 6)
     {

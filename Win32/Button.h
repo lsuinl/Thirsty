@@ -39,6 +39,7 @@ namespace button {
         bool CheckDrag(int dx, int dy);
         void PlayFunction();
         void setPos(int dx, int dy);
+        void setYXPos(int n, int m);
         void setYPos(int n);
         void setSize(float w, float h);
         bool CheckRightClick(int x, int y);
@@ -51,6 +52,7 @@ namespace button {
         float getOriginWidth();
         float getOriginHeight();
         void DrawDeco();
+        void DrawPick();
     };
 
 }
