@@ -164,7 +164,7 @@ namespace LoadData
 		imageManager->LoadPngImages("썬청양고추", L"resource\\object\\decoration\\sungochu.bmp");
 		
 		
-		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.bmp");
+		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox1.bmp");
 
 		imageManager->LoadPngImages("아이기본", L"resource\\object\\figure\\boygibon.bmp");
 		imageManager->LoadPngImages("아이웃음", L"resource\\object\\figure\\boysmile.bmp");

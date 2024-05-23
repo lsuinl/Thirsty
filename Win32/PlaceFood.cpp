@@ -27,7 +27,7 @@ namespace PlaceFood
 	{
 		button::Button("위쪽버튼",1500,100, 100, 100, UpBasket),
 		button::Button("아래쪽버튼",1500, 900, 100, 100,DownBasket),
-		button::Button("완료버튼",1650, 50, 200, 100, Selected),
+		button::Button("완료버튼",1650, 950, 200, 70, Selected),
 	};
 	//배경 이미지 그리기
 	void PrintScreen()

@@ -9,7 +9,7 @@ namespace pause
     HDC hdcScreen;
 
     // 메뉴버튼
-    button::Button menuButton = { "메뉴", 1800, 30, 70, 70, Menu };
+    button::Button menuButton = { "메뉴", 1800, 30, 75, 70, Menu };
 
     // restart 버튼 생성
     button::Button restartButton = { "재시작버튼", 960, 500, 210, 65, ReStart };

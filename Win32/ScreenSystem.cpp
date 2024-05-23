@@ -31,7 +31,7 @@ namespace Screen
 	void ReStartScreen()
 	{
 		MoveScreen::SetMoveAni();
-		currentScreen = preScreen;
+		//currentScreen = preScreen;
 		currentScreen = MoveAniScreen;
 	}
 
@@ -116,7 +116,7 @@ namespace Screen
 			{
 				return;
 			}
-			if (mouse.left) {
+			if (mouse.left && (currentScreen != TitleScreen && currentScreen != EndingcreditScreen && currentScreen != StoryScreen && currentScreen != EndingScreen && currentScreen != TrueEndingScreen)) {
 				pause::IsMenuButton(mouse.x, mouse.y);
 			}
 		}
@@ -158,9 +158,9 @@ namespace Screen
 			{
 				pause::CaptureScreen();
 			}
-			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 200000 || input::IsKeyDown(13))
+			if (noodleSlice.isSuccess || noodleSlice.playTimer >= 220000 || input::IsKeyDown(13))
 			{
-				if (noodleSlice.playTimer >= 200000)
+				if (noodleSlice.playTimer >= 220000)
 				{
 					LoadData::soundManager->PlayMusic(Music::eSoundList::timemout, Music::eSoundChannel::Effect);
 				}
@@ -169,6 +169,7 @@ namespace Screen
 			}
 			break;
 		case Screen::PlaceFoodScreen:
+			Title::isEsc();
 			break;
 		case Screen::MoveAniScreen:
 			break;
@@ -210,6 +211,7 @@ namespace Screen
 			break;
 		case Screen::PlaceFoodScreen:
 			PlaceFood::PrintScreen();
+			pause::DrawMenuButton();
 			break;
 		case Screen::TitleScreen:
 			Title::TitleRender();
