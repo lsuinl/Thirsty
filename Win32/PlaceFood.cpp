@@ -37,15 +37,15 @@ namespace PlaceFood
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
 		if (PlayerData::player.GetNoodle() == 1)
 		{
-			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600,1.0f,true);//납작면
+			LoadData::imageManager->DrawPngImage("납작면우동", 450, 300, 850, 600,1.0f,true);//납작면
 		}
 		if (PlayerData::player.GetNoodle() == 2)
 		{
-			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600, 1.0f, true);//증면
+			LoadData::imageManager->DrawPngImage("중면우동", 450, 300, 850, 600, 1.0f, true);//증면
 		}
 		if (PlayerData::player.GetNoodle() == 3)
 		{
-			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600, 1.0f, true);//소면
+			LoadData::imageManager->DrawPngImage("소면우동", 450, 300, 850, 600, 1.0f, true);//소면
 		}
 		//바구니 그리기
 		for (int i = 0; i < 5; i++)

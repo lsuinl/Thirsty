@@ -220,14 +220,9 @@ void Decoudong::DrawDeco()
 	}
 	else if (deconum == 9)
 	{
-
-
 		LoadData::imageManager->DrawPngImage("Æ¢±è°¡·ç", this->posX, this->posY, 64, 42, 1.0f, true);
 	}
-	else if (deconum == 10)
-	{
-		LoadData::imageManager->DrawPngImage("½ã´ëÆÄ", this->posX, this->posY, 70, 55, 1.0f, true);
-	}
+
 	else if (deconum == 11)
 	{
 		LoadData::imageManager->DrawPngImage("Ç¥°í¹ö¼¸", this->posX, this->posY, 55, 54, 1.0f, true);
