@@ -56,7 +56,6 @@ namespace LoadData
 
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
 		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1080);
-		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
 
 		imageManager->LoadBitMapImages("스토리화면3", "resource/background/story/3.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
@@ -69,6 +68,8 @@ namespace LoadData
 		//imageManager->LoadPngImages("페이드", L"resource\\background\\fade2.bmp");
 		imageManager->LoadPngImages("일시정지", L"resource\\background\\pause.bmp");
 
+
+		imageManager->LoadPngImages("도마", L"resource\\object\\ddoma.png");
 		//면반죽
 		imageManager->LoadPngImages("면반죽", L"resource\\object\\noodleSlice\\noodle.bmp");
 		imageManager->LoadPngImages("납작면1", L"resource\\object\\noodleSlice\\flat1.bmp");
@@ -137,8 +138,9 @@ namespace LoadData
 		imageManager->LoadPngImages("소면", L"resource\\object\\noodle\\small.bmp");
 
 		imageManager->LoadPngImages("멸치", L"resource\\object\\soup\\maulchi.bmp");
-		imageManager->LoadPngImages("쯔유", L"resource\\object\\soup\\tzuyu.png");
-		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.bmp");
+		imageManager->LoadPngImages("쯔유", L"resource\\object\\soup\\tzuyu.bmp");
+		imageManager->LoadPngImages("누운쯔유", L"resource\\object\\soup\\lietzuyu.bmp");
+		imageManager->LoadPngImages("무", L"resource\\object\\soup\\mu.png");
 		imageManager->LoadPngImages("건다시마", L"resource\\object\\soup\\dasima.bmp");
 		imageManager->LoadPngImages("냄비", L"resource\\object\\soup\\pot.bmp");
 
@@ -161,7 +163,7 @@ namespace LoadData
 
 		imageManager->LoadPngImages("가쓰오부시", L"resource\\object\\decoration\\gathobusi.bmp");
 		imageManager->LoadPngImages("반달어묵", L"resource\\object\\decoration\\bandalmuk.bmp");
-		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.bmp");
+		imageManager->LoadPngImages("시치미", L"resource\\object\\decoration\\sichime.png");
 		imageManager->LoadPngImages("튀김가루", L"resource\\object\\decoration\\frygaru.bmp");
 		imageManager->LoadPngImages("대파", L"resource\\object\\decoration\\daepa.bmp");
 		imageManager->LoadPngImages("표고버섯", L"resource\\object\\decoration\\pyogo.bmp");

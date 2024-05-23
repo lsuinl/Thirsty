@@ -399,7 +399,7 @@ void StockGarnish::DrawGarnish()
     }
     else if (garnish_num == 4)
     {
-        LoadData::imageManager->DrawPngImage("ÂêÀ¯", x, y, width, height, 1.0f);
+        LoadData::imageManager->DrawPngImage("´©¿îÂêÀ¯", x, y-20, width, height, 1.0f);
     }
     else if (garnish_num == 6)
     {
