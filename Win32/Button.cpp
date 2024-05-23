@@ -103,6 +103,11 @@ namespace button {
     {
         this->y = originY - (n * 150);
     }
+    void DragDrop::setYXPos(int n,int m)
+    {
+        this->y -= n;
+        this->x -= m;
+    }
     void DragDrop::setSize(float w, float h)
     {
         this->originWidth = w;
@@ -134,7 +139,9 @@ namespace button {
         this->originY = y;
         this->onClickFunction = onClick;
         isDragging = false;
-        if (nameTag == 7)
+
+    
+        if (this->nameTag == 7)
         {
             this->name = "°¡¾²¿ÀºÎ½Ã";
             this->width = 22;
@@ -142,7 +149,7 @@ namespace button {
             this->originWidth = 22;
             this->originHeight = 22;
         }
-        else if (nameTag == 8)
+        else if (this->nameTag == 8)
         {
             this->name = "¹Ý´Þ¾î¹¬";
             this->width = 20;
@@ -150,7 +157,7 @@ namespace button {
             this->originWidth = 20;
             this->originHeight = 15;
         }
-        else if (nameTag == 9)
+        else if (this->nameTag == 9)
         {
             this->name = "Æ¢±è°¡·ç";
             this->width = 22;
@@ -158,7 +165,7 @@ namespace button {
             this->originWidth = 22;
             this->originHeight = 15;
         }
-        else if (nameTag == 11)
+        else if (this->nameTag == 11)
         {
             this->name = "Ç¥°í¹ö¼¸";
             this->width = 18;
@@ -166,7 +173,7 @@ namespace button {
             this->originWidth = 18;
             this->originHeight = 18;
         }
-        else if (nameTag == 12)
+        else if (this->nameTag == 12)
         {
             this->name = "Á÷È­°í±â";
             this->width = 25;
@@ -174,7 +181,7 @@ namespace button {
             this->originWidth = 25;
             this->originHeight = 15;
         }
-        else if (nameTag == 13)
+        else if (this->nameTag == 13)
         {
             this->name = "½ãÀ¯ºÎ";
             this->width = 20;
@@ -182,7 +189,7 @@ namespace button {
             this->originWidth = 20;
             this->originHeight = 20;
         }
-        else if (nameTag == 14)
+        else if (this->nameTag == 14)
         {
             this->name = "¾¦°«";
             this->width = 20;
@@ -191,7 +198,7 @@ namespace button {
             this->originHeight = 18;
 
         }
-        else if (nameTag == 15)
+        else if (this->nameTag == 15)
         {
             this->name = "½ã±è(±èÃ¤)";
             this->width = 20;
@@ -200,7 +207,7 @@ namespace button {
             this->originHeight = 15;
 
         }
-        else if (nameTag == 16)
+        else if (this->nameTag == 16)
         {
             this->name = "³³ÀÛ¾î¹¬";
             this->width = 25;
@@ -209,7 +216,7 @@ namespace button {
             this->originHeight = 12;
 
         }
-        else if (nameTag == 17)
+        else if (this->nameTag == 17)
         {
             this->name = "»õ¿ìÆ¢±è";
             this->width = 30;
@@ -218,7 +225,7 @@ namespace button {
             this->originHeight = 20; 
 
         }
-        else if (nameTag == 18)
+        else if (this->nameTag == 18)
         {
             this->name = "½ã´ëÆÄ";
             this->width = 20;
@@ -227,7 +234,7 @@ namespace button {
             this->originHeight = 10; 
 
         }
-        else if (nameTag == 19)
+        else if (this->nameTag == 19)
         {
             this->name = "½ãÃ»¾ç°íÃß";
             this->width = 12;
@@ -236,5 +243,6 @@ namespace button {
             this->originHeight = 12;
 
         }
+       
     }
 }

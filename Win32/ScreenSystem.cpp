@@ -111,6 +111,18 @@ namespace Screen
 	}
 
 	void InputKeyBoard() {
+		//0 = 해피엔딩
+		if (input::IsKey(48)) 
+		{
+			SetTrueEndingStage(true);
+			currentScreen = TrueEndingScreen;
+		}
+		//9 = 기본엔딩
+		if (input::IsKey(57))
+		{
+			SetTrueEndingStage(false);
+			currentScreen = TrueEndingScreen;
+		}
 		switch (currentScreen)
 		{
 		case Screen::ChooseFoodScreen:
@@ -262,7 +274,6 @@ namespace Screen
 					currentScreen = ChooseFoodScreen;
 					break;
 				case ChooseFoodScreen:
-					//PlayerData::player.GameClear(PlayerData::player.GetStage(), ���⸦ �������� �������� ���� bool������stock.IsStockClear());
 					noodleSlice.SetGame(PlayerData::player.GetStage(), PlayerData::player.GetNoodle());
 					currentScreen = NoodleSliceScreen;
 					break;

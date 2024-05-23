@@ -7,6 +7,7 @@ int curEndingScript = 0;
 bool success;
 Figure endFigure;
 Decoudong decoudong[9];
+Decoudong udong;
 void SetEndingStage(int _stagenum, bool _success,int* _decolist)
 {
 	maxEndingScript = 0;
@@ -14,9 +15,10 @@ void SetEndingStage(int _stagenum, bool _success,int* _decolist)
 	SetEndingScript(_stagenum, _success);
 	success = _success;
 	endFigure.expression = 0;
+	udong.udongnum = PlayerData::player.GetNoodle();
 	for (int i = 0; i < 2; i++) // 0부터 2까지 반복
 	{
-		decoudong[i].SetDecoudong(i * 70 + 820, 780);
+		decoudong[i].SetDecoudong(i * 70 + 820, 800);
 
 	}
 	for (int i = 0; i < 4; i++) // 0부터 2까지 반복
@@ -26,7 +28,7 @@ void SetEndingStage(int _stagenum, bool _success,int* _decolist)
 	}
 	for (int i = 0; i < 3; i++) // 0부터 2까지 반복
 	{
-		decoudong[i + 6].SetDecoudong(i * 70 + 820, 835);
+		decoudong[i + 6].SetDecoudong(i * 70 + 820, 825);
 
 	}
 
@@ -57,7 +59,7 @@ void DrawEndingBack(int _stagenum,float delta)
 	LoadData::imageManager->DrawPngImage("배경화면", 0, 0, 1920, 1080, 1.0f, false);
 	endFigure.DrawFigure(_stagenum);
 
-	LoadData::imageManager->DrawPngImage("기본우동", 740, 750, 300, 200, 1.0f, true);
+	udong.Drawudong();
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -70,7 +72,7 @@ void DrawEndingBack(int _stagenum,float delta)
 	{
 		if (_stagenum == 1)//일떄 스테이지1의 배경순차적으로
 		{
-			LoadData::imageManager->DrawPngImage("기본우동", 730, 750, 300, 200, 1.0f, true);
+
 			if (curEndingScript == 0)
 			{
 				endFigure.expression = 0;
@@ -220,10 +222,7 @@ void Decoudong::DrawDeco()
 	{
 		LoadData::imageManager->DrawPngImage("튀김가루", this->posX, this->posY, 64, 42, 1.0f, true);
 	}
-	else if (deconum == 10)
-	{
-		LoadData::imageManager->DrawPngImage("썬대파", this->posX, this->posY, 70, 55, 1.0f, true);
-	}
+
 	else if (deconum == 11)
 	{
 		LoadData::imageManager->DrawPngImage("표고버섯", this->posX, this->posY, 55, 54, 1.0f, true);
@@ -250,7 +249,7 @@ void Decoudong::DrawDeco()
 	}
 	else if (deconum == 17)
 	{
-		LoadData::imageManager->DrawPngImage("새우튀김", this->posX, this->posY, 100, 80, 1.0f, true);
+		LoadData::imageManager->DrawPngImage("새우튀김", this->posX, this->posY, 80, 60, 1.0f, true);
 	}
 	else if (deconum == 18)
 	{
@@ -271,4 +270,31 @@ void Decoudong::SetDecoudong(float x, float y)
 void Decoudong::SetDeco(int _num)
 {
 	this->deconum = _num;
+}
+
+void Decoudong::Setudong(float x, float y, int _num)
+{
+	this->posX = x;
+	this->posY = y;
+	this->udongnum = _num;
+}
+
+void Decoudong::Drawudong()
+{
+	if (udongnum == 1)
+	{
+		LoadData::imageManager->DrawPngImage("납작면우동", 740, 750, 300, 200, 1.0f, true);
+	}
+	else if(udongnum == 2)
+	{
+		LoadData::imageManager->DrawPngImage("중면우동", 740, 750, 300, 200, 1.0f, true);
+	}
+	else if(udongnum == 3)
+	{
+		LoadData::imageManager->DrawPngImage("소면우동", 740, 750, 300, 200, 1.0f, true);
+	}
+	else
+	{
+		LoadData::imageManager->DrawPngImage("소면우동", 740, 750, 300, 200, 1.0f, true);
+	}
 }

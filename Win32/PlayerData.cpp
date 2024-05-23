@@ -42,6 +42,9 @@ namespace PlayerData {
 	}
 	void Player::ResetScore()
 	{
+		
+		soup.clear();
+		decoration.clear();
 		//다음 스테이지로 넘어갑니다.
 		switch (stage)
 		{
