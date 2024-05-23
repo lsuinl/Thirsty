@@ -3,7 +3,7 @@
 #include "InputSystem.h"
 #include "TextList.h"
 #include "LoadData.h"
-float printTime = 10;
+float printTime = 3;
 
 TextList* textList1 = TextList::GetInstance();
 int curChar;     //복사해서 출력한 문자길이
@@ -276,6 +276,7 @@ void SkipText(float delta)
 		wchar_t* token;
 		if (curChar == maxChar)
 		{
+			LoadData::soundManager->PlayMusic(Music::eSoundList::typeing, Music::eSoundChannel::Effect);
 			curPage++;
 			curChar = 0;
 		}
@@ -284,6 +285,8 @@ void SkipText(float delta)
 
 void UpdateText()
 {
+	if(curChar==maxChar)
+		LoadData::soundManager->StopMusic(Music::eSoundChannel::Effect);
 	maxChar = wcslen(str2[curPage]);
 	wcsncpy_s(str3[curPage], str2[curPage], curChar + 7);
 }
