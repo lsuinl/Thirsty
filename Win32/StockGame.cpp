@@ -252,8 +252,8 @@ void StockGame::SetGame(int stage)
         redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y - 10, 210, 90, 0.45, RGB(255, 0, 0), 4);
         yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 140, 70, 0.55, RGB(255, 255, 0), 5);
     }
-    bestline.SetBox(105, 720 - ((520 / 100) * targetSalinity), 100, 50, 0, RGB(0, 0, 0), 6);
-    bestword.SetBox(200, (720 - ((520 / 100) * targetSalinity) + 20) - 20, 154, 50, 0, RGB(0, 255, 0), 7);
+    bestline.SetBox(105, 720 - ((520 / 100) * targetSalinity) -40, 100, 50, 0, RGB(0, 0, 0), 6);
+    bestword.SetBox(200, (720 - ((520 / 100) * targetSalinity)  ) - 40, 154, 50, 0, RGB(0, 255, 0), 7);
 }
 void StockGame::UpdateYellowBox(float delta)
 {

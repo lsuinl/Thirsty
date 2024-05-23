@@ -139,6 +139,8 @@ namespace button {
         this->originY = y;
         this->onClickFunction = onClick;
         isDragging = false;
+
+    
         if (this->nameTag == 7)
         {
             this->name = "가쓰오부시";
@@ -241,5 +243,6 @@ namespace button {
             this->originHeight = 12;
 
         }
+       
     }
 }

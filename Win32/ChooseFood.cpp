@@ -67,8 +67,20 @@ namespace ChooseFood
 		noodleInBasket[0] = button::DragDrop(Types::Basket::BASKET, "바구니", 1555, 190, 2, 2, basketfunction);
 		for (int i = 0; i < 4; i++)
 			soupInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1550, 185 + (i * 150), 2, 2, basketfunction);
-		for (int i = 0; i < 8; i++)
-			decorationInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1560, 200 + (i * 150), 2, 2, basketfunction);
+        for (int i = 0; i < 8; i++)
+            decorationInBasket[i] = button::DragDrop(Types::Basket::BASKET, "바구니", 1560, 200 + (i * 150), 2, 2, basketfunction);
+
+        for (int i = 0; i < 4; i++)
+        {
+            soupInBasket[i].nameTag = 31;
+        }
+        for (int i = 0; i < 8; i++)
+        {
+
+            decorationInBasket[i].nameTag = 31;
+        }
+        
+
 	}
 	//배경 이미지 그리기
 	void ChooseScreen()
@@ -426,7 +438,7 @@ namespace ChooseFood
                     soupInBasket[i].setSize(2, 3.5);
                     soupInBasket[i].name = "쯔유";
                 }
-                if (soupInBasket[i].nameTag == 6)
+                else if (soupInBasket[i].nameTag == 6)
                 {
                     soupInBasket[i].SetImage(50, 50);
                     soupInBasket[i].DrawButton();
@@ -539,6 +551,9 @@ namespace ChooseFood
 		}
 		PlayerData::player.SetChooseFood(noodle, decoration, soup);
 
+        
+    
+        
         screenIndex = 0;
         basketIndex = 0;
         soupBNum = 0; // 육수바구니 인덱스

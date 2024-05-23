@@ -59,6 +59,7 @@ namespace PlaceFood
 			buttonList[i].DrawButton();
 		}
 
+	
 		PlaceFoodScreen();
 	}
 	//우동위에 좌표버튼 생성.
@@ -75,13 +76,29 @@ namespace PlaceFood
 
 		userSet[6] = button::DragDrop(31, "바구니", 680, 490, 230, 230, Empty);
 		userSet[7] = button::DragDrop(31, "바구니", 880, 490, 230, 230, Empty);
-
 		a = PlayerData::player.GetDecoation();
 		
-		for (int i = 0; i < a.size(); i++)
+		for (int i = 0; i < 8; i++)
 		{
-			userPickDeco[i] = button::DragDrop((int)a[i], 1555, 180 + (i * 150), Test);
+			if (a.size() > i)
+			{
+				userPickDeco[i] = button::DragDrop((int)a[i], 1555, 180 + (i * 150), Test);
+			}
+			else
+			{
+				userPickDeco[i].isShowing=false;
+				userPickDeco[i].canClick = false;
+			}
 		}
+		
+		
+
+		for (int i = 0; i < 8; i++)
+		{
+			decoList[i] = 0;
+		}
+		
+
 	}
 	void CheckButton(int dx, int dy)
 	{
