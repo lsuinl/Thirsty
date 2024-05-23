@@ -6,6 +6,7 @@
 #include "Animator.h"
 #include "ScreenSystem.h"
 #include "LoadData.h"
+#include <vector>
 
 //두 오브젝트 충돌검사
 int k = 0;
@@ -81,8 +82,6 @@ bool StockGame::isCollide(boxObject obj1, boxObject obj2)
     return false;
 }
 
-
-
 //노란상자가 70퍼센트이상 속했는지 확인
 bool StockGame::Overlab(boxObject obj1, boxObject obj2)
 {
@@ -151,6 +150,7 @@ void StockGame::DrawProgressBar()
 {
   
     singerum.DrawObj();
+    zzzam.SetBox(119, 640, 63, (-(420 / 100) * salinity), 0, RGB(255, 0, 0), 2);
     zzzam.DrawObj();
     bestline.DrawObj();
     bestword.DrawObj();
@@ -191,8 +191,13 @@ void StockGame::DrawBoxs()
 void StockGame::SetGame(int stage)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
-    singerum.SetBox(100, 200, 100, 500, 0, RGB(251, 206, 177), 1);
-    zzzam.SetBox(110, 650, 80, (-((450 / 100) * salinity)), 0, RGB(255, 0, 0), 2);
+    singerum.SetBox(100, 200, 170, 650, 0, RGB(251, 206, 177), 1);
+    soupdeco = PlayerData::player.GetSoup();
+
+    for (int i = 0; i < 4; i++)
+    {
+        garnishList[i].SetGarnish( i * 150+ 200, soupdeco[i]);
+    }
     if (stage == 1)
     {
         isTimeOver = false;
@@ -200,13 +205,9 @@ void StockGame::SetGame(int stage)
         salinity = 50;
         targetSalinity = 30; //시나리오에따라 값수정필요 25 35  20 40
         redBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y -10, 360, 90, 0.4, RGB(255, 0, 0), 4);
-
         yellowBox.SetBox(blackBox.x + blackBox.width / 2, blackBox.y, 260, 70, 0.5, RGB(255, 255, 0), 5);
 
-        for (int i = 0; i < 4; i++)
-        {
-            garnishList[i].SetGarnish(200 + (i * 150), i + 1);
-        }
+       
     }
     else if (stage == 2)
     {
@@ -246,7 +247,7 @@ void StockGame::UpdateYellowBox(float delta)
         }
     }
 
-    if(input::IsKey(16))
+    if(input::IsKey(13))
     {
         salinity = targetSalinity;
         isTimeOver = true;
@@ -257,7 +258,6 @@ void StockGame::UpdateYellowBox(float delta)
 
 void StockGame::UpdateRedBox(float delta)
 {
-    zzzam.SetBox(110, 650, 80, (-((450 / 100) * salinity)), 0, RGB(255, 0, 0), 2);
     srand(time(NULL));
     static int ranDir = 0;
     static ULONGLONG elapsedTime;
@@ -329,7 +329,6 @@ void StockGame::DrawPot(float delta)
     static ULONGLONG elapsedTime;
     elapsedTime += delta;
     float drawtime = 100.0f;
-    //일단 배경그리는걸로 냄비그림 수정필요 //냄비 끓는듯한 애니메이션 필요
     if ((Overlab(yellowBox, redBox) == true))
     {
         if (elapsedTime >= drawtime)
@@ -345,7 +344,7 @@ void StockGame::DrawPot(float delta)
         pot.num = 9;
     }
     pot.DrawObj();
-    brim.DrawObj();
+    //brim.DrawObj();
 }
 int StockGame::GameScore()
 {
@@ -374,19 +373,19 @@ void StockGarnish::SetGarnish(float y, int garnish_num)
 
 void StockGarnish::DrawGarnish()
 {
-    if (garnish_num == 1)
+    if (garnish_num == 3)
     {
         LoadData::imageManager->DrawPngImage("멸치", x, y, width, height, 1.0f);
     }
-    else if (garnish_num == 2)
+    else if (garnish_num == 4)
     {
         LoadData::imageManager->DrawPngImage("쯔유", x, y, width, height, 1.0f);
     }
-    else if (garnish_num == 3)
+    else if (garnish_num == 6)
     {
         LoadData::imageManager->DrawPngImage("무", x, y, width, height, 1.0f);
     }
-    else if (garnish_num == 4)
+    else if (garnish_num == 5)
     {
         LoadData::imageManager->DrawPngImage("건다시마", x, y, width, height, 1.0f);
     }

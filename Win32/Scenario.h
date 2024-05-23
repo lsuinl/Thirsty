@@ -33,7 +33,7 @@ void SkipText(float delta);
 void UpdateText();
 
 //텍스트 출력
-void PrintText();
+void PrintText(float delta);
 
 void PrintTextEnd();
 

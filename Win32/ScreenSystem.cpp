@@ -192,10 +192,10 @@ namespace Screen
 				Title::TitleRender();
 				break;
 			case Screen::StoryScreen:
-				DrawStoryBack(PlayerData::player.GetStage());
+				DrawStoryBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::EndingScreen:
-				DrawEndingBack(PlayerData::player.GetStage());
+				DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 				break;
 			case Screen::TrueEndingScreen:
 				DrawTrueEndingBack(TimeSystem::GetDeltaTime());
@@ -258,7 +258,7 @@ namespace Screen
 					currentScreen = PlaceFoodScreen;
 					break;
 				case PlaceFoodScreen:
-					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()));
+					SetEndingStage(PlayerData::player.GetStage(), PlayerData::player.IsGameClear(PlayerData::player.GetStage()),PlaceFood::GetDeco());
 					currentScreen = EndingScreen;
 					break;
 				case EndingScreen:
@@ -307,10 +307,10 @@ namespace Screen
 			Title::TitleRender();
 			break;
 		case Screen::StoryScreen:
-			DrawStoryBack(PlayerData::player.GetStage());
+			DrawStoryBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 			break;
 		case Screen::EndingScreen:
-			DrawEndingBack(PlayerData::player.GetStage());
+			DrawEndingBack(PlayerData::player.GetStage(), TimeSystem::GetDeltaTime());
 			break;
 		case Screen::TrueEndingScreen:
 			DrawTrueEndingBack(TimeSystem::GetDeltaTime());

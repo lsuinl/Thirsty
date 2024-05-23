@@ -56,8 +56,8 @@ namespace LoadData
 		imageManager->LoadBitMapImages("스토리화면4", "resource/background/story/4.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("스토리화면5", "resource/background/story/5.bmp", 1920, 1080);
 		imageManager->LoadBitMapImages("일시정지", "resource/background/pause.bmp", 1000, 1000);
-		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1935, 1080);
-		imageManager->LoadBitMapImages("도마", "resource/object/doma.bmp", 1300, 900);
+		imageManager->LoadBitMapImages("미니게임", "resource/background/minigame.bmp", 1920, 1080);
+		imageManager->LoadBitMapImages("도마", "resource/background/minigame.bmp", 1300, 900);
 		imageManager->LoadBitMapImages("엔딩크레딧", "resource/background/endingcredit.bmp", 1920, 1080);
 
 		imageManager->LoadPngImages("페이드", L"resource\\background\\fade.bmp");
@@ -92,11 +92,10 @@ namespace LoadData
 		imageManager->LoadPngImages("시작버튼", L"resource\\object\\start1.bmp");
 		imageManager->LoadPngImages("시작화면", L"resource\\background\\title.png");
 		imageManager->LoadPngImages("튜토리얼버튼", L"resource\\object\\tutorial1.bmp");
-		imageManager->LoadPngImages("제목", L"resource\\object\\logo.bmp");
+		imageManager->LoadPngImages("제목", L"resource\\object\\Logo.bmp");
 		imageManager->LoadPngImages("규칙", L"resource\\object\\rule.png");
 		imageManager->LoadPngImages("짱", L"resource\\object\\best.bmp");
 		imageManager->LoadPngImages("바구니", L"resource\\object\\basket.bmp");
-		imageManager->LoadPngImages("재료담는바구니", L"resource\\object\\baguni.bmp");
 		imageManager->LoadPngImages("새우", L"resource\\object\\Prriceshrimp.bmp");
 		imageManager->LoadPngImages("재시작버튼", L"resource\\object\\restart.bmp");
 		imageManager->LoadPngImages("타이틀버튼", L"resource\\object\\title.bmp");
@@ -117,7 +116,7 @@ namespace LoadData
 		imageManager->LoadPngImages("오른쪽버튼", L"resource\\object\\rightPage.bmp");
 		imageManager->LoadPngImages("위쪽버튼", L"resource\\object\\upPage.bmp");
 		imageManager->LoadPngImages("아래쪽버튼", L"resource\\object\\downPage.bmp");
-		imageManager->LoadPngImages("완료버튼", L"resource\\object\\complete.bmp");
+		imageManager->LoadPngImages("완료버튼", L"resource\\object\\clear.bmp");
 
 		imageManager->LoadPngImages("납작면", L"resource\\object\\noodle\\flat.bmp");
 		imageManager->LoadPngImages("기본면", L"resource\\object\\noodle\\middle.bmp");
@@ -162,11 +161,13 @@ namespace LoadData
 		
 		
 		imageManager->LoadPngImages("텍스트박스", L"resource\\object\\figure\\textbox.bmp");
+		imageManager->LoadPngImages("엔터상자", L"resource\\object\\figure\\entertext.bmp");
 
 		imageManager->LoadPngImages("아이기본", L"resource\\object\\figure\\boygibon.bmp");
 		imageManager->LoadPngImages("아이웃음", L"resource\\object\\figure\\boysmile.bmp");
-		imageManager->LoadPngImages("아이화남", L"resource\\object\\figure\\boyangre.bmp");
+		imageManager->LoadPngImages("아이화남", L"resource\\object\\figure\\boyangry.bmp");
 		imageManager->LoadPngImages("아이우동", L"resource\\object\\figure\\boyudong.bmp");
+
 		imageManager->LoadPngImages("고삼기본", L"resource\\object\\figure\\girlgibon.bmp");
 		imageManager->LoadPngImages("고삼웃음", L"resource\\object\\figure\\girlsmile.bmp");
 		imageManager->LoadPngImages("고삼화남", L"resource\\object\\figure\\girlangry.bmp");

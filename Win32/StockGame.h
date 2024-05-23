@@ -3,6 +3,8 @@
 #include "RenderSystem.h"
 #include "InputSystem.h"
 #include "Button.h"
+#include "Types.h"
+#include <vector>
 struct boxObject
 {
     float x;
@@ -21,7 +23,7 @@ struct boxObject
     }
     void MoveRight(float speed, float delta)
     {
-        if (this->x + this->width<= 1740)
+        if (this->x + this->width  <= 1635 )
         {
             this->x += speed * delta;
         }
@@ -29,7 +31,7 @@ struct boxObject
 
     void MoveLeft(float speed, float delta)
     {
-        if (this->x >= 200)
+        if (this->x  >= 280 )
         {
             this->x += speed * -1 * delta;
         }
@@ -73,11 +75,12 @@ private:
     float redBoxSpeed = 0.6;
     float yelloBoxSpeed = 0.7;
     float renewalTime = 80.0f;  //옆에 그래프바가 차오르는 속도 낮을수록 빨리참 아마 
-
+    std::vector<Types::Soup> soupdeco;
+            
 public:
     StockGame();
     ~StockGame();
-    boxObject blackBox = { 200 ,900, 1540, 70, 0, RGB(0, 0, 0), 3 };
+    boxObject blackBox = { 260 ,900, 1400, 70, 0, RGB(0, 0, 0), 3 };
     boxObject redBox;
     boxObject yellowBox;
     boxObject pot = { 550,150, 700,700, 0, RGB(0,0,0), 8 };

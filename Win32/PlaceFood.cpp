@@ -16,6 +16,7 @@ namespace PlaceFood
 	//재료 선택에서 뽑힌 고명들을 옮겨받는다.
 	std::vector <Types::Decoration> a;
 	button::DragDrop userPickDeco[8];  
+	int decoList[8];
 
 	//우동위에 올려지는 고명들을 저장할 배열.
 	button::DragDrop userSet[8];
@@ -186,4 +187,16 @@ namespace PlaceFood
 	}
 	void Empty(){}
 
+
+	int* GetDeco()
+	{
+
+		for (size_t i = 0; i < 8; i++)
+		{
+			decoList[i] = userSet[i].nameTag;
+		}
+
+		return decoList;
+	}
+	
 }

@@ -26,7 +26,7 @@ void DrawTrueEndingBack(float delta)
 		{
 			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
 			LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-			PrintText();
+			PrintText(delta);
 
 		}
 		else if (curTrueEndingScript > 7 && curTrueEndingScript < maxTrueEndingScript)
@@ -49,7 +49,7 @@ void DrawTrueEndingBack(float delta)
 		{
 			LoadData::imageManager->DrawBitMapImage("타이틀화면", 0, 0);
 			LoadData::imageManager->DrawPngImage("텍스트박스", 284, 750, 1366, 300, 0.8f);
-			PrintText();
+			PrintText(delta);
 
 		}
 		else if (curTrueEndingScript > 3 && curTrueEndingScript < maxTrueEndingScript)
