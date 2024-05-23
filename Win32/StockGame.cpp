@@ -221,7 +221,7 @@ void StockGame::SetGame(int stage)
 
     for (int i = 0; i < 4; i++)
     {
-        garnishList[i].SetGarnish( i * 150+ 200, soupdeco[i]);
+        garnishList[i].SetGarnish( i * 150 +210, soupdeco[i]);
     }
     if (stage == 1)
     {

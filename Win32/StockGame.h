@@ -52,7 +52,7 @@ struct boxObject
 };
 struct StockGarnish  //고명 그려진거
 {
-    float x = 1485;
+    float x = 1535;
     float y = 200;
     float width = 150;
     float height = 100;
