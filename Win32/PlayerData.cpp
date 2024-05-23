@@ -1,7 +1,27 @@
 #include "PlayerData.h"
 
 namespace PlayerData {
+
 	Player player = Player();
+	
+	FoodStage FoodStage1 = {
+		Types::Noodle::FLAT,
+		{Types::Decoration::SHRIMP,Types::Decoration::FRYGARU,Types::Decoration::FLATAMUK,Types::Decoration::DAEPA},
+		{Types::Soup::MAULCHI,Types::Soup::DASIMA},
+	};
+
+	FoodStage FoodStage2 = {
+	Types::Noodle::SMALL,
+	{Types::Decoration::DAEPA,Types::Decoration::YUBU,Types::Decoration::SUKK,Types::Decoration::SICHIME,Types::Decoration::CHOUNGYANGGOCHU,Types::Decoration::SUNKIM},
+	{Types::Soup::MU,Types::Soup::MAULCHI,Types::Soup::DASIMA},
+	};
+
+	FoodStage FoodStage3 = {
+	Types::Noodle::MIDDLE,
+	{Types::Decoration::DAEPA,Types::Decoration::SUKK,Types::Decoration::PYOGO,Types::Decoration::FIREMEET,Types::Decoration::BANDALAMUK,Types::Decoration::YUBU,Types::Decoration::GATHOBUSI},
+	{Types::Soup::MU,Types::Soup::MAULCHI,Types::Soup::DASIMA,Types::Soup::TZUYU}
+	};
+
 	Player::Player()
 	{
 		stage = Types::STAGE1;
@@ -19,11 +39,6 @@ namespace PlayerData {
 
 	void Player::ResetScore()
 	{
-		sum = 0;
-		stock = 0;
-		noodleSlice = 0;
-		chooseFood = 0;
-		//isClearStage = false;
 		//다음 스테이지로 넘어갑니다.
 		switch (stage)
 		{
@@ -34,43 +49,119 @@ namespace PlayerData {
 			stage = Types::STAGE3;
 			break;
 		case Types::STAGE3:       //일단 스테이지3끝나면 1로보내는 무한순환 타이틀로 보내야함 
-			stage = Types::STAGE4;
-			break;
-		case Types::STAGE4:         //최종엔딩 기본엔딩 //진엔딩 분기있음
-			stage = Types::STAGE1;
+			stage = Types::STAGE1;             
 			break;
 		default:
 			break;
 		}
-
 	}
 
 
 	void Player::SetChooseFood(Types::Noodle noodle, std::vector <Types::Decoration> decoration, std::vector <Types::Soup> soup)
 	{
+		bool check = true;
 		this->noodle = noodle;
 		this->decoration = decoration;
 		this->soup = soup;
-		//개수만큼 반복문 돌리며 일치율 확인하고 맞으면 +
-		chooseFood += 1;
+		
+		if (stage == 1) 
+		{
+			if (FoodStage1.noodle != noodle) check = false;
+			for (int i = 0; i < FoodStage1.decoration.size(); i++)
+			{
+				Types::Decoration de = FoodStage1.decoration[i];
+				for (int j = 0; j < decoration.size(); j++)
+				{
+					if (decoration[j] == de) {
+						break;
+					}
+					if (j == decoration.size() - 1) check = false;
+				}
+			}
+			for (int i = 0; i < FoodStage1.soup.size(); i++)
+			{
+				Types::Soup so = FoodStage1.soup[i];
+				for (int j = 0; j < soup.size(); j++)
+				{
+					if (soup[j] == so) {
+						break;
+					}
+					if (j == soup.size() - 1) check = false;
+				}
+			}
+		}
+		else if(stage == 2) 
+		{
+			if (FoodStage2.noodle != noodle) check = false;
+			for (int i = 0; i < FoodStage2.decoration.size(); i++)
+			{
+				Types::Decoration de = FoodStage2.decoration[i];
+				for (int j = 0; j < decoration.size(); j++)
+				{
+					if (decoration[j] == de) {
+						break;
+					}
+					if (j == decoration.size() - 1) check = false;
+				}
+			}
+			for (int i = 0; i < FoodStage2.soup.size(); i++)
+			{
+				Types::Soup so = FoodStage2.soup[i];
+				for (int j = 0; j < soup.size(); j++)
+				{
+					if (soup[j] == so) {
+						break;
+					}
+					if (j == soup.size() - 1) check = false;
+				}
+			}
+		}
+		else 
+		{
+			if (FoodStage3.noodle != noodle) check = false;
+			for (int i = 0; i < FoodStage3.decoration.size(); i++)
+			{
+				Types::Decoration de = FoodStage3.decoration[i];
+				for (int j = 0; j < decoration.size(); j++)
+				{
+					if (decoration[j] == de) {
+						break;
+					}
+					if (j == decoration.size() - 1) check = false;
+				}
+			}
+			for (int i = 0; i < FoodStage3.soup.size(); i++)
+			{
+				Types::Soup so = FoodStage3.soup[i];
+				for (int j = 0; j < soup.size(); j++)
+				{
+					if (soup[j] == so) {
+						break;
+					}
+					if (j == soup.size() - 1) check = false;
+				}
+			}
+		}
+		MiniGameClear(check);
 	}
 
-	void Player::SetNoodleSlice(int second, bool clear)
+	void Player::MiniGameClear(bool clear)
 	{
-		noodleSlice = clear - second;
-	}
-
-	void Player::Setstock(int percent)
-	{
-		stock = percent;
-	}
-
-	int Player::GetSumScore()
-	{
-		return sum;
+		if (this->stage==1 && stageClear1)
+		{
+			stageClear1 = clear;
+		}
+		else if (this->stage == 2&& stageClear2)
+		{
+			stageClear2 = clear;
+		}
+		else if(stageClear3)
+		{
+			stageClear3 = clear;
+		}
 	}
 	Types::Noodle Player::GetNoodle()
-	{ 
+	{
 		return noodle;
 	}
 	
@@ -84,40 +175,26 @@ namespace PlayerData {
 		return soup;
 	}
 
-	void Player::GameClear(int _stagenum, bool success)
-	{
-		if (_stagenum == 1 && isClear1Stage)
-		{
-			isClear1Stage = success;
-		}
-		else if (_stagenum == 2 && isClear2Stage)
-		{
-			isClear2Stage = success;
-		}
-		else if (_stagenum == 3 && isClear3Stage)
-		{
-			isClear3Stage = success;
-		}
-	}
-
 	bool Player::IsGameClear(int _stagenum)
 	{
 		if (_stagenum == 1)
 		{
-			return isClear1Stage;
+			return stageClear1;
 		}
 		if (_stagenum == 2)
 		{
-			return isClear2Stage;
+			return stageClear2;
 		}
 		if (_stagenum == 3)
 		{
-			return isClear3Stage;
+			return stageClear3;
 		}
+
 	}
+
 	bool Player::IsTrueEnding()
 	{
-		return isClear1Stage == true && isClear2Stage == true && isClear3Stage == true;
+		return stageClear1 == true && stageClear2 == true && stageClear3 == true;
 	}
 
 }
