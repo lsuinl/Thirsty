@@ -14,8 +14,9 @@ namespace PlaceFood
 {
 	int basketIndex = 0;
 	//재료 선택에서 뽑힌 고명들을 옮겨받는다.
+	Types::Noodle noo;
 	std::vector <Types::Decoration> a;
-	button::DragDrop userPickDeco[8];  
+	button::DragDrop userPickDeco[8]; 
 
 	//우동위에 올려지는 고명들을 저장할 배열.
 	button::DragDrop userSet[8];
@@ -34,11 +35,22 @@ namespace PlaceFood
 	{
 		//배경그리기
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
-		render::DrawObject(L"resource\\object\\decoration\\udong.bmp", 850, 600, 450, 300, true);
+		if (PlayerData::player.GetNoodle() == 1)
+		{
+			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600,1.0f,true);//납작면
+		}
+		if (PlayerData::player.GetNoodle() == 2)
+		{
+			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600, 1.0f, true);//증면
+		}
+		if (PlayerData::player.GetNoodle() == 3)
+		{
+			LoadData::imageManager->DrawPngImage("기본우동", 450, 300, 850, 600, 1.0f, true);//소면
+		}
 		//바구니 그리기
 		for (int i = 0; i < 5; i++)
 		{
-			render::DrawObject(L"resource\\object\\basket.bmp", 330, 150, 1455, 170 + (i * 150), true);
+			LoadData::imageManager->DrawPngImage("바구니", 1455, 170 + (i * 150), 330, 150,1.0f,true);
 		}
 		//바구니 버튼 그리기
 		for (int i = 0; i < 3; i++)
@@ -64,9 +76,10 @@ namespace PlaceFood
 		userSet[7] = button::DragDrop(31, "바구니", 880, 490, 230, 230, Empty);
 
 		a = PlayerData::player.GetDecoation();
-		for (int i = 0; i < 8; i++)
+		
+		for (int i = 0; i < a.size(); i++)
 		{
-			userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 180 + (i * 150), 120, 120, Test);
+			userPickDeco[i] = button::DragDrop((int)a[i], 1555, 180 + (i * 150), Test);
 		}
 	}
 	void CheckButton(int dx, int dy)
@@ -114,8 +127,12 @@ namespace PlaceFood
 					{
 						//놓기
 						userSet[i].nameTag = draggingButton->nameTag;
+						userSet[i].name = draggingButton->name;
+						userSet[i].setSize(draggingButton->getOriginWidth(), draggingButton->getOriginHeight());
+
 						////바구니버튼에 이미지값을 전달하고 나서 재료는 클릭할수없도록 설정.
 						draggingButton->nameTag = -1;
+						draggingButton->isShowing = false;
 						draggingButton->canClick = false;
 						break;
 					}
@@ -126,8 +143,7 @@ namespace PlaceFood
 				if (draggingButton->canClick != false)
 				{
 					draggingButton->setPos(draggingButton->getOriginX(), draggingButton->getOriginY());
-					draggingButton->width = 100;
-					draggingButton->height = 100;
+					draggingButton->SetImage(5, 5);
 				}
 				draggingButton->isDragging = false;
 				draggingButton = nullptr;
@@ -146,14 +162,17 @@ namespace PlaceFood
 			{
 				userPickDeco[i].setYPos(basketIndex);
 			}
-			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900)
+			if (userPickDeco[i].getYPos() > 100 && userPickDeco[i].getYPos() < 900&& userPickDeco[i].isShowing)
 			{
-				userPickDeco[i].DrawDeco();
+				userPickDeco[i].SetImage(5, 5);
+				userPickDeco[i].DrawButton();
 			}
+
 			//유저가 우동위에올리는 고명 랜더
-			if (userSet[i].nameTag != 31)
+			if (userSet[i].nameTag != 31&& (userSet[i].isShowing ))
 			{
-				userSet[i].DrawDeco();
+				userPickDeco[i].SetImage(10, 10);
+				userSet[i].DrawButton();
 			}
 		}
 
@@ -167,7 +186,7 @@ namespace PlaceFood
 			int yPos = mouse.y - 50;
 			if (input::GetMouseState().isDragging)
 			{
-				draggingButton->setSize(150, 150);
+				draggingButton->SetImage(7, 7);
 				draggingButton->setPos(xPos, yPos);
 			}
 		}

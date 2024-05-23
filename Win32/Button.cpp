@@ -48,29 +48,28 @@ namespace button {
         return false;
     }
 
-    void DragDrop::Reset()
+    void DragDrop::SetImage(int _width, int _height)
     {
-        // DragDrop °´Ã¼¸¦ ÃÊ±â »óÅÂ·Î Àç¼³Á¤
-        this->name = "¹Ù±¸´Ï";
-        this->setPos(this->originX, this->originY);
-        this->width = 150;
-        this->height = 100;
-        this->isDragging = false;
+        this->width = originWidth * _width;
+        this->height = originHeight * _height;
     }
 
-    DragDrop::DragDrop(int nameTag, const char* name, int x, int y, int width, int height, std::function<void()> onClick)
+    DragDrop::DragDrop(int nameTag, const char* name, int x, int y, float width, float height, std::function<void()> onClick)
     {
         this->nameTag = nameTag;
         this->name = name;
         this->x = x;
         this->y = y;
-        this->width = width;
-        this->height = height;
-        this->onClickFunction = onClick;
         this->originX = x;
         this->originY = y;
+        this->width = width;
+        this->height = height;       
+        this->originWidth = width;
+        this->originHeight = height;
+        this->onClickFunction = onClick;
         isDragging = false;
     }
+
     void DragDrop::DrawButton()
     {
         LoadData::imageManager->DrawPngImage(name, x, y, width, height, 1.0f);
@@ -97,10 +96,10 @@ namespace button {
     {
         this->y = originY - (n * 150);
     }
-    void DragDrop::setSize(int w, int h)
+    void DragDrop::setSize(float w, float h)
     {
-        this->width = w;
-        this->height = h;
+        this->originWidth = w;
+        this->originHeight = h;
     }
 
     bool DragDrop::CheckClick(int dx, int dy)
@@ -116,66 +115,119 @@ namespace button {
     const int DragDrop::getYPos() { return this->y; }
     const int DragDrop::getOriginX() { return this->originX; }
     const int DragDrop::getOriginY() { return this->originY; }
+    float DragDrop::getOriginWidth() { return this->originWidth; }
+    float DragDrop::getOriginHeight() { return this->originHeight; }
 
-    void DragDrop::DrawDeco()
+    DragDrop::DragDrop(int nameTag, int x, int y, std::function<void()> onClick)
     {
+        this->nameTag = nameTag;      
+        this->x = x;
+        this->y = y;
+        this->originX = x;
+        this->originY = y;
+        this->onClickFunction = onClick;
+        isDragging = false;
         if (nameTag == 7)
         {
-            LoadData::imageManager->DrawPngImage("°¡¾²¿ÀºÎ½Ã", x, y, width, height, 1.0f, true);
+            this->name = "°¡¾²¿ÀºÎ½Ã";
+            this->width = 22;
+            this->height = 22;
+            this->originWidth = 22;
+            this->originHeight = 22;
         }
         else if (nameTag == 8)
         {
-            LoadData::imageManager->DrawPngImage("¹Ý´Þ¾î¹¬", x, y, width, height, 1.0f, true);
+            this->name = "¹Ý´Þ¾î¹¬";
+            this->width = 20;
+            this->height = 15;
+            this->originWidth = 20;
+            this->originHeight = 15;
         }
         else if (nameTag == 9)
         {
-            LoadData::imageManager->DrawPngImage("Æ¢±è°¡·ç", x, y, width, height, 1.0f, true);
-        }
-        else if (nameTag == 10)
-        {
-            LoadData::imageManager->DrawPngImage("´ëÆÄ", x, y, width, height, 1.0f, true);
+            this->name = "Æ¢±è°¡·ç";
+            this->width = 22;
+            this->height = 15;
+            this->originWidth = 22;
+            this->originHeight = 15;
         }
         else if (nameTag == 11)
         {
-            LoadData::imageManager->DrawPngImage("Ç¥°í¹ö¼¸", x, y, width, height, 1.0f, true);
+            this->name = "Ç¥°í¹ö¼¸";
+            this->width = 18;
+            this->height = 18;
+            this->originWidth = 18;
+            this->originHeight = 18;
         }
         else if (nameTag == 12)
         {
-            LoadData::imageManager->DrawPngImage("Á÷È­°í±â", x, y, width, height, 1.0f, true);
+            this->name = "Á÷È­°í±â";
+            this->width = 25;
+            this->height = 15;
+            this->originWidth = 25;
+            this->originHeight = 15;
         }
         else if (nameTag == 13)
         {
-            LoadData::imageManager->DrawPngImage("½ãÀ¯ºÎ", x, y, width, height, 1.0f, true);
+            this->name = "½ãÀ¯ºÎ";
+            this->width = 20;
+            this->height = 20;
+            this->originWidth = 20;
+            this->originHeight = 20;
         }
         else if (nameTag == 14)
         {
-            LoadData::imageManager->DrawPngImage("¾¦°«", x, y, width, height, 1.0f, true);
+            this->name = "¾¦°«";
+            this->width = 20;
+            this->height = 18;
+            this->originWidth = 20;
+            this->originHeight = 18;
 
         }
         else if (nameTag == 15)
         {
-            LoadData::imageManager->DrawPngImage("½ã±è(±èÃ¤)", x, y, width, height, 1.0f, true);
+            this->name = "½ã±è(±èÃ¤)";
+            this->width = 20;
+            this->height = 15;
+            this->originWidth = 20;
+            this->originHeight = 15;
 
         }
         else if (nameTag == 16)
         {
-            LoadData::imageManager->DrawPngImage("³³ÀÛ¾î¹¬", x, y, width, height, 1.0f, true);
+            this->name = "³³ÀÛ¾î¹¬";
+            this->width = 25;
+            this->height = 12;
+            this->originWidth = 25;
+            this->originHeight = 12;
 
         }
         else if (nameTag == 17)
         {
-            LoadData::imageManager->DrawPngImage("»õ¿ìÆ¢±è", x, y, width, height, 1.0f, true);
+            this->name = "»õ¿ìÆ¢±è";
+            this->width = 30;
+            this->height = 20;
+            this->originWidth = 30;
+            this->originHeight = 20; 
 
         }
         else if (nameTag == 18)
         {
-            LoadData::imageManager->DrawPngImage("½ã´ëÆÄ", x, y, width, height, 1.0f, true);
+            this->name = "½ã´ëÆÄ";
+            this->width = 20;
+            this->height = 10;
+            this->originWidth = 20;
+            this->originHeight = 10; 
 
         }
         else if (nameTag == 19)
         {
-            LoadData::imageManager->DrawPngImage("½ãÃ»¾ç°íÃß", x, y, width, height, 1.0f, true);
+            this->name = "½ãÃ»¾ç°íÃß";
+            this->width = 12;
+            this->height = 12;
+            this->originWidth = 12;
+            this->originHeight = 12;
 
-        }      
-    }  
+        }
+    }
 }

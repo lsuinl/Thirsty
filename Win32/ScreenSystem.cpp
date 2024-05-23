@@ -51,17 +51,18 @@ namespace Screen
 			{
 				ChooseFood::CheckDragButton(mouse.x, mouse.y);
 			}
-			else if (mouse.left && clickTime > 100)
+			else if (mouse.left && clickTime > 200)
 			{
 				clickTime = 0;
 				ChooseFood::CheckButton(mouse.x, mouse.y);
 			}
-			else if (mouse.right && clickTime > 100)
+			else if (mouse.right && clickTime > 200)
 			{
 				clickTime = 0;
 				ChooseFood::CheckCancelButton(mouse.x, mouse.y);
 			}
-			else {
+			else
+			{
 				ChooseFood::CheckDropButton(mouse.x, mouse.y);
 			}
 			break;
