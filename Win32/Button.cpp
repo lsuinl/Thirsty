@@ -70,7 +70,7 @@ namespace button {
         this->originX = x;
         this->originY = y;
         this->width = width;
-        this->height = height;       
+        this->height = height;
         this->originWidth = width;
         this->originHeight = height;
         this->onClickFunction = onClick;
@@ -103,7 +103,7 @@ namespace button {
     {
         this->y = originY - (n * 150);
     }
-    void DragDrop::setYXPos(int n,int m)
+    void DragDrop::setYXPos(int n, int m)
     {
         this->y -= n;
         this->x -= m;
@@ -134,7 +134,7 @@ namespace button {
     {
         if (nameTag == 7)
         {
-            LoadData::imageManager->DrawPngImage("가쓰오부시", x, y, 220, 220, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("가쓰오부시", x, y - 20, 220, 220, 1.0f, true);
         }
         else if (nameTag == 8)
         {
@@ -166,7 +166,7 @@ namespace button {
         }
         else if (nameTag == 16)
         {
-            LoadData::imageManager->DrawPngImage("납작어묵", x, y, 250, 120, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("납작어묵", x, y + 20, 250, 120, 1.0f, true);
         }
         else if (nameTag == 17)
         {
@@ -178,7 +178,7 @@ namespace button {
         }
         else if (nameTag == 19)
         {
-            LoadData::imageManager->DrawPngImage("썬청양고추", x, y, 150, 150, 1.0f, true);
+            LoadData::imageManager->DrawPngImage("썬청양고추", x + 15, y, 150, 150, 1.0f, true);
         }
     }
 

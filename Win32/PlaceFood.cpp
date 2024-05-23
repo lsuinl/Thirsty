@@ -37,15 +37,15 @@ namespace PlaceFood
         LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
         if (PlayerData::player.GetNoodle() == 1)
         {
-            LoadData::imageManager->DrawPngImage("납작면우동", 450, 280, 900, 800, 1.0f, true);//납작면
+            LoadData::imageManager->DrawPngImage("납작면우동", 450, 200, 900, 800, 1.0f, true);//납작면
         }
         if (PlayerData::player.GetNoodle() == 2)
         {
-            LoadData::imageManager->DrawPngImage("중면우동", 450, 280, 900, 800, 1.0f, true);//증면
+            LoadData::imageManager->DrawPngImage("중면우동", 450, 200, 900, 800, 1.0f, true);//증면
         }
         if (PlayerData::player.GetNoodle() == 3)
         {
-            LoadData::imageManager->DrawPngImage("소면우동", 450, 280, 900, 800, 1.0f, true);//소면
+            LoadData::imageManager->DrawPngImage("소면우동", 450, 200, 900, 800, 1.0f, true);//소면
         }
         //바구니 그리기
         for (int i = 0; i < 5; i++)
@@ -67,22 +67,22 @@ namespace PlaceFood
     {
         LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
 
-        userSet[0] = button::DragDrop(31, "바구니", 680, 300, 230, 230, Empty);
-        userSet[1] = button::DragDrop(31, "바구니", 880, 300, 230, 230, Empty);
-        userSet[2] = button::DragDrop(31, "바구니", 530, 400, 230, 230, Empty);
-        userSet[3] = button::DragDrop(31, "바구니", 690, 400, 230, 230, Empty);
-        userSet[4] = button::DragDrop(31, "바구니", 840, 400, 230, 230, Empty);
-        userSet[5] = button::DragDrop(31, "바구니", 1000, 400, 230, 230, Empty);
+        userSet[0] = button::DragDrop(31, "바구니", 710, 350, 230, 230, Empty);
+        userSet[1] = button::DragDrop(31, "바구니", 910, 350, 230, 230, Empty);
+        userSet[2] = button::DragDrop(31, "바구니", 560, 430, 230, 230, Empty);
+        userSet[3] = button::DragDrop(31, "바구니", 720, 430, 230, 230, Empty);
+        userSet[4] = button::DragDrop(31, "바구니", 870, 430, 230, 230, Empty);
+        userSet[5] = button::DragDrop(31, "바구니", 1010, 430, 230, 230, Empty);
 
-        userSet[6] = button::DragDrop(31, "바구니", 680, 490, 230, 230, Empty);
-        userSet[7] = button::DragDrop(31, "바구니", 880, 490, 230, 230, Empty);
+        userSet[6] = button::DragDrop(31, "바구니", 710, 520, 230, 230, Empty);
+        userSet[7] = button::DragDrop(31, "바구니", 910, 520, 230, 230, Empty);
         a = PlayerData::player.GetDecoation();
-
+        basketIndex = 0;
         for (int i = 0; i < 8; i++)
         {
             if (a.size() > i)
             {
-                userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 180 + (i * 150), 100, 100, Test);
+                userPickDeco[i] = button::DragDrop((int)a[i], NULL, 1555, 200 + (i * 150), 100, 100, Test);
             }
             else
             {
