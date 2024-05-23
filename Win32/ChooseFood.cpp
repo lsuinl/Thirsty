@@ -40,6 +40,8 @@ namespace ChooseFood
     button::DragDrop decorationButtonList[14];
 
 	void InitScreen() {
+        LoadData::soundManager->PlayMusic(Music::eSoundList::choose, Music::eSoundChannel::BGM);
+
 		noodleButtonList[0] = button::DragDrop(Types::Noodle::FLAT, "납작면", 300, 400, 200, 200, Test);
 		noodleButtonList[1] = button::DragDrop(Types::Noodle::MIDDLE, "기본면", 650, 600, 200, 200, Test);
 		noodleButtonList[2] = button::DragDrop(Types::Noodle::SMALL, "소면", 1000, 400, 200, 200, Test);
@@ -75,7 +77,7 @@ namespace ChooseFood
 	void ChooseScreen()
 	{		
 		LoadData::imageManager->DrawBitMapImage("미니게임", 0, 0);
-		LoadData::imageManager->DrawBitMapImage("도마", 100, 100);
+        LoadData::imageManager->DrawPngImage("재료담는바구니", 100, 100, 1300, 900, true);
 
         if (screenIndex == 0)
         {

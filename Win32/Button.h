@@ -15,6 +15,7 @@ namespace button {
         void DrawButton();
         bool CheckClick(int dx, int dy);
         void PlayFunction();
+        void SetSize(int x, int y, int width, int height);
     };
     class DragDrop {
         int originX, originY;

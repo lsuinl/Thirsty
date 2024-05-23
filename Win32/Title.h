@@ -3,6 +3,7 @@
 #include "ScreenSystem.h"
 #include "InputSystem.h"
 #include "Button.h"
+#include "LoadData.h"
 
 namespace Title
 {
@@ -12,4 +13,5 @@ namespace Title
 	void TutorialButton();
 	void ExitButton();
 	void TitleRender();
+	void TitleCheckHover(int x, int y);
 };

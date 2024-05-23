@@ -45,6 +45,7 @@ namespace pause
     {
         if (input::IsKeyDown(27))
         {
+            LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect1);
             // 일시정지 상태를 반전시킴
             isPaused = !isPaused;
         }

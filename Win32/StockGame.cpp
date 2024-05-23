@@ -191,6 +191,8 @@ void StockGame::DrawBoxs()
 void StockGame::SetGame(int stage)
 {
     LoadData::soundManager->PlayMusic(Music::eSoundList::stock, Music::eSoundChannel::Effect);
+    LoadData::soundManager->PlayMusic(Music::eSoundList::stockbgm, Music::eSoundChannel::BGM);
+
     singerum.SetBox(100, 200, 100, 500, 0, RGB(251, 206, 177), 1);
     zzzam.SetBox(110, 650, 80, (-((450 / 100) * salinity)), 0, RGB(255, 0, 0), 2);
     if (stage == 1)

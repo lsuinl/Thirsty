@@ -63,7 +63,7 @@ namespace Music
         , mVolume(0.5f)
     {
         System_Create(&mSystem);
-        mSystem->init(2, FMOD_INIT_NORMAL, 0);
+        mSystem->init(3, FMOD_INIT_NORMAL, 0);
     }
 
     SoundManager::~SoundManager()

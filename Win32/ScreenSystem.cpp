@@ -86,6 +86,7 @@ namespace Screen
 		case Screen::MoveAniScreen:
 			break;
 		case Screen::TitleScreen:
+			Title::TitleCheckHover(mouse.x, mouse.y);
 			if (input::IsSame(mouse, premouse))
 			{
 				return;
@@ -169,7 +170,7 @@ namespace Screen
 			}
 			break;
 		case Screen::PlaceFoodScreen:
-			Title::isEsc();
+			pause::IsPause();
 			break;
 		case Screen::MoveAniScreen:
 			break;
@@ -235,6 +236,7 @@ namespace Screen
 				ChooseFood::ChooseScreen();
 				break;
 			case Screen::StockGameScreen:
+				LoadData::soundManager->StopMusic(Music::eSoundChannel::Effect);
 				stock.RenderStockGame(TimeSystem::GetDeltaTime());
 				break;
 			case Screen::NoodleSliceScreen:
@@ -247,6 +249,7 @@ namespace Screen
 				Title::TitleRender();
 				break;
 			case Screen::StoryScreen:
+				LoadData::soundManager->StopMusic(Music::eSoundChannel::Effect);
 				DrawStoryBack(PlayerData::player.GetStage());
 				break;
 			case Screen::EndingScreen:

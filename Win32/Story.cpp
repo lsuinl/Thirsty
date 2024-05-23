@@ -7,6 +7,7 @@ int curScript = 0;
 Figure figure;
 void SetStoryStage(int _stagenum)
 {
+	LoadData::soundManager->PlayMusic(Music::eSoundList::inside, Music::eSoundChannel::Effect);
 	maxScript = 0;
 	curScript = 0;
 	SetStoryScript(_stagenum);
@@ -20,10 +21,7 @@ void ChangeStoryScript(float delta)
 
 	if (curScript == maxScript)
 	{
-		LoadData::soundManager->SetVolume(0);
 		Screen::SetScreen();
-		LoadData::soundManager->PlayMusic(Music::eSoundList::moveani, Music::eSoundChannel::Effect);
-		LoadData::soundManager->SetVolume(1);
 	}
 }
 void DrawStoryBack(int _stagenum)

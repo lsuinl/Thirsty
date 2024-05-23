@@ -17,6 +17,7 @@ namespace LoadData
 		soundManager->LoadMusic(Music::eSoundList::put, false, "resource//sound//put.ogg"); //고명 내려놓기
 
 		soundManager->LoadMusic(Music::eSoundList::stock, false, "resource//sound//stock.ogg"); //면 끓이기
+		soundManager->LoadMusic(Music::eSoundList::stockbgm, false, "resource//sound//stockbgm.ogg"); //면 끓이기 배경
 
 		soundManager->LoadMusic(Music::eSoundList::arrow, false, "resource//sound//arrow.ogg"); //방향키 입력 완료시
 		soundManager->LoadMusic(Music::eSoundList::right, false, "resource//sound//right.ogg"); //방향키 맞았을 때

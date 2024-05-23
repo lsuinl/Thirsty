@@ -1,5 +1,5 @@
 #include "Title.h"
-#include "LoadData.h"
+
 namespace Title
 {
 	bool isExit = false;
@@ -30,6 +30,7 @@ namespace Title
 	{
 		if (input::IsKeyDown(27))
 		{
+			LoadData::soundManager->PlayMusic(Music::eSoundList::click, Music::eSoundChannel::Effect1);
 			isTutorial = false;
 		}
 	}
@@ -47,7 +48,7 @@ namespace Title
 
 	void Title::ExitButton()
 	{
-
+		PostQuitMessage(0);
 	}
 
 	void Title::TitleRender()
@@ -61,6 +62,34 @@ namespace Title
 		if (isTutorial)
 		{
 			LoadData::imageManager->DrawPngImage("±ÔÄ¢", 392, 35, 1150, 1000, 1.0f, false);
+		}
+	}
+
+	void TitleCheckHover(int x, int y)
+	{
+		if (startButton.CheckClick(x, y))
+		{
+			startButton.SetSize(1215, 465, 390, 230);
+		}
+		else
+		{
+			startButton.SetSize(1230, 480, 360, 200);
+		}
+		if (tutorialButton.CheckClick(x, y))
+		{
+			tutorialButton.SetSize(1215, 635, 390, 230);
+		}
+		else
+		{
+			tutorialButton.SetSize(1230, 650, 360, 200);
+		}
+		if (exitButton.CheckClick(x, y))
+		{
+			exitButton.SetSize(1215, 805, 390, 230);
+		}
+		else
+		{
+			exitButton.SetSize(1230, 820, 360, 200);
 		}
 	}
 }

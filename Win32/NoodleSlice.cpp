@@ -108,7 +108,7 @@ void NoodleSlice::CompareArrow(ArrowType keyCode)
         {
             if (cnt % stage == 0)
             {
-                LoadData::soundManager->PlayMusic(Music::eSoundList::arrow, Music::eSoundChannel::Effect);
+                LoadData::soundManager->PlayMusic(Music::eSoundList::slice, Music::eSoundChannel::Effect1);
                 setCnt++;
             }
         }
@@ -322,7 +322,6 @@ void NoodleSlice::SliceAni()
         LoadData::imageManager->DrawPngImage("면반죽", 717, 550, 500, 500, true);
     }
     
-    //LoadData::imageManager->DrawPngImage("칼든손", 1100, 500, 800, 900, true);
     LoadData::imageManager->DrawPngImage("칼든손", 1070 - ((800 / (noodle * 2)) * setCnt), 500, 800, 900, true);
 
 }
