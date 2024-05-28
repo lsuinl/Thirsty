@@ -59,6 +59,11 @@
   <h2>👻 Programing Team Member</h2>
 <div align=center>
   
+  |<img src="https://github.com/D-Dayz.png" width="80">|<img src="https://github.com/Bubbleteagood.png" width="80">|
+  |:---:|:---:|
+  |Product Manager|Product Manager|
+  |[고재호](https://github.com/D-Dayz)|[이진우](https://github.com/Bubbleteagood)|
+  
   |<img src="https://github.com/lsuinl.png" width="80">|<img src="https://github.com/rkclrns.png" width="80">|<img src="https://github.com/SongSeHwan.png" width="80">|<img src="https://github.com/cinnamon2022.png" width="80">|
   |:---:|:---:|:---:|:---:|
   |Programmer|Programmer|Programmer|Programmer|
